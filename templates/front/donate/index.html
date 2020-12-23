@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
     <html lang="en-US">
     <head itemscope itemtype="http://schema.org/WebSite">
 	    <meta charset="UTF-8">
@@ -27,11 +28,11 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='wp-block-library-css'  href='/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3' type='text/css' media='all' />
-<link rel='stylesheet' id='owl-carousel-css'  href='/wp-content/themes/blossom-coach/css/owl.carousel.min.css?ver=2.2.1' type='text/css' media='all' />
-<link rel='stylesheet' id='animate-css'  href='/wp-content/themes/blossom-coach/css/animate.min.css?ver=3.5.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-block-library-css'  href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='owl-carousel-css'  href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}' type='text/css' media='all' />
 <link rel='stylesheet' id='blossom-coach-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Nunito+Sans%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A700' type='text/css' media='all' />
-<link rel='stylesheet' id='blossom-coach-css'  href='/wp-content/themes/blossom-coach/style.css?ver=1.2.8' type='text/css' media='all' />
+<link rel='stylesheet' id='blossom-coach-css'  href='{% static 'wp-content/themes/blossom-coach/style.css' %}' type='text/css' media='all' />
 <style id='blossom-coach-inline-css' type='text/css'>
 
     
@@ -68,14 +69,14 @@ img.emoji {
 		font-family: Nunito;
 	}
 </style>
-<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
-<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/25" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
+<link rel="https://api.w.org/" href="{% static 'wp-json/' %}" /><link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/25' %}" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}" />
 <meta name="generator" content="WordPress 5.5.3" />
 <link rel="canonical" href="/donate/" />
-<link rel='shortlink' href='/?p=25' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F&#038;format=xml" />
+{#<link rel='shortlink' href='/?p=25' />#}
+{#<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F" />#}
+{#<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F&#038;format=xml" />#}
 </head>
 
 <body class="page-template-default page page-id-25 style1 full-width elementor-default elementor-kit-17" itemscope itemtype="http://schema.org/WebPage">
@@ -174,20 +175,20 @@ Icons are collected from flaticon.com<br></span> Blossom Coach | Developed By <a
 	</button>
         </footer><!-- #colophon -->
         </div><!-- #page -->
-    <script type='text/javascript' src='/wp-content/themes/blossom-coach/js/all.min.js?ver=5.6.3' id='all-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/v4-shims.min.js?ver=5.6.3' id='v4-shims-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/owl.carousel.min.js?ver=2.2.1' id='owl-carousel-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js?ver=0.2.1' id='owlcarousel2-a11ylayer-js'></script>
-<script type='text/javascript' src='/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
-<script type='text/javascript' src='/wp-includes/js/masonry.min.js?ver=4.2.2' id='masonry-js'></script>
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}' id='all-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}' id='v4-shims-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}' id='owl-carousel-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}' id='owlcarousel2-a11ylayer-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/imagesloaded.min.js' %}' id='imagesloaded-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/masonry.min.js' %}' id='masonry-js'></script>
 <script type='text/javascript' id='blossom-coach-js-extra'>
 /* <![CDATA[ */
 var blossom_coach_data = {"rtl":"","animation":""};
 /* ]]> */
 </script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/custom.min.js?ver=1.2.8' id='blossom-coach-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/modal-accessibility.min.js?ver=1.2.8' id='blossom-coach-modal-js'></script>
-<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=5.5.3' id='wp-embed-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}' id='blossom-coach-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}' id='blossom-coach-modal-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/wp-embed.min.js' %}' id='wp-embed-js'></script>
 
 </body>
 </html>
