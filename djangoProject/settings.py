@@ -26,7 +26,7 @@ SECRET_KEY = 'u0umk!9%843q*62llb1#_ok7@ng8(v*)65xy+u3u-@n4w6#yk&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["zarif-ahnaf.duckdns.org"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'UserHandler',
     'HomeView',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -128,4 +130,8 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Production
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
