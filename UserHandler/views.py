@@ -32,5 +32,13 @@ def login(request):
         if user is not None:
             return redirect("/")
         else:
-            return HttpResponse("<h1>User not authenticated</h1>")
+            return HttpResponse("<h1>User not authenticated or wrong password. Please go to <a href="//reset-password//">reset password</a></h1>")
     return render(request, 'front/log-in/index.html')
+
+def reset_password(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+    return render(request, "front/reset-password/index.html")
+
+#TODO?
+# ADD RESET PASSWORD EMAIL(NEED TANIMS HELP)

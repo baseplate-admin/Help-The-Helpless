@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
     <html lang="en-US">
     <head itemscope itemtype="http://schema.org/WebSite">
 	    <meta charset="UTF-8">
@@ -27,11 +28,11 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='wp-block-library-css'  href='/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3' type='text/css' media='all' />
-<link rel='stylesheet' id='owl-carousel-css'  href='/wp-content/themes/blossom-coach/css/owl.carousel.min.css?ver=2.2.1' type='text/css' media='all' />
-<link rel='stylesheet' id='animate-css'  href='/wp-content/themes/blossom-coach/css/animate.min.css?ver=3.5.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-block-library-css'  href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='owl-carousel-css'  href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}' type='text/css' media='all' />
 <link rel='stylesheet' id='blossom-coach-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Nunito+Sans%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A700' type='text/css' media='all' />
-<link rel='stylesheet' id='blossom-coach-css'  href='/wp-content/themes/blossom-coach/style.css?ver=1.2.8' type='text/css' media='all' />
+<link rel='stylesheet' id='blossom-coach-css'  href='{% static 'wp-content/themes/blossom-coach/style.css' %}' type='text/css' media='all' />
 <style id='blossom-coach-inline-css' type='text/css'>
 
     
@@ -68,22 +69,22 @@ img.emoji {
 		font-family: Nunito;
 	}
 </style>
-<link rel='stylesheet' id='elementor-icons-css'  href='/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-animations-css'  href='/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.0.14' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-frontend-legacy-css'  href='/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.0.14' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-frontend-css'  href='/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.0.14' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-17-css'  href='/wp-content/uploads/elementor/css/post-17.css?ver=1608614288' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-global-css'  href='/wp-content/uploads/elementor/css/global.css?ver=1608620926' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-147-css'  href='/wp-content/uploads/elementor/css/post-147.css?ver=1608650407' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-icons-css'  href='{% static 'wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-animations-css'  href='{% static 'wp-content/plugins/elementor/assets/lib/animations/animations.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-legacy-css'  href='{% static 'wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href='{% static 'wp-content/plugins/elementor/assets/css/frontend.min.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-17-css'  href='{% static 'wp-content/uploads/elementor/css/post-17.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-global-css'  href='{% static 'wp-content/uploads/elementor/css/global.css' %}' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-147-css'  href='{% static 'wp-content/uploads/elementor/css/post-147.css' %}' type='text/css' media='all' />
 <link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3' type='text/css' media='all' />
-<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
-<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/147" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
+<link rel="https://api.w.org/" href="{% static 'wp-json/' %}" /><link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/147' %}" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}" />
 <meta name="generator" content="WordPress 5.5.3" />
 <link rel="canonical" href="/reset-password/" />
-<link rel='shortlink' href='/?p=147' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Freset-password%2F" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Freset-password%2F&#038;format=xml" />
+{#<link rel='shortlink' href='/?p=147' />#}
+{#<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Freset-password%2F" />#}
+{#<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Freset-password%2F&#038;format=xml" />#}
 </head>
 
 <body class="page-template-default page page-id-147 style1 full-width centered elementor-default elementor-kit-17 elementor-page elementor-page-147" itemscope itemtype="http://schema.org/WebPage">
@@ -238,15 +239,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 
-<form action="" style="max-width:500px;margin:auto">
-  
+<form method="post" style="max-width:500px;margin:auto">
+    {% csrf_token %}
       <div class="input-container">
         <i class="material-icons">email</i>
         <input class="input-field" type="text" placeholder="Email" name="email">
       </div>
      
       <br>
-      <button type="submit" class="btn">SUBMIT</button>
+      <button type="submit" class="btn">Send Mail</button>
 </form>
 
 </body>
@@ -288,30 +289,30 @@ Icons are collected from flaticon.com<br></span> Blossom Coach | Developed By <a
 	</button>
         </footer><!-- #colophon -->
         </div><!-- #page -->
-    <script type='text/javascript' src='/wp-content/themes/blossom-coach/js/all.min.js?ver=5.6.3' id='all-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/v4-shims.min.js?ver=5.6.3' id='v4-shims-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/owl.carousel.min.js?ver=2.2.1' id='owl-carousel-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js?ver=0.2.1' id='owlcarousel2-a11ylayer-js'></script>
-<script type='text/javascript' src='/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
-<script type='text/javascript' src='/wp-includes/js/masonry.min.js?ver=4.2.2' id='masonry-js'></script>
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}' id='all-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}' id='v4-shims-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}' id='owl-carousel-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}' id='owlcarousel2-a11ylayer-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/imagesloaded.min.js' %}' id='imagesloaded-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/masonry.min.js' %}' id='masonry-js'></script>
 <script type='text/javascript' id='blossom-coach-js-extra'>
 /* <![CDATA[ */
 var blossom_coach_data = {"rtl":"","animation":""};
 /* ]]> */
 </script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/custom.min.js?ver=1.2.8' id='blossom-coach-js'></script>
-<script type='text/javascript' src='/wp-content/themes/blossom-coach/js/modal-accessibility.min.js?ver=1.2.8' id='blossom-coach-modal-js'></script>
-<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=5.5.3' id='wp-embed-js'></script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.0.14' id='elementor-frontend-modules-js'></script>
-<script type='text/javascript' src='/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4' id='jquery-ui-position-js'></script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1' id='elementor-dialog-js'></script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6' id='swiper-js'></script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.0.14' id='share-link-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}' id='blossom-coach-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}' id='blossom-coach-modal-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/wp-embed.min.js' %}' id='wp-embed-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}' id='elementor-frontend-modules-js'></script>
+<script type='text/javascript' src='{% static 'wp-includes/js/jquery/ui/position.min.js' %}' id='jquery-ui-position-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}' id='elementor-dialog-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}' id='elementor-waypoints-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}' id='swiper-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}' id='share-link-js'></script>
 <script type='text/javascript' id='elementor-frontend-js-before'>
 var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.14","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"http:\/\/localhost\/wordpress\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":147,"title":"Reset%20password%20%E2%80%93%20Help%20The%20Helpless","excerpt":"","featuredImage":false}};
 </script>
-<script type='text/javascript' src='/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.0.14' id='elementor-frontend-js'></script>
+<script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}' id='elementor-frontend-js'></script>
 
 </body>
 </html>
