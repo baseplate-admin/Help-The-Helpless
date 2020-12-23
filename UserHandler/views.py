@@ -3,7 +3,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
-from UrlHandler.models import UrlLink as Urllinks
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout
+from Backend.models import UrlLink as Urllinks
 # Create your views here.
 
 def register(request):
@@ -31,8 +33,9 @@ def login(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        user = authenticate(request, username=username, password=password)
         if user is not None:
+            auth_login(request, user)
             return redirect("/")
         else:
             return HttpResponse("<h1>User not authenticated or wrong password. Please go to reset password</h1>")

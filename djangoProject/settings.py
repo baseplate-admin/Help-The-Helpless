@@ -27,7 +27,7 @@ SECRET_KEY = 'u0umk!9%843q*62llb1#_ok7@ng8(v*)65xy+u3u-@n4w6#yk&'
 DEBUG = True
 
 # ALLOWED_HOSTS = ["zarif-ahnaf.duckdns.org"]
-
+#
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -41,9 +41,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'UserHandler',
-    'HomeView',
-    'Donation',
-    'UrlHandler',
+    'Frontend',
+    'Backend',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +136,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Production
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/"
