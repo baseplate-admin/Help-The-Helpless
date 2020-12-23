@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout
+from django.contrib.auth import logout as auth_logout
 from Backend.models import UrlLink as Urllinks
 # Create your views here.
+
 
 def register(request):
     urls = Urllinks.objects.get(extra="main")
@@ -27,19 +28,26 @@ def register(request):
         user.save()
     return render(request, "front/sign-up/index.html", {"urls": urls})
 
+
 def login(request):
     urls = Urllinks.objects.get(extra="main")
 
     if request.method == "POST":
+
         username = request.POST.get("username")
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect("/")
+            next_url = request.GET.get('next')
+            if next_url is not None:
+                return redirect(next_url)
+            else:
+                return redirect("/")
         else:
             return HttpResponse("<h1>User not authenticated or wrong password. Please go to reset password</h1>")
     return render(request, 'front/log-in/index.html', {"urls": urls})
+
 
 def reset_password(request):
     urls = Urllinks.objects.get(extra="main")
@@ -48,5 +56,8 @@ def reset_password(request):
         email = request.POST.get('email')
     return render(request, "front/reset-password/index.html", {"urls": urls})
 
+def logout(request):
+    auth_logout(request)
+    return redirect("/home/")
 #TODO?
 # ADD RESET PASSWORD EMAIL(NEED TANIMS HELP)
