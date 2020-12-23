@@ -3,10 +3,11 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
-
+from UrlHandler.models import UrlLink as Urllinks
 # Create your views here.
 
 def register(request):
+    urls = Urllinks.objects.get(extra="main")
     if request.method == "POST":
         firstName = request.POST.get("first_name")
         lastName = request.POST.get("last_name")
@@ -22,9 +23,11 @@ def register(request):
         user.last_name = lastName
         user.first_name = firstName
         user.save()
-    return render(request, "front/sign-up/index.html")
+    return render(request, "front/sign-up/index.html", {"urls": urls})
 
 def login(request):
+    urls = Urllinks.objects.get(extra="main")
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get('password')
@@ -32,13 +35,15 @@ def login(request):
         if user is not None:
             return redirect("/")
         else:
-            return HttpResponse("<h1>User not authenticated or wrong password. Please go to <a href="//reset-password//">reset password</a></h1>")
-    return render(request, 'front/log-in/index.html')
+            return HttpResponse("<h1>User not authenticated or wrong password. Please go to reset password</h1>")
+    return render(request, 'front/log-in/index.html', {"urls": urls})
 
 def reset_password(request):
+    urls = Urllinks.objects.get(extra="main")
+
     if request.method == "POST":
         email = request.POST.get('email')
-    return render(request, "front/reset-password/index.html")
+    return render(request, "front/reset-password/index.html", {"urls": urls})
 
 #TODO?
 # ADD RESET PASSWORD EMAIL(NEED TANIMS HELP)
