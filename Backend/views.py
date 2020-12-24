@@ -8,8 +8,24 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url="log-in")
 def url_edit(request):
+
+    if request.method == "GET":
+        if not UrlLink.objects.filter(extra="main").exists():
+            UrlLink.objects.create(extra="main").save()
+            database_pk = UrlLink.objects.get(extra="main").pk
+        elif UrlLink.objects.filter(extra="main").exists():
+            database_pk = UrlLink.objects.get(extra="main").pk
+
+        return render(request, 'back/url-edit/index.html', {"pk": database_pk})
+
+    else:
+        return redirect("/home/")
+
+
+@login_required(login_url="log-in")
+def url_edit_create(request, pk):
     if request.method == "POST":
-        database = UrlLink.objects.get(extra="main")
+        database = UrlLink.objects.get(pk=pk)
 
         facebook_url = request.POST.get("facebook_url")
         youtube_url = request.POST.get("youtube_url")
@@ -21,10 +37,5 @@ def url_edit(request):
         database.save()
 
         return redirect("/back/url-edit/")
-
-    elif request.method == "GET":
-        return render(request, 'back/url-edit/index.html')
-
     else:
-        return redirect("/home/")
-
+        return redirect("/back/url-edit/")
