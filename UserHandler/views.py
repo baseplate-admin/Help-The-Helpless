@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+
 # Create your views here.
 
 
@@ -32,11 +33,11 @@ def login(request):
     if request.method == "POST":
 
         username = request.POST.get("username")
-        password = request.POST.get('password')
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            next_Url = request.GET.get('next')
+            next_Url = request.GET.get("next")
             if next_Url is not None:
                 return redirect(next_Url)
             else:
@@ -44,20 +45,24 @@ def login(request):
         elif user is None:
             return HttpResponse("<h1>Please Create an Account</h1>")
         else:
-            return HttpResponse("<h1>User not authenticated or wrong password. Please go to reset password</h1>")
-    return render(request, 'front/log-in/index.html')
+            return HttpResponse(
+                "<h1>User not authenticated or wrong password. Please go to reset password</h1>"
+            )
+    return render(request, "front/log-in/index.html")
 
 
 def reset_password(request):
     # UrlObject = Url.objects.get(extra="main")
 
     if request.method == "POST":
-        email = request.POST.get('email')
+        email = request.POST.get("email")
     return render(request, "front/reset-password/index.html")
 
 
 def logout(request):
     auth_logout(request)
     return redirect("/home/")
-#TODO?
+
+
+# TODO?
 # ADD RESET PASSWORD EMAIL(NEED TANIMS HELP)

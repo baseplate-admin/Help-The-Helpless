@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Backend', '0002_auto_20201223_1249'),
+        ("Backend", "0002_auto_20201223_1249"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='urllinks',
-            name='email_url',
-            field=models.CharField(default='null', max_length=20),
+            model_name="urllinks",
+            name="email_url",
+            field=models.CharField(default="null", max_length=20),
         ),
     ]

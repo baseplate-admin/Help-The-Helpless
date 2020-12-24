@@ -16,7 +16,7 @@ def url_edit(request):
         elif UrlLink.objects.filter(extra="main").exists():
             database_pk = UrlLink.objects.get(extra="main").pk
 
-        return render(request, 'back/url-edit/index.html', {"pk": database_pk})
+        return render(request, "back/url-edit/index.html", {"pk": database_pk})
 
     else:
         return redirect("/home/")

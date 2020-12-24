@@ -6,32 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Backend', '0001_initial'),
+        ("Backend", "0001_initial"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='urllinks',
-            name='gmail_url',
+        migrations.RemoveField(model_name="urllinks", name="gmail_url",),
+        migrations.AddField(
+            model_name="urllinks",
+            name="email_url",
+            field=models.URLField(default="null"),
         ),
         migrations.AddField(
-            model_name='urllinks',
-            name='email_url',
-            field=models.URLField(default='null'),
-        ),
-        migrations.AddField(
-            model_name='urllinks',
-            name='extra',
-            field=models.CharField(default='null', max_length=4),
+            model_name="urllinks",
+            name="extra",
+            field=models.CharField(default="null", max_length=4),
         ),
         migrations.AlterField(
-            model_name='urllinks',
-            name='facebook_url',
-            field=models.URLField(default='null'),
+            model_name="urllinks",
+            name="facebook_url",
+            field=models.URLField(default="null"),
         ),
         migrations.AlterField(
-            model_name='urllinks',
-            name='youtube_url',
-            field=models.URLField(default='null'),
+            model_name="urllinks",
+            name="youtube_url",
+            field=models.URLField(default="null"),
         ),
     ]

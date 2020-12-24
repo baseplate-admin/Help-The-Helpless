@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UrlhandlerConfig(AppConfig):
-    name = 'Backend'
+    name = "Backend"

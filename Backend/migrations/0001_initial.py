@@ -7,17 +7,24 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='UrlLinks',
+            name="UrlLinks",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('facebook_url', models.URLField()),
-                ('youtube_url', models.URLField()),
-                ('gmail_url', models.URLField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("facebook_url", models.URLField()),
+                ("youtube_url", models.URLField()),
+                ("gmail_url", models.URLField()),
             ],
         ),
     ]

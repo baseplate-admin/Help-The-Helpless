@@ -6,12 +6,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Backend', '0003_auto_20201223_1250'),
+        ("Backend", "0003_auto_20201223_1250"),
     ]
 
     operations = [
-        migrations.RenameModel(
-            old_name='UrlLinks',
-            new_name='UrlLink',
-        ),
+        migrations.RenameModel(old_name="UrlLinks", new_name="UrlLink",),
     ]
