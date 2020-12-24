@@ -58,6 +58,9 @@
             })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji)))
         }(window, document, window._wpemojiSettings);
     </script>
+    <!--icon library-->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -70,6 +73,12 @@
             vertical-align: -0.1em !important;
             background: none !important;
             padding: 0 !important;
+        }
+
+        ion-icon:hover {
+            transition: 0.25s;
+            opacity: 68%;
+
         }
     </style>
     <link rel='stylesheet' id='wp-block-library-css'
@@ -141,14 +150,16 @@
             <div class="wrapper">
                 <div class="top-right">
                     <div class="header-social">
-
-                        <ul class="social-icons">
-                            <li><a href="{{ urls.facebook_url }}" target="_blank"
-                                   rel="nofollow"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="{{ urls.youtube_url }}" target="_blank" rel="nofollow"><i
-                                    class="fab fa-youtube"></i></a></li>
-                            <li><a href="mailto:{{ urls.email_url }}" target="_blank" rel="nofollow"><i
-                                    class="fas fa-envelope"></i></a></li>
+                        <ul class='social-icons'>
+                            <li><a href="{{ urls.facebook_url }}" target="_blank" rel="nofollow">
+                                <ion-icon name="logo-facebook" style="color: #3b5998; font-size: 125%"></ion-icon>
+                            </a></li>
+                            <li><a href="{{ urls.youtube_url }}" target="_blank" rel="nofollow">
+                                <ion-icon name="logo-youtube" style="color: #FF0000; font-size: 125%"></ion-icon>
+                            </a></li>
+                            <li><a href="{{ urls.email_url }}" target="_blank" rel="nofollow">
+                                <ion-icon name="mail" style="color: #0489C9; font-size: 125%"></ion-icon>
+                            </a></li>
                         </ul>
                     </div><!-- .header-social -->
                     <div class="header-search">
@@ -210,15 +221,9 @@
                                         <li id="menu-item-34"
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
                                             <a href="/donate/">Donate</a></li>
-                                        {% if user.is_authenticated %}
                                         <li id="menu-item-139"
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-                                            <a href="{% url "log-out" %}">Log out</a></li>
-                                        {% else %}
-                                        <li id="menu-item-139"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-                                            <a href="{% url 'log-in' %}">Log in</a></li>
-                                        {% endif %}
+                                            <a href="/log-in/">Log in</a></li>
                                     </ul>
                                 </div>
                             </div>
