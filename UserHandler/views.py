@@ -5,16 +5,14 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
-from Backend.models import UrlLink as Urllinks
 # Create your views here.
 
 
 def register(request):
-    urls = Urllinks.objects.get(extra="main")
     if request.method == "POST":
-        firstName = request.POST.get("first_name")
-        lastName = request.POST.get("last_name")
-        userName = request.POST.get("username")
+        firstname = request.POST.get("first_name")
+        lastname = request.POST.get("last_name")
+        username = request.POST.get("username")
         email = request.POST.get("email")
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
@@ -22,15 +20,14 @@ def register(request):
             password = password2
         else:
             return HttpResponse("<h1>403 not Allowed</h1>")
-        user = User.objects.create_user(userName, email, password)
-        user.last_name = lastName
-        user.first_name = firstName
+        user = User.objects.create_user(username, email, password)
+        user.last_name = lastname
+        user.first_name = firstname
         user.save()
-    return render(request, "front/sign-up/index.html", {"urls": urls})
+    return render(request, "front/sign-up/index.html")
 
 
 def login(request):
-    urls = Urllinks.objects.get(extra="main")
 
     if request.method == "POST":
 
@@ -39,22 +36,25 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            next_url = request.GET.get('next')
-            if next_url is not None:
-                return redirect(next_url)
+            next_Url = request.GET.get('next')
+            if next_Url is not None:
+                return redirect(next_Url)
             else:
                 return redirect("/")
+        elif user is None:
+            return HttpResponse("<h1>Please Create an Account</h1>")
         else:
             return HttpResponse("<h1>User not authenticated or wrong password. Please go to reset password</h1>")
-    return render(request, 'front/log-in/index.html', {"urls": urls})
+    return render(request, 'front/log-in/index.html')
 
 
 def reset_password(request):
-    urls = Urllinks.objects.get(extra="main")
+    # UrlObject = Url.objects.get(extra="main")
 
     if request.method == "POST":
         email = request.POST.get('email')
-    return render(request, "front/reset-password/index.html", {"urls": urls})
+    return render(request, "front/reset-password/index.html")
+
 
 def logout(request):
     auth_logout(request)

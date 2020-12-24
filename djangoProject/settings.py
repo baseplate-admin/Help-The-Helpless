@@ -26,9 +26,9 @@ SECRET_KEY = 'u0umk!9%843q*62llb1#_ok7@ng8(v*)65xy+u3u-@n4w6#yk&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["zarif-ahnaf.duckdns.org"]
+ALLOWED_HOSTS = ["zarif-ahnaf.duckdns.org"]
 #
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -124,17 +124,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_URL = "/static/"
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     '/var/www/static/',
-# ]
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Production
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+
+# Production
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
