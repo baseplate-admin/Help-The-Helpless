@@ -2,13 +2,13 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from Backend.models import UrlLink
 from django.contrib.auth.decorators import login_required
+from Backend.models import SiteName
 
 # Create your views here
 
 
 @login_required(login_url="log-in")
 def url_edit(request):
-
     if request.method == "GET":
         if not UrlLink.objects.filter(extra="main").exists():
             UrlLink.objects.create(extra="main").save()
@@ -36,6 +36,11 @@ def url_edit_create(request, pk):
         database.email_url = email_url
         database.save()
 
-        return redirect("/back/url-edit/")
+        return redirect("/home/")
     else:
-        return redirect("/back/url-edit/")
+        return redirect("/home/")
+
+
+# @login_required(login_url="log-in")
+# def create_site_name(request):
+#     if site

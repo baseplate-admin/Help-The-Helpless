@@ -11,3 +11,11 @@ class UrlLink(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class SiteName(models.Model):
+    site_name = models.CharField(max_length=20, default="-")
+    extra = models.CharField(max_length=9, default="-")
+
+    def __str__(self):
+        return str(self.extra)

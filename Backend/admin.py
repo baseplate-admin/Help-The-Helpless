@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Backend.models import UrlLink
+import Backend.models as models
 
-admin.site.register(UrlLink)
-admin.site.disable_action("delete_selected")
+admin.site.register(models.UrlLink)
+admin.site.register(models.SiteName)
