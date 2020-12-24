@@ -1,3 +1,7 @@
+{% load static %}
+
+<script type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
+<script nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
 <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
     <div class="header-t">
         <div class="wrapper">
@@ -76,7 +80,7 @@
                                         <a href="/blog/">Blog</a></li>
                                     <li id="menu-item-34"
                                         class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-25 current_page_item menu-item-34">
-                                        <a href="{% url "donate" %}" aria-current="page">Donate</a></li>
+                                        <a href="/donate/" aria-current="page">Donate</a></li>
                                     {% if user.is_authenticated %}
                                         <li id="menu-item-139"
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">

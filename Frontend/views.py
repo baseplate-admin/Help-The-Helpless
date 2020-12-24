@@ -27,3 +27,11 @@ def donation(request):
         return render(request, "front/donate/index.html", {"urls": urls})
     else:
         return redirect("/back/url-edit/")
+
+
+def blog(requset):
+    if Urllinks.objects.filter(extra="main").exists():
+        urls = Urllinks.objects.get(extra="main")
+        return render(requset, 'front/blog/index.html', {"urls": urls})
+    else:
+        return redirect('/back/url-edit/')
