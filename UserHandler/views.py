@@ -27,9 +27,14 @@ def register(request):
         user.last_name = lastname
         user.first_name = firstname
         user.save()
+        return redirect("/log-in/")
     elif request.method == "GET":
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
+        if not SiteTitle.objects.filter(extra="title").exists() and not SiteDescription.objects.filter(extra="description").exists():
+            title = "title"
+            slogan = "slogan"
+        elif SiteTitle.objects.filter(extra="title").exists() and SiteDescription.objects.filter(extra="description").exists():
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
         return render(
             request,
             "front/sign-up/index.html",
@@ -58,8 +63,14 @@ def login(request):
                 "<h1>User not authenticated or wrong password. Please go to reset password</h1>"
             )
     elif request.method == "GET":
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
+        if not SiteTitle.objects.filter(extra="title").exists() and not SiteDescription.objects.filter(extra="description").exists():
+            title = "title"
+            slogan = "slogan"
+        elif SiteTitle.objects.filter(extra="title").exists() and SiteDescription.objects.filter(extra="description").exists():
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
+        else:
+            return HttpResponse("<h1>403 not Allowed</h1>")
         return render(
             request,
             "front/log-in/index.html",
@@ -74,8 +85,13 @@ def reset_password(request):
         email = request.POST.get("email")
 
     elif request.method == "GET":
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
+        if not SiteTitle.objects.filter(extra="title").exists() and not SiteDescription.objects.filter(extra="description").exists():
+            title = "title"
+            slogan = "slogan"
+        elif SiteTitle.objects.filter(extra="title").exists() and SiteDescription.objects.filter(extra="description").exists():
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
+
         return render(
             request,
             "front/reset-password/index.html",

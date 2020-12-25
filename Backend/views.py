@@ -16,7 +16,9 @@ def url_edit(request):
         if not UrlLink.objects.filter(extra="main").exists():
             UrlLink.objects.create(extra="main").save()
         database_pk = UrlLink.objects.get(extra="main").pk
-        return render(request, "back/url-edit/index.html", {"pk": database_pk})
+        title = SiteTitle.objects.get(extra="title")
+        slogan = SiteDescription.objects.get(extra="description")
+        return render(request, "back/url-edit/index.html", {"site_header": "Url Edit", "title": title, "slogan": slogan, "pk": database_pk})
 
     else:
         return redirect("/home/")
@@ -52,10 +54,13 @@ def slogan_and_title_edit(request):
     SiteTitle_pk = SiteTitle.objects.get(extra="title").pk
     SiteDescription_pk = SiteDescription.objects.get(extra="description").pk
 
+    title = SiteTitle.objects.get(extra="title")
+    slogan = SiteDescription.objects.get(extra="description")
+
     return render(
         request,
         "back/title-and-slogan-edit/index.html",
-        {"TitlePK": SiteTitle_pk, "DescriptionPK": SiteDescription_pk},
+        {"site_header": "Title and Slogan Edit", "title": title, "slogan": slogan, "TitlePK": SiteTitle_pk, "DescriptionPK": SiteDescription_pk},
     )
 
 
