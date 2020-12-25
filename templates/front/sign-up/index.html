@@ -144,9 +144,9 @@
           type='text/css' media='all'/>
     <link rel='stylesheet' id='elementor-post-26-css'
           href='{% static 'wp-content/uploads/elementor/css/post-26.css' %}' type='text/css' media='all'/>
-{#    <link rel='stylesheet' id='google-fonts-1-css'#}
-{#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
-{#          type='text/css' media='all'/>#}
+    {#    <link rel='stylesheet' id='google-fonts-1-css'#}
+    {#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
+    {#          type='text/css' media='all'/>#}
     <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
     <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
             id="jquery-migrate"></script>
@@ -326,16 +326,21 @@
                                                                               style="max-width:500px;margin:auto">
                                                                             {% csrf_token %}
                                                                             <div class="input-container">
-                                                                                <i class="material-icons"
-                                                                                   src="{% static 'icons/a.svg' %}"></i>
+                                                                                <i class="material-icons">
+                                                                                    <text class="text-icon"><b>A</b>
+                                                                                    </text>
+                                                                                </i>
+
                                                                                 <input class="input-field" type="text"
                                                                                        placeholder="First name"
                                                                                        name="first_name" required>
                                                                             </div>
 
                                                                             <div class="input-container">
-                                                                                <i class="material-icons"
-                                                                                   src="{% static 'icons/z.svg' %}"></i>
+                                                                                <i class="material-icons">
+                                                                                    <text class="text-icon"><b>Z</b>
+                                                                                    </text>
+                                                                                </i>
                                                                                 <input class="input-field" type="text"
                                                                                        placeholder="Last name"
                                                                                        name="last_name" required>
