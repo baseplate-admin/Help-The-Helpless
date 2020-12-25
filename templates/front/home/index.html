@@ -228,9 +228,15 @@
                                         <li id="menu-item-34"
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
                                             <a href="/donate/">Donate</a></li>
-                                        <li id="menu-item-139"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-                                            <a href="/log-in/">Log in</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li id="menu-item-139"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
+                                                <a href="{% url "log-out" %}">Log out</a></li>
+                                        {% else %}
+                                            <li id="menu-item-139"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
+                                                <a href="{% url 'log-in' %}">Log in</a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>

@@ -19,3 +19,6 @@ class SiteName(models.Model):
 
     def __str__(self):
         return str(self.extra)
+
+class SiteTitle(models.Model):
+    site_title = models.CharField(max_length=20, default='-')
