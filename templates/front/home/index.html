@@ -9,6 +9,11 @@
     {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
     <script defer type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
             id='jquery-core-js'></script>
+    <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
+    <link rel='stylesheet' id='wp-block-library-css'
+          href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none'
+          onload="if(media!='all')media='all'"/>
     <script defer type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
     <link rel='dns-prefetch' href='//s.w.org'/>
 
@@ -94,7 +99,7 @@
           onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='animate-css' href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
           type='text/css' media='none' onload="if(media!='all')media='all'"/>
-    <link rel='prefetch' id='blossom-coach-google-fonts-css'
+    <link rel='stylesheet' id='blossom-coach-google-fonts-css'
           href="{% static 'google-font/nutino.css' %}"
           type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='blossom-coach-css' href='{% static 'wp-content/themes/blossom-coach/style.css' %}'
@@ -323,10 +328,6 @@ A non-profit organisation<br>
 <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'
         id='blossom-coach-modal-js'></script>
 <script type='text/javascript' src='{% static 'wp-includes/js/wp-embed.min.js' %}' id='wp-embed-js'></script>
-<link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
-<link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
-<link rel='stylesheet' id='wp-block-library-css'
-      href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none'
-      onload="if(media!='all')media='all'"/>
+
 </body>
 </html>

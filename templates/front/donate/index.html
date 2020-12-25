@@ -81,16 +81,16 @@
     </style>
     {#    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>#}
     <link rel='stylesheet' id='wp-block-library-css'
-          href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='all'/>
+          href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='owl-carousel-css'
-          href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css' media='all'/>
+          href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='animate-css' href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
-          type='text/css' media='all'/>
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='blossom-coach-google-fonts-css'
           href="{% static 'google-font/nutino.css' %}"
-          type='text/css' media='all'/>
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <link rel='stylesheet' id='blossom-coach-css' href='{% static 'wp-content/themes/blossom-coach/style.css' %}'
-          type='text/css' media='all'/>
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <style id='blossom-coach-inline-css' type='text/css'>
 
 
@@ -127,7 +127,7 @@
             font-family: Nunito;
         }
     </style>
-    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
+    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}' id='jquery-core-js'></script>
     <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
     <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/25' %}"/>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>

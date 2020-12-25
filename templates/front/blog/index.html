@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-US">
 {% load static %}
+<html lang="en-US">
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,8 @@
     <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
     {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
     <link rel='dns-prefetch' href='//s.w.org'/>
+    <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
+
     {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
     {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"#}
     {#          href="/comments/feed/"/>#}
@@ -17,7 +19,7 @@
     {#            "ext": ".png",#}
     {#            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/",#}
     {#            "svgExt": ".svg",#}
-    {#            "source": {"concatemoji": "http:\/\/localhost\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js' %}5.5.3"}#}
+    {#            "source": {"concatemoji": "http:\/\/localhost\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.3"}#}
     {#        };#}
     {#        !function (e, a, t) {#}
     {#            var r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d");#}
@@ -58,37 +60,39 @@
     {#            })), (r = t.source || {}).concatemoji ? d(r.concatemoji) : r.wpemoji && r.twemoji && (d(r.twemoji), d(r.wpemoji)))#}
     {#        }(window, document, window._wpemojiSettings);#}
     {#    </script>#}
-    {#    <style type="text/css">#}
-    {#        img.wp-smiley,#}
-    {#        img.emoji {#}
-    {#            display: inline !important;#}
-    {#            border: none !important;#}
-    {#            box-shadow: none !important;#}
-    {#            height: 1em !important;#}
-    {#            width: 1em !important;#}
-    {#            margin: 0 .07em !important;#}
-    {#            vertical-align: -0.1em !important;#}
-    {#            background: none !important;#}
-    {#            padding: 0 !important;#}
-    {#        }#}
-    {#    </style>#}
-    <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
-
-    <link rel='stylesheet' id='wp-block-library-css'
-          href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='owl-carousel-css'
-          href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css'
-          media='all'/>
-    <link rel='stylesheet' id='animate-css' href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='blossom-coach-google-fonts-css'
-          href="{% static 'google-font/nutino.css' %}"
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='blossom-coach-css' href='{% static 'wp-content/themes/blossom-coach/style.css' %}'
-          type='text/css' media='all'/>
+    <!--icon library-->
+    {#    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>#}
     <script type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
     <script nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    {#    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>#}
+    <link rel='stylesheet' id='wp-block-library-css'
+          href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none'
+          onload="if(media!='all')media='all'"/>
+    <link rel='stylesheet' id='owl-carousel-css'
+          href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css' media='none'
+          onload="if(media!='all')media='all'"/>
+    <link rel='stylesheet' id='animate-css' href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
+    <link rel='stylesheet' id='blossom-coach-google-fonts-css'
+          href="{% static 'google-font/nutino.css' %}"
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
+    <link rel='stylesheet' id='blossom-coach-css' href='{% static 'wp-content/themes/blossom-coach/style.css' %}'
+          type='text/css' media='none' onload="if(media!='all')media='all'"/>
     <style id='blossom-coach-inline-css' type='text/css'>
 
 
@@ -117,7 +121,7 @@
         section[class*="-section"] .widget .widget-title,
         section[class*="-section"] .widget_blossomtheme_featured_page_widget .section-subtitle,
         .section-title, .comment-body b.fn, .comment-body .reply .comment-reply-link, .single .navigation .nav-links,
-        .{{ site_header }} .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
+        .site-header .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
         .pricing-block .price, .entry-meta, #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
         .widget_blossomthemes_stat_counter_widget .hs-counter, .widget_bttk_description_widget .bttk-team-holder .name,
         .bttk-team-inner-holder-modal .name, .page-header .subtitle, .dropcap, .error-404 .error-num, .error-404 a.bttn,
@@ -125,27 +129,23 @@
             font-family: Nunito;
         }
     </style>
-    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
-    <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
-            id="jquery-migrate"></script>
+    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}' id='jquery-core-js'></script>
     <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
-    <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/23' %}"/>
-    {#    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>#}
+    <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/25' %}"/>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}"/>
     <meta name="generator" content="WordPress 5.5.3"/>
-    <link rel="canonical" href="/blog/"/>
-    <link rel='shortlink' href='{% static '?p=23' %}'/>
-    {#    <link rel="alternate" type="application/json+oembed"#}
-    {#          href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fblog%2F"/>#}
-    {#    <link rel="alternate" type="text/xml+oembed"#}
-    {#          href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fblog%2F&#038;format=xml"/>#}
+    <link rel="canonical" href="{% url 'donate' %}"/>
+    {#<link rel='shortlink' href='/?p=25' />#}
+    {#<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F" />#}
+    {#<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fdonate%2F&#038;format=xml" />#}
 </head>
 
-<body class="page-template-default page page-id-23 style1 full-width elementor-default elementor-kit-17" itemscope
+<body class="page-template-default page page-id-25 style1 full-width elementor-default elementor-kit-17" itemscope
       itemtype="http://schema.org/WebPage">
 
 <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-    <header id="masthead" class="{{ site_header }}" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-t">
             <div class="wrapper">
                 <div class="top-right container">
@@ -161,8 +161,9 @@
                     <a href="{{ urls.email_url }}" target="_blank" rel="nofollow">
                         <ion-icon name="mail"
                                   style="color: #0489C9; font-size: 125%; position:relative; top:12px;  padding:5px"></ion-icon>
-                    </a><!-- .header-social -->
-                    <div class="header-search">
+                    </a>
+                    <!-- .header-social -->
+                    <div class="header-search container" style="float:top">
                         <button aria-label="search form toggle" data-toggle-target=".search-modal"
                                 data-toggle-body-class="showing-search-modal"
                                 data-set-focus=".search-modal .search-field" aria-expanded="false"><i
@@ -184,7 +185,9 @@
                                         data-set-focus=".search-modal .search-field" aria-expanded="false"></button>
                             </div>
                         </div>
-                    </div><!-- .header-seearch --></div><!-- .top-right -->            </div><!-- .wrapper -->
+                    </div><!-- .header-seearch -->
+                </div><!-- .top-right -->
+            </div><!-- .wrapper -->
         </div><!-- .header-t -->
 
         <div class="main-header">
@@ -217,11 +220,11 @@
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-31">
                                             <a href="/home/">Home</a></li>
                                         <li id="menu-item-32"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-23 current_page_item menu-item-32">
+                                            class="menu-item menu-item-type-post_type current-menu-item current_page_item menu-item-object-page menu-item-32">
                                             <a href="/blog/" aria-current="page">Blog</a></li>
                                         <li id="menu-item-34"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
-                                            <a href="/donate/">Donate</a></li>
+                                            class="menu-item menu-item-type-post_type menu-item-object-page  page_item page-item-25  menu-item-34">
+                                            <a href="{% url "donate" %}" >Donate</a></li>
                                         {% if user.is_authenticated %}
                                             <li id="menu-item-139"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
@@ -239,7 +242,7 @@
                 </div><!-- .menu-wrap -->
             </div><!-- .wrapper -->
         </div><!-- .main-header -->
-    </header><!-- .{{ site_header }} -->
+    </header><!-- .site-header -->
     <div class="breadcrumb-wrapper">
         <div class="wrapper">
             <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -248,8 +251,8 @@
                         <meta itemprop="position" content="1"/>
                         <span class="separator"><i class="fa fa-angle-right"></i></span>
                     </span><span class="current" itemprop="itemListElement" itemscope
-                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/blog/"><span
-                    itemprop="name">Blog</span></a><meta itemprop="position" content="2"/></span></div>
+                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/donate/"><span
+                    itemprop="name">Donate</span></a><meta itemprop="position" content="2"/></span></div>
         </div>
     </div><!-- .breadcrumb-wrapper -->
     <div id="content" class="site-content">
@@ -259,16 +262,16 @@
                 <main id="main" class="site-main">
 
 
-                    <article id="post-23" class="post-23 page type-page status-publish hentry">
+                    <article id="post-25" class="post-25 page type-page status-publish hentry">
                         <header class="page-header">
-                            <h1 class="entry-title">Blog</h1></header>
+                            <h1 class="entry-title">Donate</h1></header>
                         <figure class="post-thumbnail">
                         </figure><!-- .post-thumbnail -->
                         <div class="entry-content" itemprop="text">
                         </div><!-- .entry-content -->
                         <footer class="entry-footer">
                         </footer><!-- .entry-footer -->
-                    </article><!-- #post-23 -->
+                    </article><!-- #post-25 -->
 
                 </main><!-- #main -->
             </div><!-- #primary -->
