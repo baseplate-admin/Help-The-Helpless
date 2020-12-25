@@ -129,7 +129,8 @@
             font-family: Nunito;
         }
     </style>
-    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}' id='jquery-core-js'></script>
+    <script defer type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
+            id='jquery-core-js'></script>
     <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
     <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/25' %}"/>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>
@@ -224,7 +225,7 @@
                                             <a href="/blog/" aria-current="page">Blog</a></li>
                                         <li id="menu-item-34"
                                             class="menu-item menu-item-type-post_type menu-item-object-page  page_item page-item-25  menu-item-34">
-                                            <a href="{% url "donate" %}" >Donate</a></li>
+                                            <a href="{% url "donate" %}">Donate</a></li>
                                         {% if user.is_authenticated %}
                                             <li id="menu-item-139"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
