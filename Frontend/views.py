@@ -3,11 +3,12 @@ from django.shortcuts import redirect
 from Backend.models import UrlLink as Urllinks
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
-from compression_middleware.decorators import compress_page
+from htmlmin.decorators import minified_response
 
 # Create your views here.
 
-@compress_page
+
+@minified_response
 def home_view(request):
     if (
         not SiteTitle.objects.filter(extra="title").exists()
@@ -32,7 +33,7 @@ def home_view(request):
 def redirect_to_home(request):
     return redirect("/home/")
 
-@compress_page
+@minified_response
 def donation(request):
 
     if (
@@ -54,7 +55,7 @@ def donation(request):
         {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate"},
     )
 
-@compress_page
+@minified_response
 def blog(request):
     if (
         not SiteTitle.objects.filter(extra="title").exists()

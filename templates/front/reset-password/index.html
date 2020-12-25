@@ -44,7 +44,7 @@
     {##}
     {#            function d(e) {#}
     {#                var t = a.createElement("script");#}
-    {#                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
+    {#                t.src = e, t.  = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
     {#            }#}
     {##}
     {#            for (i = Array("flag", "emoji"), t.supports = {#}
@@ -143,8 +143,10 @@
     <link rel='stylesheet' id='blossom-coach-google-fonts-css'
           href="{% static 'google-font/nutino.css' %}"
           type='text/css' media='none' onload="if(media!='all')media='all'"/>
-    <script defer type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
+    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
             id='jquery-core-js'></script>
+    <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
+
     <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
     <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/147' %}"/>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd"/>

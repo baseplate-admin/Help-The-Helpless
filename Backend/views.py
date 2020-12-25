@@ -6,10 +6,12 @@ from Backend.models import UrlLink
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 
+from htmlmin.decorators import minified_response
+
 
 # Create your views here
 
-
+@minified_response
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
@@ -33,6 +35,7 @@ def url_edit(request):
         return redirect("/home/")
 
 
+@minified_response
 @login_required(login_url="log-in")
 def url_edit_create(request, pk):
     if request.method == "POST":
@@ -51,7 +54,7 @@ def url_edit_create(request, pk):
     elif request.method == "GET":
         return redirect("/home/")
 
-
+@minified_response
 @login_required(login_url="log-in")
 def slogan_and_title_edit(request):
     if (
@@ -78,7 +81,7 @@ def slogan_and_title_edit(request):
         },
     )
 
-
+@minified_response
 @login_required(login_url="log-in")
 def slogan_and_title_edit_create(request, title_pk, description_pk):
     title_database = SiteTitle.objects.get(pk=title_pk)
