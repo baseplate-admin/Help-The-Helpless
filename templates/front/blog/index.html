@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <title>Blog &#8211; Help The Helpless</title>
+    <title>Blog &#8211; {{ title.site_title }}</title>
     {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
     <link rel='dns-prefetch' href='//s.w.org'/>
-    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>
-    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"
-          href="/comments/feed/"/>
+    {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
+    {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"#}
+    {#          href="/comments/feed/"/>#}
     {#    <script type="text/javascript">#}
     {#        window._wpemojiSettings = {#}
     {#            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/",#}
@@ -190,9 +190,10 @@
         <div class="main-header">
             <div class="wrapper">
                 <div class="site-branding" itemscope itemtype="http://schema.org/Organization">
-                    <p class="site-title" itemprop="name"><a href="/" rel="home" itemprop="url">Help The Helpless</a>
+                    <p class="site-title" itemprop="name"><a href="/" rel="home"
+                                                             itemprop="url">{{ title.site_title }}</a>
                     </p>
-                    <p class="site-description">In belief of recreating the world</p>
+                    <p class="site-description">{{ slogan.site_description }}</p>
                 </div><!-- .site-branding -->
                 <div class="menu-wrap">
                     <nav id="site-navigation" class="main-navigation" itemscope
@@ -279,7 +280,7 @@
         <div class="bottom-footer">
             <div class="wrapper">
                 <div class="copyright">
-            <span><b>Help The Helpless</b><br>
+            <span><b>{{ title.site_title }}</b><br>
 A non-profit organisation<br>
 </span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"
                                         rel="nofollow" target="_blank">Blossom

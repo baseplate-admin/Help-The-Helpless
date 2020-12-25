@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from Backend.models import SiteDescription
+from Backend.models import SiteTitle
 
 # Create your views here.
 
@@ -25,7 +27,10 @@ def register(request):
         user.last_name = lastname
         user.first_name = firstname
         user.save()
-    return render(request, "front/sign-up/index.html")
+    elif request.method == "GET":
+        title = SiteTitle.objects.get(extra="title")
+        slogan = SiteDescription.objects.get(extra="description")
+        return render(request, "front/sign-up/index.html", {"title": title, "slogan": slogan})
 
 
 def login(request):
@@ -48,7 +53,10 @@ def login(request):
             return HttpResponse(
                 "<h1>User not authenticated or wrong password. Please go to reset password</h1>"
             )
-    return render(request, "front/log-in/index.html")
+    elif request.method == "GET":
+        title = SiteTitle.objects.get(extra="title")
+        slogan = SiteDescription.objects.get(extra="description")
+        return render(request, "front/log-in/index.html", {"title": title, "slogan": slogan})
 
 
 def reset_password(request):
@@ -56,7 +64,11 @@ def reset_password(request):
 
     if request.method == "POST":
         email = request.POST.get("email")
-    return render(request, "front/reset-password/index.html")
+
+    elif request.method == "GET":
+        title = SiteTitle.objects.get(extra="title")
+        slogan = SiteDescription.objects.get(extra="description")
+        return render(request, "front/reset-password/index.html",  {"title": title, "slogan": slogan})
 
 
 def logout(request):

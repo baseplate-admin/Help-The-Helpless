@@ -1,20 +1,20 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en-US">
 <head itemscope itemtype="http://schema.org/WebSite">
+    <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <title>Sign up &#8211; {{ title.site_title }}</title>
-    {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
-    <link rel='dns-prefetch' href='//s.w.org'/>
-    <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
-
-{#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
-{#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"#}
-{#          href="/comments/feed/"/>#}
+    <title>Sign up &#8211; Help The Helpless</title>
     <script type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
     <script nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
+    {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
+    <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
+    <link rel='dns-prefetch' href='//s.w.org'/>
+    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>
+    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"
+          href="/comments/feed/"/>
     {#    <script type="text/javascript">#}
     {#        window._wpemojiSettings = {#}
     {#            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/",#}
@@ -139,13 +139,13 @@
           href='{% static 'wp-content/plugins/elementor/assets/css/frontend.min.css' %}' type='text/css' media='all'/>
     <link rel='stylesheet' id='elementor-post-17-css'
           href='{% static 'wp-content/uploads/elementor/css/post-17.css' %}' type='text/css' media='all'/>
-    <link rel='stylesheet' id='elementor-global-css' href='{% static 'wp-content/uploads/elementor/css/global.css' %}'
+    <link rel='stylesheet' id='elementor-global-css' href='/wp-content/uploads/elementor/css/global.css?ver=1608620926'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='elementor-post-26-css'
           href='{% static 'wp-content/uploads/elementor/css/post-26.css' %}' type='text/css' media='all'/>
-    {#    <link rel='stylesheet' id='google-fonts-1-css'#}
-    {#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
-    {#          type='text/css' media='all'/>#}
+    <link rel='stylesheet' id='google-fonts-1-css'
+          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'
+          type='text/css' media='all'/>
     <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
     <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
             id="jquery-migrate"></script>
@@ -166,6 +166,103 @@
       itemscope itemtype="http://schema.org/WebPage">
 
 <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
+    {#    <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">#}
+    {#        <div class="header-t">#}
+    {#            <div class="wrapper">#}
+    {#                <div class="top-right">#}
+    {#                    <div class="header-social">#}
+    {#                        <ul class="social-icons">#}
+    {#                            <li><a href="https://www.facebook.com/groups/517206272335063" target="_blank"#}
+    {#                                   rel="nofollow"><i class="fab fa-facebook"></i></a></li>#}
+    {#                            <li><a href="https://youtube.com/" target="_blank" rel="nofollow"><i#}
+    {#                                    class="fab fa-youtube"></i></a></li>#}
+    {#                            <li><a href="mailto:HELP@gmail.com" target="_blank" rel="nofollow"><i#}
+    {#                                    class="fas fa-envelope"></i></a></li>#}
+    {#                        </ul>#}
+    {#                    </div><!-- .header-social -->#}
+    {#                    <div class="header-search">#}
+    {#                        <button aria-label="search form toggle" data-toggle-target=".search-modal"#}
+    {#                                data-toggle-body-class="showing-search-modal"#}
+    {#                                data-set-focus=".search-modal .search-field" aria-expanded="false"><i#}
+    {#                                class="fa fa-search"></i></button>#}
+    {#                        <div class="header-search-form search-modal cover-modal"#}
+    {#                             data-modal-target-string=".search-modal">#}
+    {#                            <div class="header-search-inner-wrap">#}
+    {#                                <form role="search" method="get" class="search-form" action="/">#}
+    {#                                    <label class="screen-reader-text">Looking for Something?</label>#}
+    {#                                    <input type="search" class="search-field" placeholder="Enter Keywords&hellip;"#}
+    {#                                           value="" name="s"/>#}
+    {#                                    <label for="submit-field">#}
+    {#                                        <span><i class="fa fa-search"></i></span>#}
+    {#                                        <input type="submit" id="submit-field" class="search-submit" value="Search"/>#}
+    {#                                    </label>#}
+    {#                                </form>#}
+    {#                                <button aria-label="search form close" class="close" data-toggle-target=".search-modal"#}
+    {#                                        data-toggle-body-class="showing-search-modal"#}
+    {#                                        data-set-focus=".search-modal .search-field" aria-expanded="false"></button>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div><!-- .header-seearch --></div><!-- .top-right -->            </div><!-- .wrapper -->#}
+    {#        </div><!-- .header-t -->#}
+    {##}
+    {#        <div class="main-header">#}
+    {#            <div class="wrapper">#}
+    {#                <div class="site-branding" itemscope itemtype="http://schema.org/Organization">#}
+    {#                    <p class="site-title" itemprop="name"><a href="/" rel="home" itemprop="url">Help The Helpless</a>#}
+    {#                    </p>#}
+    {#                    <p class="site-description">In belief of recreating the world</p>#}
+    {#                </div><!-- .site-branding -->#}
+    {#                <div class="menu-wrap">#}
+    {#                    <nav id="site-navigation" class="main-navigation" itemscope#}
+    {#                         itemtype="http://schema.org/SiteNavigationElement">#}
+    {#                        <button type="button" class="toggle-button" data-toggle-target=".main-menu-modal"#}
+    {#                                data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"#}
+    {#                                data-set-focus=".close-main-nav-toggle">#}
+    {#                            <span class="toggle-bar"></span>#}
+    {#                            <span class="toggle-bar"></span>#}
+    {#                            <span class="toggle-bar"></span>#}
+    {#                        </button>#}
+    {#                        <div class="primary-menu-list main-menu-modal cover-modal"#}
+    {#                             data-modal-target-string=".main-menu-modal">#}
+    {#                            <button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal"#}
+    {#                                    data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"#}
+    {#                                    data-set-focus=".main-menu-modal"><span></span></button>#}
+    {#                            <div class="mobile-menu" aria-label="Mobile">#}
+    {#                                <div class="menu-primary-container">#}
+    {#                                    <ul id="primary-menu" class="menu main-menu-modal">#}
+    {#                                        <li id="menu-item-31"#}
+    {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-31">#}
+    {#                                            <a href="/home/">Home</a></li>#}
+    {#                                        <li id="menu-item-32"#}
+    {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">#}
+    {#                                            <a href="/blog/">Blog</a></li>#}
+    {#                                        <li id="menu-item-34"#}
+    {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">#}
+    {#                                            <a href="/donate/">Donate</a></li>#}
+    {#                                        <li id="menu-item-139"#}
+    {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">#}
+    {#                                            <a href="/log-in/">Log in</a></li>#}
+    {#                                    </ul>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </nav><!-- #site-navigation -->#}
+    {#                </div><!-- .menu-wrap -->#}
+    {#            </div><!-- .wrapper -->#}
+    {#        </div><!-- .main-header -->#}
+    {#    </header><!-- .site-header -->#}
+    {#    <div class="breadcrumb-wrapper">#}
+    {#        <div class="wrapper">#}
+    {#            <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">#}
+    {#                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
+    {#                        <a itemprop="item" href=""><span itemprop="name">Home</span></a>#}
+    {#                        <meta itemprop="position" content="1"/>#}
+    {#                        <span class="separator"><i class="fa fa-angle-right"></i></span>#}
+    {#                    </span><span class="current" itemprop="itemListElement" itemscope#}
+    {#                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/sign-up/"><span#}
+    {#                    itemprop="name">Sign up</span></a><meta itemprop="position" content="2"/></span></div>#}
+    {#        </div>#}
+    {#    </div><!-- .breadcrumb-wrapper -->#}
     <div id="content" class="site-content">
         <div class="wrapper">
 
@@ -225,8 +322,8 @@
                                                                      data-id="96065c5" data-element_type="widget"
                                                                      data-widget_type="text-editor.default">
                                                                     <div class="elementor-widget-container">
-                                                                        <div class="elementor-heading-title elementor-size-default">
-                                                                            <p>{{ title.site_title }}</p></div>
+                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                            <p>Help The Helpless</p></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-3d02774 elementor-invisible elementor-widget elementor-widget-html"
@@ -242,31 +339,6 @@
                                                                             <meta name="viewport"
                                                                                   content="width=device-width, initial-scale=1">
                                                                             <!-- Add icon library -->
-                                                                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                                                                                  rel="stylesheet">
-
-                                                                            <script type="text/javascript">
-                                                                                function Validate() {
-                                                                                    var password = document.getElementById("txtPassword").value;
-                                                                                    var confirmPassword = document.getElementById("txtConfirmPassword").value;
-                                                                                    var username = document.getElementById("user").value;
-                                                                                    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
-
-                                                                                    if (password != confirmPassword) {
-                                                                                        alert("Passwords do not match.");
-                                                                                        return false;
-                                                                                    } else if (password == username) {
-                                                                                        alert("Password and Username must be different");
-                                                                                        return false;
-                                                                                    } else if (re.test(password) != true) {
-                                                                                        alert("Password must be minimum 6 characters long and combination of UPPER case, lower case and numbers (e.g. FooBar123)");
-                                                                                        return false;
-                                                                                    }
-
-                                                                                    return true;
-                                                                                }
-                                                                            </script>
-
                                                                             <style>
                                                                                 body {
                                                                                     font-family: Arial, Helvetica, sans-serif;
@@ -283,109 +355,80 @@
                                                                                     margin-bottom: 15px;
                                                                                 }
 
-                                                                                .material-icons {
-                                                                                    padding: 10px;
-                                                                                    background: #8feb4d;
-                                                                                    color: white;
-                                                                                    min-width: 50px;
-                                                                                    text-align: center;
-                                                                                }
 
-                                                                                .input-field {
+                                                                                .input-field1, .input-field2, .input-field3 {
                                                                                     width: 100%;
                                                                                     padding: 10px;
                                                                                     outline: none;
-                                                                                    transition: 0.2s;
+                                                                                    transition: 0.5s;
                                                                                 }
 
-                                                                                .input-field:focus {
-                                                                                    border: 2.5px solid #8feb4d;
+                                                                                .input-field1:focus {
+                                                                                    border: 2.5px solid #72e359;
                                                                                 }
+
+                                                                                .input-field2:focus {
+                                                                                    border: 2.5px solid #7fdeeb;
+                                                                                }
+
+                                                                                ion-icon {
+                                                                                    font-size: 30px;
+                                                                                    text-align: center;
+                                                                                    padding: 10px;
+                                                                                    color: white;
+                                                                                }
+
 
                                                                                 /* Set a style for the submit button */
                                                                                 .btn {
-                                                                                    background-color: #83d945;
+                                                                                    background-color: #80d8e8;
                                                                                     color: white;
                                                                                     padding: 15px 20px;
                                                                                     border: none;
                                                                                     cursor: pointer;
                                                                                     width: 100%;
                                                                                     opacity: 0.8;
+                                                                                    transition: 0.3s;
                                                                                 }
 
                                                                                 .btn:hover {
                                                                                     opacity: 1;
-                                                                                    background-color: #77c73e;
+                                                                                    background-color: #55b2c2;
                                                                                 }
                                                                             </style>
                                                                         </head>
                                                                         <body>
 
-                                                                        <form method="post"
+                                                                        <form method="POST"
+                                                                              action="{% url 'title-and-slogan-edit-create' TitlePK DescriptionPK %}"
                                                                               style="max-width:500px;margin:auto">
                                                                             {% csrf_token %}
                                                                             <div class="input-container">
-                                                                                <i class="material-icons" style="font-family: sans-serif">
-                                                                                    <text class="text-icon"><b>A</b>
-                                                                                    </text>
-                                                                                </i>
+                                                                                <ion-icon name="star-outline"
+                                                                                          style="background:#72e359"></ion-icon>
 
-                                                                                <input class="input-field" type="text"
-                                                                                       placeholder="First name"
-                                                                                       name="first_name" required>
+                                                                                <input class="input-field1" type="text"
+                                                                                       placeholder="Title"
+                                                                                       name="title">
                                                                             </div>
 
                                                                             <div class="input-container">
-                                                                                <i class="material-icons" style="font-family: sans-serif">
-                                                                                    <text class="text-icon"><b>Z</b>
-                                                                                    </text>
-                                                                                </i>
-                                                                                <input class="input-field" type="text"
-                                                                                       placeholder="Last name"
-                                                                                       name="last_name" required>
-                                                                            </div>
+                                                                                <ion-icon name="accessibility-outline"
+                                                                                          style="background: #7fdeeb"></ion-icon>
 
-                                                                            <div class="input-container">
-                                                                                <i class="material-icons">account_circle</i>
-                                                                                <input class="input-field" id="user"
-                                                                                       type="text"
-                                                                                       placeholder="Username"
-                                                                                       name="username" required>
-                                                                            </div>
-
-                                                                            <div class="input-container">
-                                                                                <i class="material-icons">email</i>
-                                                                                <input class="input-field" type="email"
-                                                                                       placeholder="Email" name="email"
-                                                                                       required>
-                                                                            </div>
-
-                                                                            <div class="input-container">
-                                                                                <i class="material-icons">lock_outline</i>
-                                                                                <input class="input-field"
-                                                                                       id="txtPassword" type="password"
-                                                                                       placeholder="Password"
-                                                                                       name="password1"
-                                                                                       required>
-                                                                            </div>
-
-                                                                            <div class="input-container">
-                                                                                <i class="material-icons">lock</i>
-                                                                                <input class="input-field"
-                                                                                       id="txtConfirmPassword"
-                                                                                       type="password"
-                                                                                       placeholder="Confirm Password"
-                                                                                       name="password2" required>
+                                                                                <input class="input-field2" type="text"
+                                                                                       placeholder="Slogan"
+                                                                                       name="slogan">
                                                                             </div>
 
                                                                             <br>
-                                                                            <button type="submit" class="btn"
-                                                                                    onclick="return Validate()">Sign up
-                                                                            </button>
+                                                                            <button type="submit" class="btn">
+                                                                                <b>SUBMIT</b></button>
                                                                         </form>
 
                                                                         </body>
                                                                         </html>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -408,6 +451,22 @@
 
         </div><!-- .wrapper -->
     </div><!-- .site-content -->
+    {#    <footer id="colophon" class="site-footer" itemscope itemtype="http://schema.org/WPFooter">#}
+    {#        <div class="bottom-footer">#}
+    {#            <div class="wrapper">#}
+    {#                <div class="copyright">#}
+    {#            <span><b>Help The Helpless</b><br>#}
+    {#A non-profit organisation<br>#}
+    {#Icons are collected from flaticon.com<br></span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"#}
+    {#                                                                                 rel="nofollow" target="_blank">Blossom#}
+    {#                    Themes</a>. Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>.#}
+    {#                </div>#}
+    {#            </div><!-- .wrapper -->#}
+    {#        </div><!-- .bottom-footer -->#}
+    {#        <button aria-label="go to top" class="back-to-top">#}
+    {#            <span>&#10140;</span>#}
+    {#        </button>#}
+    {#    </footer><!-- #colophon -->#}
 </div><!-- #page -->
 <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/all.min.js" %}' id='all-js'></script>
 <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/v4-shims.min.js" %}'

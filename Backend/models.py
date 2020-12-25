@@ -13,23 +13,17 @@ class UrlLink(models.Model):
         return str(self.id)
 
 
-class SiteName(models.Model):
-    site_name = models.CharField(max_length=20, default="-")
-    extra = models.CharField(max_length=9, default="-")
+class SiteTitle(models.Model):
+    site_title = models.CharField(max_length=20, default="-")
+    extra = models.CharField(max_length=5, default="-")
 
     def __str__(self):
         return str(self.extra)
 
 
-class SiteTitle(models.Model):
-    site_title = models.CharField(max_length=20, default='-')
-
-    def __str__(self):
-        return str(self.site_title)
-
-
 class SiteDescription(models.Model):
-    site_description = models.CharField(max_length=50, default='-')
+    site_description = models.CharField(max_length=50, default="-")
+    extra = models.CharField(max_length=6, default="-")
 
     def __str__(self):
-        return str(self.site_description)
+        return str(self.extra)

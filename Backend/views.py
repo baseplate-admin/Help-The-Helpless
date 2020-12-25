@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from Backend.models import UrlLink
 from django.contrib.auth.decorators import login_required
-from Backend.models import SiteName
+
+from Backend.models import UrlLink
+from Backend.models import SiteDescription
+from Backend.models import SiteTitle
+
 
 # Create your views here
 
@@ -12,10 +15,7 @@ def url_edit(request):
     if request.method == "GET":
         if not UrlLink.objects.filter(extra="main").exists():
             UrlLink.objects.create(extra="main").save()
-            database_pk = UrlLink.objects.get(extra="main").pk
-        elif UrlLink.objects.filter(extra="main").exists():
-            database_pk = UrlLink.objects.get(extra="main").pk
-
+        database_pk = UrlLink.objects.get(extra="main").pk
         return render(request, "back/url-edit/index.html", {"pk": database_pk})
 
     else:
@@ -37,10 +37,44 @@ def url_edit_create(request, pk):
         database.save()
 
         return redirect("/home/")
-    else:
+    elif request.method == "GET":
         return redirect("/home/")
 
 
-# @login_required(login_url="log-in")
-# def create_site_name(request):
-#     if site
+@login_required(login_url="log-in")
+def slogan_and_title_edit(request):
+    if (
+        not SiteTitle.objects.filter(extra="title").exists()
+        and not SiteDescription.objects.filter(extra="description").exists()
+    ):
+        SiteTitle.objects.create(extra="title").save()
+        SiteDescription.objects.create(extra="description").save()
+    SiteTitle_pk = SiteTitle.objects.get(extra="title").pk
+    SiteDescription_pk = SiteDescription.objects.get(extra="description").pk
+
+    return render(
+        request,
+        "back/title-and-slogan-edit/index.html",
+        {"TitlePK": SiteTitle_pk, "DescriptionPK": SiteDescription_pk},
+    )
+
+
+@login_required(login_url="log-in")
+def slogan_and_title_edit_create(request, title_pk, description_pk):
+    title_database = SiteTitle.objects.get(pk=title_pk)
+    description_database = SiteDescription.objects.get(pk=description_pk)
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        slogan = request.POST.get("slogan")
+        # SiteDescription == slogan
+        # SiteTitle == title
+
+        title_database.site_title = title
+        description_database.site_description = slogan
+
+        description_database.save()
+        title_database.save()
+        return redirect("/back/title-and-slogan-edit/")
+    elif request.method == "GET":
+        return redirect("/back/title-and-slogan-edit/")

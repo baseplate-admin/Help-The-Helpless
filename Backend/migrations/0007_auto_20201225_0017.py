@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Backend', '0006_sitename'),
+        ("Backend", "0006_sitename"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='sitename',
-            name='extra',
-            field=models.CharField(default='-', max_length=9),
+            model_name="sitename",
+            name="extra",
+            field=models.CharField(default="-", max_length=9),
         ),
         migrations.AlterField(
-            model_name='sitename',
-            name='site_name',
-            field=models.CharField(default='-', max_length=20),
+            model_name="sitename",
+            name="site_name",
+            field=models.CharField(default="-", max_length=20),
         ),
     ]

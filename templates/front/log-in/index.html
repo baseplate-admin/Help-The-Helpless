@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <title>Log in &#8211; Help The Helpless</title>
+    <title>Log in &#8211; {{ title.site_title }}</title>
     {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
     <link rel='dns-prefetch' href='//s.w.org'/>
     <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
 
-    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>
-    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"
-          href="/comments/feed/"/>
+{#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
+{#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"#}
+{#          href="/comments/feed/"/>#}
 {#    <script type="text/javascript">#}
 {#        window._wpemojiSettings = {#}
 {#            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/",#}
@@ -138,9 +138,9 @@
           type='text/css' media='all'/>
     <link rel='stylesheet' id='elementor-post-136-css'
           href='{% static 'wp-content/uploads/elementor/css/post-136.css' %}' type='text/css' media='all'/>
-    <link rel='stylesheet' id='google-fonts-1-css'
-          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'
-          type='text/css' media='all'/>
+{#    <link rel='stylesheet' id='google-fonts-1-css'#}
+{#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
+{#          type='text/css' media='all'/>#}
     <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.js' %}' id='jquery-core-js'></script>
     <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
             id="jquery-migrate"></script>
@@ -219,7 +219,7 @@
                                                                      data-widget_type="heading.default">
                                                                     <div class="elementor-widget-container">
                                                                         <h2 class="elementor-heading-title elementor-size-default">
-                                                                            Help the Helpless</h2></div>
+                                                                            {{title.site_title}}</h2></div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-1af5339 elementor-widget elementor-widget-html"
                                                                      data-id="1af5339" data-element_type="widget"
@@ -398,47 +398,47 @@
         id='swiper-js'></script>
 <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}'
         id='share-link-js'></script>
-<script type='text/javascript' id='elementor-frontend-js-before'>
-    var elementorFrontendConfig = {
-        "environmentMode": {"edit": false, "wpPreview": false},
-        "i18n": {
-            "shareOnFacebook": "Share on Facebook",
-            "shareOnTwitter": "Share on Twitter",
-            "pinIt": "Pin it",
-            "download": "Download",
-            "downloadImage": "Download image",
-            "fullscreen": "Fullscreen",
-            "zoom": "Zoom",
-            "share": "Share",
-            "playVideo": "Play Video",
-            "previous": "Previous",
-            "next": "Next",
-            "close": "Close"
-        },
-        "is_rtl": false,
-        "breakpoints": {"xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600},
-        "version": "3.0.14",
-        "is_static": false,
-        "legacyMode": {"elementWrappers": true},
-        "urls": {"assets": "http:\/\/localhost\/wordpress\/wp-content\/plugins\/elementor\/assets\/"},
-        "settings": {"page": [], "editorPreferences": []},
-        "kit": {
-            "global_image_lightbox": "yes",
-            "lightbox_enable_counter": "yes",
-            "lightbox_enable_fullscreen": "yes",
-            "lightbox_enable_zoom": "yes",
-            "lightbox_enable_share": "yes",
-            "lightbox_title_src": "title",
-            "lightbox_description_src": "description"
-        },
-        "post": {
-            "id": 136,
-            "title": "Log%20in%20%E2%80%93%20Help%20The%20Helpless",
-            "excerpt": "",
-            "featuredImage": false
-        }
-    };
-</script>
+{#<script type='text/javascript' id='elementor-frontend-js-before'>#}
+{#    var elementorFrontendConfig = {#}
+{#        "environmentMode": {"edit": false, "wpPreview": false},#}
+{#        "i18n": {#}
+{#            "shareOnFacebook": "Share on Facebook",#}
+{#            "shareOnTwitter": "Share on Twitter",#}
+{#            "pinIt": "Pin it",#}
+{#            "download": "Download",#}
+{#            "downloadImage": "Download image",#}
+{#            "fullscreen": "Fullscreen",#}
+{#            "zoom": "Zoom",#}
+{#            "share": "Share",#}
+{#            "playVideo": "Play Video",#}
+{#            "previous": "Previous",#}
+{#            "next": "Next",#}
+{#            "close": "Close"#}
+{#        },#}
+{#        "is_rtl": false,#}
+{#        "breakpoints": {"xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600},#}
+{#        "version": "3.0.14",#}
+{#        "is_static": false,#}
+{#        "legacyMode": {"elementWrappers": true},#}
+{#        "urls": {"assets": "http:\/\/localhost\/wordpress\/wp-content\/plugins\/elementor\/assets\/"},#}
+{#        "settings": {"page": [], "editorPreferences": []},#}
+{#        "kit": {#}
+{#            "global_image_lightbox": "yes",#}
+{#            "lightbox_enable_counter": "yes",#}
+{#            "lightbox_enable_fullscreen": "yes",#}
+{#            "lightbox_enable_zoom": "yes",#}
+{#            "lightbox_enable_share": "yes",#}
+{#            "lightbox_title_src": "title",#}
+{#            "lightbox_description_src": "description"#}
+{#        },#}
+{#        "post": {#}
+{#            "id": 136,#}
+{#            "title": "Log%20in%20%E2%80%93%20Help%20The%20Helpless",#}
+{#            "excerpt": "",#}
+{#            "featuredImage": false#}
+{#        }#}
+{#    };#}
+{#</script>#}
 <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}'
         id='elementor-frontend-js'></script>
 
