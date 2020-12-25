@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <title>Blog &#8211; {{ title.site_title }}</title>
+    <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
     {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
     <link rel='dns-prefetch' href='//s.w.org'/>
     {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
@@ -117,7 +117,7 @@
         section[class*="-section"] .widget .widget-title,
         section[class*="-section"] .widget_blossomtheme_featured_page_widget .section-subtitle,
         .section-title, .comment-body b.fn, .comment-body .reply .comment-reply-link, .single .navigation .nav-links,
-        .site-header .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
+        .{{ site_header }} .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
         .pricing-block .price, .entry-meta, #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
         .widget_blossomthemes_stat_counter_widget .hs-counter, .widget_bttk_description_widget .bttk-team-holder .name,
         .bttk-team-inner-holder-modal .name, .page-header .subtitle, .dropcap, .error-404 .error-num, .error-404 a.bttn,
@@ -145,7 +145,7 @@
       itemtype="http://schema.org/WebPage">
 
 <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-    <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="masthead" class="{{ site_header }}" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-t">
             <div class="wrapper">
                 <div class="top-right container">
@@ -239,7 +239,7 @@
                 </div><!-- .menu-wrap -->
             </div><!-- .wrapper -->
         </div><!-- .main-header -->
-    </header><!-- .site-header -->
+    </header><!-- .{{ site_header }} -->
     <div class="breadcrumb-wrapper">
         <div class="wrapper">
             <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">

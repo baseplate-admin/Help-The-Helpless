@@ -20,7 +20,7 @@ def home_view(request):
         return render(
             request,
             "front/home/index.html",
-            {"urls": urls, "title": title, "slogan": slogan},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home"},
         )
 
     elif not Urllinks.objects.filter(extra="main").exists():
@@ -63,7 +63,7 @@ def donation(request):
         return render(
             request,
             "front/donate/index.html",
-            {"urls": urls, "title": title, "slogan": slogan},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate"},
         )
 
     elif not Urllinks.objects.filter(extra="main").exists():
@@ -88,7 +88,7 @@ def blog(request):
         return render(
             request,
             "front/blog/index.html",
-            {"urls": urls, "title": title, "slogan": slogan},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog"},
         )
     elif not Urllinks.objects.filter(extra="main").exists():
 

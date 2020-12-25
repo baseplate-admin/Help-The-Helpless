@@ -30,7 +30,11 @@ def register(request):
     elif request.method == "GET":
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        return render(request, "front/sign-up/index.html", {"title": title, "slogan": slogan})
+        return render(
+            request,
+            "front/sign-up/index.html",
+            {"title": title, "slogan": slogan, "site_header": "Sign up"},
+        )
 
 
 def login(request):
@@ -56,7 +60,11 @@ def login(request):
     elif request.method == "GET":
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        return render(request, "front/log-in/index.html", {"title": title, "slogan": slogan})
+        return render(
+            request,
+            "front/log-in/index.html",
+            {"title": title, "slogan": slogan, "site_header": "Log In"},
+        )
 
 
 def reset_password(request):
@@ -68,12 +76,19 @@ def reset_password(request):
     elif request.method == "GET":
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        return render(request, "front/reset-password/index.html",  {"title": title, "slogan": slogan})
+        return render(
+            request,
+            "front/reset-password/index.html",
+            {"title": title, "slogan": slogan, "site_header": "Reset Password"},
+        )
 
 
 def logout(request):
-    auth_logout(request)
-    return redirect("/home/")
+    if request.method == "GET":
+        auth_logout(request)
+        return redirect("/home/")
+    else:
+        return HttpResponse("<h1>403 Not Allowed</h1>")
 
 
 # TODO?
