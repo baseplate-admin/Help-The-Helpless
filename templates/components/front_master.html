@@ -11,7 +11,8 @@
         <script async async type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
                 id='jquery-core-js'></script>
 
-        <script async async type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
+        <script async async type="text/javascript"
+                src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
         <link rel='dns-prefetch' href='//s.w.org'/>
 
         {#<link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/" />#}
@@ -98,10 +99,17 @@
         <link rel='stylesheet' id='animate-css'
               href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
               type='text/css' media='none' onload="this.media='all'"/>
-        <link rel='stylesheet' id='blossom-coach-google-fonts-css'
-              href="{% static 'google-font/nutino.css' %}"
-              type='text/css' media='none' onload="this.media='all'"/>
-        <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
+        {#        <link rel='stylesheet' id='blossom-coach-google-fonts-css'#}
+        {#              href="{% static 'google-font/nutino.css' %}"#}
+        {#              type='text/css' media='none' onload="this.media='all'"/>#}
+        {#        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css">#}
+        {#        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css">#}
+        <link rel="stylesheet" href="{% static 'google-font/typeface-nunito-1.1.13/package/index.css' %}"
+              onload="this.media='all'">
+        <link rel="stylesheet" href="{% static 'google-font/typeface-nunito-sans-1.1.13/package/index.css' %}"
+              onload="this.media='all'">
+        <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"
+              onload="this.media='all'"/>
         <link rel='stylesheet' id='wp-block-library-css'
               href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none'
               onload="this.media='all'"/>
@@ -235,7 +243,8 @@ A non-profit organisation<br>
             id='v4-shims-js'></script>
     <script async type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'
             id='owl-carousel-js'></script>
-    <script async type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'
+    <script async type='text/javascript'
+            src='{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'
             id='owlcarousel2-a11ylayer-js'></script>
     <script async type='text/javascript' src='{% static 'wp-includes/js/imagesloaded.min.js' %}'
             id='imagesloaded-js'></script>
@@ -247,7 +256,8 @@ A non-profit organisation<br>
     </script>
     <script async type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}'
             id='blossom-coach-js'></script>
-    <script async type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'
+    <script async type='text/javascript'
+            src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'
             id='blossom-coach-modal-js'></script>
     <script async type='text/javascript' src='{% static 'wp-includes/js/wp-embed.min.js' %}' id='wp-embed-js'></script>
 
