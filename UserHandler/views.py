@@ -7,9 +7,13 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
+from django.views.decorators.gzip import gzip_page
+
 
 # Create your views here.
 
+
+@gzip_page
 def register(request):
     if request.method == "POST":
         firstname = request.POST.get("first_name")
@@ -47,8 +51,8 @@ def register(request):
         )
 
 
+@gzip_page
 def login(request):
-
     if request.method == "POST":
 
         username = request.POST.get("username")
@@ -89,6 +93,7 @@ def login(request):
         )
 
 
+@gzip_page
 def reset_password(request):
     # UrlObject = Url.objects.get(extra="main")
 
@@ -115,6 +120,8 @@ def reset_password(request):
             {"title": title, "slogan": slogan, "site_header": "Reset Password"},
         )
 
+
+@gzip_page
 def logout(request):
     if request.method == "GET":
         auth_logout(request)

@@ -6,18 +6,29 @@ from Backend.models import UrlLink
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 
-
-
 # Create your views here
+from django.views.decorators.gzip import gzip_page
 
+
+@gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
         if not UrlLink.objects.filter(extra="main").exists():
             UrlLink.objects.create(extra="main").save()
         database_pk = UrlLink.objects.get(extra="main").pk
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
+        if (
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = "title"
+            slogan = "slogan"
+        elif (
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
         return render(
             request,
             "back/url-edit/index.html",
@@ -33,6 +44,7 @@ def url_edit(request):
         return redirect("/home/")
 
 
+@gzip_page
 @login_required(login_url="log-in")
 def url_edit_create(request, pk):
     if request.method == "POST":
@@ -51,6 +63,8 @@ def url_edit_create(request, pk):
     elif request.method == "GET":
         return redirect("/home/")
 
+
+@gzip_page
 @login_required(login_url="log-in")
 def slogan_and_title_edit(request):
     if (
@@ -77,6 +91,8 @@ def slogan_and_title_edit(request):
         },
     )
 
+
+@gzip_page
 @login_required(login_url="log-in")
 def slogan_and_title_edit_create(request, title_pk, description_pk):
     title_database = SiteTitle.objects.get(pk=title_pk)
