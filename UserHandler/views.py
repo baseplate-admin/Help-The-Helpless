@@ -7,11 +7,9 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
-from htmlmin.decorators import minified_response
 
 # Create your views here.
 
-@minified_response
 def register(request):
     if request.method == "POST":
         firstname = request.POST.get("first_name")
@@ -49,7 +47,6 @@ def register(request):
         )
 
 
-@minified_response
 def login(request):
 
     if request.method == "POST":
@@ -92,7 +89,6 @@ def login(request):
         )
 
 
-@minified_response
 def reset_password(request):
     # UrlObject = Url.objects.get(extra="main")
 
@@ -119,7 +115,6 @@ def reset_password(request):
             {"title": title, "slogan": slogan, "site_header": "Reset Password"},
         )
 
-@minified_response
 def logout(request):
     if request.method == "GET":
         auth_logout(request)

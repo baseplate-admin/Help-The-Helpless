@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS.append("zarif-ahnaf.duckdns.org")
+# ALLOWED_HOSTS.append('helpthehelpless.duckdns.org')
+ALLOWED_HOSTS.append("localhost")
 
 # Application definition
 
@@ -54,12 +55,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    #html Min
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'htmlmin.middleware.HtmlMinifyMiddleware',
-    # other middleware classes
-    'django.middleware.cache.FetchFromCacheMiddleware',
-    'htmlmin.middleware.MarkRequestMiddleware',
+
+    # Compress
+    "django.middleware.gzip.GZipMiddleware",
 ]
 
 ROOT_URLCONF = "djangoProject.urls"
@@ -133,7 +131,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-HTML_MINIFY = True
+
