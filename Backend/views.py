@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 from Backend.models import UrlLink
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
@@ -14,12 +14,9 @@ from django.views.decorators.gzip import gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
-        database_pk = UrlLink.objects.get(extra="main").pk
-        title = None
-        slogan = None
         if (
-            not UrlLink.objects.filter(extra="main").exists() and
-            not SiteTitle.objects.filter(extra="title").exists()
+            not UrlLink.objects.filter(extra="main").exists()
+            and not SiteTitle.objects.filter(extra="title").exists()
             and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
@@ -33,7 +30,12 @@ def url_edit(request):
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
+        else:
+            return HttpResponse(
+                "<h1>Something is wrong with backend/views.py. Please contact Zarif_Ahnaf(zarifahnaf@outlook.com).</h1>"
+            )
         urls = UrlLink.objects.get(extra="main")
+        database_pk = UrlLink.objects.get(extra="main").pk
 
         return render(
             request,

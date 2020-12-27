@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 {% load static %}
+<html lang="en-US">
 {% spaceless %}
-    <html lang="en-US">
     <head itemscope itemtype="http://schema.org/WebSite">
         <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
-        <script  type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
-        <script  nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
+        <script type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
+        <script nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
         {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
         <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
         <link rel='dns-prefetch' href='//s.w.org'/>
@@ -152,9 +152,9 @@
         {#    <link rel='stylesheet' id='google-fonts-1-css'#}
         {#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
         {#          type='text/css' media='none' onload="this.media='all'"/>#}
-        <script  type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
+        <script type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
                 id='jquery-core-js'></script>
-        <script  type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
+        <script type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
                 id="jquery-migrate"></script>
         <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
         <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/26' %}"/>
@@ -416,6 +416,7 @@
 
                                                                                     <input class="input-field1"
                                                                                            type="text"
+                                                                                           id="input-field1"
                                                                                            placeholder="Title"
                                                                                            name="title">
                                                                                 </div>
@@ -427,6 +428,7 @@
 
                                                                                     <input class="input-field2"
                                                                                            type="text"
+                                                                                           id="input-field2"
                                                                                            placeholder="Slogan"
                                                                                            name="slogan">
                                                                                 </div>
@@ -478,47 +480,47 @@
         {#        </button>#}
         {#    </footer><!-- #colophon -->#}
     </div><!-- #page -->
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/all.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/all.min.js" %}'
             id='all-js'></script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/v4-shims.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/v4-shims.min.js" %}'
             id='v4-shims-js'></script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/owl.carousel.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/owl.carousel.min.js" %}'
             id='owl-carousel-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js" %}'
             id='owlcarousel2-a11ylayer-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/imagesloaded.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-includes/js/imagesloaded.min.js" %}'
             id='imagesloaded-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/masonry.min.js" %}' id='masonry-js'></script>
-    <script  type='text/javascript' id='blossom-coach-js-extra'>
+    <script type='text/javascript' src='{% static "wp-includes/js/masonry.min.js" %}' id='masonry-js'></script>
+    <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
         var blossom_coach_data = {"rtl": "", "animation": ""};
         /* ]]> */
     </script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/custom.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/custom.min.js" %}'
             id='blossom-coach-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/themes/blossom-coach/js/modal-accessibility.min.js" %}'
             id='blossom-coach-modal-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/wp-embed.min.js" %}' id='wp-embed-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript' src='{% static "wp-includes/js/wp-embed.min.js" %}' id='wp-embed-js'></script>
+    <script type='text/javascript'
             src='{% static "wp-content/plugins/elementor/assets/js/frontend-modules.min.js" %}'
             id='elementor-frontend-modules-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/jquery/ui/position.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-includes/js/jquery/ui/position.min.js" %}'
             id='jquery-ui-position-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js" %}'
             id='elementor-dialog-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js" %}'
             id='elementor-waypoints-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js" %}'
             id='swiper-js'></script>
-    <script  type='text/javascript'
+    <script type='text/javascript'
             src='{% static "wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js" %}'
             id='share-link-js'></script>
-    <script  type='text/javascript' id='elementor-frontend-js-before'>
+    <script type='text/javascript' id='elementor-frontend-js-before'>
         var elementorFrontendConfig = {
             "environmentMode": {"edit": false, "wpPreview": false},
             "i18n": {
@@ -559,9 +561,15 @@
             }
         };
     </script>
-    <script  type='text/javascript' src='{% static "wp-content/plugins/elementor/assets/js/frontend.min.js" %}'
+    <script type='text/javascript' src='{% static "wp-content/plugins/elementor/assets/js/frontend.min.js" %}'
             id='elementor-frontend-js'></script>
+    <script type="text/javascript">
+        titleFromDjango = "{{ title.site_title }}"
+        sloganFromDjango = "{{ slogan.site_description }}"
+        $(".input-field1").val(titleFromDjango)
+        $(".input-field2").val(sloganFromDjango)
 
+    </script>
     </body>
     </html>
 {% endspaceless %}
