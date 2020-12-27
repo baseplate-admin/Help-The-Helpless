@@ -4,6 +4,7 @@ from Backend.models import UrlLink as Urllinks
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 from django.views.decorators.gzip import gzip_page
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -11,25 +12,28 @@ from django.views.decorators.gzip import gzip_page
 
 @gzip_page
 def home_view(request):
-    if (
-        not SiteTitle.objects.filter(extra="title").exists()
-        and not SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = "title"
-        slogan = "slogan"
-    elif (
-        SiteTitle.objects.filter(extra="title").exists()
-        and SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
+    if request.method == "GET":
+        if (
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = "title"
+            slogan = "slogan"
+        elif (
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
 
-    urls = Urllinks.objects.get(extra="main")
-    return render(
-        request,
-        "front/home/index.html",
-        {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home"},
-    )
+        urls = Urllinks.objects.get(extra="main")
+        return render(
+            request,
+            "front/home/index.html",
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home"},
+        )
+    else:
+        return HttpResponse("<h1>No POST allowed</h1>")
 
 
 def redirect_to_home(request):
@@ -38,46 +42,52 @@ def redirect_to_home(request):
 
 @gzip_page
 def donation(request):
-    if (
-        not SiteTitle.objects.filter(extra="title").exists()
-        and not SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = "title"
-        slogan = "slogan"
-    elif (
-        SiteTitle.objects.filter(extra="title").exists()
-        and SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
-    urls = Urllinks.objects.get(extra="main")
-    return render(
-        request,
-        "front/donate/index.html",
-        {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate"},
-    )
+    if request.method == "GET":
+        if (
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = "title"
+            slogan = "slogan"
+        elif (
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
+        urls = Urllinks.objects.get(extra="main")
+        return render(
+            request,
+            "front/donate/index.html",
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate"},
+        )
+    else:
+        return HttpResponse("<h1>No POST allowed</h1>")
 
 
 @gzip_page
 def blog(request):
-    if (
-        not SiteTitle.objects.filter(extra="title").exists()
-        and not SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = "title"
-        slogan = "slogan"
-    elif (
-        SiteTitle.objects.filter(extra="title").exists()
-        and SiteDescription.objects.filter(extra="description").exists()
-    ):
-        title = SiteTitle.objects.get(extra="title")
-        slogan = SiteDescription.objects.get(extra="description")
-    urls = Urllinks.objects.get(extra="main")
-    return render(
-        request,
-        "front/blog/index.html",
-        {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog"},
-    )
+    if request.method == "GET":
+        if (
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = "title"
+            slogan = "slogan"
+        elif (
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
+        ):
+            title = SiteTitle.objects.get(extra="title")
+            slogan = SiteDescription.objects.get(extra="description")
+        urls = Urllinks.objects.get(extra="main")
+        return render(
+            request,
+            "front/blog/index.html",
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog"},
+        )
+    else:
+        return HttpResponse("<h1>No POST allowed</h1>")
 
 
 @gzip_page

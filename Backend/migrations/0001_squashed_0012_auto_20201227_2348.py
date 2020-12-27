@@ -5,38 +5,77 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    replaces = [('Backend', '0001_initial'), ('Backend', '0002_auto_20201223_1249'), ('Backend', '0003_auto_20201223_1250'), ('Backend', '0004_auto_20201223_1310'), ('Backend', '0005_auto_20201224_1228'), ('Backend', '0006_sitename'), ('Backend', '0007_auto_20201225_0017'), ('Backend', '0008_sitedescription_sitetitle'), ('Backend', '0009_auto_20201225_1511'), ('Backend', '0010_auto_20201227_0045'), ('Backend', '0011_auto_20201227_0046'), ('Backend', '0012_auto_20201227_2348')]
+    replaces = [
+        ("Backend", "0001_initial"),
+        ("Backend", "0002_auto_20201223_1249"),
+        ("Backend", "0003_auto_20201223_1250"),
+        ("Backend", "0004_auto_20201223_1310"),
+        ("Backend", "0005_auto_20201224_1228"),
+        ("Backend", "0006_sitename"),
+        ("Backend", "0007_auto_20201225_0017"),
+        ("Backend", "0008_sitedescription_sitetitle"),
+        ("Backend", "0009_auto_20201225_1511"),
+        ("Backend", "0010_auto_20201227_0045"),
+        ("Backend", "0011_auto_20201227_0046"),
+        ("Backend", "0012_auto_20201227_2348"),
+    ]
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='UrlLink',
+            name="UrlLink",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('facebook_url', models.URLField()),
-                ('youtube_url', models.URLField()),
-                ('email_url', models.EmailField(max_length=20)),
-                ('extra', models.CharField(default='main', max_length=4)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("facebook_url", models.URLField()),
+                ("youtube_url", models.URLField()),
+                ("email_url", models.EmailField(max_length=20)),
+                ("extra", models.CharField(default="main", max_length=4)),
             ],
         ),
         migrations.CreateModel(
-            name='SiteDescription',
+            name="SiteDescription",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('site_description', models.CharField(default='Description', max_length=50)),
-                ('extra', models.CharField(default='description', max_length=11)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "site_description",
+                    models.CharField(default="Description", max_length=50),
+                ),
+                ("extra", models.CharField(default="description", max_length=11)),
             ],
         ),
         migrations.CreateModel(
-            name='SiteTitle',
+            name="SiteTitle",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('site_title', models.CharField(default='Title', max_length=20)),
-                ('extra', models.CharField(default='title', max_length=5)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("site_title", models.CharField(default="Title", max_length=20)),
+                ("extra", models.CharField(default="title", max_length=5)),
             ],
         ),
     ]
