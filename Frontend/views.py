@@ -5,6 +5,7 @@ from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 from django.views.decorators.gzip import gzip_page
 
+
 # Create your views here.
 
 
@@ -37,7 +38,6 @@ def redirect_to_home(request):
 
 @gzip_page
 def donation(request):
-
     if (
         not SiteTitle.objects.filter(extra="title").exists()
         and not SiteDescription.objects.filter(extra="description").exists()
@@ -80,3 +80,8 @@ def blog(request):
         "front/blog/index.html",
         {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog"},
     )
+
+
+@gzip_page
+def blog_create(request):
+    pass

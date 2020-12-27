@@ -53,25 +53,7 @@ def register(request):
 
 @gzip_page
 def login(request):
-    if request.method == "POST":
-
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            auth_login(request, user)
-            next_Url = request.GET.get("next")
-            if next_Url is not None:
-                return redirect(next_Url)
-            else:
-                return redirect("/")
-        elif user is None:
-            return HttpResponse("<h1>Please Create an Account</h1>")
-        else:
-            return HttpResponse(
-                "<h1>User not authenticated or wrong password. Please go to reset password</h1>"
-            )
-    elif request.method == "GET":
+    if request.method == "GET":
         if (
             not SiteTitle.objects.filter(extra="title").exists()
             and not SiteDescription.objects.filter(extra="description").exists()
@@ -128,6 +110,30 @@ def logout(request):
         return redirect("/home/")
     else:
         return HttpResponse("<h1>403 Not Allowed</h1>")
+
+
+@gzip_page
+def login_handle(request):
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            next_url = request.GET.get("next")
+            if next_url is not None:
+                return redirect(next_url)
+            else:
+                return redirect("/")
+        elif user is None:
+            return HttpResponse("<h1>Please Create an Account</h1>")
+        else:
+            return HttpResponse(
+                "<h1>User not authenticated or wrong password. Please go to reset password</h1>"
+            )
+    else:
+        return redirect("/log-in/")
 
 
 # TODO?

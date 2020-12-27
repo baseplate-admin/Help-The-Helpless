@@ -303,7 +303,7 @@
                                                                             </head>
                                                                             <body>
 
-                                                                            <form method="POST"
+                                                                            <form action="{% url 'log-in-handle' %}" method="POST"
                                                                                   style="max-width:500px;margin:auto">
                                                                                 {% csrf_token %}
                                                                                 <div class="input-container">

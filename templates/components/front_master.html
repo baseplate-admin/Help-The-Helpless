@@ -8,10 +8,10 @@
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
         {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
-        <script async async type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
+        <script async type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
                 id='jquery-core-js'></script>
 
-        <script async async type="text/javascript"
+        <script async type="text/javascript"
                 src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
         <link rel='dns-prefetch' href='//s.w.org'/>
 
@@ -71,26 +71,26 @@
         <script async type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
         <script async nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
 
-        <style type="text/css">
-            img.wp-smiley,
-            img.emoji {
-                display: inline !important;
-                border: none !important;
-                box-shadow: none !important;
-                height: 1em !important;
-                width: 1em !important;
-                margin: 0 .07em !important;
-                vertical-align: -0.1em !important;
-                background: none !important;
-                padding: 0 !important;
-            }
-
-            ion-icon:hover {
-                transition: 0.25s;
-                opacity: 68%;
-
-            }
-        </style>
+        {#        <style type="text/css">#}
+        {#            img.wp-smiley,#}
+        {#            img.emoji {#}
+        {#                display: inline !important;#}
+        {#                border: none !important;#}
+        {#                box-shadow: none !important;#}
+        {#                height: 1em !important;#}
+        {#                width: 1em !important;#}
+        {#                margin: 0 .07em !important;#}
+        {#                vertical-align: -0.1em !important;#}
+        {#                background: none !important;#}
+        {#                padding: 0 !important;#}
+        {#            }#}
+        {##}
+        {#            ion-icon:hover {#}
+        {#                transition: 0.25s;#}
+        {#                opacity: 68%;#}
+        {##}
+        {#            }#}
+        {#        </style>#}
 
         <link rel='stylesheet' id='owl-carousel-css'
               href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css'
