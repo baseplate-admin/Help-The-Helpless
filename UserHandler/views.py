@@ -15,23 +15,7 @@ from django.views.decorators.gzip import gzip_page
 
 @gzip_page
 def register(request):
-    if request.method == "POST":
-        firstname = request.POST.get("first_name")
-        lastname = request.POST.get("last_name")
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
-        if password1 == password2:
-            password = password2
-        else:
-            return HttpResponse("<h1>403 not Allowed</h1>")
-        user = User.objects.create_user(username, email, password)
-        user.last_name = lastname
-        user.first_name = firstname
-        user.save()
-        return redirect("/log-in/")
-    elif request.method == "GET":
+    if request.method == "GET":
         if (
             not SiteTitle.objects.filter(extra="title").exists()
             and not SiteDescription.objects.filter(extra="description").exists()
@@ -49,6 +33,8 @@ def register(request):
             "front/sign-up/index.html",
             {"title": title, "slogan": slogan, "site_header": "Sign up"},
         )
+    else:
+        return redirect("/home/")
 
 
 @gzip_page
@@ -73,6 +59,8 @@ def login(request):
             "front/log-in/index.html",
             {"title": title, "slogan": slogan, "site_header": "Log In"},
         )
+    else:
+        return redirect("/home/")
 
 
 @gzip_page
@@ -134,6 +122,28 @@ def login_handle(request):
             )
     else:
         return redirect("/log-in/")
+
+
+@gzip_page
+def register_handler(request):
+    if request.method == "POST":
+        firstname = request.POST.get("first_name")
+        lastname = request.POST.get("last_name")
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
+        if password1 == password2:
+            password = password2
+        else:
+            return HttpResponse("<h1>403 not Allowed</h1>")
+        user = User.objects.create_user(username, email, password)
+        user.last_name = lastname
+        user.first_name = firstname
+        user.save()
+        return redirect("/log-in/")
+    else:
+        return redirect("/sign-up/")
 
 
 # TODO?

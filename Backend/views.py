@@ -14,26 +14,33 @@ from django.views.decorators.gzip import gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
-        if not UrlLink.objects.filter(extra="main").exists():
-            UrlLink.objects.create(extra="main").save()
         database_pk = UrlLink.objects.get(extra="main").pk
+        title = None
+        slogan = None
         if (
+            not UrlLink.objects.filter(extra="main").exists() and
             not SiteTitle.objects.filter(extra="title").exists()
             and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
+            UrlLink.objects.create(extra="main").save()
+
         elif (
             SiteTitle.objects.filter(extra="title").exists()
             and SiteDescription.objects.filter(extra="description").exists()
+            and UrlLink.objects.filter(extra="main").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
+        urls = UrlLink.objects.get(extra="main")
+
         return render(
             request,
             "back/url-edit/index.html",
             {
                 "site_header": "Url Edit",
+                "urls": urls,
                 "title": title,
                 "slogan": slogan,
                 "pk": database_pk,

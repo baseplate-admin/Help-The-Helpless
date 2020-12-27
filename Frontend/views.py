@@ -17,14 +17,14 @@ def home_view(request):
     ):
         title = "title"
         slogan = "slogan"
-        urls = "Help the helpless"
     elif (
         SiteTitle.objects.filter(extra="title").exists()
         and SiteDescription.objects.filter(extra="description").exists()
     ):
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        urls = Urllinks.objects.get(extra="main")
+
+    urls = Urllinks.objects.get(extra="main")
     return render(
         request,
         "front/home/index.html",
@@ -44,14 +44,13 @@ def donation(request):
     ):
         title = "title"
         slogan = "slogan"
-        urls = "Help the helpless"
     elif (
         SiteTitle.objects.filter(extra="title").exists()
         and SiteDescription.objects.filter(extra="description").exists()
     ):
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        urls = Urllinks.objects.get(extra="main")
+    urls = Urllinks.objects.get(extra="main")
     return render(
         request,
         "front/donate/index.html",
@@ -67,14 +66,13 @@ def blog(request):
     ):
         title = "title"
         slogan = "slogan"
-        urls = "Help the helpless"
     elif (
         SiteTitle.objects.filter(extra="title").exists()
         and SiteDescription.objects.filter(extra="description").exists()
     ):
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        urls = Urllinks.objects.get(extra="main")
+    urls = Urllinks.objects.get(extra="main")
     return render(
         request,
         "front/blog/index.html",

@@ -325,7 +325,8 @@
                                                                             </head>
                                                                             <body>
 
-                                                                            <form method="post"
+                                                                            <form action="{% url 'sign-up-handler' %}"
+                                                                                  method="post"
                                                                                   style="max-width:500px;margin:auto">
                                                                                 {% csrf_token %}
                                                                                 <div class="input-container">

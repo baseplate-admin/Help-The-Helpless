@@ -3,20 +3,18 @@
 {% spaceless %}
     <html lang="en-US">
     <head itemscope itemtype="http://schema.org/WebSite">
-        <link rel="stylesheet" href="{% static 'wp-content/uploads/elementor/css/global.css' %}"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
-        <script  type="module" src="{% static "ionicons/dist/ionicons/ionicons.esm.js" %}"></script>
-        <script  nomodule="" src="{% static 'ionicons/dist/ionicons.js' %}"></script>
         {#    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>#}
-        <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
         <link rel='dns-prefetch' href='//s.w.org'/>
+        <link rel="stylesheet" href="{% static 'wp-includes/css/dist/block-library/style.min.css' %}">
+
         {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Feed" href="/feed/"/>#}
         {#    <link rel="alternate" type="application/rss+xml" title="Help The Helpless &raquo; Comments Feed"#}
         {#          href="/comments/feed/"/>#}
-        {#    <script  type="text/javascript">#}
+        {#    <script type="text/javascript">#}
         {#        window._wpemojiSettings = {#}
         {#            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/",#}
         {#            "ext": ".png",#}
@@ -47,7 +45,7 @@
         {##}
         {#            function d(e) {#}
         {#                var t = a.createElement("script");#}
-        {#                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
+        {#                t.src = e, t.  = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
         {#            }#}
         {##}
         {#            for (i = Array("flag", "emoji"), t.supports = {#}
@@ -78,16 +76,18 @@
         {#        }#}
         {#    </style>#}
         <link rel='stylesheet' id='wp-block-library-css'
-              href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css'
-              media='none' onload="this.media='all'"/>
+              href='{% static 'wp-includes/css/dist/block-library/style.min.css' %}' type='text/css' media='none'
+              onload="this.media='all'"/>
         <link rel='stylesheet' id='owl-carousel-css'
               href='{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}' type='text/css'
-              media='none' onload="this.media='all'"/>
+              media='none'
+              onload="this.media='all'"/>
         <link rel='stylesheet' id='animate-css'
               href='{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
               type='text/css' media='none' onload="this.media='all'"/>
         <link rel="stylesheet" href="{% static 'google-font/typeface-nunito-1.1.13/package/index.css' %}">
         <link rel="stylesheet" href="{% static 'google-font/typeface-nunito-sans-1.1.13/package/index.css' %}">
+
         <link rel='stylesheet' id='blossom-coach-css' href='{% static 'wp-content/themes/blossom-coach/style.css' %}'
               type='text/css' media='none' onload="this.media='all'"/>
         <style id='blossom-coach-inline-css' type='text/css'>
@@ -127,11 +127,10 @@
             }
         </style>
         <link rel='stylesheet' id='elementor-icons-css'
-              href='{% static 'wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' %}'
-              type='text/css'
-              media='none' onload="this.media='all'"/>
+              href='{% static "wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" %}'
+              type='text/css' media='none' onload="this.media='all'"/>
         <link rel='stylesheet' id='elementor-animations-css'
-              href='{% static 'wp-content/plugins/elementor/assets/lib/animations/animations.min.css' %}'
+              href='{% static "wp-content/plugins/elementor/assets/lib/animations/animations.min.css" %}'
               type='text/css'
               media='none' onload="this.media='all'"/>
         <link rel='stylesheet' id='elementor-frontend-legacy-css'
@@ -142,134 +141,36 @@
               media='none'
               onload="this.media='all'"/>
         <link rel='stylesheet' id='elementor-post-17-css'
-              href='{% static 'wp-content/uploads/elementor/css/post-17.css' %}' type='text/css' media='none'
-              onload="this.media='all'"/>
-        <link rel='stylesheet' id='elementor-global-css' href='/wp-content/uploads/elementor/css/global.css'
+              href='{% static 'wp-content/uploads/elementor/css/post-17.css' %}'
               type='text/css' media='none' onload="this.media='all'"/>
-        <link rel='stylesheet' id='elementor-post-26-css'
-              href='{% static 'wp-content/uploads/elementor/css/post-26.css' %}' type='text/css' media='none'
+        <link rel='stylesheet' id='elementor-global-css'
+              href='{% static 'wp-content/uploads/elementor/css/global.css' %}'
+              type='text/css' media='none' onload="this.media='all'"/>
+        <link rel='stylesheet' id='elementor-post-136-css'
+              href='{% static 'wp-content/uploads/elementor/css/post-136.css' %}' type='text/css' media='none'
               onload="this.media='all'"/>
         {#    <link rel='stylesheet' id='google-fonts-1-css'#}
         {#          href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSofia%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.3'#}
         {#          type='text/css' media='none' onload="this.media='all'"/>#}
         <script  type='text/javascript' src='{% static 'wp-includes/js/jquery/jquery.min.js' %}'
                 id='jquery-core-js'></script>
-        <script  type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.js' %}"
-                id="jquery-migrate"></script>
-        <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
-        <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/26' %}"/>
-        {#    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{% static '' %}xmlrpc.php?rsd"/>#}
+        <script  type="text/javascript" src="{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}"></script>
+
+        {#<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/136' %}" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />#}
         <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}"/>
         <meta name="generator" content="WordPress 5.5.3"/>
-        <link rel="canonical" href="/sign-up/"/>
-        <link rel='shortlink' href='/?p=26'/>
-        <link rel="alternate" type="application/json+oembed"
-              href="{% static 'wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fsign-up%2F' %}"/>
-        <link rel="alternate" type="text/xml+oembed"
-              href="{% static 'wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fsign-up%2F&#038;format=xml' %}"/>
+        <link rel="canonical" href="/log-in/"/>
+        <link rel='shortlink' href='/?p=136'/>
+        {#    <link rel="alternate" type="application/json+oembed"#}
+        {#          href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Flog-in%2F"/>#}
+        {#    <link rel="alternate" type="text/xml+oembed"#}
+        {#          href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Flog-in%2F&#038;format=xml"/>#}
     </head>
 
-    <body class="page-template-default page page-id-26 style1 full-width elementor-default elementor-kit-17 elementor-page elementor-page-26"
+    <body class="page-template-default page page-id-136 style1 full-width elementor-default elementor-kit-17 elementor-page elementor-page-136"
           itemscope itemtype="http://schema.org/WebPage">
 
     <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-        {#    <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">#}
-        {#        <div class="header-t">#}
-        {#            <div class="wrapper">#}
-        {#                <div class="top-right">#}
-        {#                    <div class="header-social">#}
-        {#                        <ul class="social-icons">#}
-        {#                            <li><a href="https://www.facebook.com/groups/517206272335063" target="_blank"#}
-        {#                                   rel="nofollow"><i class="fab fa-facebook"></i></a></li>#}
-        {#                            <li><a href="https://youtube.com/" target="_blank" rel="nofollow"><i#}
-        {#                                    class="fab fa-youtube"></i></a></li>#}
-        {#                            <li><a href="mailto:HELP@gmail.com" target="_blank" rel="nofollow"><i#}
-        {#                                    class="fas fa-envelope"></i></a></li>#}
-        {#                        </ul>#}
-        {#                    </div><!-- .header-social -->#}
-        {#                    <div class="header-search">#}
-        {#                        <button aria-label="search form toggle" data-toggle-target=".search-modal"#}
-        {#                                data-toggle-body-class="showing-search-modal"#}
-        {#                                data-set-focus=".search-modal .search-field" aria-expanded="false"><i#}
-        {#                                class="fa fa-search"></i></button>#}
-        {#                        <div class="header-search-form search-modal cover-modal"#}
-        {#                             data-modal-target-string=".search-modal">#}
-        {#                            <div class="header-search-inner-wrap">#}
-        {#                                <form role="search" method="get" class="search-form" action="/">#}
-        {#                                    <label class="screen-reader-text">Looking for Something?</label>#}
-        {#                                    <input type="search" class="search-field" placeholder="Enter Keywords&hellip;"#}
-        {#                                           value="" name="s"/>#}
-        {#                                    <label for="submit-field">#}
-        {#                                        <span><i class="fa fa-search"></i></span>#}
-        {#                                        <input type="submit" id="submit-field" class="search-submit" value="Search"/>#}
-        {#                                    </label>#}
-        {#                                </form>#}
-        {#                                <button aria-label="search form close" class="close" data-toggle-target=".search-modal"#}
-        {#                                        data-toggle-body-class="showing-search-modal"#}
-        {#                                        data-set-focus=".search-modal .search-field" aria-expanded="false"></button>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </div><!-- .header-seearch --></div><!-- .top-right -->            </div><!-- .wrapper -->#}
-        {#        </div><!-- .header-t -->#}
-        {##}
-        {#        <div class="main-header">#}
-        {#            <div class="wrapper">#}
-        {#                <div class="site-branding" itemscope itemtype="http://schema.org/Organization">#}
-        {#                    <p class="site-title" itemprop="name"><a href="/" rel="home" itemprop="url">Help The Helpless</a>#}
-        {#                    </p>#}
-        {#                    <p class="site-description">In belief of recreating the world</p>#}
-        {#                </div><!-- .site-branding -->#}
-        {#                <div class="menu-wrap">#}
-        {#                    <nav id="site-navigation" class="main-navigation" itemscope#}
-        {#                         itemtype="http://schema.org/SiteNavigationElement">#}
-        {#                        <button type="button" class="toggle-button" data-toggle-target=".main-menu-modal"#}
-        {#                                data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"#}
-        {#                                data-set-focus=".close-main-nav-toggle">#}
-        {#                            <span class="toggle-bar"></span>#}
-        {#                            <span class="toggle-bar"></span>#}
-        {#                            <span class="toggle-bar"></span>#}
-        {#                        </button>#}
-        {#                        <div class="primary-menu-list main-menu-modal cover-modal"#}
-        {#                             data-modal-target-string=".main-menu-modal">#}
-        {#                            <button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal"#}
-        {#                                    data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"#}
-        {#                                    data-set-focus=".main-menu-modal"><span></span></button>#}
-        {#                            <div class="mobile-menu" aria-label="Mobile">#}
-        {#                                <div class="menu-primary-container">#}
-        {#                                    <ul id="primary-menu" class="menu main-menu-modal">#}
-        {#                                        <li id="menu-item-31"#}
-        {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-31">#}
-        {#                                            <a href="/home/">Home</a></li>#}
-        {#                                        <li id="menu-item-32"#}
-        {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">#}
-        {#                                            <a href="/blog/">Blog</a></li>#}
-        {#                                        <li id="menu-item-34"#}
-        {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">#}
-        {#                                            <a href="/donate/">Donate</a></li>#}
-        {#                                        <li id="menu-item-139"#}
-        {#                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">#}
-        {#                                            <a href="/log-in/">Log in</a></li>#}
-        {#                                    </ul>#}
-        {#                                </div>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </nav><!-- #site-navigation -->#}
-        {#                </div><!-- .menu-wrap -->#}
-        {#            </div><!-- .wrapper -->#}
-        {#        </div><!-- .main-header -->#}
-        {#    </header><!-- .site-header -->#}
-        {#    <div class="breadcrumb-wrapper">#}
-        {#        <div class="wrapper">#}
-        {#            <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">#}
-        {#                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
-        {#                        <a itemprop="item" href=""><span itemprop="name">Home</span></a>#}
-        {#                        <meta itemprop="position" content="1"/>#}
-        {#                        <span class="separator"><i class="fa fa-angle-right"></i></span>#}
-        {#                    </span><span class="current" itemprop="itemListElement" itemscope#}
-        {#                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/sign-up/"><span#}
-        {#                    itemprop="name">Sign up</span></a><meta itemprop="position" content="2"/></span></div>#}
-        {#        </div>#}
-        {#    </div><!-- .breadcrumb-wrapper -->#}
         <div id="content" class="site-content">
             <div class="wrapper">
 
@@ -277,25 +178,26 @@
                     <main id="main" class="site-main">
 
 
-                        <article id="post-26" class="post-26 page type-page status-publish hentry">
+                        <article id="post-136" class="post-136 page type-page status-publish hentry">
                             <figure class="post-thumbnail">
                             </figure><!-- .post-thumbnail -->
                             <div class="entry-content" itemprop="text">
-                                <div data-elementor-type="wp-page" data-elementor-id="26" class="elementor elementor-26"
+                                <div data-elementor-type="wp-page" data-elementor-id="136"
+                                     class="elementor elementor-136"
                                      data-elementor-settings="[]">
                                     <div class="elementor-inner">
                                         <div class="elementor-section-wrap">
                                             <section
-                                                    class="elementor-section elementor-top-section elementor-element elementor-element-9011090 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                                    data-id="9011090" data-element_type="section">
+                                                    class="elementor-section elementor-top-section elementor-element elementor-element-4cfce2b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                                    data-id="4cfce2b" data-element_type="section">
                                                 <div class="elementor-container elementor-column-gap-default">
                                                     <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0aa6190"
-                                                             data-id="0aa6190" data-element_type="column">
+                                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9fc619c"
+                                                             data-id="9fc619c" data-element_type="column">
                                                             <div class="elementor-column-wrap elementor-element-populated">
                                                                 <div class="elementor-widget-wrap">
-                                                                    <div class="elementor-element elementor-element-41e8092 elementor-view-default elementor-widget elementor-widget-icon"
-                                                                         data-id="41e8092" data-element_type="widget"
+                                                                    <div class="elementor-element elementor-element-cd5532b elementor-view-default elementor-widget elementor-widget-icon"
+                                                                         data-id="cd5532b" data-element_type="widget"
                                                                          data-widget_type="icon.default">
                                                                         <div class="elementor-widget-container">
                                                                             <div class="elementor-icon-wrapper">
@@ -325,17 +227,15 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="elementor-element elementor-element-96065c5 elementor-widget elementor-widget-text-editor"
-                                                                         data-id="96065c5" data-element_type="widget"
-                                                                         data-widget_type="text-editor.default">
+                                                                    <div class="elementor-element elementor-element-98c9b79 elementor-widget elementor-widget-heading"
+                                                                         data-id="98c9b79" data-element_type="widget"
+                                                                         data-widget_type="heading.default">
                                                                         <div class="elementor-widget-container">
-                                                                            <div class="elementor-text-editor elementor-clearfix">
-                                                                                <p>{{ title.site_title }}</p></div>
-                                                                        </div>
+                                                                            <h2 class="elementor-heading-title elementor-size-default">
+                                                                                {{ title.site_title }}</h2></div>
                                                                     </div>
-                                                                    <div class="elementor-element elementor-element-3d02774 elementor-invisible elementor-widget elementor-widget-html"
-                                                                         data-id="3d02774" data-element_type="widget"
-                                                                         data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                                                                    <div class="elementor-element elementor-element-1af5339 elementor-widget elementor-widget-html"
+                                                                         data-id="1af5339" data-element_type="widget"
                                                                          data-widget_type="html.default">
                                                                         <div class="elementor-widget-container">
                                                                             <!DOCTYPE html>
@@ -346,6 +246,9 @@
                                                                                 <meta name="viewport"
                                                                                       content="width=device-width, initial-scale=1">
                                                                                 <!-- Add icon library -->
+                                                                                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                                                                                      rel="stylesheet">
+
                                                                                 <style>
                                                                                     body {
                                                                                         font-family: Arial, Helvetica, sans-serif;
@@ -362,83 +265,99 @@
                                                                                         margin-bottom: 15px;
                                                                                     }
 
+                                                                                    .material-icons {
+                                                                                        padding: 10px;
+                                                                                        background: #8feb4d;
+                                                                                        color: white;
+                                                                                        min-width: 50px;
+                                                                                        text-align: center;
+                                                                                    }
 
-                                                                                    .input-field1, .input-field2, .input-field3 {
+                                                                                    .input-field {
                                                                                         width: 100%;
                                                                                         padding: 10px;
                                                                                         outline: none;
                                                                                         transition: 0.5s;
                                                                                     }
 
-                                                                                    .input-field1:focus {
-                                                                                        border: 2.5px solid #72e359;
+                                                                                    .input-field:focus {
+                                                                                        border: 2.5px solid #8feb4d;
                                                                                     }
-
-                                                                                    .input-field2:focus {
-                                                                                        border: 2.5px solid #7fdeeb;
-                                                                                    }
-
-                                                                                    ion-icon {
-                                                                                        font-size: 30px;
-                                                                                        text-align: center;
-                                                                                        padding: 10px;
-                                                                                        color: white;
-                                                                                    }
-
 
                                                                                     /* Set a style for the submit button */
                                                                                     .btn {
-                                                                                        background-color: #80d8e8;
+                                                                                        background-color: #83d945;
                                                                                         color: white;
                                                                                         padding: 15px 20px;
                                                                                         border: none;
                                                                                         cursor: pointer;
                                                                                         width: 100%;
                                                                                         opacity: 0.8;
-                                                                                        transition: 0.3s;
                                                                                     }
 
                                                                                     .btn:hover {
                                                                                         opacity: 1;
-                                                                                        background-color: #55b2c2;
+                                                                                        background-color: #77c73e;
                                                                                     }
                                                                                 </style>
                                                                             </head>
                                                                             <body>
 
-                                                                            <form method="POST"
-                                                                                  action="{% url 'title-and-slogan-edit-create' TitlePK DescriptionPK %}"
+                                                                            <form action="{% url 'log-in-handle' %}" method="POST"
                                                                                   style="max-width:500px;margin:auto">
                                                                                 {% csrf_token %}
                                                                                 <div class="input-container">
-                                                                                    <ion-icon name="star-outline"
-                                                                                              style="background:#72e359"></ion-icon>
-
-                                                                                    <input class="input-field1"
+                                                                                    <i class="material-icons">account_circle</i>
+                                                                                    <input class="input-field"
                                                                                            type="text"
-                                                                                           placeholder="Title"
-                                                                                           name="title">
+                                                                                           placeholder="Username"
+                                                                                           name="username">
                                                                                 </div>
 
                                                                                 <div class="input-container">
-                                                                                    <ion-icon
-                                                                                            name="accessibility-outline"
-                                                                                            style="background: #7fdeeb"></ion-icon>
-
-                                                                                    <input class="input-field2"
-                                                                                           type="text"
-                                                                                           placeholder="Slogan"
-                                                                                           name="slogan">
+                                                                                    <i class="material-icons">lock</i>
+                                                                                    <input class="input-field"
+                                                                                           type="password"
+                                                                                           placeholder="Confirm Password"
+                                                                                           name="password">
                                                                                 </div>
 
                                                                                 <br>
-                                                                                <button type="submit" class="btn">
-                                                                                    <b>SUBMIT</b></button>
+                                                                                <button type="submit" class="btn">LOG IN
+                                                                                </button>
                                                                             </form>
 
                                                                             </body>
                                                                             </html>
-
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section
+                                                    class="elementor-section elementor-top-section elementor-element elementor-element-f23f0f2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                                    data-id="f23f0f2" data-element_type="section">
+                                                <div class="elementor-container elementor-column-gap-default">
+                                                    <div class="elementor-row">
+                                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fc2e652"
+                                                             data-id="fc2e652" data-element_type="column">
+                                                            <div class="elementor-column-wrap elementor-element-populated">
+                                                                <div class="elementor-widget-wrap">
+                                                                    <div class="elementor-element elementor-element-609235f elementor-widget elementor-widget-text-editor"
+                                                                         data-id="609235f" data-element_type="widget"
+                                                                         data-widget_type="text-editor.default">
+                                                                        <div class="elementor-widget-container">
+                                                                            <div class="elementor-text-editor elementor-clearfix">
+                                                                                <p>Forgot password? <a
+                                                                                        href="/reset-password/"
+                                                                                        data-wplink-url-error="true"><u>Click
+                                                                                    here</u></a> to reset or <a
+                                                                                        href="/sign-up/"
+                                                                                        data-wplink-url-error="true"><u>Sign
+                                                                                    up</u></a></p></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -453,7 +372,7 @@
                             </div><!-- .entry-content -->
                             <footer class="entry-footer">
                             </footer><!-- .entry-footer -->
-                        </article><!-- #post-26 -->
+                        </article><!-- #post-136 -->
 
                     </main><!-- #main -->
                 </div><!-- #primary -->
@@ -461,105 +380,84 @@
 
             </div><!-- .wrapper -->
         </div><!-- .site-content -->
-        {#    <footer id="colophon" class="site-footer" itemscope itemtype="http://schema.org/WPFooter">#}
-        {#        <div class="bottom-footer">#}
-        {#            <div class="wrapper">#}
-        {#                <div class="copyright">#}
-        {#            <span><b>Help The Helpless</b><br>#}
-        {#A non-profit organisation<br>#}
-        {#Icons are collected from flaticon.com<br></span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"#}
-        {#                                                                                 rel="nofollow" target="_blank">Blossom#}
-        {#                    Themes</a>. Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>.#}
-        {#                </div>#}
-        {#            </div><!-- .wrapper -->#}
-        {#        </div><!-- .bottom-footer -->#}
-        {#        <button aria-label="go to top" class="back-to-top">#}
-        {#            <span>&#10140;</span>#}
-        {#        </button>#}
-        {#    </footer><!-- #colophon -->#}
     </div><!-- #page -->
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/all.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'
             id='all-js'></script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/v4-shims.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'
             id='v4-shims-js'></script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/owl.carousel.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'
             id='owl-carousel-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'
             id='owlcarousel2-a11ylayer-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/imagesloaded.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-includes/js/imagesloaded.min.js' %}'
             id='imagesloaded-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/masonry.min.js" %}' id='masonry-js'></script>
-    <script  type='text/javascript' id='blossom-coach-js-extra'>
+    <script type='text/javascript' src='{% static 'wp-includes/js/masonry.min.js' %}' id='masonry-js'></script>
+    <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
         var blossom_coach_data = {"rtl": "", "animation": ""};
         /* ]]> */
     </script>
-    <script  type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/custom.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}'
             id='blossom-coach-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/themes/blossom-coach/js/modal-accessibility.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'
             id='blossom-coach-modal-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/wp-embed.min.js" %}' id='wp-embed-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/plugins/elementor/assets/js/frontend-modules.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-includes/js/wp-embed.min.js' %}' id='wp-embed-js'></script>
+    <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}'
             id='elementor-frontend-modules-js'></script>
-    <script  type='text/javascript' src='{% static "wp-includes/js/jquery/ui/position.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-includes/js/jquery/ui/position.min.js' %}'
             id='jquery-ui-position-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}'
             id='elementor-dialog-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js" %}'
+    <script type='text/javascript'
+            src='{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}'
             id='elementor-waypoints-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js" %}'
+    <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}'
             id='swiper-js'></script>
-    <script  type='text/javascript'
-            src='{% static "wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js" %}'
+    <script type='text/javascript'
+            src='{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}'
             id='share-link-js'></script>
-    <script  type='text/javascript' id='elementor-frontend-js-before'>
-        var elementorFrontendConfig = {
-            "environmentMode": {"edit": false, "wpPreview": false},
-            "i18n": {
-                "shareOnFacebook": "Share on Facebook",
-                "shareOnTwitter": "Share on Twitter",
-                "pinIt": "Pin it",
-                "download": "Download",
-                "downloadImage": "Download image",
-                "fullscreen": "Fullscreen",
-                "zoom": "Zoom",
-                "share": "Share",
-                "playVideo": "Play Video",
-                "previous": "Previous",
-                "next": "Next",
-                "close": "Close"
-            },
-            "is_rtl": false,
-            "breakpoints": {"xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600},
-            "version": "3.0.14",
-            "is_static": false,
-            "legacyMode": {"elementWrappers": true},
-            "urls": {"assets": "http:\/\/localhost\/wordpress\/wp-content\/plugins\/elementor\/assets\/"},
-            "settings": {"page": [], "editorPreferences": []},
-            "kit": {
-                "global_image_lightbox": "yes",
-                "lightbox_enable_counter": "yes",
-                "lightbox_enable_fullscreen": "yes",
-                "lightbox_enable_zoom": "yes",
-                "lightbox_enable_share": "yes",
-                "lightbox_title_src": "title",
-                "lightbox_description_src": "description"
-            },
-            "post": {
-                "id": 26,
-                "title": "Sign%20up%20%E2%80%93%20Help%20The%20Helpless",
-                "excerpt": "",
-                "featuredImage": false
-            }
-        };
-    </script>
-    <script  type='text/javascript' src='{% static "wp-content/plugins/elementor/assets/js/frontend.min.js" %}'
+    {#<script type='text/javascript' id='elementor-frontend-js-before'>#}
+    {#    var elementorFrontendConfig = {#}
+    {#        "environmentMode": {"edit": false, "wpPreview": false},#}
+    {#        "i18n": {#}
+    {#            "shareOnFacebook": "Share on Facebook",#}
+    {#            "shareOnTwitter": "Share on Twitter",#}
+    {#            "pinIt": "Pin it",#}
+    {#            "download": "Download",#}
+    {#            "downloadImage": "Download image",#}
+    {#            "fullscreen": "Fullscreen",#}
+    {#            "zoom": "Zoom",#}
+    {#            "share": "Share",#}
+    {#            "playVideo": "Play Video",#}
+    {#            "previous": "Previous",#}
+    {#            "next": "Next",#}
+    {#            "close": "Close"#}
+    {#        },#}
+    {#        "is_rtl": false,#}
+    {#        "breakpoints": {"xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600},#}
+    {#        "version": "3.0.14",#}
+    {#        "is_static": false,#}
+    {#        "legacyMode": {"elementWrappers": true},#}
+    {#        "urls": {"assets": "http:\/\/localhost\/wordpress\/wp-content\/plugins\/elementor\/assets\/"},#}
+    {#        "settings": {"page": [], "editorPreferences": []},#}
+    {#        "kit": {#}
+    {#            "global_image_lightbox": "yes",#}
+    {#            "lightbox_enable_counter": "yes",#}
+    {#            "lightbox_enable_fullscreen": "yes",#}
+    {#            "lightbox_enable_zoom": "yes",#}
+    {#            "lightbox_enable_share": "yes",#}
+    {#            "lightbox_title_src": "title",#}
+    {#            "lightbox_description_src": "description"#}
+    {#        },#}
+    {#        "post": {#}
+    {#            "id": 136,#}
+    {#            "title": "Log%20in%20%E2%80%93%20Help%20The%20Helpless",#}
+    {#            "excerpt": "",#}
+    {#            "featuredImage": false#}
+    {#        }#}
+    {#    };#}
+    {#</script>#}
+    <script type='text/javascript' src='{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}'
             id='elementor-frontend-js'></script>
 
     </body>
