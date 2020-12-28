@@ -319,6 +319,28 @@
                                                                                 Sign
                                                                                 up
                                                                             </button>
+                                                                            <script>
+                                                                                function Validate() {
+                                                                                    var password = document.getElementById("txtPassword").value;
+                                                                                    var confirmPassword = document.getElementById("txtConfirmPassword").value;
+                                                                                    var username = document.getElementById("user").value;
+                                                                                    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
+
+                                                                                    if (password != confirmPassword) {
+                                                                                        alert("Passwords do not match.");
+                                                                                        return false;
+                                                                                    } else if (password == username) {
+                                                                                        alert("Password and Username must be different");
+                                                                                        return false;
+                                                                                    } else if (re.test(password) != true) {
+                                                                                        alert("Password must be minimum 6 characters long and combination of UPPER case, lower case and numbers (e.g. FooBar123)");
+                                                                                        return false;
+                                                                                    }
+
+                                                                                    return true;
+                                                                                }
+
+                                                                            </script>
                                                                         </form>
                                                                     </div>
                                                                 </div>
@@ -400,30 +422,13 @@
                     }, 10);
                 });
             });
+
         };
         document.getElementsByTagName("head")[0].appendChild(script);
     })();
 </script>
 <script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("txtPassword").value;
-        var confirmPassword = document.getElementById("txtConfirmPassword").value;
-        var username = document.getElementById("user").value;
-        var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/;
 
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        } else if (password == username) {
-            alert("Password and Username must be different");
-            return false;
-        } else if (re.test(password) != true) {
-            alert("Password must be minimum 6 characters long and combination of UPPER case, lower case and numbers (e.g. FooBar123)");
-            return false;
-        }
-
-        return true;
-    }
 </script>
 
 </html>
