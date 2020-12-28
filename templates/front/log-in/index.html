@@ -1,303 +1,111 @@
-<!DOCTYPE html>
+{% extends 'components/front_forms.html' %}
 {% load static %}
-{% spaceless %}
-    <html lang="en-US">
-    <head itemscope itemtype="http://schema.org/WebSite">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
-        <style id='blossom-coach-inline-css' type='text/css'>
-
-
-            /*Typography*/
-            body,
-            button,
-            input,
-            select,
-            optgroup,
-            textarea, section[class*="-section"] .widget_blossom_client_logo_widget .widget-title, .blog-section article .entry-meta,
-            .btn-link, .widget.widget_blossomthemes_stat_counter_widget .widget-title, .single .entry-meta,
-            .portfolio-text-holder .portfolio-img-title {
-                font-family: Nunito Sans;
-            }
-
-            .site-title,
-            .site-title-wrap .site-title {
-                font-size: 45px;
-                font-family: Nunito;
-                font-weight: 700;
-                font-style: normal;
-            }
-
-            /*Typography*/
-            h1, h2, h3, h4, h5, h6,
-            section[class*="-section"] .widget .widget-title,
-            section[class*="-section"] .widget_blossomtheme_featured_page_widget .section-subtitle,
-            .section-title, .comment-body b.fn, .comment-body .reply .comment-reply-link, .single .navigation .nav-links,
-            .site-header .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
-            .pricing-block .price, .entry-meta, #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
-            .widget_blossomthemes_stat_counter_widget .hs-counter, .widget_bttk_description_widget .bttk-team-holder .name,
-            .bttk-team-inner-holder-modal .name, .page-header .subtitle, .dropcap, .error-404 .error-num, .error-404 a.bttn,
-            .related-portfolio-title {
-                font-family: Nunito;
-            }
-        </style>
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}"/>
-        <meta name="generator" content="WordPress 5.5.3"/>
-    </head>
+{% block form %}
     <style>
-        .body {
-            display: none;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .material-icons {
+            padding: 10px;
+            background: #8feb4d;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            transition: 0.5s;
+        }
+
+        .input-field:focus {
+            border: 2.5px solid #8feb4d;
+        }
+
+        /* Set a style for the submit button */
+        .btn {
+            background-color: #83d945;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.8;
+        }
+
+        .btn:hover {
+            opacity: 1;
+            background-color: #77c73e;
         }
     </style>
-    <body class="body page-template-default page page-id-136 style1 full-width elementor-default elementor-kit-17 elementor-page elementor-page-136"
-          itemscope itemtype="http://schema.org/WebPage">
 
-    <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-        <div id="content" class="site-content">
-            <div class="wrapper">
+    <form action="{% url 'log-in-handle' %}"
+          method="POST"
+          style="max-width:500px;margin:auto">
+        {% csrf_token %}
+        <div class="input-container">
+            <i class="material-icons">account_circle</i>
+            <input class="input-field"
+                   type="text"
+                   placeholder="Username"
+                   name="username">
+        </div>
 
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main">
+        <div class="input-container">
+            <i class="material-icons">lock</i>
+            <input class="input-field"
+                   type="password"
+                   placeholder="Confirm Password"
+                   name="password">
+        </div>
 
-
-                        <article id="post-136" class="post-136 page type-page status-publish hentry">
-                            <figure class="post-thumbnail">
-                            </figure><!-- .post-thumbnail -->
-                            <div class="entry-content" itemprop="text">
-                                <div data-elementor-type="wp-page" data-elementor-id="136"
-                                     class="elementor elementor-136"
-                                     data-elementor-settings="[]">
-                                    <div class="elementor-inner">
-                                        <div class="elementor-section-wrap">
-                                            <section
-                                                    class="elementor-section elementor-top-section elementor-element elementor-element-4cfce2b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                                    data-id="4cfce2b" data-element_type="section">
-                                                <div class="elementor-container elementor-column-gap-default">
-                                                    <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9fc619c"
-                                                             data-id="9fc619c" data-element_type="column">
-                                                            <div class="elementor-column-wrap elementor-element-populated">
-                                                                <div class="elementor-widget-wrap">
-                                                                    <div class="elementor-element elementor-element-cd5532b elementor-view-default elementor-widget elementor-widget-icon"
-                                                                         data-id="cd5532b" data-element_type="widget"
-                                                                         data-widget_type="icon.default">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div class="elementor-icon-wrapper">
-                                                                                <div class="elementor-icon elementor-animation-grow">
-                                                                                    <img src="{% static 'logo/help-the-helpless-logo.svg' %}"
-                                                                                         style="width: 220px;height: 220px">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="elementor-element elementor-element-96065c5 elementor-widget elementor-widget-text-editor"
-                                                                         data-id="96065c5" data-element_type="widget"
-                                                                         data-widget_type="text-editor.default">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div class="elementor-heading-title elementor-size-default">
-                                                                                <p>{{ title.site_title }}</p></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="elementor-element elementor-element-1af5339 elementor-widget elementor-widget-html"
-                                                                         data-id="1af5339" data-element_type="widget"
-                                                                         data-widget_type="html.default">
-                                                                        <div class="elementor-widget-container">
-
-
-                                                                            <meta name="viewport"
-                                                                                  content="width=device-width, initial-scale=1">
-                                                                            <!-- Add icon library -->
-
-                                                                            <style>
-                                                                                body {
-                                                                                    font-family: Arial, Helvetica, sans-serif;
-                                                                                }
-
-                                                                                * {
-                                                                                    box-sizing: border-box;
-                                                                                }
-
-                                                                                .input-container {
-                                                                                    display: -ms-flexbox; /* IE10 */
-                                                                                    display: flex;
-                                                                                    width: 100%;
-                                                                                    margin-bottom: 15px;
-                                                                                }
-
-                                                                                .material-icons {
-                                                                                    padding: 10px;
-                                                                                    background: #8feb4d;
-                                                                                    color: white;
-                                                                                    min-width: 50px;
-                                                                                    text-align: center;
-                                                                                }
-
-                                                                                .input-field {
-                                                                                    width: 100%;
-                                                                                    padding: 10px;
-                                                                                    outline: none;
-                                                                                    transition: 0.5s;
-                                                                                }
-
-                                                                                .input-field:focus {
-                                                                                    border: 2.5px solid #8feb4d;
-                                                                                }
-
-                                                                                /* Set a style for the submit button */
-                                                                                .btn {
-                                                                                    background-color: #83d945;
-                                                                                    color: white;
-                                                                                    padding: 15px 20px;
-                                                                                    border: none;
-                                                                                    cursor: pointer;
-                                                                                    width: 100%;
-                                                                                    opacity: 0.8;
-                                                                                }
-
-                                                                                .btn:hover {
-                                                                                    opacity: 1;
-                                                                                    background-color: #77c73e;
-                                                                                }
-                                                                            </style>
-
-                                                                            <form action="{% url 'log-in-handle' %}"
-                                                                                  method="POST"
-                                                                                  style="max-width:500px;margin:auto">
-                                                                                {% csrf_token %}
-                                                                                <div class="input-container">
-                                                                                    <i class="material-icons">account_circle</i>
-                                                                                    <input class="input-field"
-                                                                                           type="text"
-                                                                                           placeholder="Username"
-                                                                                           name="username">
-                                                                                </div>
-
-                                                                                <div class="input-container">
-                                                                                    <i class="material-icons">lock</i>
-                                                                                    <input class="input-field"
-                                                                                           type="password"
-                                                                                           placeholder="Confirm Password"
-                                                                                           name="password">
-                                                                                </div>
-
-                                                                                <br>
-                                                                                <button type="submit" class="btn">LOG IN
-                                                                                </button>
-                                                                            </form>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section
-                                                    class="elementor-section elementor-top-section elementor-element elementor-element-f23f0f2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                                    data-id="f23f0f2" data-element_type="section">
-                                                <div class="elementor-container elementor-column-gap-default">
-                                                    <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fc2e652"
-                                                             data-id="fc2e652" data-element_type="column">
-                                                            <div class="elementor-column-wrap elementor-element-populated">
-                                                                <div class="elementor-widget-wrap">
-                                                                    <div class="elementor-element elementor-element-609235f elementor-widget elementor-widget-text-editor"
-                                                                         data-id="609235f" data-element_type="widget"
-                                                                         data-widget_type="text-editor.default">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div class="elementor-text-editor elementor-clearfix">
-                                                                                <p>Forgot password? <a
-                                                                                        href="/reset-password/"
-                                                                                        data-wplink-url-error="true"><u>Click
-                                                                                    here</u></a> to reset or <a
-                                                                                        href="/sign-up/"
-                                                                                        data-wplink-url-error="true"><u>Sign
-                                                                                    up</u></a></p></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
+        <br>
+        <button type="submit" class="btn">LOG IN
+        </button>
+    </form>
+{% endblock %}
+{% block extra %}
+    <section
+            class="elementor-section elementor-top-section elementor-element elementor-element-f23f0f2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="f23f0f2" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fc2e652"
+                     data-id="fc2e652" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                            <div class="elementor-element elementor-element-609235f elementor-widget elementor-widget-text-editor"
+                                 data-id="609235f" data-element_type="widget"
+                                 data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-text-editor elementor-clearfix">
+                                        <p>Forgot password? <a
+                                                href="/reset-password/"
+                                                data-wplink-url-error="true"><u>Click
+                                            here</u></a> to reset or <a
+                                                href="/sign-up/"
+                                                data-wplink-url-error="true"><u>Sign
+                                            up</u></a></p></div>
                                 </div>
-                            </div><!-- .entry-content -->
-                            <footer class="entry-footer">
-                            </footer><!-- .entry-footer -->
-                        </article><!-- #post-136 -->
-
-                    </main><!-- #main -->
-                </div><!-- #primary -->
-
-
-            </div><!-- .wrapper -->
-        </div><!-- .site-content -->
-    </div><!-- #page -->
-
-    </body>
-        <script>
-        (function () {
-            let script = document.createElement("SCRIPT");
-            script.src = '{% static 'wp-includes/js/jquery/jquery.min.js' %}';
-            script.type = 'text/javascript';
-            script.onload = function () {
-                let $ = window.jQuery;
-                $(function () {
-                    $(document).ready(function () {
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'material-icons/package/iconfont/material-icons.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-1.1.13/package/index.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-sans-1.1.13/package/index.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/style.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static "wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static "wp-content/plugins/elementor/assets/lib/animations/animations.min.css" %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/plugins/elementor/assets/css/frontend.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/post-17.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/global.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/post-136.css' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/ui/position.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/wp-embed.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/masonry.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/imagesloaded.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'));
-                        window.setInterval(function () {
-                            $("#site-reload-content").load(" #site-reload-content");
-                        }, 1000)
-                        window.setTimeout(function (){
-                            $(".body").css({"display": ""});
-                            $(".body").fadeIn(500);
-                        }, 10);
-                    });
-                });
-            };
-            document.getElementsByTagName("head")[0].appendChild(script);
-        })();
-    </script>
-    <script type='text/javascript' id='blossom-coach-js-extra'>
-        /* <![CDATA[ */
-        let blossom_coach_data = {"rtl": "", "animation": ""};
-        /* ]]> */
-    </script>
-    </html>
-{% endspaceless %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
