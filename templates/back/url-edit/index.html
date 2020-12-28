@@ -24,12 +24,12 @@
         {#            "source": {"concatemoji": "http:\/\/localhost\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.3"}#}
         {#        };#}
         {#        !function (e, a, t) {#}
-        {#            var r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d");#}
+        {#            let r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d");#}
         {##}
         {#            function c(e, t) {#}
-        {#                var a = String.fromCharCode;#}
+        {#                let a = String.fromCharCode;#}
         {#                s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, e), 0, 0);#}
-        {#                var r = p.toDataURL();#}
+        {#                let r = p.toDataURL();#}
         {#                return s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, t), 0, 0), r === p.toDataURL()#}
         {#            }#}
         {##}
@@ -45,7 +45,7 @@
         {#            }#}
         {##}
         {#            function d(e) {#}
-        {#                var t = a.createElement("script");#}
+        {#                let t = a.createElement("script");#}
         {#                t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
         {#            }#}
         {##}
@@ -488,7 +488,7 @@
     <script type='text/javascript' src='{% static "wp-includes/js/masonry.min.js" %}' id='masonry-js'></script>
     <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
-        var blossom_coach_data = {"rtl": "", "animation": ""};
+        let blossom_coach_data = {"rtl": "", "animation": ""};
         /* ]]> */
     </script>
     <script type='text/javascript' src='{% static "wp-content/themes/blossom-coach/js/custom.min.js" %}'
@@ -511,7 +511,7 @@
             src='{% static "wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js" %}'
             id='share-link-js'></script>
     <script type='text/javascript' id='elementor-frontend-js-before'>
-        var elementorFrontendConfig = {
+        let elementorFrontendConfig = {
             "environmentMode": {"edit": false, "wpPreview": false},
             "i18n": {
                 "shareOnFacebook": "Share on Facebook",

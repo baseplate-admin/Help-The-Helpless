@@ -23,12 +23,12 @@
         {#            "source": {"concatemoji": ''}#}
         {#        };#}
         {#        !function (e, a, t) {#}
-        {#            var r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d");#}
+        {#            let r, n, o, i, p = a.createElement("canvas"), s = p.getContext && p.getContext("2d");#}
         {##}
         {#            function c(e, t) {#}
-        {#                var a = String.fromCharCode;#}
+        {#                let a = String.fromCharCode;#}
         {#                s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, e), 0, 0);#}
-        {#                var r = p.toDataURL();#}
+        {#                let r = p.toDataURL();#}
         {#                return s.clearRect(0, 0, p.width, p.height), s.fillText(a.apply(this, t), 0, 0), r === p.toDataURL()#}
         {#            }#}
         {##}
@@ -44,7 +44,7 @@
         {#            }#}
         {##}
         {#            function d(e) {#}
-        {#                var t = a.createElement("script");#}
+        {#                let t = a.createElement("script");#}
         {#                t.src = e, t.  = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)#}
         {#            }#}
         {##}
@@ -227,11 +227,11 @@ A non-profit organisation<br>
     </body>
     <script>
         (function () {
-            var script = document.createElement("SCRIPT");
+            let script = document.createElement("SCRIPT");
             script.src = '{% static 'wp-includes/js/jquery/jquery.min.js' %}';
             script.type = 'text/javascript';
             script.onload = function () {
-                var $ = window.jQuery;
+                let $ = window.jQuery;
                 $(function () {
                     $(document).ready(function () {
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/style.css' %}'));
@@ -268,7 +268,7 @@ A non-profit organisation<br>
     </script>
     <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
-        var blossom_coach_data = {"rtl": "", "animation": ""};
+        let blossom_coach_data = {"rtl": "", "animation": ""};
         /* ]]> */
     </script>
     </html>
