@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% spaceless %}
+
 <html lang="en-US">
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="UTF-8">
@@ -161,104 +163,6 @@
       itemscope itemtype="http://schema.org/WebPage">
 
 <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-    <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-t">
-            <div class="wrapper">
-                <div class="top-right">
-                    <div class="header-social">
-                        <ul class="social-icons">
-                            <li><a href="{{ urls.facebook_url }}" target="_blank"
-                                   rel="nofollow"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="{{ urls.youtube_url }}" target="_blank" rel="nofollow"><i
-                                    class="fab fa-youtube"></i></a></li>
-                            <li><a href="mailto:{{ urls.email_url }}" target="_blank" rel="nofollow"><i
-                                    class="fas fa-envelope"></i></a></li>
-                        </ul>
-                    </div><!-- .header-social -->
-                    <div class="header-search">
-                        <button aria-label="search form toggle" data-toggle-target=".search-modal"
-                                data-toggle-body-class="showing-search-modal"
-                                data-set-focus=".search-modal .search-field" aria-expanded="false"><i
-                                class="fa fa-search"></i></button>
-                        <div class="header-search-form search-modal cover-modal"
-                             data-modal-target-string=".search-modal">
-                            <div class="header-search-inner-wrap">
-                                <form role="search" method="get" class="search-form" action="/">
-                                    <label class="screen-reader-text">Looking for Something?</label>
-                                    <input type="search" class="search-field" placeholder="Enter Keywords&hellip;"
-                                           value="" name="s"/>
-                                    <label for="submit-field">
-                                        <span><i class="fa fa-search"></i></span>
-                                        <input type="submit" id="submit-field" class="search-submit" value="Search"/>
-                                    </label>
-                                </form>
-                                <button aria-label="search form close" class="close" data-toggle-target=".search-modal"
-                                        data-toggle-body-class="showing-search-modal"
-                                        data-set-focus=".search-modal .search-field" aria-expanded="false"></button>
-                            </div>
-                        </div>
-                    </div><!-- .header-seearch --></div><!-- .top-right -->            </div><!-- .wrapper -->
-        </div><!-- .header-t -->
-
-        <div class="main-header">
-            <div class="wrapper">
-                <div class="site-branding" itemscope itemtype="http://schema.org/Organization">
-                    <p class="site-title" itemprop="name"><a href="/" rel="home"
-                                                             itemprop="url">{{ title.site_title }}</a>
-                    </p>
-                    <p class="site-description">{{ solgan.site_description }}</p>
-                </div><!-- .site-branding -->
-                <div class="menu-wrap">
-                    <nav id="site-navigation" class="main-navigation" itemscope
-                         itemtype="http://schema.org/SiteNavigationElement">
-                        <button type="button" class="toggle-button" data-toggle-target=".main-menu-modal"
-                                data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"
-                                data-set-focus=".close-main-nav-toggle">
-                            <span class="toggle-bar"></span>
-                            <span class="toggle-bar"></span>
-                            <span class="toggle-bar"></span>
-                        </button>
-                        <div class="primary-menu-list main-menu-modal cover-modal"
-                             data-modal-target-string=".main-menu-modal">
-                            <button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal"
-                                    data-toggle-body-class="showing-main-menu-modal" aria-expanded="false"
-                                    data-set-focus=".main-menu-modal"><span></span></button>
-                            <div class="mobile-menu" aria-label="Mobile">
-                                <div class="menu-primary-container">
-                                    <ul id="primary-menu" class="menu main-menu-modal">
-                                        <li id="menu-item-31"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-31">
-                                            <a href="/home/">Home</a></li>
-                                        <li id="menu-item-32"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32">
-                                            <a href="/blog/">Blog</a></li>
-                                        <li id="menu-item-34"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
-                                            <a href="/donate/">Donate</a></li>
-                                        <li id="menu-item-139"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-                                            <a href="/log-in/">Log in</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </nav><!-- #site-navigation -->
-                </div><!-- .menu-wrap -->
-            </div><!-- .wrapper -->
-        </div><!-- .main-header -->
-    </header><!-- .site-header -->
-    <div class="breadcrumb-wrapper">
-        <div class="wrapper">
-            <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href=""><span itemprop="name">Home</span></a>
-                        <meta itemprop="position" content="1"/>
-                        <span class="separator"><i class="fa fa-angle-right"></i></span>
-                    </span><span class="current" itemprop="itemListElement" itemscope
-                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/reset-password/"><span
-                    itemprop="name">Reset password</span></a><meta itemprop="position" content="2"/></span></div>
-        </div>
-    </div><!-- .breadcrumb-wrapper -->
     <div id="content" class="site-content">
         <div class="wrapper">
 
@@ -433,22 +337,6 @@
 
         </div><!-- .wrapper -->
     </div><!-- .site-content -->
-    <footer id="colophon" class="site-footer" itemscope itemtype="http://schema.org/WPFooter">
-        <div class="bottom-footer">
-            <div class="wrapper">
-                <div class="copyright">
-            <span><b>{{ title.site_title }}</b><br>
-A non-profit organisation<br>
-</span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"
-                                        rel="nofollow" target="_blank">Blossom
-                    Themes</a>. Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>.
-                </div>
-            </div><!-- .wrapper -->
-        </div><!-- .bottom-footer -->
-        <button aria-label="go to top" class="back-to-top">
-            <span>&#10140;</span>
-        </button>
-    </footer><!-- #colophon -->
 </div><!-- #page -->
 <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}' id='all-js'></script>
 <script type='text/javascript' src='{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'
@@ -527,3 +415,4 @@ A non-profit organisation<br>
 
 </body>
 </html>
+{% endspaceless %}
