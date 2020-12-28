@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.redirect_to_home, name="redirect"),
     path("donate/", views.donation, name="donate"),
     path("blog/", views.blog, name="blog"),
+    path("blog-create/", views.blog_create, name="blog-create"),
 ]

@@ -92,4 +92,4 @@ def blog(request):
 
 @gzip_page
 def blog_create(request):
-    pass
+    return render(request, 'front/blog-create/index.html')

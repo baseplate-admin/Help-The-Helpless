@@ -55,7 +55,8 @@
         }
     </style>
 
-    <body class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17" itemscope
+    <body class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
+          itemscope
           itemtype="http://schema.org/WebPage">
 
     <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
@@ -144,6 +145,7 @@ A non-profit organisation<br>
                 let $ = window.jQuery;
                 $(function () {
                     $(document).ready(function () {
+                        $('head').append($("<link rel='icon' type='image/svg+xml' sizes='16x16' />").attr('href', '{% static 'logo/favicon.svg' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/style.css' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-1.1.13/package/index.css' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-sans-1.1.13/package/index.css' %}'));
@@ -163,10 +165,11 @@ A non-profit organisation<br>
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/wp-embed.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'));
+
                         window.setInterval(function () {
                             $("#site-reload-content").load(" #site-reload-content");
                         }, 1000)
-                        window.setTimeout(function (){
+                        window.setTimeout(function () {
                             $(".body").css({"display": ""});
                             $(".body").fadeIn(500);
                         }, 10);

@@ -135,8 +135,6 @@
             </div><!-- .wrapper -->
         </div><!-- .site-content -->
     </div><!-- #page -->
-
-    </body>
     <script>
         (function () {
             let script = document.createElement("SCRIPT");
@@ -146,6 +144,7 @@
                 let $ = window.jQuery;
                 $(function () {
                     $(document).ready(function () {
+                        $('head').append($("<link rel='icon' type='image/svg+xml' sizes='16x16' />").attr('href', '{% static 'logo/favicon.svg' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'material-icons/package/iconfont/material-icons.css' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
                         $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
@@ -186,7 +185,8 @@
                         window.setTimeout(function () {
                             $(".body").css({"display": ""});
                             $(".body").fadeIn(500);
-                        }, 10);
+                            $(".body").fadeIn(500);
+                        }, 1);
                     });
                 });
             };
