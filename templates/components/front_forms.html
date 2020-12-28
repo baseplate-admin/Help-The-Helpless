@@ -120,8 +120,8 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                        {% block extra %}
-                                        {% endblock %}
+                                            {% block extra %}
+                                            {% endblock %}
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
     </div><!-- #page -->
 
     </body>
-        <script>
+    <script>
         (function () {
             let script = document.createElement("SCRIPT");
             script.src = '{% static 'wp-includes/js/jquery/jquery.min.js' %}';
@@ -178,10 +178,12 @@
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'));
+                        $('head').append($("<script type='module'/>").attr('src', '{% static "ionicons/dist/ionicons/ionicons.esm.js" %}'));
+                        $('head').append($("<script nomodule='' />").attr('src', '{% static 'ionicons/dist/ionicons.js' %}'));
                         window.setInterval(function () {
                             $("#site-reload-content").load(" #site-reload-content");
                         }, 1000)
-                        window.setTimeout(function (){
+                        window.setTimeout(function () {
                             $(".body").css({"display": ""});
                             $(".body").fadeIn(500);
                         }, 10);

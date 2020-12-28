@@ -76,6 +76,7 @@
         <br>
         <button type="submit" class="btn">LOG IN
         </button>
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
     </form>
 {% endblock %}
 {% block extra %}
