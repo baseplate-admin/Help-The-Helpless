@@ -244,9 +244,8 @@ A non-profit organisation<br>
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'));
                         $('head').append($("<script type='module'/>").attr('src', '{% static "ionicons/dist/ionicons/ionicons.esm.js" %}'));
-                        $('head').append($("<script nomodule />").attr('src', '{% static 'ionicons/dist/ionicons.js' %}'));
-
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}}'));
+                        $('head').append($("<script nomodule='' />").attr('src', '{% static 'ionicons/dist/ionicons.js' %}'));
+                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/imagesloaded.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/masonry.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}'));
