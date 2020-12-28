@@ -139,7 +139,7 @@
         {#<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fhome%2F" />#}
         {#<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fwordpress%2Fhome%2F&#038;format=xml" />#}
     </head>
-    <style class="remove-me-css">
+    <style>
         .body {
             display: none;
         }
@@ -253,7 +253,6 @@ A non-profit organisation<br>
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/wp-embed.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'));
                         $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'));
-                        var blossom_coach_data = {"rtl": "", "animation": ""};
                         window.setInterval(function () {
                             $("#site-reload-content").load(" #site-reload-content");
                         }, 1000)
@@ -267,6 +266,10 @@ A non-profit organisation<br>
             document.getElementsByTagName("head")[0].appendChild(script);
         })();
     </script>
-
+    <script type='text/javascript' id='blossom-coach-js-extra'>
+        /* <![CDATA[ */
+        var blossom_coach_data = {"rtl": "", "animation": ""};
+        /* ]]> */
+    </script>
     </html>
 {% endspaceless %}
