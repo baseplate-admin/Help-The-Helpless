@@ -135,64 +135,207 @@
             </div><!-- .wrapper -->
         </div><!-- .site-content -->
     </div><!-- #page -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
-        (function () {
-            let script = document.createElement("SCRIPT");
-            script.src = '{% static 'wp-includes/js/jquery/jquery.min.js' %}';
-            script.type = 'text/javascript';
-            script.onload = function () {
-                let $ = window.jQuery;
-                $(function () {
-                    $(document).ready(function () {
-                        $('head').append($("<link rel='icon' type='image/svg+xml' sizes='16x16' />").attr('href', '{% static 'logo/favicon.svg' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'material-icons/package/iconfont/material-icons.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/css/owl.carousel.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-1.1.13/package/index.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'google-font/typeface-nunito-sans-1.1.13/package/index.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/themes/blossom-coach/style.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static "wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static "wp-content/plugins/elementor/assets/lib/animations/animations.min.css" %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/plugins/elementor/assets/css/frontend.min.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/post-17.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/global.css' %}'));
-                        $('head').append($("<link rel='stylesheet' type='text/css'/>").attr('href', '{% static 'wp-content/uploads/elementor/css/post-136.css' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/jquery-migrate.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/jquery/ui/position.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/wp-embed.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/masonry.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-includes/js/imagesloaded.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/owl.carousel.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}'));
-                        $('head').append($("<script type='text/javascript'/>").attr('src', '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}'));
-                        $('head').append($("<script type='module'/>").attr('src', '{% static "ionicons/dist/ionicons/ionicons.esm.js" %}'));
-                        $('head').append($("<script nomodule='' />").attr('src', '{% static 'ionicons/dist/ionicons.js' %}'));
-                        window.setInterval(function () {
-                            $("#site-reload-content").load(" #site-reload-content");
-                        }, 1000)
-                        window.setTimeout(function () {
-                            $(".body").css({"display": ""});
-                            $(".body").fadeIn(500);
-                            $(".body").fadeIn(500);
-                        }, 1);
-                    });
-                });
-            };
-            document.getElementsByTagName("head")[0].appendChild(script);
-        })();
+        window.setInterval(function () {
+            $("#site-reload-content").load(" #site-reload-content");
+        }, 1000)
+        window.setTimeout(function () {
+            $(".body").css({"display": ""});
+            $(".body").fadeIn(500);
+        }, 1);
     </script>
+
+    <script>
+
+
+    </script>
+
+    <script>
+        let head = document.getElementsByTagName('HEAD')[0];
+        let script = document.createElement('script');
+        let script1 = document.createElement('script');
+        let script2 = document.createElement('script');
+        let script3 = document.createElement('script');
+        let script4 = document.createElement('script');
+        let script5 = document.createElement('script');
+        let script6 = document.createElement('script');
+        let script7 = document.createElement('script');
+        let script8 = document.createElement('script');
+        let script9 = document.createElement('script');
+        let script10 = document.createElement('script');
+        let script11 = document.createElement('script');
+        let script12 = document.createElement('script');
+        let script13 = document.createElement('script');
+        let script14 = document.createElement('script');
+        let script15 = document.createElement('script');
+        let script16 = document.createElement('script');
+        let link = document.createElement('link');
+        let link1 = document.createElement('link');
+        let link2 = document.createElement('link');
+        let link3 = document.createElement('link');
+        let link4 = document.createElement('link');
+        let link5 = document.createElement('link');
+        let link6 = document.createElement('link');
+        let link7 = document.createElement('link');
+        let link8 = document.createElement('link');
+        let link9 = document.createElement('link');
+        let link10 = document.createElement('link');
+        let link11 = document.createElement('link');
+        let link12 = document.createElement('link');
+        let link13 = document.createElement('link');
+        let link14 = document.createElement('link');
+
+        script.type = 'text/javascript'
+        script.src = "{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}"
+
+        script1.type = 'text/javascript'
+        script1.src = "{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}"
+
+        script2.type = 'text/javascript'
+        script2.src = "https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js' %}"
+
+        script3.type = 'text/javascript'
+        script3.src = "{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}"
+
+        script4.type = 'text/javascript'
+        script4.src = "{% static 'wp-includes/js/imagesloaded.min.js' %}"
+
+        script5.type = 'text/javascript'
+        script5.src = "{% static 'wp-includes/js/masonry.min.js' %}"
+
+        script6.type = 'text/javascript'
+        script6.src = "{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}"
+
+        script7.type = 'text/javascript'
+        script7.src = "{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}"
+
+        script8.type = 'text/javascript'
+        script8.src = "{% static 'wp-includes/js/wp-embed.min.js' %}"
+
+        script9.type = 'text/javascript'
+        script9.src = "{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}"
+
+        script10.type = 'text/javascript'
+        script10.src = "{% static 'wp-includes/js/jquery/ui/position.min.js' %}"
+
+        script11.type = 'text/javascript'
+        script11.src = "{% static 'wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}"
+
+        script12.type = 'text/javascript'
+        script12.src = "{% static 'wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}"
+
+        script13.type = 'text/javascript'
+        script13.src = "{% static 'wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}"
+
+        script14.type = 'text/javascript'
+        script14.src = "https://cdn.jsdelivr.net/npm/jquery-migrate@1.4.1/dist/jquery-migrate.min.js"
+
+        script15.type = 'text/javascript'
+        script15.src = "{% static 'wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}"
+
+        script16.type = 'text/javascript'
+        script16.src = "{% static 'wp-content/plugins/elementor/assets/js/frontend.min.js' %}"
+
+        link1.rel = 'stylesheet'
+        link1.type = 'text/css'
+        link1.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css'
+
+        link.rel = 'stylesheet'
+        link.type = 'text/css'
+        link.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css'
+
+        link2.rel = 'stylesheet'
+        link2.type = 'text/css'
+        link2.href = '{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
+
+        link3.rel = 'stylesheet'
+        link3.type = 'text/css'
+        link3.href = 'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css'
+
+        link4.rel = 'stylesheet'
+        link4.type = 'text/css'
+        link4.href = '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'
+
+        link5.rel = 'stylesheet'
+        link5.type = 'text/css'
+        link5.href = 'https://cdn.jsdelivr.net/npm/material-icons@0.5.1/iconfont/material-icons.min.css'
+
+        link6.rel = 'stylesheet'
+        link6.type = 'text/css'
+        link6.href = 'https://cdn.jsdelivr.net/npm/material-icons@0.5.1/iconfont/material-icons.min.css'
+
+        link7.rel = 'stylesheet'
+        link7.type = 'text/css'
+        link7.href = '{% static 'wp-content/themes/blossom-coach/style.css' %}'
+
+        link8.rel = 'stylesheet'
+        link8.type = 'text/css'
+        link8.href = '{% static "wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" %}'
+
+        link9.rel = 'stylesheet'
+        link9.type = 'text/css'
+        link9.href = '{% static "wp-content/plugins/elementor/assets/lib/animations/animations.min.css" %}'
+
+        link10.rel = 'stylesheet'
+        link10.type = 'text/css'
+        link10.href = '{% static 'wp-content/plugins/elementor/assets/css/frontend-legacy.min.css' %}'
+
+        link11.rel = 'stylesheet'
+        link11.type = 'text/css'
+        link11.href = '{% static 'wp-content/plugins/elementor/assets/css/frontend.min.css' %}'
+
+        link12.rel = 'stylesheet'
+        link12.type = 'text/css'
+        link12.href = '{% static 'wp-content/uploads/elementor/css/post-17.css' %}'
+
+        link13.rel = 'stylesheet'
+        link13.type = 'text/css'
+        link13.href = '{% static 'wp-content/uploads/elementor/css/global.css' %}'
+
+        link14.rel = 'stylesheet'
+        link14.type = 'text/css'
+        link14.href = '{% static 'wp-content/uploads/elementor/css/post-136.css' %}'
+
+        head.appendChild(link3);
+        head.appendChild(script2);
+
+        head.appendChild(script);
+        head.appendChild(script1);
+        head.appendChild(script3);
+        head.appendChild(script4);
+        head.appendChild(script5);
+        head.appendChild(script6);
+        head.appendChild(script7);
+        head.appendChild(script8);
+        head.appendChild(script9);
+        head.appendChild(script10);
+        head.appendChild(script11);
+        head.appendChild(script12);
+        head.appendChild(script13);
+        head.appendChild(script14);
+        head.appendChild(script15);
+        head.appendChild(script16);
+        head.appendChild(link);
+        head.appendChild(link1);
+        head.appendChild(link2);
+        head.appendChild(link4);
+        head.appendChild(link5);
+        head.appendChild(link6);
+        head.appendChild(link7);
+        head.appendChild(link8);
+        head.appendChild(link9);
+        head.appendChild(link10);
+        head.appendChild(link11);
+        head.appendChild(link12);
+        head.appendChild(link13);
+        head.appendChild(link14);
+
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
         let blossom_coach_data = {"rtl": "", "animation": ""};
