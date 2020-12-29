@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from Backend.models import UrlLink as Urllinks
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
+from Backend.models import Logo
 from django.views.decorators.gzip import gzip_page
 from django.http import HttpResponse
 
@@ -27,13 +28,20 @@ def home_view(request):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
 
-        urls = Urllinks.objects.get(extra="main")
-        github = GithubUserId.objects.get(extra='github')
-
+        urls = Urllinks.objects.get(extra="urls")
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
         return render(
             request,
             "front/home/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home", 'github':github},
+            {
+                "urls": urls,
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Home",
+                "github": github,
+                "logo": logo,
+            },
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -58,13 +66,21 @@ def donation(request):
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
-        urls = Urllinks.objects.get(extra="main")
-        github = GithubUserId.objects.get(extra='github')
+        urls = Urllinks.objects.get(extra="urls")
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
 
         return render(
             request,
             "front/donate/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate", 'github':github},
+            {
+                "urls": urls,
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Donate",
+                "github": github,
+                "logo": logo,
+            },
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -85,13 +101,20 @@ def blog(request):
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
-        urls = Urllinks.objects.get(extra="main")
-        github = GithubUserId.objects.get(extra='github')
-
+        urls = Urllinks.objects.get(extra="urls")
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
         return render(
             request,
             "front/blog/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog", 'github':github},
+            {
+                "urls": urls,
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Blog",
+                "github": github,
+                "logo": logo,
+            },
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -99,6 +122,8 @@ def blog(request):
 
 @gzip_page
 def blog_create(request):
-    github = GithubUserId.objects.get(extra='github')
-
-    return render(request, 'front/blog-create/index.html', {'github':github})
+    github = GithubUserId.objects.get(extra="github")
+    logo = Logo.objects.get(extra="logo")
+    return render(
+        request, "front/blog-create/index.html", {"github": github, "logo": logo}
+    )

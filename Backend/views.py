@@ -6,6 +6,8 @@ from Backend.models import UrlLink
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 from Backend.models import GithubUserId
+from Backend.models import Logo
+
 # Create your views here
 from django.views.decorators.gzip import gzip_page
 
@@ -15,18 +17,18 @@ from django.views.decorators.gzip import gzip_page
 def url_edit(request):
     if request.method == "GET":
         if (
-            not UrlLink.objects.filter(extra="main").exists()
+            not UrlLink.objects.filter(extra="urls").exists()
             and not SiteTitle.objects.filter(extra="title").exists()
             and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
-            UrlLink.objects.create(extra="main").save()
+            UrlLink.objects.create(extra="urls").save()
 
         elif (
             SiteTitle.objects.filter(extra="title").exists()
             and SiteDescription.objects.filter(extra="description").exists()
-            and UrlLink.objects.filter(extra="main").exists()
+            and UrlLink.objects.filter(extra="urls").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
@@ -34,9 +36,11 @@ def url_edit(request):
             return HttpResponse(
                 "<h1>Something is wrong with backend/views.py. Please contact Zarif_Ahnaf(zarifahnaf@outlook.com).</h1>"
             )
-        urls = UrlLink.objects.get(extra="main")
-        database_pk = UrlLink.objects.get(extra="main").pk
-        github = GithubUserId.objects.get(extra='github')
+        urls = UrlLink.objects.get(extra="urls")
+        database_pk = UrlLink.objects.get(extra="urls").pk
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
+
         return render(
             request,
             "back/url-edit/index.html",
@@ -47,6 +51,7 @@ def url_edit(request):
                 "slogan": slogan,
                 "pk": database_pk,
                 "github": github,
+                "logo": logo,
             },
         )
 
@@ -89,7 +94,8 @@ def slogan_and_title_edit(request):
 
         title = SiteTitle.objects.get(extra="title")
         slogan = SiteDescription.objects.get(extra="description")
-        github = GithubUserId.objects.get(extra='github')
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
 
         return render(
             request,
@@ -100,11 +106,13 @@ def slogan_and_title_edit(request):
                 "slogan": slogan,
                 "TitlePK": SiteTitle_pk,
                 "DescriptionPK": SiteDescription_pk,
-                'github':github,
+                "github": github,
+                "logo": logo,
             },
         )
     else:
         return HttpResponse("<h1>403 post not Allowed</h1>")
+
 
 @gzip_page
 @login_required(login_url="log-in")

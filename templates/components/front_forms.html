@@ -6,6 +6,9 @@
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
+        <link rel="shortcut icon"
+              href="{{ logo.favicon }}"
+        >
         <style id='blossom-coach-inline-css' type='text/css'>
 
 
@@ -85,7 +88,7 @@
                                                                         <div class='elementor-widget-container'>
                                                                             <div class='elementor-icon-wrapper'>
                                                                                 <div class='elementor-icon elementor-animation-grow'>
-                                                                                    <img src='{% static 'logo/help-the-helpless-logo.svg' %}'
+                                                                                    <img src='{{ logo.logo }}'
                                                                                          style='width: 220px;height: 220px'>
                                                                                 </div>
                                                                             </div>

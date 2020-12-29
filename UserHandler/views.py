@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.decorators.gzip import gzip_page
+from Backend.models import Logo
 
 from Backend.models import GithubUserId
 from Backend.models import SiteDescription
@@ -19,23 +20,28 @@ from Backend.models import SiteTitle
 def register(request):
     if request.method == "GET":
         if (
-                not SiteTitle.objects.filter(extra="title").exists()
-                and not SiteDescription.objects.filter(extra="description").exists()
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
         elif (
-                SiteTitle.objects.filter(extra="title").exists()
-                and SiteDescription.objects.filter(extra="description").exists()
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
-        github = GithubUserId.objects.get(extra='github')
+        github = GithubUserId.objects.get(extra="github")
 
         return render(
             request,
             "front/sign-up/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Sign up", 'github':github},
+            {
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Sign up",
+                "github": github,
+            },
         )
     else:
         return redirect("/home/")
@@ -44,19 +50,19 @@ def register(request):
 @gzip_page
 def login(request):
     if request.method == "GET":
-        github = GithubUserId.objects.get(extra='github')
-
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
         if request.user.is_authenticated:
             return redirect("/home/")
         if (
-                not SiteTitle.objects.filter(extra="title").exists()
-                and not SiteDescription.objects.filter(extra="description").exists()
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
         elif (
-                SiteTitle.objects.filter(extra="title").exists()
-                and SiteDescription.objects.filter(extra="description").exists()
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
@@ -65,7 +71,13 @@ def login(request):
         return render(
             request,
             "front/log-in/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Log In", 'github':github},
+            {
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Log In",
+                "github": github,
+                "logo": logo,
+            },
         )
     else:
         return redirect("/home/")
@@ -104,30 +116,36 @@ def login_handle(request):
 
 @gzip_page
 def reset_password(request):
-    # UrlObject = Url.objects.get(extra="main")
-
+    # UrlObject = Url.objects.get(extra="urls")
+    logo = Logo.objects.get(extra="logo")
     if request.method == "POST":
         email = request.POST.get("email")
 
     elif request.method == "GET":
         if (
-                not SiteTitle.objects.filter(extra="title").exists()
-                and not SiteDescription.objects.filter(extra="description").exists()
+            not SiteTitle.objects.filter(extra="title").exists()
+            and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
         elif (
-                SiteTitle.objects.filter(extra="title").exists()
-                and SiteDescription.objects.filter(extra="description").exists()
+            SiteTitle.objects.filter(extra="title").exists()
+            and SiteDescription.objects.filter(extra="description").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
-        github = GithubUserId.objects.get(extra='github')
+        github = GithubUserId.objects.get(extra="github")
 
         return render(
             request,
             "front/reset-password/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Reset Password", "github":github},
+            {
+                "title": title,
+                "slogan": slogan,
+                "site_header": "Reset Password",
+                "github": github,
+                "logo": logo,
+            },
         )
 
 
@@ -160,6 +178,7 @@ def register_handler(request):
         return redirect("/log-in/")
     else:
         return redirect("/sign-up/")
+
 
 # TODO?
 # ADD RESET PASSWORD EMAIL(NEED TANIMS HELP)
