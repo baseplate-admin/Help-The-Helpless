@@ -6,6 +6,7 @@ from Backend.models import SiteTitle
 from django.views.decorators.gzip import gzip_page
 from django.http import HttpResponse
 
+from Backend.models import GithubUserId
 
 # Create your views here.
 
@@ -27,10 +28,12 @@ def home_view(request):
             slogan = SiteDescription.objects.get(extra="description")
 
         urls = Urllinks.objects.get(extra="main")
+        github = GithubUserId.objects.get(extra='github')
+
         return render(
             request,
             "front/home/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home"},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Home", 'github':github},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -56,10 +59,12 @@ def donation(request):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
         urls = Urllinks.objects.get(extra="main")
+        github = GithubUserId.objects.get(extra='github')
+
         return render(
             request,
             "front/donate/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate"},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Donate", 'github':github},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -81,10 +86,12 @@ def blog(request):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
         urls = Urllinks.objects.get(extra="main")
+        github = GithubUserId.objects.get(extra='github')
+
         return render(
             request,
             "front/blog/index.html",
-            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog"},
+            {"urls": urls, "title": title, "slogan": slogan, "site_header": "Blog", 'github':github},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -92,4 +99,6 @@ def blog(request):
 
 @gzip_page
 def blog_create(request):
-    return render(request, 'front/blog-create/index.html')
+    github = GithubUserId.objects.get(extra='github')
+
+    return render(request, 'front/blog-create/index.html', {'github':github})

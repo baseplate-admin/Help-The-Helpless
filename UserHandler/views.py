@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.decorators.gzip import gzip_page
 
+from Backend.models import GithubUserId
 from Backend.models import SiteDescription
 from Backend.models import SiteTitle
 
@@ -29,10 +30,12 @@ def register(request):
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
+        github = GithubUserId.objects.get(extra='github')
+
         return render(
             request,
             "front/sign-up/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Sign up"},
+            {"title": title, "slogan": slogan, "site_header": "Sign up", 'github':github},
         )
     else:
         return redirect("/home/")
@@ -41,6 +44,8 @@ def register(request):
 @gzip_page
 def login(request):
     if request.method == "GET":
+        github = GithubUserId.objects.get(extra='github')
+
         if request.user.is_authenticated:
             return redirect("/home/")
         if (
@@ -60,7 +65,7 @@ def login(request):
         return render(
             request,
             "front/log-in/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Log In"},
+            {"title": title, "slogan": slogan, "site_header": "Log In", 'github':github},
         )
     else:
         return redirect("/home/")
@@ -117,11 +122,12 @@ def reset_password(request):
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
+        github = GithubUserId.objects.get(extra='github')
 
         return render(
             request,
             "front/reset-password/index.html",
-            {"title": title, "slogan": slogan, "site_header": "Reset Password"},
+            {"title": title, "slogan": slogan, "site_header": "Reset Password", "github":github},
         )
 
 

@@ -43,9 +43,12 @@
                 font-family: Nunito;
             }
         </style>
-        <link rel="https://api.w.org/" href="{% static 'wp-json/' %}"/>
-        <link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/22' %}"/>
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% static 'wp-includes/wlwmanifest.xml' %}"/>
+        <link rel="https://api.w.org/"
+              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-json/ "/>
+        <link rel="alternate" type="application/json"
+              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-json/wp/v2/pages/22 "/>
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/wlwmanifest.xml "/>
         <meta name="generator" content="WordPress 5.5.3"/>
         <link rel="canonical" href="/home/"/>
     </head>
@@ -158,7 +161,7 @@ A non-profit organisation<br>
             let link8 = document.createElement('link');
 
             script.type = 'text/javascript';
-            script.src = '{% static 'wp-content/themes/blossom-coach/js/all.min.js' %}';
+            script.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
 
             script1.type = "text/javascript";
             script1.src = "https://cdn.jsdelivr.net/npm/jquery-migrate@1.4.1/dist/jquery-migrate.min.js"
@@ -168,40 +171,40 @@ A non-profit organisation<br>
             link2.href = "https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css"
 
             script4.type = 'text/javascript'
-            script4.src = "{% static 'wp-content/themes/blossom-coach/js/custom.min.js' %}"
+            script4.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
 
             script5.type = 'text/javascript'
-            script5.src = "{% static 'wp-includes/js/imagesloaded.min.js' %}"
+            script5.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/imagesloaded.min.js "
 
             script6.type = 'text/javascript'
-            script6.src = "{% static 'wp-content/themes/blossom-coach/js/modal-accessibility.min.js' %}"
+            script6.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
 
             script7.type = "type/javascript"
-            script7.src = "{% static 'wp-content/themes/blossom-coach/js/v4-shims.min.js' %}"
+            script7.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
 
             script8.type = "text/javascript"
-            script8.src = "{% static 'wp-includes/js/wp-embed.min.js' %}"
+            script8.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/wp-embed.min.js "
 
             script9.type = "text/javascript"
-            script9.src = "{% static 'wp-includes/js/masonry.min.js' %}"
+            script9.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/masonry.min.js "
 
             script10.type = 'text/javascript'
-            script10.src = "{% static 'wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js' %}"
+            script10.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
 
             script11.type = 'text/javascript'
             script11.src = 'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js'
 
             link3.rel = 'stylesheet'
             link3.type = 'text/css'
-            link3.href = '{% static 'wp-content/themes/blossom-coach/css/animate.min.css' %}'
+            link3.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
 
             link4.rel = 'stylesheet'
             link4.type = 'text/css'
-            link4.href = '{% static 'wp-includes/css/dist/block-library/style.min.css' %}'
+            link4.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
 
             link5.rel = 'stylesheet'
             link5.type = 'text/css'
-            link5.href = '{% static 'wp-content/uploads/elementor/css/global.css' %}'
+            link5.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/uploads/elementor/css/global.css'
 
             link6.rel = 'stylesheet'
             link6.type = 'text/css'
@@ -213,7 +216,7 @@ A non-profit organisation<br>
 
             link8.rel = 'stylesheet'
             link8.type = 'text/css'
-            link8.href = '{% static 'wp-content/themes/blossom-coach/style.css' %}'
+            link8.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/style.css'
 
 
             head.appendChild(link2)
