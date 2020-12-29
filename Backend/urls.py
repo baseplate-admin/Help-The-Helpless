@@ -16,4 +16,6 @@ urlpatterns = [
         views.slogan_and_title_edit_create,
         name="title-and-slogan-edit-create",
     ),
+    path("back/github-user-id/", views.github_user_id, name='github-user-id'),
+    path("back/github-user-id-handle/", views.github_user_id_handle, name='github-user-id-handle'),
 ]

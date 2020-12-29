@@ -88,11 +88,11 @@
         <button type="submit" class="btn">
             <b>SUBMIT</b></button>
     </form>
+    <!-- Script is not working -->
     <script type="text/javascript">
         titleFromDjango = "{{ title.site_title }}"
         sloganFromDjango = "{{ slogan.site_description }}"
         $(".input-field1").val(titleFromDjango)
         $(".input-field2").val(sloganFromDjango)
-
     </script>
 {% endblock %}

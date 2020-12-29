@@ -1,15 +1,35 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from Backend.models import UrlLink
-from Backend.models import SiteDescription
-from Backend.models import SiteTitle
-from Backend.models import GithubUserId
-from Backend.models import Logo
-
+from django.shortcuts import redirect
+from django.shortcuts import render
 # Create your views here
 from django.views.decorators.gzip import gzip_page
+
+from Backend.models import GithubUserId
+from Backend.models import Logo
+from Backend.models import SiteDescription
+from Backend.models import SiteTitle
+from Backend.models import UrlLink
+
+
+class ImageToBase64:
+    def __init__(self):
+        self.image = None
+        self.base64 = None
+
+    def _read_image(self, image):
+        file = open(f"{image}", 'rb')
+        self.image = file.read()
+        return self.image
+
+    def _image_to_base64(self):
+        import base64
+        self.base64 = base64.b64encode(self.image)
+        return self.base64
+
+    def image_input(self, input_image):
+        self._read_image(input_image)
+        self._image_to_base64()
 
 
 @gzip_page
@@ -17,18 +37,18 @@ from django.views.decorators.gzip import gzip_page
 def url_edit(request):
     if request.method == "GET":
         if (
-            not UrlLink.objects.filter(extra="urls").exists()
-            and not SiteTitle.objects.filter(extra="title").exists()
-            and not SiteDescription.objects.filter(extra="description").exists()
+                not UrlLink.objects.filter(extra="urls").exists()
+                and not SiteTitle.objects.filter(extra="title").exists()
+                and not SiteDescription.objects.filter(extra="description").exists()
         ):
             title = "title"
             slogan = "slogan"
             UrlLink.objects.create(extra="urls").save()
 
         elif (
-            SiteTitle.objects.filter(extra="title").exists()
-            and SiteDescription.objects.filter(extra="description").exists()
-            and UrlLink.objects.filter(extra="urls").exists()
+                SiteTitle.objects.filter(extra="title").exists()
+                and SiteDescription.objects.filter(extra="description").exists()
+                and UrlLink.objects.filter(extra="urls").exists()
         ):
             title = SiteTitle.objects.get(extra="title")
             slogan = SiteDescription.objects.get(extra="description")
@@ -84,8 +104,8 @@ def url_edit_create(request, pk):
 def slogan_and_title_edit(request):
     if request.method == "GET":
         if (
-            not SiteTitle.objects.filter(extra="title").exists()
-            and not SiteDescription.objects.filter(extra="description").exists()
+                not SiteTitle.objects.filter(extra="title").exists()
+                and not SiteDescription.objects.filter(extra="description").exists()
         ):
             SiteTitle.objects.create(extra="title").save()
             SiteDescription.objects.create(extra="description").save()
@@ -134,3 +154,37 @@ def slogan_and_title_edit_create(request, title_pk, description_pk):
         return redirect("/back/title-and-slogan-edit/")
     elif request.method == "GET":
         return redirect("/back/title-and-slogan-edit/")
+
+
+@gzip_page
+@login_required(login_url='log-in')
+def github_user_id(request):
+    if request.method == "GET":
+        if not GithubUserId.objects.filter(extra='github').exists():
+            GithubUserId.objects.create(extra='github').save()
+        title = SiteTitle.objects.get(extra="title")
+        slogan = SiteDescription.objects.get(extra="description")
+        github = GithubUserId.objects.get(extra="github")
+        logo = Logo.objects.get(extra="logo")
+        return render(request, 'back/github-user-id/index.html',
+                      {"site_header": "Github User ID", 'title': title, 'slogan': slogan, "github": github,
+                       'logo': logo})
+    else:
+        return HttpResponse("<h1>Post not allowed</h1>")
+
+
+@login_required(login_url='log-in')
+def github_user_id_handle(request):
+    if request.method == "POST":
+        username = request.POST.get("github_username")
+        tag = request.POST.get('github_tag')
+        repo = request.POST.get('github_repo')
+        github = GithubUserId.objects.get(extra="github")
+        github.github_username = username
+        github.github_tag = tag
+        github.github_repo = repo
+        github.save()
+        return redirect('/back/github-user-id')
+    else:
+        return redirect('/back/github-user-id')
+

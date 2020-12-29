@@ -158,7 +158,7 @@
     <script>
         let head = document.getElementsByTagName('HEAD')[0];
 
-        let script = document.createElement('script');
+        let script0 = document.createElement('script');
         let script1 = document.createElement('script');
         let script2 = document.createElement('script');
         let script3 = document.createElement('script');
@@ -191,8 +191,8 @@
         let link13 = document.createElement('link');
         let link14 = document.createElement('link');
 
-        script.type = 'text/javascript'
-        script.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
+        script0.type = 'text/javascript'
+        script0.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
 
         script1.type = 'text/javascript'
         script1.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js'
@@ -234,7 +234,7 @@
         script13.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js'
 
         script14.type = 'text/javascript'
-        script14.src = 'https://cdn.jsdelivr.net/npm/jquery-migrate@1.4.1/dist/jquery-migrate.min.js'
+        script14.src = 'https://cdn.jsdelivr.net/npm/jquery-migrate@3.3.2/dist/jquery-migrate.min.js'
 
         script15.type = 'text/javascript'
         script15.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js'
@@ -304,7 +304,7 @@
 
         head.appendChild(link3);
         head.appendChild(script2);
-        head.appendChild(script);
+        head.appendChild(script0);
         head.appendChild(script1);
         head.appendChild(script3);
         head.appendChild(script4);
