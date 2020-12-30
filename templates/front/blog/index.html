@@ -29,13 +29,13 @@
                                 <ul id="primary-menu" class="menu main-menu-modal">
                                     <li id="menu-item-31"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  page_item page-item-22  menu-item-31">
-                                        <a href="/home/">Home</a></li>
+                                        <a href="{% url 'home' %}">Home</a></li>
                                     <li id="menu-item-32"
                                         class=" current-menu-item menu-item current_page_item menu-item-type-post_type menu-item-object-page menu-item-32">
-                                        <a href="/blog/" aria-current="page">Blog</a></li>
+                                        <a href="{% url 'blog' %}" aria-current="page">Blog</a></li>
                                     <li id="menu-item-34"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
-                                        <a href="/donate/">Donate</a></li>
+                                        <a href="{% url 'donate' %}">Donate</a></li>
                                     {% if user.is_authenticated %}
                                         <li id="menu-item-139"
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
