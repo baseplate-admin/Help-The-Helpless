@@ -4,46 +4,19 @@ from django.db import models
 # Create your models here.
 
 
-class UrlLink(models.Model):
+class Backend(models.Model):
     facebook_url = models.URLField()
     youtube_url = models.URLField()
     email_url = models.EmailField()
-    extra = models.CharField(max_length=4, default="urls")
+    site_title = models.CharField(max_length=20, default="Title")
+    site_description = models.CharField(max_length=50, default="Description")
+    github_username = models.CharField(max_length=20, default="Github Username")
+    github_tag = models.CharField(max_length=3, default="1.0")
+    github_repo = models.CharField(max_length=50, default="Github Repo Name")
+    favicon = models.TextField(default="Favicon")
+    logo = models.TextField(default="Main logo")
+    extra = models.CharField(max_length=7, default="backend")
 
     def __str__(self):
         return str(self.id)
 
-
-class SiteTitle(models.Model):
-    site_title = models.CharField(max_length=20, default="Title")
-    extra = models.CharField(max_length=5, default="title")
-
-    def __str__(self):
-        return str(self.extra)
-
-
-class SiteDescription(models.Model):
-    site_description = models.CharField(max_length=50, default="Description")
-    extra = models.CharField(max_length=11, default="description")
-
-    def __str__(self):
-        return str(self.extra)
-
-
-class GithubUserId(models.Model):
-    github_username = models.CharField(max_length=20, default="Github Username")
-    github_tag = models.CharField(max_length=3, default="1.0")
-    github_repo = models.CharField(max_length=50, default="Github Repo Name")
-    extra = models.CharField(max_length=6, default="github")
-
-    def __str__(self):
-        return str(self.extra)
-
-
-class Logo(models.Model):
-    favicon = models.TextField(default="Favicon")
-    logo = models.TextField(default="Main logo")
-    extra = models.CharField(max_length=4, default="logo")
-
-    def __str__(self):
-        return str(self.extra)

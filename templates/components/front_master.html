@@ -5,10 +5,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
-        <title>{{ site_header }} &#8211; {{ title.site_title }}</title>
+        <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
         <link rel="shortcut icon"
               href="{{ logo.favicon }}"
         >
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <style id='blossom-coach-inline-css' type='text/css'>
             /*Typography*/
             body,
@@ -44,11 +46,11 @@
             }
         </style>
         <link rel="https://api.w.org/"
-              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-json/ "/>
+              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/ "/>
         <link rel="alternate" type="application/json"
-              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-json/wp/v2/pages/22 "/>
+              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/wp/v2/pages/22 "/>
         <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-              href="https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/wlwmanifest.xml "/>
+              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/wlwmanifest.xml "/>
         <meta name="generator" content="WordPress 5.5.3"/>
         <link rel="canonical" href="/home/"/>
     </head>
@@ -67,16 +69,16 @@
             <div class="header-t">
                 <div class="wrapper">
                     <div class="top-right container">
-                        <a href="{{ urls.facebook_url }}" target="_blank"
+                        <a href="{{ backend.facebook_url }}" target="_blank"
                            rel="nofollow">
                             <ion-icon name="logo-facebook"
                                       style="color: #3b5998; font-size: 125%; position:relative; top:12px; padding:5px"></ion-icon>
                         </a>
-                        <a href="{{ urls.youtube_url }}" target="_blank" rel="nofollow">
+                        <a href="{{ backend.youtube_url }}" target="_blank" rel="nofollow">
                             <ion-icon name="logo-youtube"
                                       style="color: #FF0000; font-size: 125%; position:relative; top:12px;  padding:5px"></ion-icon>
                         </a>
-                        <a href="{{ urls.email_url }}" target="_blank" rel="nofollow">
+                        <a href="{{ backend.email_url }}" target="_blank" rel="nofollow">
                             <ion-icon name="mail"
                                       style="color: #0489C9; font-size: 125%; position:relative; top:12px;  padding:5px"></ion-icon>
                         </a>
@@ -123,7 +125,7 @@
             <div class="bottom-footer">
                 <div class="wrapper">
                     <div class="copyright">
-            <span><b>{{ title.site_title }}</b><br>
+            <span><b>{{ backend.site_title }}</b><br>
 A non-profit organisation<br>
 </span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"
                                         rel="nofollow" target="_blank">Blossom
@@ -136,8 +138,6 @@ A non-profit organisation<br>
             </button>
         </footer><!-- #colophon -->
     </div><!-- #page -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
             integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE=" crossorigin="anonymous"></script>
@@ -161,41 +161,41 @@ A non-profit organisation<br>
         let link8 = document.createElement('link');
 
         script.type = 'text/javascript';
-        script.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
+        script.src = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
 
         script4.type = 'text/javascript'
-        script4.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
+        script4.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
 
         script5.type = 'text/javascript'
-        script5.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/imagesloaded.min.js "
+        script5.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js "
 
         script6.type = 'text/javascript'
-        script6.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
+        script6.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
 
         script7.type = "type/javascript"
-        script7.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
+        script7.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
 
         script8.type = "text/javascript"
-        script8.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/wp-embed.min.js "
+        script8.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js "
 
         script9.type = "text/javascript"
-        script9.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/masonry.min.js "
+        script9.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js "
 
         script10.type = 'text/javascript'
-        script10.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
+        script10.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
 
 
         link3.rel = 'stylesheet'
         link3.type = 'text/css'
-        link3.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
+        link3.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
 
         link4.rel = 'stylesheet'
         link4.type = 'text/css'
-        link4.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
+        link4.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
 
         link5.rel = 'stylesheet'
         link5.type = 'text/css'
-        link5.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/uploads/elementor/css/global.css'
+        link5.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css'
 
         link6.rel = 'stylesheet'
         link6.type = 'text/css'
@@ -207,7 +207,7 @@ A non-profit organisation<br>
 
         link8.rel = 'stylesheet'
         link8.type = 'text/css'
-        link8.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/style.css'
+        link8.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css'
 
 
         head.appendChild(link3)
@@ -225,9 +225,8 @@ A non-profit organisation<br>
         head.appendChild(script9);
         head.appendChild(script10);
     </script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
     <script>
         window.setInterval(function () {
             $("#site-reload-content").load(" #site-reload-content");
