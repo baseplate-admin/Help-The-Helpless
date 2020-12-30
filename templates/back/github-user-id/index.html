@@ -6,7 +6,6 @@
             font-family: Arial, Helvetica, sans-serif;
             -ms-flex-align: center;
             display: -ms-flexbox;
-            background-color: #f5f5f5;
             padding-top: 100px;
             padding-bottom: 20px;
             align-items: center;
@@ -109,7 +108,8 @@
 
     </style>
     <div class="grow" style="text-align: center;height: 230px;width: 230px;">
-        <img src='{{ backend.logo }}' style='width: 220px;height: 220px'>
+        <img src='{{ backend.logo }}' style='width: 220px;height: 220px'
+             style="background-color: white;background-blend-mode: multiply;">
     </div>
     <div class="container" style="text-align: center;padding-top: 4px">
         <p class="font-paragraph">{{ backend.site_title }}</p>
@@ -139,7 +139,6 @@
                 <input name="github_repo" style="max-height: 50px" type="text" class=" input-field3 form-control"
                        placeholder="Repo">
             </div>
-
 
         </div>
         <br>
