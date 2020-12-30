@@ -13,7 +13,7 @@
         }
 
         .form-control:focus {
-            border: 2.5px solid #3b5998;
+            border: 2.5px solid #80d8e8;
         }
 
         textarea:hover,
@@ -51,11 +51,13 @@
             text-align: left;
             outline: none;
             transition: 0.5s;
+        }
+        .input-field1::placeholder, .input-field2::placeholder, .input-field3::placeholder {
             opacity: 0.5;
         }
-
-        .input-field1:focus {
-            border: 2.5px solid #3b5998;
+        .input-field1:focus, .input-field2:focus, .input-field3:focus {
+            border: 2.5px solid #6ad5e7;
+            opacity: 1;
         }
 
         .btn {
@@ -97,6 +99,12 @@
             font-size: 25px;
             color: #888484;
         }
+
+        .input-container{
+            max-height: 50px;
+            max-width: 500px;
+        }
+
     </style>
     <div class="grow" style="text-align: center;height: 230px;width: 230px;">
         <img src='{{ logo.logo }}' style='width: 220px;height: 220px'>
@@ -105,26 +113,34 @@
         <p class="font-paragraph">{{ title.site_title }}</p>
     </div>
 
-    <form class="container" method="POST" action="{% url 'github-user-id-handle' %}" style="max-width:524px; ; margin:auto">
-    {% csrf_token %}
-        <div class="  input-group mb-3">
-            <ion-icon name="person-outline" style="background:#403a3a"></ion-icon>
-            <input name="github_username" style="max-height: 50.7px" type="text" class=" input-field1 form-control"
-                   placeholder="Username">
+    <form method="POST" action="{% url 'github-user-id-handle' %}"
+          style="max-width:524px; margin:auto">
+        {% csrf_token %}
+        <div class="input-container">
+            <ion-icon name="person-outline" style="background: #7fdeeb"></ion-icon>
+            <div class=" input-group mb-3">
+                <input name="github_username" style="max-height: 50px" type="text" class=" input-field1 form-control"
+                       placeholder="Username">
+            </div>
+
         </div>
-        <div class="input-group mb-3">
-            <ion-icon name="pricetag-outline" style="background:#403a3a"></ion-icon>
-            <input name="github_tag" style="max-height: 50.7px" type="text" class=" input-field2 form-control"
-                   placeholder="Tag">
+        <div class="input-container">
+            <ion-icon name="pricetag-outline" style="background: #7fdeeb"></ion-icon>
+            <div class="input-group mb-3">
+                <input name="github_tag" style="max-height: 50px" type="text" class=" input-field2 form-control"
+                       placeholder="Tag">
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <ion-icon name="flask-outline" style="background:#403a3a"></ion-icon>
-            <input name="github_repo" style="max-height: 50.7px" type="text" class=" input-field3 form-control"
-                   placeholder="Repo">
+        <div class="input-container">
+            <ion-icon name="flask-outline" style="background: #7fdeeb"></ion-icon>
+            <div class=" input-group mb-3">
+                <input name="github_repo" style="max-height: 50px" type="text" class=" input-field3 form-control"
+                       placeholder="Repo">
+            </div>
+
 
         </div>
         <br>
         <button type="submit" class="btn">SUBMIT</button>
     </form>
-
 {% endblock %}
