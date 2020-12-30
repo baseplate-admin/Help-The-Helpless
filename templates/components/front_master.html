@@ -138,105 +138,92 @@ A non-profit organisation<br>
     </div><!-- #page -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
+            integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
+          integrity="sha256-ymMA1/kGhlQxXn0q9DFzHRt3VIY1Eh7BJcEfM3I88a4=" crossorigin="anonymous">
     <script>
-        window.onload = function () {
-            let head = document.getElementsByTagName('HEAD')[0];
+        let head = document.getElementsByTagName('HEAD')[0];
+        let script = document.createElement('script');
+        let script4 = document.createElement('script');
+        let script5 = document.createElement('script');
+        let script6 = document.createElement('script');
+        let script7 = document.createElement('script');
+        let script8 = document.createElement('script');
+        let script9 = document.createElement('script');
+        let script10 = document.createElement('script');
+        let link3 = document.createElement('link');
+        let link4 = document.createElement('link');
+        let link5 = document.createElement('link');
+        let link6 = document.createElement('link');
+        let link7 = document.createElement('link');
+        let link8 = document.createElement('link');
 
-            let script = document.createElement('script');
-            let script1 = document.createElement('script');
-            let script4 = document.createElement('script');
-            let script5 = document.createElement('script');
-            let script6 = document.createElement('script');
-            let script7 = document.createElement('script');
-            let script8 = document.createElement('script');
-            let script9 = document.createElement('script');
-            let script10 = document.createElement('script');
-            let script11 = document.createElement('script');
-            let link2 = document.createElement('link');
-            let link3 = document.createElement('link');
-            let link4 = document.createElement('link');
-            let link5 = document.createElement('link');
-            let link6 = document.createElement('link');
-            let link7 = document.createElement('link');
-            let link8 = document.createElement('link');
+        script.type = 'text/javascript';
+        script.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
 
-            script.type = 'text/javascript';
-            script.src = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
+        script4.type = 'text/javascript'
+        script4.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
 
-            script1.type = "text/javascript";
-            script1.src = "https://cdn.jsdelivr.net/npm/jquery-migrate@3.3.2/dist/jquery-migrate.min.js"
+        script5.type = 'text/javascript'
+        script5.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/imagesloaded.min.js "
 
-            link2.rel = "stylesheet"
-            link2.type = "text/css"
-            link2.href = "https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css"
+        script6.type = 'text/javascript'
+        script6.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
 
-            script4.type = 'text/javascript'
-            script4.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
+        script7.type = "type/javascript"
+        script7.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
 
-            script5.type = 'text/javascript'
-            script5.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/imagesloaded.min.js "
+        script8.type = "text/javascript"
+        script8.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/wp-embed.min.js "
 
-            script6.type = 'text/javascript'
-            script6.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
+        script9.type = "text/javascript"
+        script9.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/masonry.min.js "
 
-            script7.type = "type/javascript"
-            script7.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
-
-            script8.type = "text/javascript"
-            script8.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/wp-embed.min.js "
-
-            script9.type = "text/javascript"
-            script9.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/js/masonry.min.js "
-
-            script10.type = 'text/javascript'
-            script10.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
-
-            script11.type = 'text/javascript'
-            script11.src = 'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js'
-
-            link3.rel = 'stylesheet'
-            link3.type = 'text/css'
-            link3.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
-
-            link4.rel = 'stylesheet'
-            link4.type = 'text/css'
-            link4.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
-
-            link5.rel = 'stylesheet'
-            link5.type = 'text/css'
-            link5.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/uploads/elementor/css/global.css'
-
-            link6.rel = 'stylesheet'
-            link6.type = 'text/css'
-            link6.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css'
-
-            link7.rel = 'stylesheet'
-            link7.type = 'text/css'
-            link7.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css'
-
-            link8.rel = 'stylesheet'
-            link8.type = 'text/css'
-            link8.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/style.css'
+        script10.type = 'text/javascript'
+        script10.src = "https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
 
 
-            head.appendChild(link2)
-            head.appendChild(link3)
-            head.appendChild(link4)
-            head.appendChild(link5)
-            head.appendChild(link6)
-            head.appendChild(link7)
-            head.appendChild(link8)
-            head.appendChild(script);
-            head.appendChild(script1);
-            head.appendChild(script4);
-            head.appendChild(script5);
-            head.appendChild(script6);
-            head.appendChild(script7);
-            head.appendChild(script8);
-            head.appendChild(script9);
-            head.appendChild(script10);
-            head.appendChild(script11);
-        };
+        link3.rel = 'stylesheet'
+        link3.type = 'text/css'
+        link3.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
+
+        link4.rel = 'stylesheet'
+        link4.type = 'text/css'
+        link4.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
+
+        link5.rel = 'stylesheet'
+        link5.type = 'text/css'
+        link5.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/uploads/elementor/css/global.css'
+
+        link6.rel = 'stylesheet'
+        link6.type = 'text/css'
+        link6.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css'
+
+        link7.rel = 'stylesheet'
+        link7.type = 'text/css'
+        link7.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css'
+
+        link8.rel = 'stylesheet'
+        link8.type = 'text/css'
+        link8.href = 'https://cdn.jsdelivr.net/gh/{{ github.github_username }}/{{ github.github_repo }}@{{ github.github_tag }}/wp-content/themes/blossom-coach/style.css'
+
+
+        head.appendChild(link3)
+        head.appendChild(link4)
+        head.appendChild(link5)
+        head.appendChild(link6)
+        head.appendChild(link7)
+        head.appendChild(link8)
+        head.appendChild(script);
+        head.appendChild(script4);
+        head.appendChild(script5);
+        head.appendChild(script6);
+        head.appendChild(script7);
+        head.appendChild(script8);
+        head.appendChild(script9);
+        head.appendChild(script10);
     </script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
