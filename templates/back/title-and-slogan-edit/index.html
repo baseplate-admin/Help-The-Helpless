@@ -90,8 +90,8 @@
     </form>
     <!-- Script is not working -->
     <script type="text/javascript">
-        titleFromDjango = "{{ title.site_title }}"
-        sloganFromDjango = "{{ slogan.site_description }}"
+        titleFromDjango = "{{ backend.site_title }}"
+        sloganFromDjango = "{{ backend.site_description }}"
         $(".input-field1").val(titleFromDjango)
         $(".input-field2").val(sloganFromDjango)
     </script>

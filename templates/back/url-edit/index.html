@@ -100,4 +100,12 @@
         <button type="submit" class="btn">
             <b>SUBMIT</b></button>
     </form>
+    <script>
+        facebookFromDjango = "{{ backend.facebook_url }}"
+        youtubeFromDjango = "{{ backend.youtube_url }}"
+        emailFromDjango = "{{ backend.email_url }}"
+        $(".input-field1").val(facebookFromDjango)
+        $(".input-field2").val(youtubeFromDjango)
+        $(".input-field3").val(emailFromDjango)
+    </script>
 {% endblock %}

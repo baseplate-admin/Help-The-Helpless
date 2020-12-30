@@ -52,9 +52,11 @@
             outline: none;
             transition: 0.5s;
         }
+
         .input-field1::placeholder, .input-field2::placeholder, .input-field3::placeholder {
             opacity: 0.5;
         }
+
         .input-field1:focus, .input-field2:focus, .input-field3:focus {
             border: 2.5px solid #6ad5e7;
             opacity: 1;
@@ -100,17 +102,17 @@
             color: #888484;
         }
 
-        .input-container{
+        .input-container {
             max-height: 50px;
             max-width: 500px;
         }
 
     </style>
     <div class="grow" style="text-align: center;height: 230px;width: 230px;">
-        <img src='{{ logo.logo }}' style='width: 220px;height: 220px'>
+        <img src='{{ backend.logo }}' style='width: 220px;height: 220px'>
     </div>
     <div class="container" style="text-align: center;padding-top: 4px">
-        <p class="font-paragraph">{{ title.site_title }}</p>
+        <p class="font-paragraph">{{ backend.site_title }}</p>
     </div>
 
     <form method="POST" action="{% url 'github-user-id-handle' %}"
@@ -143,4 +145,12 @@
         <br>
         <button type="submit" class="btn">SUBMIT</button>
     </form>
+    <script>
+        githubRepoFromDjango = "{{ backend.facebook_url }}"
+        githubTagFromDjango = "{{ backend.youtube_url }}"
+        githubUserFromDjango = "{{ backend.email_url }}"
+        $(".input-field1").val(facebookFromDjango)
+        $(".input-field2").val(youtubeFromDjango)
+        $(".input-field3").val(emailFromDjango)
+    </script>
 {% endblock %}

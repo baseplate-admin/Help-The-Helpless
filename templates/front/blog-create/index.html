@@ -1,152 +1,297 @@
-{% extends 'components/front_forms.html' %}
-{% block form %}
+<!DOCTYPE html>
 
-    <style media="screen">
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+<head>
+    <title>Drag and Drop File Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<style media="screen">
+    .drop-zone, .anime {
+        animation: fadeIn ease 2s;
+        -webkit-animation: fadeIn ease 2s;
+        -moz-animation: fadeIn ease 2s;
+        -o-animation: fadeIn ease 2s;
+        -ms-animation: fadeIn ease 2s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
         }
-
-        .search {
-            position: relative;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .search textarea {
-            text-indent: 30px;
-        }
-
-        .search .material-icons {
-            position: absolute;
-            top: 28px;
-            left: 65%;
-            font-size: 23px;
-            color: gray;
-        }
-
-        textarea {
-            width: 40%;
-            padding: 5px;
-            margin: 15px;
-            outline: none;
-            font-size: 27px;
-            height: 35px;
-        }
-
-        textarea:focus {
-            transition: 0.5s;
-            border: 2.5px solid #8feb4d;
-        }
-
-        .center {
-            padding: 25px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .button {
-            display: flex;
-            justify-content: center;
-        }
-
-        .btn {
-            background-color: #83d945;
-            color: white;
-            padding: 15px 20px;
-            border: none;
-            cursor: pointer;
-            width: 40%;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
+        100% {
             opacity: 1;
-            background-color: #77c73e;
         }
+    }
 
-    </style>
+    @-moz-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
-    <div class="search">
-                                                                                <span> <i
-                                                                                        class="material-icons">textsms</i></span>
-        <textarea name="text" rows="2" cols="50"
-                  placeholder="Write Something"></textarea>
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @-o-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @-ms-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .drop-zone {
+        max-width: 200px;
+        height: 200px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: #cccccc;
+        border: 4px dashed #009578;
+        border-radius: 12px;
+    }
+
+    .drop-zone--over {
+        border-style: solid;
+    }
+
+    .drop-zone__input {
+        display: none;
+    }
+
+    .drop-zone__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        position: relative;
+    }
+
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .search {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .search textarea {
+        text-indent: 42px;
+    }
+
+    textarea::placeholder {
+        font-family: sans-serif;
+        font-size: 65%;
+        padding: 5px;
+
+    }
+
+    .search .material-icons {
+        position: absolute;
+        left: 31%;
+        top: 34px;
+        font-size: 23px;
+        color: gray;
+    }
+
+    textarea {
+        width: 40%;
+        padding: 5px;
+        margin: 15px;
+        outline: none;
+        font-size: 24px;
+        height: auto;
+        line-height: 34px;
+        resize: none;
+        display: block;
+
+    }
+
+    textarea:focus {
+        transition: 0.5s;
+        border: 2.5px solid #8feb4d;
+    }
+
+    .center {
+        padding: 25px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        background-color: #83d945;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        width: 40%;
+        opacity: 0.8;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        opacity: 1;
+        background-color: #77c73e;
+    }
+
+    .head {
+
+        text-align: center;
+        width: 40%;
+        padding: 5px;
+        margin: 15px;
+        outline: none;
+        font-size: 24px;
+        height: auto;
+        line-height: 34px;
+        resize: none;
+        display: block;
+
+    }
+
+    .head:focus {
+        transition: 0.5s;
+        border: 2.5px solid #8feb4d;
+    }
+
+
+</style>
+
+<body>
+
+<div style=" display: flex;justify-content: center;">
+
+    <input type="text" name="header" placeholder="Header" class="head">
+
+</div>
+
+
+<div>
+    <div class="search" style=" display: flex;justify-content: center;">
+
+        <i class="material-icons">textsms</i>
+        <textarea id="autoresizing" name="text" placeholder="Write Something"></textarea>
+
+        <script type="text/javascript">
+            textarea = document.querySelector("#autoresizing");
+            textarea.addEventListener('input', autoResize, false);
+
+            function autoResize() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            }
+        </script>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="center">
+            &nbsp;&nbsp;&nbsp;
+            <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile1" class="drop-zone__input" id="div_">
+            </div>
+        </div>
+        <textarea name="title1" class="anime" id="t1" placeholder="Image title"
+                  style="display:none;margin:auto"></textarea>
+
     </div>
 
-    <div class="center">
-        <div class="drop-zone">
-            <span class="drop-zone__prompt">Drop file here or click to upload</span>
-            <input type="file" name="myFile"
-                   class="drop-zone__input">
+    <div class="container">
+        <div class="center" style="display: none;" id="divv">
+            &nbsp;&nbsp;&nbsp;
+            <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile2" class="drop-zone__input" id="divv_">
+            </div>&nbsp;&nbsp;&nbsp;
+            <textarea name="title2" class="anime" id="t2" style="display:none;" placeholder="Image title"></textarea>
         </div>
     </div>
 
-    <div class="button">
-        <br><br>
-        <button type="submit" name="post"
-                class="btn"><b>POST</b></button>
+    <div class="container">
+        <div class="center" style="display: none;" id="divvv">
+            <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile3" class="drop-zone__input" id="divvv_">
+            </div>&nbsp;&nbsp;&nbsp;
+            <textarea name="title3" class="anime" id="t3" style="display:none;" placeholder="Image title"></textarea>
+        </div>
     </div>
-    <title>Drag and Drop File Upload</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="shortcut icon"
-          href="/assets/favicon.ico">
-    <style>
-        .drop-zone {
-            max-width: 200px;
-            height: 200px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-family: "Quicksand", sans-serif;
-            font-weight: 500;
-            font-size: 20px;
-            cursor: pointer;
-            color: #cccccc;
-            border: 4px dashed #009578;
-            border-radius: 10px;
-        }
 
-        .drop-zone--over {
-            border-style: solid;
-        }
+    <div class="">
+        <div class="center" style="display: none;" id="divvvv">
+            &nbsp;&nbsp;&nbsp;
+            <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
+            </div>&nbsp;&nbsp;&nbsp;
+            <textarea name="title4" class="anime" id="t4" style="display:none;" placeholder="Image title"></textarea>
+        </div>
 
-        .drop-zone__input {
-            display: none;
-        }
+    </div>
 
-        .drop-zone__thumb {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: #cccccc;
-            background-size: cover;
-            position: relative;
-        }
+    <br><br>
+    <div class="button">
 
-        .drop-zone__thumb::after {
-            content: attr(data-label);
-            position: relative;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 5px 0;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.75);
-            font-size: 14px;
-            text-align: center;
-        }
+        <button type="submit" name="post" class="btn"><b>POST</b></button>
+    </div>
 
-    </style>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
 
     <script>
+
         document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
             const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -205,7 +350,6 @@
             }
 
             thumbnailElement.dataset.label = file.name;
-
             // Show thumbnail for image files
             if (file.type.startsWith("image/")) {
                 const reader = new FileReader();
@@ -217,7 +361,22 @@
             } else {
                 thumbnailElement.style.backgroundImage = null;
             }
+
+            if (document.getElementById("div_").value != "") {
+                $("#divv").show();
+                $("#t1").show();
+            }
+            if (document.getElementById("divv_").value != "") {
+                $("#divvv").show();
+                $("#t2").show();
+            }
+            if (document.getElementById("divvv_").value != "") {
+                $("#divvvv").show();
+                $("#t3").show();
+            }
+            if (document.getElementById("divvvv_").value != "")
+                $("#t4").show();
         }
 
     </script>
-{% endblock %}
+</body>
