@@ -58,7 +58,7 @@
         }
     </style>
     <form method="POST"
-          action="{% url 'title-and-slogan-edit-create' TitlePK DescriptionPK %}"
+          action="{% url 'title-and-slogan-edit-create'%}"
           style="max-width:500px;margin:auto">
         {% csrf_token %}
         <div class="input-container">

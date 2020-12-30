@@ -7,25 +7,41 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Backend',
+            name="Backend",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('facebook_url', models.URLField()),
-                ('youtube_url', models.URLField()),
-                ('email_url', models.EmailField(max_length=254)),
-                ('site_title', models.CharField(default='Title', max_length=20)),
-                ('site_description', models.CharField(default='Description', max_length=50)),
-                ('github_username', models.CharField(default='Github Username', max_length=20)),
-                ('github_tag', models.CharField(default='1.0', max_length=3)),
-                ('github_repo', models.CharField(default='Github Repo Name', max_length=50)),
-                ('favicon', models.TextField(default='Favicon')),
-                ('logo', models.TextField(default='Main logo')),
-                ('extra', models.CharField(default='backend', max_length=7)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("facebook_url", models.URLField()),
+                ("youtube_url", models.URLField()),
+                ("email_url", models.EmailField(max_length=254)),
+                ("site_title", models.CharField(default="Title", max_length=20)),
+                (
+                    "site_description",
+                    models.CharField(default="Description", max_length=50),
+                ),
+                (
+                    "github_username",
+                    models.CharField(default="Github Username", max_length=20),
+                ),
+                ("github_tag", models.CharField(default="1.0", max_length=3)),
+                (
+                    "github_repo",
+                    models.CharField(default="Github Repo Name", max_length=50),
+                ),
+                ("favicon", models.TextField(default="Favicon")),
+                ("logo", models.TextField(default="Main logo")),
+                ("extra", models.CharField(default="backend", max_length=7)),
             ],
         ),
     ]

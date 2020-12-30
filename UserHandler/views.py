@@ -9,29 +9,21 @@ from django.views.decorators.gzip import gzip_page
 from Backend.models import Backend
 
 
-
 # Create your views here.
 
 
 @gzip_page
 def register(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
             backend = "backend"
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
 
         return render(
             request,
             "front/sign-up/index.html",
-            {
-                "site_header": "Sign up",
-                'backend': backend,
-            },
+            {"site_header": "Sign up", "backend": backend,},
         )
     else:
         return redirect("/home/")
@@ -42,23 +34,16 @@ def login(request):
     if request.method == "GET":
         if request.user.is_authenticated:
             return redirect("/home/")
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
-            backend = 'backend'
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
+            backend = "backend"
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
         else:
             return HttpResponse("<h1>403 not Allowed</h1>")
         return render(
             request,
             "front/log-in/index.html",
-            {
-                "site_header": "Log In",
-                'backend': backend,
-            },
+            {"site_header": "Log In", "backend": backend,},
         )
     else:
         return redirect("/home/")
@@ -102,21 +87,14 @@ def reset_password(request):
         email = request.POST.get("email")
 
     elif request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
-            backend = 'backend'
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
+            backend = "backend"
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
         return render(
             request,
             "front/reset-password/index.html",
-            {
-                "site_header": "Reset Password",
-                'backend': backend,
-            },
+            {"site_header": "Reset Password", "backend": backend,},
         )
 
 

@@ -30,19 +30,30 @@ class ImageToBase64:
         self._image_to_base64()
 
 
+class GenerateKey:
+    def __init__(self):
+        self.key = self.gen_key()
+
+    def gen_key(self):
+        self.key = Fernet.generate_key()
+        return self.key
+
+    def does_key_exist(self):
+        database = Backend.objects.filter(extra="backend")
+        if database.key_hash is not None:
+            return database.key_hash
+        else:
+            database.key_hash = self.key
+
+
 @gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
             Backend.objects.create().save()
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
-            database_pk = backend.pk
 
         else:
             return HttpResponse(
@@ -51,11 +62,7 @@ def url_edit(request):
         return render(
             request,
             "back/url-edit/index.html",
-            {
-                "site_header": "Url Edit",
-                "pk": database_pk,
-                "backend": backend,
-            },
+            {"site_header": "Url Edit", "backend": backend,},
         )
 
     else:
@@ -64,10 +71,10 @@ def url_edit(request):
 
 @gzip_page
 @login_required(login_url="log-in")
-def url_edit_create(request, pk):
+def url_edit_create(request):
     if request.method == "POST":
-        database = Backend.objects.get(pk=pk)
 
+        database = Backend.objects.get(extra="backend")
         facebook_url = request.POST.get("facebook_url")
         youtube_url = request.POST.get("youtube_url")
         email_url = request.POST.get("email_url")
@@ -86,24 +93,13 @@ def url_edit_create(request, pk):
 @login_required(login_url="log-in")
 def slogan_and_title_edit(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
             Backend.objects.create(extra="backend").save()
         backend = Backend.objects.get(extra="backend")
-        SiteDescription_pk = backend.pk
-        SiteTitle_pk = backend.pk
-
-
         return render(
             request,
             "back/title-and-slogan-edit/index.html",
-            {
-                "site_header": "Title and Slogan Edit",
-                "TitlePK": SiteTitle_pk,
-                "DescriptionPK": SiteDescription_pk,
-                'backend': backend,
-            },
+            {"site_header": "Title and Slogan Edit", "backend": backend,},
         )
     else:
         return HttpResponse("<h1>403 post not Allowed</h1>")
@@ -111,8 +107,8 @@ def slogan_and_title_edit(request):
 
 @gzip_page
 @login_required(login_url="log-in")
-def slogan_and_title_edit_create(request, title_pk, description_pk):
-    backend = Backend.objects.get(pk=title_pk)
+def slogan_and_title_edit_create(request):
+    backend = Backend.objects.get(extra="backend")
 
     if request.method == "POST":
         title = request.POST.get("title")
@@ -139,10 +135,7 @@ def github_user_id(request):
         return render(
             request,
             "back/github-user-id/index.html",
-            {
-                "site_header": "Github User ID",
-                'backend': backend,
-            },
+            {"site_header": "Github User ID", "backend": backend,},
         )
     else:
         return HttpResponse("<h1>Post not allowed</h1>")

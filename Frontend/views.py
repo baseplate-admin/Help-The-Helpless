@@ -11,25 +11,17 @@ from Backend.models import Backend
 @gzip_page
 def home_view(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
 
-            Backend.objects.create(extra='backend').save()
+            Backend.objects.create(extra="backend").save()
 
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
-
 
         return render(
             request,
             "front/home/index.html",
-            {
-                "backend": backend,
-                "site_header": "Home",
-            },
+            {"backend": backend, "site_header": "Home",},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -42,23 +34,16 @@ def redirect_to_home(request):
 @gzip_page
 def donation(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
-            Backend.objects.create(extra='backend').save()
+        if not Backend.objects.filter(extra="backend").exists():
+            Backend.objects.create(extra="backend").save()
 
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
 
         return render(
             request,
             "front/donate/index.html",
-            {
-                "site_header": "Donate",
-                "backend":backend,
-            },
+            {"site_header": "Donate", "backend": backend,},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -67,23 +52,15 @@ def donation(request):
 @gzip_page
 def blog(request):
     if request.method == "GET":
-        if (
-            not Backend.objects.filter(extra="backend").exists()
-        ):
-            backend = 'backend'
-        elif (
-            Backend.objects.filter(extra="backend").exists()
-        ):
+        if not Backend.objects.filter(extra="backend").exists():
+            backend = "backend"
+        elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
 
         return render(
             request,
             "front/blog/index.html",
-            {
-                "backend": backend,
-                "site_header": "Blog",
-
-            },
+            {"backend": backend, "site_header": "Blog",},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
@@ -92,6 +69,4 @@ def blog(request):
 @gzip_page
 def blog_create(request):
     backend = Backend.objects.get(extra="backend")
-    return render(
-        request, "front/blog-create/index.html", {"backend":backend}
-    )
+    return render(request, "front/blog-create/index.html", {"backend": backend})

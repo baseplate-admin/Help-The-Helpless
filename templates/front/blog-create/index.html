@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/w3-css@4.1.0/w3.min.css">
 </head>
 
 <style media="screen">
@@ -250,132 +250,132 @@
 
     </div>
 </div>
-    <div class="container">
-        <div class="center" style="display: none;" id="divv">
-            &nbsp;&nbsp;&nbsp;
-            <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile2" class="drop-zone__input" id="divv_">
-            </div>&nbsp;&nbsp;&nbsp;
-            <textarea name="title2" class="anime" id="t2" style="display:none;" placeholder="Image title"></textarea>
-        </div>
+<div class="container">
+    <div class="center" style="display: none;" id="divv">
+        &nbsp;&nbsp;&nbsp;
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+            <input type="file" name="myFile2" class="drop-zone__input" id="divv_">
+        </div>&nbsp;&nbsp;&nbsp;
+        <textarea name="title2" class="anime" id="t2" style="display:none;" placeholder="Image title"></textarea>
     </div>
+</div>
 
-    <div class="container">
-        <div class="center" style="display: none;" id="divvv">
-            <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile3" class="drop-zone__input" id="divvv_">
-            </div>&nbsp;&nbsp;&nbsp;
-            <textarea name="title3" class="anime" id="t3" style="display:none;" placeholder="Image title"></textarea>
-        </div>
+<div class="container">
+    <div class="center" style="display: none;" id="divvv">
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+            <input type="file" name="myFile3" class="drop-zone__input" id="divvv_">
+        </div>&nbsp;&nbsp;&nbsp;
+        <textarea name="title3" class="anime" id="t3" style="display:none;" placeholder="Image title"></textarea>
     </div>
+</div>
 
-    <div class="">
-        <div class="center" style="display: none;" id="divvvv">
-            &nbsp;&nbsp;&nbsp;
-            <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
-            </div>&nbsp;&nbsp;&nbsp;
-            <textarea name="title4" class="anime" id="t4" style="display:none;" placeholder="Image title"></textarea>
-        </div>
+<div class="">
+    <div class="center" style="display: none;" id="divvvv">
+        &nbsp;&nbsp;&nbsp;
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+            <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
+        </div>&nbsp;&nbsp;&nbsp;
+        <textarea name="title4" class="anime" id="t4" style="display:none;" placeholder="Image title"></textarea>
     </div>
+</div>
 
-    <br><br>
-    <div class="button">
+<br><br>
+<div class="button">
 
-        <button type="submit" name="post" class="btn"><b>POST</b></button>
-    </div>
+    <button type="submit" name="post" class="btn"><b>POST</b></button>
+</div>
 
 
-    <script>
+<script>
 
-        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-            const dropZoneElement = inputElement.closest(".drop-zone");
+    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+        const dropZoneElement = inputElement.closest(".drop-zone");
 
-            dropZoneElement.addEventListener("click", (e) => {
-                inputElement.click();
-            });
+        dropZoneElement.addEventListener("click", (e) => {
+            inputElement.click();
+        });
 
-            inputElement.addEventListener("change", (e) => {
-                if (inputElement.files.length) {
-                    updateThumbnail(dropZoneElement, inputElement.files[0]);
-                }
-            });
+        inputElement.addEventListener("change", (e) => {
+            if (inputElement.files.length) {
+                updateThumbnail(dropZoneElement, inputElement.files[0]);
+            }
+        });
 
-            dropZoneElement.addEventListener("dragover", (e) => {
-                e.preventDefault();
-                dropZoneElement.classList.add("drop-zone--over");
-            });
+        dropZoneElement.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZoneElement.classList.add("drop-zone--over");
+        });
 
-            ["dragleave", "dragend"].forEach((type) => {
-                dropZoneElement.addEventListener(type, (e) => {
-                    dropZoneElement.classList.remove("drop-zone--over");
-                });
-            });
-
-            dropZoneElement.addEventListener("drop", (e) => {
-                e.preventDefault();
-
-                if (e.dataTransfer.files.length) {
-                    inputElement.files = e.dataTransfer.files;
-                    updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-                }
-
+        ["dragleave", "dragend"].forEach((type) => {
+            dropZoneElement.addEventListener(type, (e) => {
                 dropZoneElement.classList.remove("drop-zone--over");
             });
         });
 
-        /**
-         * Updates the thumbnail on a drop zone element.
-         *
-         * @param {HTMLElement} dropZoneElement
-         * @param {File} file
-         */
-        function updateThumbnail(dropZoneElement, file) {
-            let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+        dropZoneElement.addEventListener("drop", (e) => {
+            e.preventDefault();
 
-            // First time - remove the prompt
-            if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-                dropZoneElement.querySelector(".drop-zone__prompt").remove();
+            if (e.dataTransfer.files.length) {
+                inputElement.files = e.dataTransfer.files;
+                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
             }
 
-            // First time - there is no thumbnail element, so lets create it
-            if (!thumbnailElement) {
-                thumbnailElement = document.createElement("div");
-                thumbnailElement.classList.add("drop-zone__thumb");
-                dropZoneElement.appendChild(thumbnailElement);
-            }
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
 
-            thumbnailElement.dataset.label = file.name;
-            // Show thumbnail for image files
-            if (file.type.startsWith("image/")) {
-                const reader = new FileReader();
+    /**
+     * Updates the thumbnail on a drop zone element.
+     *
+     * @param {HTMLElement} dropZoneElement
+     * @param {File} file
+     */
+    function updateThumbnail(dropZoneElement, file) {
+        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
-                reader.readAsDataURL(file);
-                reader.onload = () => {
-                    thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-                };
-            } else {
-                thumbnailElement.style.backgroundImage = null;
-            }
-            //
-            //if (document.getElementById("div_").value != "") {
-            //    $("#divv").show();
-            //    $("#t1").show();
-            //}
-            if (document.getElementById("divv_").value != "") {
-                $("#divvv").show();
-                $("#t2").show();
-            }
-            if (document.getElementById("divvv_").value != "") {
-                $("#divvvv").show();
-                $("#t3").show();
-            }
-            if (document.getElementById("divvvv_").value != "")
-                $("#t4").show();
+        // First time - remove the prompt
+        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+            dropZoneElement.querySelector(".drop-zone__prompt").remove();
         }
 
-    </script>
+        // First time - there is no thumbnail element, so lets create it
+        if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("drop-zone__thumb");
+            dropZoneElement.appendChild(thumbnailElement);
+        }
+
+        thumbnailElement.dataset.label = file.name;
+        // Show thumbnail for image files
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+            };
+        } else {
+            thumbnailElement.style.backgroundImage = null;
+        }
+        //
+        //if (document.getElementById("div_").value != "") {
+        //    $("#divv").show();
+        //    $("#t1").show();
+        //}
+        //if (document.getElementById("divv_").value != "") {
+        //    $("#divvv").show();
+        //    $("#t2").show();
+        //}
+        //if (document.getElementById("divvv_").value != "") {
+        //    $("#divvvv").show();
+        //    $("#t3").show();
+        //}
+        //if (document.getElementById("divvvv_").value != "")
+        //    $("#t4").show();
+    }
+
+</script>
 </body>
