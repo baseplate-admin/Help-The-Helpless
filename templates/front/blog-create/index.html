@@ -7,10 +7,11 @@
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/w3-css@4.1.0/w3.min.css">
 </head>
-
 <style media="screen">
     .drop-zone, .anime {
         animation: fadeIn ease 2s;
@@ -160,6 +161,16 @@
         border: 2.5px solid #8feb4d;
     }
 
+    input {
+        outline: none;
+        font-size: 17px;
+    }
+
+    input:focus {
+        transition: 0.5s;
+        border: 2.5px solid #8feb4d;
+    }
+
     .center {
         padding: 25px;
         display: flex;
@@ -207,10 +218,14 @@
         border: 2.5px solid #8feb4d;
     }
 
+    body {
+        background-color: #f7f7f7;
+    }
 
 </style>
 
 <body>
+
 
 <div style=" display: flex;justify-content: center;">
 
@@ -219,46 +234,42 @@
 </div>
 
 
-<div>
-    <div class="search" style=" display: flex;justify-content: center;">
+<div class="search" style="display: flex;justify-content: center;">
 
-        <i class="material-icons">textsms</i>
-        <textarea id="autoresizing" name="text" placeholder="Write Something"></textarea>
+    <i class="material-icons">textsms</i>
+    <textarea id="autoresizing" name="text" placeholder="Write Something"></textarea>
 
-        <script type="text/javascript">
-            textarea = document.querySelector("#autoresizing");
-            textarea.addEventListener('input', autoResize, false);
 
-            function autoResize() {
-                this.style.height = 'auto';
-                this.style.height = this.scrollHeight + 'px';
-            }
-        </script>
-    </div>
-    <br>
-
-    <div class="container">
-        <div class="center">
-            &nbsp;&nbsp;&nbsp;
-            <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="myFile1" class="drop-zone__input" id="div_">
-            </div>
-        </div>
-        <textarea name="title1" class="anime" id="t1" placeholder="Image title"
-                  style="display:none;margin:auto"></textarea>
-
-    </div>
 </div>
+<br>
+
+<div class="container">
+    <div class="center">
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+            <input type="file" name="myFile1" class="drop-zone__input" id="div_">
+        </div>
+    </div>
+    <center id="t1" style="display: none;">
+        <input type="text" name="title1" class="anime" placeholder="Image title"></input>
+        <textarea name="image_text1" id="autoresizing1" class="anime" placeholder="Say something..."></textarea>
+    </center>
+</div>
+
 <div class="container">
     <div class="center" style="display: none;" id="divv">
-        &nbsp;&nbsp;&nbsp;
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile2" class="drop-zone__input" id="divv_">
-        </div>&nbsp;&nbsp;&nbsp;
-        <textarea name="title2" class="anime" id="t2" style="display:none;" placeholder="Image title"></textarea>
+        </div>
     </div>
+
+    <center id="t2" style="display: none;">
+
+        <input type="text" name="title2" class="anime" placeholder="Image title"></input>
+        <textarea name="image_text2" id="autoresizing2" class="anime" placeholder="Say something..."></textarea>
+    </center>
+
 </div>
 
 <div class="container">
@@ -266,28 +277,66 @@
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile3" class="drop-zone__input" id="divvv_">
-        </div>&nbsp;&nbsp;&nbsp;
-        <textarea name="title3" class="anime" id="t3" style="display:none;" placeholder="Image title"></textarea>
+        </div>
     </div>
+    <center id="t3" style="display: none;">
+        <input type="text" name="title3" class="anime" placeholder="Image title"></input>
+        <textarea name="image_text3" id="autoresizing3" class="anime" placeholder="Say something..."></textarea>
+    </center>
+
 </div>
 
-<div class="">
+<div class="container">
     <div class="center" style="display: none;" id="divvvv">
-        &nbsp;&nbsp;&nbsp;
+
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
-        </div>&nbsp;&nbsp;&nbsp;
-        <textarea name="title4" class="anime" id="t4" style="display:none;" placeholder="Image title"></textarea>
+        </div>
     </div>
+    <center id="t4" style="display: none;">
+        <input type="text" name="title4" class="anime" placeholder="Image title"></input>
+        <textarea name="image_text4" id="autoresizing4" class="anime" placeholder="Say something..."></textarea>
+    </center>
 </div>
 
 <br><br>
+<div class="button" style="padding: 15px;">
+    <input type="text" name="username" disabled id="username" style="text-align: center;">
+</div>
 <div class="button">
-
+    <input type="text" name="date_time" disabled id="date_time" style="text-align: center;">
+</div>
+<div class="button" style="padding: 15px;">
     <button type="submit" name="post" class="btn"><b>POST</b></button>
 </div>
 
+<!--auto resize-->
+<script type="text/javascript">
+    textarea = document.querySelector("#autoresizing");
+    textarea1 = document.querySelector("#autoresizing1");
+    textarea2 = document.querySelector("#autoresizing2");
+    textarea3 = document.querySelector("#autoresizing3");
+    textarea4 = document.querySelector("#autoresizing4");
+
+    textarea.addEventListener('input', autoResize, false);
+    textarea1.addEventListener('input', autoResize, false);
+    textarea2.addEventListener('input', autoResize, false);
+    textarea3.addEventListener('input', autoResize, false);
+    textarea4.addEventListener('input', autoResize, false);
+
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    }
+</script>
+
+<script type="text/javascript">
+    var f = document.getElementById("date_time");
+    var u = document.getElementById("username");
+    f.setAttribute("value", moment().format('MMMM Do YYYY, h a'));
+    u.setAttribute("value", "username");
+</script>
 
 <script>
 
@@ -360,21 +409,21 @@
         } else {
             thumbnailElement.style.backgroundImage = null;
         }
-        //
-        //if (document.getElementById("div_").value != "") {
-        //    $("#divv").show();
-        //    $("#t1").show();
-        //}
-        //if (document.getElementById("divv_").value != "") {
-        //    $("#divvv").show();
-        //    $("#t2").show();
-        //}
-        //if (document.getElementById("divvv_").value != "") {
-        //    $("#divvvv").show();
-        //    $("#t3").show();
-        //}
-        //if (document.getElementById("divvvv_").value != "")
-        //    $("#t4").show();
+
+        if (document.getElementById("div_").value != "") {
+            $("#divv").show();
+            $("#t1").show();
+        }
+        if (document.getElementById("divv_").value != "") {
+            $("#divvv").show();
+            $("#t2").show();
+        }
+        if (document.getElementById("divvv_").value != "") {
+            $("#divvvv").show();
+            $("#t3").show();
+        }
+        if (document.getElementById("divvvv_").value != "")
+            $("#t4").show();
     }
 
 </script>

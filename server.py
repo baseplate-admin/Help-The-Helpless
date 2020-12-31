@@ -1,4 +1,6 @@
-from waitress import serve
-from djangoProject.wsgi import application
+import os
+import subprocess
 
-serve(application, port="8001")
+caddy = f"{os.getcwd()}\\caddy.exe run"
+subprocess.Popen(caddy)
+print("\n\n\n\n\nCaddy on the roll\n\n\n\n\n")
