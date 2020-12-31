@@ -28,9 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # ALLOWED_HOSTS.append('helpthehelpless.duckdns.org')
-ALLOWED_HOSTS.append("localhost")
-ALLOWED_HOSTS.append("127.0.0.1")
-ALLOWED_HOSTS.append("helpthehelpless.duckdns.org")
+ALLOWED_HOSTS.append("zarif-ahnaf.duckdns.org")
 
 # Application definition
 

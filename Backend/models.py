@@ -15,6 +15,7 @@ class Backend(models.Model):
     github_repo = models.CharField(max_length=50, default="Github Repo Name")
     favicon = models.TextField(default="Favicon")
     logo = models.TextField(default="Main logo")
+    reload = models.IntegerField(default=0)
     extra = models.CharField(max_length=7, default="backend")
 
     def __str__(self):

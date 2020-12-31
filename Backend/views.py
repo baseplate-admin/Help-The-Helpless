@@ -9,43 +9,6 @@ from django.views.decorators.gzip import gzip_page
 from Backend.models import Backend
 
 
-class ImageToBase64:
-    def __init__(self):
-        self.image = None
-        self.base64 = None
-
-    def _read_image(self, image):
-        file = open(f"{image}", "rb")
-        self.image = file.read()
-        return self.image
-
-    def _image_to_base64(self):
-        import base64
-
-        self.base64 = base64.b64encode(self.image)
-        return self.base64
-
-    def image_input(self, input_image):
-        self._read_image(input_image)
-        self._image_to_base64()
-
-
-class GenerateKey:
-    def __init__(self):
-        self.key = self.gen_key()
-
-    def gen_key(self):
-        self.key = Fernet.generate_key()
-        return self.key
-
-    def does_key_exist(self):
-        database = Backend.objects.filter(extra="backend")
-        if database.key_hash is not None:
-            return database.key_hash
-        else:
-            database.key_hash = self.key
-
-
 @gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):

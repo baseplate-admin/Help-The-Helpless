@@ -230,7 +230,7 @@ A non-profit organisation<br>
     <script>
         window.setInterval(function () {
             $("#site-reload-content").load(" #site-reload-content");
-        }, 1000)
+        }, {{ backend.reload }})
         window.setTimeout(function () {
             $(".body").css({"display": ""});
             $(".body").fadeIn(1000);
