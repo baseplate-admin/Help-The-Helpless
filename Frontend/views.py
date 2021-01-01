@@ -68,5 +68,28 @@ def blog(request):
 
 @gzip_page
 def blog_create(request):
-    backend = Backend.objects.get(extra="backend")
-    return render(request, "front/blog-create/index.html", {"backend": backend})
+    if request.method == "GET":
+        backend = Backend.objects.get(extra="backend")
+        return render(request, "front/blog-create/index.html", {"backend": backend})
+    else:
+        return redirect("/home/")
+
+
+@gzip_page
+def blog_create_handler(request):
+    if request.method == "POST":
+        header = request.POST.get("header")
+        div_ = request.POST.get("div_")             #   1
+        divv = request.POST.get("divv")             #   2
+        divvv_ = request.POST.get("divvv_")         #   3
+        divvvv_ = request.POST.get("divvvv_")       #   4
+        text = request.POST.get("text")             #   1
+        text_1 = request.POST.get("image_text1")    #   2
+        text_2 = request.POST.get("image_text2")    #   3
+        text_3 = request.POST.get("image_text3")    #   4
+        image_title_1 = request.POST.get("title1")  #   1
+        image_title_2 = request.POST.get("title2")  #   2
+        image_title_3 = request.POST.get("title3")  #   3
+        image_title_4 = request.POST.get("title4")  #   4
+    elif request.method == "GET":
+        return redirect("/blog-create/")

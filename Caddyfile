@@ -1,3 +1,8 @@
-zarif-ahnaf.duckdns.org
+zarif-ahnaf.duckdns.org {
+    reverse_proxy localhost:8001
+}
 
-reverse_proxy 127.0.0.1:8001
+
+
+
+

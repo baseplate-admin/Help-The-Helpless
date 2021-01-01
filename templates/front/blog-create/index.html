@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-
 <head>
     <title>Drag and Drop File Upload</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@0.5.1/iconfont/material-icons.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/w3-css@4.1.0/w3.min.css">
 </head>
+
+
 <style media="screen">
     .drop-zone, .anime {
         animation: fadeIn ease 2s;
@@ -153,6 +152,7 @@
         line-height: 34px;
         resize: none;
         display: block;
+        border-radius: 9px;
 
     }
 
@@ -164,6 +164,8 @@
     input {
         outline: none;
         font-size: 17px;
+        border-radius: 9px;
+        border-width: thin;
     }
 
     input:focus {
@@ -191,6 +193,7 @@
         width: 40%;
         opacity: 0.8;
         transition: 0.3s;
+        border-radius: 8px;
     }
 
     .btn:hover {
@@ -250,62 +253,62 @@
             <input type="file" name="myFile1" class="drop-zone__input" id="div_">
         </div>
     </div>
-    <center id="t1" style="display: none;">
-        <input type="text" name="title1" class="anime" placeholder="Image title"></input>
+    <center id="t1">
+        <input type="text" name="title1" class="anime" placeholder="Image title" style="padding: 5px;"></input>
         <textarea name="image_text1" id="autoresizing1" class="anime" placeholder="Say something..."></textarea>
     </center>
 </div>
 
 <div class="container">
-    <div class="center" style="display: none;" id="divv">
+    <div class="center" id="divv">
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile2" class="drop-zone__input" id="divv_">
         </div>
     </div>
 
-    <center id="t2" style="display: none;">
+    <center id="t2">
 
-        <input type="text" name="title2" class="anime" placeholder="Image title"></input>
+        <input type="text" name="title2" class="anime" placeholder="Image title" style="padding: 5px;"></input>
         <textarea name="image_text2" id="autoresizing2" class="anime" placeholder="Say something..."></textarea>
     </center>
 
 </div>
 
 <div class="container">
-    <div class="center" style="display: none;" id="divvv">
+    <div class="center" id="divvv">
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile3" class="drop-zone__input" id="divvv_">
         </div>
     </div>
-    <center id="t3" style="display: none;">
-        <input type="text" name="title3" class="anime" placeholder="Image title"></input>
+    <center id="t3">
+        <input type="text" name="title3" class="anime" placeholder="Image title" style="padding: 5px;"></input>
         <textarea name="image_text3" id="autoresizing3" class="anime" placeholder="Say something..."></textarea>
     </center>
 
 </div>
 
 <div class="container">
-    <div class="center" style="display: none;" id="divvvv">
+    <div class="center" id="divvvv">
 
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
             <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
         </div>
     </div>
-    <center id="t4" style="display: none;">
-        <input type="text" name="title4" class="anime" placeholder="Image title"></input>
+    <center id="t4">
+        <input type="text" name="title4" class="anime" placeholder="Image title" style="padding: 5px;"></input>
         <textarea name="image_text4" id="autoresizing4" class="anime" placeholder="Say something..."></textarea>
     </center>
 </div>
 
 <br><br>
 <div class="button" style="padding: 15px;">
-    <input type="text" name="username" disabled id="username" style="text-align: center;">
+    <input type="text" name="username" disabled id="username" style="text-align: center; width: 280px;">
 </div>
 <div class="button">
-    <input type="text" name="date_time" disabled id="date_time" style="text-align: center;">
+    <input type="text" name="date_time" disabled id="date_time" style="text-align: center; width: 280px;">
 </div>
 <div class="button" style="padding: 15px;">
     <button type="submit" name="post" class="btn"><b>POST</b></button>
@@ -313,6 +316,8 @@
 
 <!--auto resize-->
 <script type="text/javascript">
+
+
     textarea = document.querySelector("#autoresizing");
     textarea1 = document.querySelector("#autoresizing1");
     textarea2 = document.querySelector("#autoresizing2");
@@ -325,20 +330,25 @@
     textarea3.addEventListener('input', autoResize, false);
     textarea4.addEventListener('input', autoResize, false);
 
+
     function autoResize() {
         this.style.height = 'auto';
         this.style.height = this.scrollHeight + 'px';
     }
-</script>
 
-<script type="text/javascript">
+
     var f = document.getElementById("date_time");
-    var u = document.getElementById("username");
-    f.setAttribute("value", moment().format('MMMM Do YYYY, h a'));
-    u.setAttribute("value", "username");
-</script>
+    f.setAttribute("value", moment().format('MMMM Do YYYY, h:mm a'));
 
-<script>
+    $(document).ready(function () {                                           //hide
+
+        $("#divvv").hide();
+        $("#t2").hide();
+        $("#divvvv").hide();
+        $("#t3").hide();
+        $("#t4").hide();
+    });
+
 
     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         const dropZoneElement = inputElement.closest(".drop-zone");
@@ -382,6 +392,7 @@
      * @param {HTMLElement} dropZoneElement
      * @param {File} file
      */
+
     function updateThumbnail(dropZoneElement, file) {
         let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
@@ -409,6 +420,17 @@
         } else {
             thumbnailElement.style.backgroundImage = null;
         }
+        "use strict";
+        let div1 = 1;
+        $("#divv").show();
+        $("#t1").show();
+        while (div1 < 2) {
+            $("#divv").hide();
+            $("#t1").hide();
+            if (document.getElementById("div_").value != "") {
+                div1++;
+            }
+        }
 
         if (document.getElementById("div_").value != "") {
             $("#divv").show();
@@ -426,5 +448,13 @@
             $("#t4").show();
     }
 
+
+    let userName = "{{ user.username }}";
+    $("#username").val(userName);
+
+
 </script>
+
+
 </body>
+</html>
