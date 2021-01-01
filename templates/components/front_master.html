@@ -54,13 +54,18 @@
         <meta name="generator" content="WordPress 5.5.3"/>
         <link rel="canonical" href="/home/"/>
     </head>
+    {#    <style>#}
+    {#        .body {#}
+    {#            display: none;#}
+    {#        }#}
+    {#    </style>#}
     <style>
-        .body {
-            display: none;
+        #body {
+            opacity: 0;
         }
     </style>
-
     <body class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
+          id="body"
           itemscope
           itemtype="http://schema.org/WebPage">
 
@@ -143,7 +148,9 @@ A non-profit organisation<br>
             integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
           integrity="sha256-ymMA1/kGhlQxXn0q9DFzHRt3VIY1Eh7BJcEfM3I88a4=" crossorigin="anonymous">
+
     <script>
+
         let head = document.getElementsByTagName('HEAD')[0];
         let script = document.createElement('script');
         let script4 = document.createElement('script');
@@ -227,15 +234,32 @@ A non-profit organisation<br>
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+
+    {#    <style>#}
+    {#        .body {#}
+    {#            opacity: 0;#}
+    {#        }#}
+    {#    </style>#}
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+            integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
     <script>
         window.setInterval(function () {
             $("#site-reload-content").load(" #site-reload-content");
         }, {{ backend.reload }})
-        window.setTimeout(function () {
-            $(".body").css({"display": ""});
-            $(".body").fadeIn(1000);
-        }, 1300);
+        //        window.setTimeout(function () {
+        //            $(".body").css({"display": ""});
+        //            $(".body").fadeIn(1000);
+        //        }, 1300);
+        window.onload = function () {
+            anime({
+                targets: '.body',
+                opacity: 1,
+                duration: 1000,
+                easing: "linear",
+            })
+        }
     </script>
+
     <script type='text/javascript' id='blossom-coach-js-extra'>
         /* <![CDATA[ */
         let blossom_coach_data = {"rtl": "", "animation": ""};

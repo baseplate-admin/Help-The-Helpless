@@ -30,6 +30,8 @@ def home_view(request):
 def redirect_to_home(request):
     return redirect("/home/")
 
+def index(request):
+    return render(request, 'front/index/index.html')
 
 @gzip_page
 def donation(request):

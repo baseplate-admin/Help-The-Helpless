@@ -18,27 +18,38 @@
                 crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+                integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
         <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
         <link rel="shortcut icon"
               href="{{ backend.favicon }}"
         >
         <style>
-            .body {
-                display: none;
+            #body {
+                opacity: 0;
             }
         </style>
     </head>
-    <body class="body">
+    <body id="body">
     <div class="container">
         {% block body %}
         {% endblock %}
     </div>
 
     <script>
-        window.setTimeout(function () {
-            $('.body').css({'display': ''});
-            $('.body').fadeIn(500);
-        }, 1);
+        //window.setTimeout(function () {
+        //    $('.body').css({'display': ''});
+        //    $('.body').fadeIn(500);
+        //}, 1);
+        window.onload = function () {
+
+            anime({
+                targets: '#body',
+                opacity: 1,
+                duration: 1000,
+                easing: "linear",
+            })
+        }
     </script>
     </body>
 {% endspaceless %}
