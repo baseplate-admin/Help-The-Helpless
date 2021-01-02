@@ -1,272 +1,402 @@
 <!DOCTYPE html>
 {% spaceless %}
-    <html lang="en-US">
-    <head itemscope itemtype="http://schema.org/WebSite">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="profile" href="http://gmpg.org/xfn/11">
-        <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
-        <link rel="shortcut icon"
-              href="{{ backend.favicon }}"
-        >
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <style id='blossom-coach-inline-css' type='text/css'>
-            /*Typography*/
-            body,
-            button,
-            input,
-            select,
-            optgroup,
-            textarea, section[class*="-section"] .widget_blossom_client_logo_widget .widget-title, .blog-section article .entry-meta,
-            .btn-link, .widget.widget_blossomthemes_stat_counter_widget .widget-title, .single .entry-meta,
-            .portfolio-text-holder .portfolio-img-title {
-                font-family: Nunito Sans;
-            }
+<html lang="en-US">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
+    <link rel="shortcut icon" href="{{ backend.favicon }}" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <style id="blossom-coach-inline-css" type="text/css">
+      /*Typography*/
+      body,
+      button,
+      input,
+      select,
+      optgroup,
+      textarea,
+      section[class*='-section']
+        .widget_blossom_client_logo_widget
+        .widget-title,
+      .blog-section article .entry-meta,
+      .btn-link,
+      .widget.widget_blossomthemes_stat_counter_widget .widget-title,
+      .single .entry-meta,
+      .portfolio-text-holder .portfolio-img-title {
+        font-family: Nunito Sans;
+      }
 
-            .site-title,
-            .site-title-wrap .site-title {
-                font-size: 45px;
-                font-family: Nunito;
-                font-weight: 700;
-                font-style: normal;
-            }
+      .site-title,
+      .site-title-wrap .site-title {
+        font-size: 45px;
+        font-family: Nunito;
+        font-weight: 700;
+        font-style: normal;
+      }
 
-            /*Typography*/
-            h1, h2, h3, h4, h5, h6,
-            section[class*="-section"] .widget .widget-title,
-            section[class*="-section"] .widget_blossomtheme_featured_page_widget .section-subtitle,
-            .section-title, .comment-body b.fn, .comment-body .reply .comment-reply-link, .single .navigation .nav-links,
-            .site-header .header-search label.screen-reader-text, .btn-readmore, .btn-readmore:visited, .bttk-testimonial-holder .name,
-            .pricing-block .price, .entry-meta, #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
-            .widget_blossomthemes_stat_counter_widget .hs-counter, .widget_bttk_description_widget .bttk-team-holder .name,
-            .bttk-team-inner-holder-modal .name, .page-header .subtitle, .dropcap, .error-404 .error-num, .error-404 a.bttn,
-            .related-portfolio-title {
-                font-family: Nunito;
-            }
-        </style>
-        <link rel="https://api.w.org/"
-              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/ "/>
-        <link rel="alternate" type="application/json"
-              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/wp/v2/pages/22 "/>
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-              href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/wlwmanifest.xml "/>
-        <meta name="generator" content="WordPress 5.5.3"/>
-        <link rel="canonical" href="/home/"/>
-    </head>
-    {#    <style>#}
-    {#        .body {#}
-    {#            display: none;#}
-    {#        }#}
-    {#    </style>#}
-    <style>
-        #body {
-            opacity: 0;
-        }
+      /*Typography*/
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      section[class*='-section'] .widget .widget-title,
+      section[class*='-section']
+        .widget_blossomtheme_featured_page_widget
+        .section-subtitle,
+      .section-title,
+      .comment-body b.fn,
+      .comment-body .reply .comment-reply-link,
+      .single .navigation .nav-links,
+      .site-header .header-search label.screen-reader-text,
+      .btn-readmore,
+      .btn-readmore:visited,
+      .bttk-testimonial-holder .name,
+      .pricing-block .price,
+      .entry-meta,
+      #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
+      .widget_blossomthemes_stat_counter_widget .hs-counter,
+      .widget_bttk_description_widget .bttk-team-holder .name,
+      .bttk-team-inner-holder-modal .name,
+      .page-header .subtitle,
+      .dropcap,
+      .error-404 .error-num,
+      .error-404 a.bttn,
+      .related-portfolio-title {
+        font-family: Nunito;
+      }
     </style>
-    <body class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
-          id="body"
-          itemscope
-          itemtype="http://schema.org/WebPage">
+    <link
+      rel="https://api.w.org/"
+      href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/ "
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/wp/v2/pages/22 "
+    />
+    <link
+      rel="wlwmanifest"
+      type="application/wlwmanifest+xml"
+      href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/wlwmanifest.xml "
+    />
+    <meta name="generator" content="WordPress 5.5.3" />
+    <link rel="canonical" href="/home/" />
+  </head>
 
-    <div id="page" class="site"><a aria-label="skip to content" class="skip-link" href="#content">Skip to Content</a>
-        <header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
-            <div class="header-t">
-                <div class="wrapper">
-                    <div class="top-right container">
-                        <a href="{{ backend.facebook_url }}" target="_blank"
-                           rel="nofollow">
-                            <ion-icon name="logo-facebook"
-                                      style="color: #3b5998; font-size: 125%; position:relative; top:12px; padding:5px"></ion-icon>
-                        </a>
-                        <a href="{{ backend.youtube_url }}" target="_blank" rel="nofollow">
-                            <ion-icon name="logo-youtube"
-                                      style="color: #FF0000; font-size: 125%; position:relative; top:12px;  padding:5px"></ion-icon>
-                        </a>
-                        <a href="{{ backend.email_url }}" target="_blank" rel="nofollow">
-                            <ion-icon name="mail"
-                                      style="color: #0489C9; font-size: 125%; position:relative; top:12px;  padding:5px"></ion-icon>
-                        </a>
-                        <!-- .header-social -->
-                        <div class="header-search container" style="float:top">
-                            <button aria-label="search form toggle" data-toggle-target=".search-modal"
-                                    data-toggle-body-class="showing-search-modal"
-                                    data-set-focus=".search-modal .search-field" aria-expanded="false"><i
-                                    class="fa fa-search"></i></button>
-                            <div class="header-search-form search-modal cover-modal"
-                                 data-modal-target-string=".search-modal">
-                                <div class="header-search-inner-wrap">
-                                    <form role="search" method="get" class="search-form" action="/">
-                                        <label class="screen-reader-text">Looking for Something?</label>
-                                        <input type="search" class="search-field" placeholder="Enter Keywords&hellip;"
-                                               value="" name="s"/>
-                                        <label for="submit-field">
-                                            <span><i class="fa fa-search"></i></span>
-                                            <input type="submit" id="submit-field" class="search-submit"
-                                                   value="Search"/>
-                                        </label>
-                                    </form>
-                                    <button aria-label="search form close" class="close"
-                                            data-toggle-target=".search-modal"
-                                            data-toggle-body-class="showing-search-modal"
-                                            data-set-focus=".search-modal .search-field" aria-expanded="false"></button>
-                                </div>
-                            </div>
-                        </div><!-- .header-seearch -->
-                    </div><!-- .top-right -->
-                </div><!-- .wrapper -->
-            </div><!-- .header-t -->
-
-            {% block main_header %}
-            {% endblock %}
-        </header><!-- .site-header -->
-        {% block breadcrumb %}
-        {% endblock %}
-        <div id="site-reload-content">
-            {% block sitecontent %}
-            {% endblock %}
+  <style>
+    #body {
+      opacity: 0;
+    }
+  </style>
+  <body
+    class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
+    id="body"
+    itemscope
+    itemtype="http://schema.org/WebPage"
+  >
+    <div id="page" class="site">
+      <a aria-label="skip to content" class="skip-link" href="#content"
+        >Skip to Content</a
+      >
+      <header
+        id="masthead"
+        class="site-header"
+        itemscope
+        itemtype="http://schema.org/WPHeader"
+      >
+        <div class="header-t">
+          <div class="wrapper">
+            <div class="top-right container">
+              <a
+                href="{{ backend.facebook_url }}"
+                target="_blank"
+                rel="nofollow"
+              >
+                <ion-icon
+                  name="logo-facebook"
+                  style="
+                    color: #3b5998;
+                    font-size: 125%;
+                    position: relative;
+                    top: 12px;
+                    padding: 5px;
+                  "
+                ></ion-icon>
+              </a>
+              <a
+                href="{{ backend.youtube_url }}"
+                target="_blank"
+                rel="nofollow"
+              >
+                <ion-icon
+                  name="logo-youtube"
+                  style="
+                    color: #ff0000;
+                    font-size: 125%;
+                    position: relative;
+                    top: 12px;
+                    padding: 5px;
+                  "
+                ></ion-icon>
+              </a>
+              <a href="{{ backend.email_url }}" target="_blank" rel="nofollow">
+                <ion-icon
+                  name="mail"
+                  style="
+                    color: #0489c9;
+                    font-size: 125%;
+                    position: relative;
+                    top: 12px;
+                    padding: 5px;
+                  "
+                ></ion-icon>
+              </a>
+              <!-- .header-social -->
+              <div class="header-search container" style="float: top">
+                <button
+                  aria-label="search form toggle"
+                  data-toggle-target=".search-modal"
+                  data-toggle-body-class="showing-search-modal"
+                  data-set-focus=".search-modal .search-field"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-search"></i>
+                </button>
+                <div
+                  class="header-search-form search-modal cover-modal"
+                  data-modal-target-string=".search-modal"
+                >
+                  <div class="header-search-inner-wrap">
+                    <form
+                      role="search"
+                      method="get"
+                      class="search-form"
+                      action="/"
+                    >
+                      <label class="screen-reader-text"
+                        >Looking for Something?</label
+                      >
+                      <input
+                        type="search"
+                        class="search-field"
+                        placeholder="Enter Keywords&hellip;"
+                        value=""
+                        name="s"
+                      />
+                      <label for="submit-field">
+                        <span><i class="fa fa-search"></i></span>
+                        <input
+                          type="submit"
+                          id="submit-field"
+                          class="search-submit"
+                          value="Search"
+                        />
+                      </label>
+                    </form>
+                    <button
+                      aria-label="search form close"
+                      class="close"
+                      data-toggle-target=".search-modal"
+                      data-toggle-body-class="showing-search-modal"
+                      data-set-focus=".search-modal .search-field"
+                      aria-expanded="false"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <!-- .header-seearch -->
+            </div>
+            <!-- .top-right -->
+          </div>
+          <!-- .wrapper -->
         </div>
-        <footer id="colophon" class="site-footer" itemscope itemtype="http://schema.org/WPFooter">
-            <div class="bottom-footer">
-                <div class="wrapper">
-                    <div class="copyright">
-            <span><b>{{ backend.site_title }}</b><br>
-A non-profit organisation<br>
-</span> Blossom Coach | Developed By <a href="https://blossomthemes.com/"
-                                        rel="nofollow" target="_blank">Blossom
-                        Themes</a>. Powered by <a href="https://www.djangoproject.com/" target="_blank">Django</a>.
-                    </div>
-                </div><!-- .wrapper -->
-            </div><!-- .bottom-footer -->
-            <button aria-label="go to top" class="back-to-top">
-                <span>&#10140;</span>
-            </button>
-        </footer><!-- #colophon -->
-    </div><!-- #page -->
+        <!-- .header-t -->
 
-    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
-            integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
-          integrity="sha256-ymMA1/kGhlQxXn0q9DFzHRt3VIY1Eh7BJcEfM3I88a4=" crossorigin="anonymous">
+        {% block main_header %} {% endblock %}
+      </header>
+      <!-- .site-header -->
+      {% block breadcrumb %} {% endblock %}
+      <div id="site-reload-content">{% block sitecontent %} {% endblock %}</div>
+      <footer
+        id="colophon"
+        class="site-footer"
+        itemscope
+        itemtype="http://schema.org/WPFooter"
+      >
+        <div class="bottom-footer">
+          <div class="wrapper">
+            <div class="copyright">
+              <span
+                ><b>{{ backend.site_title }}</b><br />
+                A non-profit organisation<br />
+              </span>
+              Blossom Coach | Developed By
+              <a
+                href="https://blossomthemes.com/"
+                rel="nofollow"
+                target="_blank"
+                >Blossom Themes</a
+              >. Powered by
+              <a href="https://www.djangoproject.com/" target="_blank">Django</a
+              >.
+            </div>
+          </div>
+          <!-- .wrapper -->
+        </div>
+        <!-- .bottom-footer -->
+        <button aria-label="go to top" class="back-to-top">
+          <span>&#10140;</span>
+        </button>
+      </footer>
+      <!-- #colophon -->
+    </div>
+    <!-- #page -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
+      integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
+      integrity="sha256-ymMA1/kGhlQxXn0q9DFzHRt3VIY1Eh7BJcEfM3I88a4="
+      crossorigin="anonymous"
+    />
 
     <script>
+      let head = document.getElementsByTagName('HEAD')[0];
+      let script = document.createElement('script');
+      let script4 = document.createElement('script');
+      let script5 = document.createElement('script');
+      let script6 = document.createElement('script');
+      let script7 = document.createElement('script');
+      let script8 = document.createElement('script');
+      let script9 = document.createElement('script');
+      let script10 = document.createElement('script');
+      let link3 = document.createElement('link');
+      let link4 = document.createElement('link');
+      let link5 = document.createElement('link');
+      let link6 = document.createElement('link');
+      let link7 = document.createElement('link');
+      let link8 = document.createElement('link');
 
-        let head = document.getElementsByTagName('HEAD')[0];
-        let script = document.createElement('script');
-        let script4 = document.createElement('script');
-        let script5 = document.createElement('script');
-        let script6 = document.createElement('script');
-        let script7 = document.createElement('script');
-        let script8 = document.createElement('script');
-        let script9 = document.createElement('script');
-        let script10 = document.createElement('script');
-        let link3 = document.createElement('link');
-        let link4 = document.createElement('link');
-        let link5 = document.createElement('link');
-        let link6 = document.createElement('link');
-        let link7 = document.createElement('link');
-        let link8 = document.createElement('link');
+      script.type = 'text/javascript';
+      script.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js';
 
-        script.type = 'text/javascript';
-        script.src = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js'
+      script4.type = 'text/javascript';
+      script4.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js ';
 
-        script4.type = 'text/javascript'
-        script4.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js "
+      script5.type = 'text/javascript';
+      script5.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js ';
 
-        script5.type = 'text/javascript'
-        script5.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js "
+      script6.type = 'text/javascript';
+      script6.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js ';
 
-        script6.type = 'text/javascript'
-        script6.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js "
+      script7.type = 'type/javascript';
+      script7.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js ';
 
-        script7.type = "type/javascript"
-        script7.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js "
+      script8.type = 'text/javascript';
+      script8.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js ';
 
-        script8.type = "text/javascript"
-        script8.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js "
+      script9.type = 'text/javascript';
+      script9.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js ';
 
-        script9.type = "text/javascript"
-        script9.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js "
+      script10.type = 'text/javascript';
+      script10.src =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js ';
 
-        script10.type = 'text/javascript'
-        script10.src = "https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js "
+      link3.rel = 'stylesheet';
+      link3.type = 'text/css';
+      link3.href =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css';
 
+      link4.rel = 'stylesheet';
+      link4.type = 'text/css';
+      link4.href =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css';
 
-        link3.rel = 'stylesheet'
-        link3.type = 'text/css'
-        link3.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css'
+      link5.rel = 'stylesheet';
+      link5.type = 'text/css';
+      link5.href =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css';
 
-        link4.rel = 'stylesheet'
-        link4.type = 'text/css'
-        link4.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css'
+      link6.rel = 'stylesheet';
+      link6.type = 'text/css';
+      link6.href =
+        'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css';
 
-        link5.rel = 'stylesheet'
-        link5.type = 'text/css'
-        link5.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css'
+      link7.rel = 'stylesheet';
+      link7.type = 'text/css';
+      link7.href =
+        'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css';
 
-        link6.rel = 'stylesheet'
-        link6.type = 'text/css'
-        link6.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css'
+      link8.rel = 'stylesheet';
+      link8.type = 'text/css';
+      link8.href =
+        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css';
 
-        link7.rel = 'stylesheet'
-        link7.type = 'text/css'
-        link7.href = 'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css'
-
-        link8.rel = 'stylesheet'
-        link8.type = 'text/css'
-        link8.href = 'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css'
-
-
-        head.appendChild(link3)
-        head.appendChild(link4)
-        head.appendChild(link5)
-        head.appendChild(link6)
-        head.appendChild(link7)
-        head.appendChild(link8)
-        head.appendChild(script);
-        head.appendChild(script4);
-        head.appendChild(script5);
-        head.appendChild(script6);
-        head.appendChild(script7);
-        head.appendChild(script8);
-        head.appendChild(script9);
-        head.appendChild(script10);
+      head.appendChild(link3);
+      head.appendChild(link4);
+      head.appendChild(link5);
+      head.appendChild(link6);
+      head.appendChild(link7);
+      head.appendChild(link8);
+      head.appendChild(script);
+      head.appendChild(script4);
+      head.appendChild(script5);
+      head.appendChild(script6);
+      head.appendChild(script7);
+      head.appendChild(script8);
+      head.appendChild(script9);
+      head.appendChild(script10);
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
-
-    {#    <style>#}
-    {#        .body {#}
-    {#            opacity: 0;#}
-    {#        }#}
-    {#    </style>#}
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
-            integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+      integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        window.setInterval(function () {
-            $("#site-reload-content").load(" #site-reload-content");
-        }, {{ backend.reload }})
-        //        window.setTimeout(function () {
-        //            $(".body").css({"display": ""});
-        //            $(".body").fadeIn(1000);
-        //        }, 1300);
-        window.onload = function () {
-            anime({
-                targets: '.body',
-                opacity: 1,
-                duration: 1000,
-                easing: "linear",
-            })
-        }
+      window.setInterval(function () {
+          $("#site-reload-content").load(" #site-reload-content");
+      }, {{ backend.reload }})
+      window.onload = function () {
+          anime({
+              targets: '.body',
+              opacity: 1,
+              duration: 1000,
+              easing: "linear",
+          })
+      }
     </script>
 
-    <script type='text/javascript' id='blossom-coach-js-extra'>
-        /* <![CDATA[ */
-        let blossom_coach_data = {"rtl": "", "animation": ""};
-        /* ]]> */
+    <script type="text/javascript" id="blossom-coach-js-extra">
+      /* <![CDATA[ */
+      let blossom_coach_data = { rtl: '', animation: '' };
+      /* ]]> */
     </script>
-    </body>
-
-
-    </html>
+  </body>
+</html>
 {% endspaceless %}
