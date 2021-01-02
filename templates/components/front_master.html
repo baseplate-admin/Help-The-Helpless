@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
+    <title>{{ site_header }} &ndash; {{ backend.site_title }}</title>
     <link rel="shortcut icon" href="{{ backend.favicon }}" />
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
-    <style id="blossom-coach-inline-css" type="text/css">
+    {% comment %} <style id="blossom-coach-inline-css" type="text/css">
       /*Typography*/
       body,
       button,
@@ -71,7 +71,7 @@
       .related-portfolio-title {
         font-family: Nunito;
       }
-    </style>
+    </style> {% endcomment %}
     <link
       rel="https://api.w.org/"
       href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/ "

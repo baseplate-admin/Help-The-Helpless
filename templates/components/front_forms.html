@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-{% load static %} {% spaceless %}
+{% spaceless %}
 <html lang="en-US">
   <head itemscope itemtype="http://schema.org/WebSite">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
+    <title>{{ site_header }} &ndash; {{ backend.site_title }}</title>
     <link rel="shortcut icon" href="{{ backend.favicon }}" />
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
+    {% comment %}
     <style id="blossom-coach-inline-css" type="text/css">
       /*Typography*/
       body,
@@ -71,8 +72,9 @@
         font-family: Nunito;
       }
     </style>
-    <link rel='wlwmanifest' type='application/wlwmanifest+xml' href='{% static
-    'wp-includes/wlwmanifest.xml' %}'/>
+    {% endcomment %} {% comment %} <link rel='wlwmanifest'
+    type='application/wlwmanifest+xml' href='{% static
+    'wp-includes/wlwmanifest.xml' %}'/> {% endcomment %}
     <meta name="generator" content="WordPress 5.5.3" />
   </head>
 

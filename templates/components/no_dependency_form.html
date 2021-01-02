@@ -3,6 +3,7 @@
   {% spaceless %}
 
   <head>
+    <title>{{ site_header }} &ndash; {{ backend.site_title }}</title>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -37,7 +38,7 @@
       integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="
       crossorigin="anonymous"
     ></script>
-    <title>{{ site_header }} &#8211; {{ backend.site_title }}</title>
+
     <link rel="shortcut icon" href="{{ backend.favicon }}" />
     <style>
       #body {
