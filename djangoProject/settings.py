@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "u0umk!9%843q*62llb1#_ok7@ng8(v*)65xy+u3u-@n4w6#yk&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -95,19 +96,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-PASSWORD_HASHERS = [
-    "django.contrib.auth.hashers.Argon2PasswordHasher",
-    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
-    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
-    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
-]
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Asia/Dhaka"
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -117,16 +111,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_URL = "/static/"
 
-# STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
