@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "u0umk!9%843q*62llb1#_ok7@ng8(v*)65xy+u3u-@n4w6#yk&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
 # ALLOWED_HOSTS.append('helpthehelpless.duckdns.org')
-ALLOWED_HOSTS.append("zarif-ahnaf.duckdns.org")
+ALLOWED_HOSTS.append("localhost")
 ALLOWED_HOSTS.append("127.0.0.1")
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "UserHandler",
     "Frontend",

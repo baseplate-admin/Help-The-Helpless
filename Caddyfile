@@ -1,9 +1,3 @@
-:8000 {
-
+zarif-ahnaf.duckdns.org {
     reverse_proxy localhost:8001
-}
-
-:8002 {
-    root * C:/Programming/djangoProject/staticfiles
-	file_server
 }
