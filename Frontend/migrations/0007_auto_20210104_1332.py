@@ -6,48 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Frontend', '0006_auto_20210104_1322'),
+        ("Frontend", "0006_auto_20210104_1322"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blog',
-            name='image_1_delete',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_1_delete", field=models.URLField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_2_delete',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_2_delete", field=models.URLField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_3_delete',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_3_delete", field=models.URLField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_4_delete',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_4_delete", field=models.URLField(default=""),
         ),
         migrations.AlterField(
-            model_name='blog',
-            name='image_1_url',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_1_url", field=models.URLField(default=""),
         ),
         migrations.AlterField(
-            model_name='blog',
-            name='image_2_url',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_2_url", field=models.URLField(default=""),
         ),
         migrations.AlterField(
-            model_name='blog',
-            name='image_3_url',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_3_url", field=models.URLField(default=""),
         ),
         migrations.AlterField(
-            model_name='blog',
-            name='image_4_url',
-            field=models.URLField(default=''),
+            model_name="blog", name="image_4_url", field=models.URLField(default=""),
         ),
     ]

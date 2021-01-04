@@ -22,11 +22,10 @@ class Blog(models.Model):
     image_3 = models.ImageField(upload_to="images", default=None)
     image_4 = models.ImageField(upload_to="images", default=None)
 
-    image_1_url = models.URLField(default='')
-    image_2_url = models.URLField(default='')
-    image_3_url = models.URLField(default='')
-    image_4_url = models.URLField(default='')
-
+    image_1_url = models.URLField(default="")
+    image_2_url = models.URLField(default="")
+    image_3_url = models.URLField(default="")
+    image_4_url = models.URLField(default="")
 
     extra = "blog"
 

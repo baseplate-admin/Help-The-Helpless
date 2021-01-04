@@ -6,57 +6,44 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Frontend', '0003_auto_20210103_2346'),
+        ("Frontend", "0003_auto_20210103_2346"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='blog',
-            name='content',
+        migrations.RemoveField(model_name="blog", name="content",),
+        migrations.AddField(
+            model_name="blog", name="content_1", field=models.TextField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='content_1',
-            field=models.TextField(default=''),
+            model_name="blog", name="content_2", field=models.TextField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='content_2',
-            field=models.TextField(default=''),
+            model_name="blog", name="content_3", field=models.TextField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='content_3',
-            field=models.TextField(default=''),
+            model_name="blog", name="content_4", field=models.TextField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='content_4',
-            field=models.TextField(default=''),
+            model_name="blog", name="content_5", field=models.TextField(default=""),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='content_5',
-            field=models.TextField(default=''),
+            model_name="blog",
+            name="image_1_title",
+            field=models.CharField(default="", max_length=20),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_1_title',
-            field=models.CharField(default='', max_length=20),
+            model_name="blog",
+            name="image_2_title",
+            field=models.CharField(default="", max_length=20),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_2_title',
-            field=models.CharField(default='', max_length=20),
+            model_name="blog",
+            name="image_3_title",
+            field=models.CharField(default="", max_length=20),
         ),
         migrations.AddField(
-            model_name='blog',
-            name='image_3_title',
-            field=models.CharField(default='', max_length=20),
-        ),
-        migrations.AddField(
-            model_name='blog',
-            name='image_4_title',
-            field=models.CharField(default='', max_length=20),
+            model_name="blog",
+            name="image_4_title",
+            field=models.CharField(default="", max_length=20),
         ),
     ]

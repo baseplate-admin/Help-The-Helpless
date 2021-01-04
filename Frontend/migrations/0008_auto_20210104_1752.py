@@ -6,24 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Frontend', '0007_auto_20210104_1332'),
+        ("Frontend", "0007_auto_20210104_1332"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='blog',
-            name='image_1_delete',
-        ),
-        migrations.RemoveField(
-            model_name='blog',
-            name='image_2_delete',
-        ),
-        migrations.RemoveField(
-            model_name='blog',
-            name='image_3_delete',
-        ),
-        migrations.RemoveField(
-            model_name='blog',
-            name='image_4_delete',
-        ),
+        migrations.RemoveField(model_name="blog", name="image_1_delete",),
+        migrations.RemoveField(model_name="blog", name="image_2_delete",),
+        migrations.RemoveField(model_name="blog", name="image_3_delete",),
+        migrations.RemoveField(model_name="blog", name="image_4_delete",),
     ]
