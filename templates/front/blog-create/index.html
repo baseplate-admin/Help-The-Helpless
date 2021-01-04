@@ -226,9 +226,10 @@
 
 </style>
 
-<body onunload="">
+<body>
 
-
+<form enctype="multipart/form-data" action={% url 'blog-create-handler' %} method="POST">
+{% csrf_token %}
 <div style=" display: flex;justify-content: center;">
 
     <input type="text" name="header" placeholder="Header" class="head">
@@ -293,7 +294,7 @@
 
         <div class="drop-zone">
             <span class="drop-zone__prompt">Drop file here or click to upload</span>
-            <input type="file" name="myFile3" class="drop-zone__input" id="divvvv_">
+            <input type="file" name="myFile4" class="drop-zone__input" id="divvvv_">
         </div>
     </div>
     <center id="t4">
@@ -304,7 +305,7 @@
 
 <br><br>
 <div class="button" style="padding: 15px;">
-    <input type="text" name="username" disabled id="username" style="text-align: center; width: 280px;">
+    <input type="text" name="username_name" disabled id="username" style="text-align: center; width: 280px;">
 </div>
 <div class="button">
     <input type="text" name="date_time" disabled id="date_time" style="text-align: center; width: 280px;">
@@ -313,6 +314,11 @@
     <button type="submit" name="post" class="btn"><b>POST</b></button>
 </div>
 
+</form>
+<script>
+    let userName = "{{ user.username }}";
+    $("#username").val(userName);
+</script>
 <!--auto resize-->
 <script type="text/javascript">
 
@@ -438,8 +444,7 @@
     }
 
 
-    let userName = "{{ user.username }}";
-    $("#username").val(userName);
+
 
 
 </script>

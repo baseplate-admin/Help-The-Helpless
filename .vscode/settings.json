@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\zarif\\Miniconda3\\envs\\django\\python.exe",
+    "python.pythonPath": "C:\\Users\\zarif\\miniconda3\\python.exe",
     "python.formatting.provider": "black",
 }

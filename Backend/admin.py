@@ -1,4 +1,6 @@
 from django.contrib import admin
-import Backend.models as models
+import Backend.models as backend
+import Frontend.models as frontend
 
-admin.site.register(models.Backend)
+admin.site.register(backend.Backend)
+admin.site.register(frontend.Blog)

@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # ALLOWED_HOSTS.append('helpthehelpless.duckdns.org')
-ALLOWED_HOSTS.append("localhost")
+ALLOWED_HOSTS.append("zarif-ahnaf.duckdns.org")
 ALLOWED_HOSTS.append("127.0.0.1")
 
 # Application definition
@@ -122,3 +122,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+

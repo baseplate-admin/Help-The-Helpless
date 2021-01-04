@@ -5,8 +5,25 @@ class Blog(models.Model):
     username = models.CharField(max_length=50)
     date_time = models.CharField(max_length=23)
     header = models.CharField(max_length=50)
-    content = models.TextField()
+    content_1 = models.TextField(default="")
+    content_2 = models.TextField(default="")
+    content_3 = models.TextField(default="")
+    content_4 = models.TextField(default="")
+    content_5 = models.TextField(default="")
+    image_1_title = models.CharField(max_length=20, default="")
+    image_2_title = models.CharField(max_length=20, default="")
+    image_3_title = models.CharField(max_length=20, default="")
+    image_4_title = models.CharField(max_length=20, default="")
+    image_1 = models.ImageField(upload_to="images", default=None)
+    image_2 = models.ImageField(upload_to="images", default=None)
+    image_3 = models.ImageField(upload_to="images", default=None)
+    image_4 = models.ImageField(upload_to="images", default=None)
+    image_1_url = models.URLField()
+    image_2_url = models.URLField()
+    image_3_url = models.URLField()
+    image_4_url = models.URLField()
+
     extra = "blog"
 
     def __str__(self):
-        return self.extra
+        return str(self.pk)
