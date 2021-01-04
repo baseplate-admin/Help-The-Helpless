@@ -134,3 +134,4 @@ dmypy.json
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+Frontend/views.py
