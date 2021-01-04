@@ -17,7 +17,7 @@ class imgbb:
 
         self.key = "a10313abcb97c127a0e4f42e6e14ec73"
         self.filelocation = self._file_read
-        self.url = ""
+        self.url = self._read()
 
     def _read(self):
         import base64
@@ -30,12 +30,11 @@ class imgbb:
             res = requests.post(url, payload)
             # pprint(vars(res))
             res = res.json()
-            self.url = res["data"]["url"]
-            return self.url
+            url = res["data"]["url"]
+            return url
 
     def _file_read(self, filelocation):
         self.filelocation = filelocation
-        self._read()
         return self.url
 
 
