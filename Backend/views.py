@@ -118,3 +118,14 @@ def github_user_id_handle(request):
         return redirect("/back/github-user-id")
     else:
         return redirect("/back/github-user-id")
+
+
+@login_required(login_url="log-in")
+@gzip_page
+def blog_create(request):
+    if request.method == "GET":
+        backend = Backend.objects.get(extra="backend")
+
+        return render(request, "front/blog-create/index.html", {"backend": backend,})
+    else:
+        return redirect("/home/")

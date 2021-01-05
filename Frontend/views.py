@@ -128,16 +128,6 @@ def blog_details(request, pk):
 
 
 @gzip_page
-def blog_create(request):
-    if request.method == "GET":
-        backend = Backend.objects.get(extra="backend")
-
-        return render(request, "front/blog-create/index.html", {"backend": backend,})
-    else:
-        return redirect("/home/")
-
-
-@gzip_page
 def blog_create_handler(request):
     if request.method == "POST":
         header = request.POST.get("header")

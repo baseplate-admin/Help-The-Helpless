@@ -31,3 +31,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return str(self.pk)
+
+
+class Comments(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=50)
+    comments = models.TextField()
+    blog_id = models.IntegerField
+
+    def __str__(self):
+        return self.blog_id
