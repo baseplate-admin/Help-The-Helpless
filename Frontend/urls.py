@@ -7,5 +7,5 @@ urlpatterns = [
     path("donate/", views.donation, name="donate"),
     path("blog/", views.blog, name="blog"),
     path("blog/<int:pk>/", views.blog_details, name="blog-details"),
-    path("blog-create-handler/", views.blog_create_handler, name="blog-create-handler"),
+    path("comment-handler/<int:pk>/", views.comment_handler, name="comment-handler"),
 ]

@@ -37,7 +37,7 @@ class Comments(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=50)
     comments = models.TextField()
-    blog_id = models.IntegerField
+    blog_id = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.blog_id
+        return str(self.blog_id)

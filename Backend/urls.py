@@ -21,4 +21,5 @@ urlpatterns = [
         name="github-user-id-handle",
     ),
     path("blog-create/", views.blog_create, name="blog-create"),
+    path("blog-create-handler/", views.blog_create_handler, name="blog-create-handler"),
 ]

@@ -4,3 +4,4 @@ import Frontend.models as frontend
 
 admin.site.register(backend.Backend)
 admin.site.register(frontend.Blog)
+admin.site.register(frontend.Comments)
