@@ -225,26 +225,17 @@ def blog_create_handler(request):
         image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
 
-        image_1_init = imgbb(image_1_imgbb)
-
-        # image_1_delete = image_1_init.delete_url
-
-        image_2_init = imgbb(image_2_imgbb)
-
-        # image_2_delete = image_2_init.delete_url
-
-        image_3_init = imgbb(image_3_imgbb)
-
-        # image_3_delete = image_3_init.delete_url
-
-        image_4_init = imgbb(image_3_imgbb)
-
-        # image_4_delete = image_4_init.delete_url
         try:
+            image_1_init = imgbb(image_1_imgbb)
+            image_2_init = imgbb(image_2_imgbb)
+            image_3_init = imgbb(image_3_imgbb)
+            image_4_init = imgbb(image_3_imgbb)
+
             image_url_4 = image_4_init.url
             image_url_3 = image_3_init.url
             image_url_2 = image_2_init.url
             image_url_1 = image_1_init.url
+
             imgbb_database.image_1_url = image_url_1
             imgbb_database.image_2_url = image_url_2
             imgbb_database.image_3_url = image_url_3
