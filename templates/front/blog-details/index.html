@@ -270,28 +270,30 @@
                               <!--image description-->
                               </div>
                               </div>
-                            </div>
+                            </div >
+                            <div class="container" style="padding-top: 12%;">
                             <hr>
-                            <form action={%url 'comment-handler' site_pk %} method="POST">
-                              {% csrf_token %}
-                              <div class="com-box">
-                                <div class="comm" style="display: flex;justify-content: center;">
-                                   <input class="input-field" type="text" name="username" placeholder="Enter your name" required >
+                              <form action={%url 'comment-handler' site_pk %} method="POST">
+                                {% csrf_token %}
+                                <div class="com-box">
+                                  <div class="comm" style="display: flex;justify-content: center;">
+                                    <input class="input-field" type="text" name="username" placeholder="Enter your name" required >
+                                  </div>
+                                  <div class="comm" style="display: flex;justify-content: center;">
+                                    <input class="input-field" type="email" name="email" placeholder="Enter your email address" required >
+                                  </div>
+                                  <br>
+                                  <div class="comm" style="display: flex;justify-content: center;">
+                                    <textarea class="input-field" id="autoresizing" name="comment" placeholder="Comment" required></textarea>
+                                  </div>
+                                  <center>
+                                    <button type="submit" class="btn"> <b>SUBMIT</b>
+                                    </button>
+                                  </center>
                                 </div>
-                                <div class="comm" style="display: flex;justify-content: center;">
-                                   <input class="input-field" type="email" name="email" placeholder="Enter your email address" required >
-                                </div>
-                                <br>
-                                <div class="comm" style="display: flex;justify-content: center;">
-                                   <textarea class="input-field" id="autoresizing" name="comment" placeholder="Comment" required></textarea>
-                                </div>
-                                <center>
-                                   <button type="submit" class="btn"> <b>SUBMIT</b>
-                                   </button>
-                                </center>
-                              </div>
                                 </form>
                               </div>
+                            </div>
 
                              <div class="comment-section">
                               {%for user in comments%}
@@ -331,7 +333,7 @@
         </div><!-- .wrapper -->
     </div><!-- .site-content -->
     <script>
-
+      console.log($("#last-image").width())
       $("#last-post").width($("#last-image").width());
 
       var header = document.querySelector("#BlogHeader").textContent;
