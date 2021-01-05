@@ -52,176 +52,229 @@
   {%endblock%}
         </header><!-- .site-header -->
   {%block breadcrumb%}
-    <div class="breadcrumb-wrapper">
-        <div class="wrapper">
-            <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href=""><span itemprop="name">Home</span></a>
-                        <meta itemprop="position" content="1"/>
-                        <span class="separator"><i class="fa fa-angle-right"></i></span>
-                    </span><span class="current" itemprop="itemListElement" itemscope
-                                 itemtype="http://schema.org/ListItem"><a itemprop="item" href="/blog/"><span
-                    itemprop="name">Blog</span></a><meta itemprop="position" content="2"/></span></div>
-        </div>
-    </div><!-- .breadcrumb-wrapper -->
+  <div class="breadcrumb-wrapper">
+    <div class="wrapper">
+        <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href=""><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="1"/>
+                    <span class="separator"><i class="fa fa-angle-right"></i></span>
+                </span><span class="current" itemprop="itemListElement" itemscope
+                             itemtype="http://schema.org/ListItem"><a itemprop="item" href="/blog/"><span
+                itemprop="name" id="span_text"></span></a><meta itemprop="position" content="2"/></span></div>
+    </div>
+</div><!-- .breadcrumb-wrapper -->
   {%endblock%}
   {%block sitecontent%}
   
-        <style>
-        .post-holder{
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          hyphens: auto;
-          line-height: 23px;
-        }
-        .image_div{
-          padding-right: 12px;
-          padding-bottom: 12px;
-          width: 45%;
-          float: left;
-        }
-        .image{
-          width: 100%;
-          border-radius: 8px;
-        }
+  <style>
+    .post-thumbnail{
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
+      line-height: 23px;
+    }
 
-        .comm {
-            position: relative;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .main-post-holder{
+      height: auto;
+      width: 100%;
+      padding: 10px;
+    }
 
-        .input-field::placeholder {
-            font-family: sans-serif;
-            padding: 5px;
+    .sub-post{
+      height: auto;
+      width: 100%;
+      position: relative;
+      padding: 10px;
+    }
+    .sub-title{
+      height: auto;
+      width: 100%;
+    }
 
-        }
-        #autoresizing{
-          font-size: 95%;
-          text-indent: 20px;
-        }
+    .image_div{
+      height: auto;
+      width: 50%;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      float: left;
+    }
+    .image{
+      border-radius: 15px;
+      width: 100%;
+    }
+
+    .sub-text{
+      height: auto;
+      width: 100%;
+    }
+
+    .comm {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .input-field::placeholder {
+        font-family: sans-serif;
+        padding: 5px;
+
+    }
+    #autoresizing{
+      font-size: 95%;
+      text-indent: 20px;
+    }
 
 
-        .comm .material-icons {
-            position: absolute;
-            left: 0;
-            top: 34px;
-            padding-left: 6.5%;
-            font-size: 23px;
-            color: gray;
-        }
+    .comm .material-icons {
+        position: absolute;
+        left: 0;
+        top: 34px;
+        padding-left: 6.5%;
+        font-size: 23px;
+        color: gray;
+    }
 
-        .input-field{
-            width: 100%;
-            padding: 5px;
-            margin: 15px;
-            outline: none;
-            font-size: 24px;
-            height: auto;
-            line-height: 34px;
-            resize: none;
-            display: block;
-            border-radius: 9px;
+    .input-field{
+        width: 100%;
+        padding: 5px;
+        margin: 15px;
+        outline: none;
+        font-size: 24px;
+        height: auto;
+        line-height: 34px;
+        resize: none;
+        display: block;
+        border-radius: 9px;
 
-        }
+    }
 
-        .input-field:focus {
-            transition: 0.5s;
-            border: 2.5px solid #74dde3;
-        }
+    .input-field:focus {
+        transition: 0.5s;
+        border: 2.5px solid #74dde3;
+    }
 
-        /* Set style for the submit button */
-        .btn {
-            background-color: #74dde3;
-            width: 50%;
-            color: white;
-            padding: 15px 20px;
-            border: none;
-            cursor: pointer;
-            opacity: 0.8;
-            outline: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    /* Set style for the submit button */
+    .btn {
+        background-color: #74dde3;
+        width: 50%;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        outline: none;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
 
-        .btn:hover {
-            opacity: 1;
-            background-color: #60c7cc;
-        }
-        .com-box{
-          all: initial;
-        }
-        .comments-holder{
-          padding-top: 40px;
-        }
-        .myavatar{
-          float: left;
-          width: 50px;
-        }
-        .myavatar img{
-          border-radius: 50%;
-        }
-        .mycomment{
-          border-radius: 25px;
-          background: #caeced;
-          padding: 20px;
-          width: 100%;
-          height: auto;
-          padding-left: 60px;
-        }
-        </style>
+    .btn:hover {
+        opacity: 1;
+        background-color: #60c7cc;
+    }
+    .com-box{
+      all: initial;
+    }
+    .comments-holder{
+      padding-top: 40px;
+    }
+    .myavatar{
+      float: left;
+      width: 50px;
+    }
+    .myavatar img{
+      border-radius: 50%;
+    }
+    .mycomment{
+      border-radius: 25px;
+      background: #caeced;
+      padding: 20px;
+      width: 100%;
+      height: auto;
+      padding-left: 60px;
+    }
+    </style>
+
     <div id="content" class="site-content">
         <div class="wrapper">
 
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
 
-
+                    <div class="site-reload-content">
                     <article id="post-22" class="post-22 page type-page status-publish hentry">                                  <!--work from here-->
                         <header class="page-header">
                             <h1 class="entry-title">Blog</h1></header>
 
                         <figure class="post-thumbnail">
 
-                        <div class="post-holder">
+                          <div class="main-post-holder">
 
-                          <h1 style="text-align: center;">{{blog.header}}</h1>
+                            <h1 style="text-align: center;" id="BlogHeader">
+                              {{blog.header}}
+                            </h1>
                           <p> <!--main post-->
                           {{blog.content_1}}
                           </p>
 
-
-                          {% comment %} <h2>title 1</h2> {% endcomment %}
+                        <div class="sub-post"> <!--post 1-->
+                          <div class="sub-title">
+                          <h2>title 1</h2>
+                          </div>
                           <div class="image_div">
                             <img src="{{blog.image_1_url}}" alt="{{blog.image_1_title}}" class="image">
                           </div>
+                          <div class='sub-text'>
                           <!--image description || don't use div-->
                           {{blog.content_2}}
                           <!--image description-->
+                          </div>
+                        </div>
 
-                        {% comment %} <h2>title 2</h2> {% endcomment %}
+                        <div class="sub-post"> 
+                          <div class="sub-title">
+                        <h2>title 2</h2>
+                        </div>
+
                         <div class="image_div">
                           <img src="{{blog.image_2_url}}" alt="{{blog.image_2_title}}" class="image">
                         </div>
+                          <div class='sub-text'>
                           <!--image description || don't use div-->
                           {{blog.content_3}}
                           <!--image description-->
+                          </div>
+                          </div>
 
-                          {% comment %} <h2>title 3</h2> {% endcomment %}
+
+                        <div class="sub-post"> 
+                          <div class="sub-title">
+                          <h2>title 3</h2>
+                          </div>
                           <div class="image_div">
                             <img src="{{blog.image_3_url}}" alt="{{blog.image_3_title}}" class="image">
                           </div>
+                          <div class='sub-text'>
                             <!--image description || don't use div-->
                             {{blog.content_4}}
                             <!--image description-->
-
-                            {% comment %} <h2>title 4</h2> {% endcomment %}
+                            </div>
+                            </div>
+                            
+                            <div class='sub-post'>
+                            <div class='sub-title'>
+                            <h2>title 4</h2>
+                            </div>
                             <div class="image_div">
                               <img src="{{blog.image_4_url}}" alt="{{blog.image_4_title}}" class="image">
                             </div>
                               <!--image description || don't use div-->
+                              <div class='sub-text'>
                               {{blog.content_5}}
                               <!--image description-->
+                              </div>
+                              </div>
+                            </div>
 
                               <hr>
 
@@ -244,12 +297,12 @@
                                 </button>
                               </center>
                             </div>
-
                             <div class="comments-holder">
                               <div class="myavatar">
                                 <img src="https://ui-avatars.com/api/?background=random&name=user+1" alt="Avatar">
                                 <!--pass user name "name= donald + trump" like this-->
                               </div>
+
                               <div class="mycomment">
                                 <h5>Username</h5>
                                 <p>

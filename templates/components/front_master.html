@@ -12,68 +12,6 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    {% comment %}
-    <style id="blossom-coach-inline-css" type="text/css">
-      /*Typography*/
-      body,
-      button,
-      input,
-      select,
-      optgroup,
-      textarea,
-      section[class*='-section']
-        .widget_blossom_client_logo_widget
-        .widget-title,
-      .blog-section article .entry-meta,
-      .btn-link,
-      .widget.widget_blossomthemes_stat_counter_widget .widget-title,
-      .single .entry-meta,
-      .portfolio-text-holder .portfolio-img-title {
-        font-family: Nunito Sans;
-      }
-
-      .site-title,
-      .site-title-wrap .site-title {
-        font-size: 45px;
-        font-family: Nunito;
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      /*Typography*/
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      section[class*='-section'] .widget .widget-title,
-      section[class*='-section']
-        .widget_blossomtheme_featured_page_widget
-        .section-subtitle,
-      .section-title,
-      .comment-body b.fn,
-      .comment-body .reply .comment-reply-link,
-      .single .navigation .nav-links,
-      .site-header .header-search label.screen-reader-text,
-      .btn-readmore,
-      .btn-readmore:visited,
-      .bttk-testimonial-holder .name,
-      .pricing-block .price,
-      .entry-meta,
-      #primary .widget_blossomtheme_featured_page_widget .section-subtitle,
-      .widget_blossomthemes_stat_counter_widget .hs-counter,
-      .widget_bttk_description_widget .bttk-team-holder .name,
-      .bttk-team-inner-holder-modal .name,
-      .page-header .subtitle,
-      .dropcap,
-      .error-404 .error-num,
-      .error-404 a.bttn,
-      .related-portfolio-title {
-        font-family: Nunito;
-      }
-    </style>
-    {% endcomment %}
     <link
       rel="https://api.w.org/"
       href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-json/ "
@@ -88,7 +26,6 @@
       type="application/wlwmanifest+xml"
       href="https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/wlwmanifest.xml "
     />
-    <meta name="generator" content="WordPress 5.5.3" />
     <link rel="canonical" href="/home/" />
   </head>
 
@@ -224,8 +161,7 @@
         {% block main_header %} {% endblock %}
       </header>
       <!-- .site-header -->
-      {% block breadcrumb %} {% endblock %}
-      <div id="site-reload-content">{% block sitecontent %} {% endblock %}</div>
+      {% block breadcrumb %} {% endblock %} {% block sitecontent %} {%endblock%}
       <footer
         id="colophon"
         class="site-footer"
@@ -257,6 +193,7 @@
           <span>&#10140;</span>
         </button>
       </footer>
+
       <!-- #colophon -->
     </div>
     <!-- #page -->
