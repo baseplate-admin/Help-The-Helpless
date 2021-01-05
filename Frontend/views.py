@@ -14,8 +14,8 @@ import os
 
 class imgbb:
     def __init__(self, filelocation):
-        self.key = ""
         self.filelocation = filelocation
+        self.key = ""
         self.url = ""
         # self.delete_url = ""
         self._read()
@@ -24,15 +24,18 @@ class imgbb:
         import base64
         import requests
 
-        with open(self.filelocation, "rb") as f:
-            url = "https://api.imgbb.com/1/upload"
-            payload = {"key": self.key, "image": base64.b64encode(f.read())}
-            res = requests.post(url, payload)
-            # pprint(vars(res))
-            res = res.json()
-            self.url = res["data"]["url"]
-            # self.delete_url = res["data"]["delete_url"]
-            return self.url
+        if self.key == "":
+            raise KeyError("Enter IMGBB api key")
+        else:
+            with open(self.filelocation, "rb") as f:
+                url = "https://api.imgbb.com/1/upload"
+                payload = {"key": self.key, "image": base64.b64encode(f.read())}
+                res = requests.post(url, payload)
+                # pprint(vars(res))
+                res = res.json()
+                self.url = res["data"]["url"]
+                # self.delete_url = res["data"]["delete_url"]
+                return self.url
 
 
 def value_time():
@@ -109,6 +112,21 @@ def blog(request):
 
 
 @gzip_page
+def blog_details(request, pk):
+    blog_database = Blog.objects.get(pk=pk)
+    backend = Backend.objects.get(extra="backend")
+    return render(
+        request,
+        "front/blog-details/index.html",
+        {
+            "blog": blog_database,
+            "backend": backend,
+            "site_header": f"{blog_database.header}",
+        },
+    )
+
+
+@gzip_page
 def blog_create(request):
     if request.method == "GET":
         backend = Backend.objects.get(extra="backend")
@@ -174,25 +192,36 @@ def blog_create_handler(request):
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
 
         image_1_init = imgbb(image_1_imgbb)
-        image_url_1 = image_1_init.url
+
         # image_1_delete = image_1_init.delete_url
 
         image_2_init = imgbb(image_2_imgbb)
-        image_url_2 = image_2_init.url
+
         # image_2_delete = image_2_init.delete_url
 
         image_3_init = imgbb(image_3_imgbb)
-        image_url_3 = image_3_init.url
+
         # image_3_delete = image_3_init.delete_url
 
         image_4_init = imgbb(image_3_imgbb)
-        image_url_4 = image_4_init.url
-        # image_4_delete = image_4_init.delete_url
 
-        imgbb_database.image_1_url = image_url_1
-        imgbb_database.image_2_url = image_url_2
-        imgbb_database.image_3_url = image_url_3
-        imgbb_database.image_4_url = image_url_4
+        # image_4_delete = image_4_init.delete_url
+        try:
+            image_url_4 = image_4_init.url
+            image_url_3 = image_3_init.url
+            image_url_2 = image_2_init.url
+            image_url_1 = image_1_init.url
+            imgbb_database.image_1_url = image_url_1
+            imgbb_database.image_2_url = image_url_2
+            imgbb_database.image_3_url = image_url_3
+            imgbb_database.image_4_url = image_url_4
+        except Exception as e:
+            print("Something is wrong with images Upload")
+        finally:
+            os.remove(image_1_imgbb)
+            os.remove(image_2_imgbb)
+            os.remove(image_3_imgbb)
+            os.remove(image_4_imgbb)
 
         # imgbb_database.image_1_delete = image_1_delete
         # imgbb_database.image_2_delete = image_2_delete
@@ -200,10 +229,7 @@ def blog_create_handler(request):
         # imgbb_database.image_4_delete = image_4_delete
 
         imgbb_database.save()
-        os.remove(image_1_imgbb)
-        os.remove(image_2_imgbb)
-        os.remove(image_3_imgbb)
-        os.remove(image_4_imgbb)
+
         # image_path = f"{os.getcwd()}\\media\\"
         return redirect("/blog-create/")
 
