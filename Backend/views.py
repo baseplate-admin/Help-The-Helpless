@@ -47,6 +47,11 @@ def request_files_async(request_data, request_name):
     return fetched_data
 
 
+def return_full_path(name):
+    return_path = f"{os.getcwd}\\media\\{name}"
+    return return_path
+
+
 def blog_save_to_database(
     username,
     time,
@@ -95,11 +100,11 @@ def blog_save_to_database(
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
-        if not Backend.objects.filter(extra="backend").exists():
-            Backend.objects.create().save()
-        elif Backend.objects.filter(extra="backend").exists():
+        try:
             backend = Backend.objects.get(extra="backend")
-
+        except Exception as e:
+            print(e)
+            Backend.objects.create().save()
         else:
             return HttpResponse(
                 "<h1>Something is wrong with backend/views.py. Please contact Zarif_Ahnaf(zarifahnaf@outlook.com).</h1>"
@@ -313,10 +318,18 @@ def blog_create_handler(request):
         database_pk = database.pk
         imgbb_database = Blog.objects.get(pk=database_pk)
 
-        image_1_imgbb = f"{os.getcwd()}\\media\\{database.image_1}"
-        image_2_imgbb = f"{os.getcwd()}\\media\\{database.image_2}"
-        image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
-        image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            image_1_imgbb_future = executor.submit(return_full_path, database.image_1)
+            image_1_imgbb = image_1_imgbb_future.result()
+
+            image_2_imgbb_future = executor.submit(return_full_path, database.image_2)
+            image_2_imgbb = image_2_imgbb_future.result()
+
+            image_3_imgbb_future = executor.submit(return_full_path, database.image_3)
+            image_3_imgbb = image_3_imgbb_future.result()
+
+            image_4_imgbb_future = executor.submit(return_full_path, database.image_4)
+            image_4_imgbb = image_4_imgbb_future.result()
 
         try:
             with concurrent.futures.ThreadPoolExecutor() as executor:
