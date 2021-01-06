@@ -100,19 +100,16 @@ def blog_save_to_database(
 @login_required(login_url="log-in")
 def url_edit(request):
     if request.method == "GET":
+        backend = None
         try:
             backend = Backend.objects.get(extra="backend")
         except Exception as e:
             print(e)
-            Backend.objects.create().save()
-        else:
-            return HttpResponse(
-                "<h1>Something is wrong with backend/views.py. Please contact Zarif_Ahnaf(zarifahnaf@outlook.com).</h1>"
-            )
+            Backend.objects.create(extra='backend').save()
         return render(
             request,
             "back/url-edit/index.html",
-            {"site_header": "Url Edit", "backend": backend,},
+            {"site_header": "Url Edit", "backend": backend},
         )
 
     else:
@@ -123,11 +120,16 @@ def url_edit(request):
 @login_required(login_url="log-in")
 def url_edit_create(request):
     if request.method == "POST":
-
         database = Backend.objects.get(extra="backend")
-        facebook_url = request.POST.get("facebook_url")
-        youtube_url = request.POST.get("youtube_url")
-        email_url = request.POST.get("email_url")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            facebook_url_future = executor.submit(request_post_get_async, request, "facebook_url")
+            facebook_url = facebook_url_future.result()
+
+            youtube_url_future = executor.submit(request_post_get_async, request, "youtube_url")
+            youtube_url = youtube_url_future.result()
+
+            email_url_future = executor.submit(request_post_get_async, request, "email_url")
+            email_url = email_url_future.result()
 
         database.facebook_url = facebook_url
         database.youtube_url = youtube_url
@@ -149,7 +151,7 @@ def slogan_and_title_edit(request):
         return render(
             request,
             "back/title-and-slogan-edit/index.html",
-            {"site_header": "Title and Slogan Edit", "backend": backend,},
+            {"site_header": "Title and Slogan Edit", "backend": backend},
         )
     else:
         return HttpResponse("<h1>403 post not Allowed</h1>")
@@ -161,8 +163,12 @@ def slogan_and_title_edit_create(request):
     backend = Backend.objects.get(extra="backend")
 
     if request.method == "POST":
-        title = request.POST.get("title")
-        slogan = request.POST.get("slogan")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            title_future = executor.submit(request_post_get_async, request, "title")
+            title = title_future.result()
+
+            slogan_future = executor.submit(request_post_get_async, request, "slogan")
+            slogan = slogan_future.result()
         # SiteDescription == slogan
         # SiteTitle == title
 
@@ -185,7 +191,7 @@ def github_user_id(request):
         return render(
             request,
             "back/github-user-id/index.html",
-            {"site_header": "Github User ID", "backend": backend,},
+            {"site_header": "Github User ID", "backend": backend},
         )
     else:
         return HttpResponse("<h1>Post not allowed</h1>")
@@ -194,9 +200,16 @@ def github_user_id(request):
 @login_required(login_url="log-in")
 def github_user_id_handle(request):
     if request.method == "POST":
-        username = request.POST.get("github_username")
-        tag = request.POST.get("github_tag")
-        repo = request.POST.get("github_repo")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+            username_future = executor.submit(request_post_get_async, request, "github_username")
+            username = username_future.result()
+
+            tag_future = executor.submit(request_post_get_async, request, "github_tag")
+            tag = tag_future.result()
+
+            repo_future = executor.submit(request_post_get_async, request, "github_repo")
+            repo = repo_future.result()
+
         backend = Backend.objects.get(extra="backend")
         backend.github_username = username
         backend.github_tag = tag
