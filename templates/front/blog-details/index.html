@@ -1,6 +1,6 @@
-  {% extends 'components/front_master.html' %}
+{% extends 'components/front_master.html' %}
 
-  {% block main_header %}
+{% block main_header %}
     <div class="main-header">
         <div class="wrapper">
             <div class="site-branding" itemscope itemtype="http://schema.org/Organization">
@@ -37,9 +37,9 @@
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34">
                                         <a href="/donate/">Donate</a></li>
 
-                                        <li id="menu-item-139"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-                                            <a href="/log-out/">Log out</a></li>
+                                    <li id="menu-item-139"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
+                                        <a href="/log-out/">Log out</a></li>
 
                                 </ul>
                             </div>
@@ -49,85 +49,97 @@
             </div><!-- .menu-wrap -->
         </div><!-- .wrapper -->
     </div><!-- .main-header -->
-  {%endblock%}
-        </header><!-- .site-header -->
-  {%block breadcrumb%}
-  <div class="breadcrumb-wrapper">
-    <div class="wrapper">
-        <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+{% endblock %}
+</header><!-- .site-header -->
+{% block breadcrumb %}
+    <div class="breadcrumb-wrapper">
+        <div class="wrapper">
+            <div id="crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
                 <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                     <a itemprop="item" href=""><span itemprop="name">Home</span></a>
                     <meta itemprop="position" content="1"/>
                     <span class="separator"><i class="fa fa-angle-right"></i></span>
                 </span><span class="current" itemprop="itemListElement" itemscope
                              itemtype="http://schema.org/ListItem"><a itemprop="item" href="/blog/"><span
-                itemprop="name" id="span_text"></span></a><meta itemprop="position" content="2"/></span></div>
-    </div>
-</div><!-- .breadcrumb-wrapper -->
-  {%endblock%}
-  {%block sitecontent%}
-  <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.0/lazysizes.min.js" integrity="sha256-RhEtvO7XOPdZ0D8EsRXVJWp9c2YLd5Wss4IZKthNn5g=" crossorigin="anonymous"></script>
+                    itemprop="name" id="span_text"></span></a><meta itemprop="position" content="2"/></span></div>
+        </div>
+    </div><!-- .breadcrumb-wrapper -->
+{% endblock %}
+{% block sitecontent %}
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.0/lazysizes.min.js"
+            integrity="sha256-RhEtvO7XOPdZ0D8EsRXVJWp9c2YLd5Wss4IZKthNn5g=" crossorigin="anonymous"></script>
 
-  
-            <style>
-            .post-thumbnail{
+
+    <style>
+        .post-thumbnail {
             overflow-wrap: break-word;
             word-wrap: break-word;
             hyphens: auto;
             line-height: 23px;
-            }
-            .main-post-holder{
+        }
+
+        .main-post-holder {
             height: auto;
             width: 100%;
             padding: 10px;
-            }
-            .sub-post{
+        }
+
+        .sub-post {
             height: auto;
             width: 100%;
             position: relative;
             padding: 10px;
-            }
-            .sub-title{
+        }
+
+        .sub-title {
             height: auto;
             width: 100%;
-            }
-            .image_div{
+        }
+
+        .image_div {
             height: auto;
             width: 50%;
             padding-right: 20px;
             padding-bottom: 20px;
             float: left;
-            }
-            .image{
+        }
+
+        .image {
             border-radius: 15px;
             width: 100%;
-            }
-            .sub-text{
+        }
+
+        .sub-text {
             height: auto;
             width: 100%;
-            }
-            .comm {
+        }
+
+        .comm {
             position: relative;
             margin: 0 auto;
             text-align: center;
-            }
-            .input-field::placeholder {
+        }
+
+        .input-field::placeholder {
             font-family: sans-serif;
             padding: 5px;
-            }
-            #autoresizing{
+        }
+
+        #autoresizing {
             font-size: 95%;
             text-indent: 20px;
-            }
-            .comm .material-icons {
+        }
+
+        .comm .material-icons {
             position: absolute;
             left: 0;
             top: 34px;
             padding-left: 6.5%;
             font-size: 23px;
             color: gray;
-            }
-            .input-field{
+        }
+
+        .input-field {
             width: 100%;
             padding: 5px;
             margin: 15px;
@@ -138,19 +150,22 @@
             resize: none;
             display: block;
             border-radius: 9px;
-            }
-            .input-field:focus {
+        }
+
+        .input-field:focus {
             transition: 0.5s;
             border: 2.5px solid #74dde3;
-            }
-            .com-box{   /*updated*/
+        }
+
+        .com-box { /*updated*/
             width: 100%;
             height: auto;
             position: relative;
 
-            }
-            /* Set style for the submit button */
-            .btn {
+        }
+
+        /* Set style for the submit button */
+        .btn {
             background-color: #74dde3;
             width: 50%;
             color: white;
@@ -161,161 +176,177 @@
             outline: none;
             border-radius: 8px;
             transition: 0.3s;
-            }
-            .btn:hover {
+        }
+
+        .btn:hover {
             opacity: 1;
             background-color: #60c7cc;
-            }
-            .comment-section{
-              position: relative;
-            }
-            .comments-holder{
+        }
+
+        .comment-section {
+            position: relative;
+        }
+
+        .comments-holder {
             padding-top: 40px;
             position: relative; /*updated*/
-            }
-            .myavatar{
+        }
+
+        .myavatar {
             float: left;
             width: 50px;
-            }
-            .myavatar img{
+        }
+
+        .myavatar img {
             border-radius: 50%;
-            }
-            .mycomment{
+        }
+
+        .mycomment {
             height: auto;
             border-radius: 25px;
             background: #caeced;
             padding: 20px;
             width: 100%;
             padding-left: 60px;
-            }
+        }
 
-            </style>
+        #body-id {
+            opacity: 1;
+        }
+    </style>
 
     <div id="content" class="site-content">
-        <div class="wrapper">
+    <div class="wrapper">
 
-            <div id="primary" class="content-area">
-                <main id="main" class="site-main">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
 
-                    <div class="site-reload-content">
-                    <article id="post-22" class="post-22 page type-page status-publish hentry">                                  <!--work from here-->
+                <div class="site-reload-content">
+                    <article id="post-22" class="post-22 page type-page status-publish hentry">
+                        <!--work from here-->
                         <header class="page-header">
                             <h1 class="entry-title"></h1></header>
 
                         <figure class="post-thumbnail">
 
-                          <div class="main-post-holder">
+                            <div class="main-post-holder">
 
-                            <h1 style="text-align: center;" id="BlogHeader">
-                              {{blog.header}}
-                            </h1>
-                          <p> <!--main post-->
-                          {{blog.content_1}}
-                          </p>
-                        <div class='conatiner'>
-                        <div class="sub-post"> <!--post 1-->
-                          <div class="sub-title">
-                          <h2>title 1</h2>
-                          </div>
-                          <div class="image_div">
-                            <img src="{{blog.image_1_url}}" alt="{{blog.image_1_title}}" class="image lazyload">
-                          </div>
-                          <div class='sub-text'>
-                          <!--image description || don't use div-->
-                          {{blog.content_2}}
-                          <!--image description-->
-                          </div>
-                        </div>
+                                <h1 style="text-align: center;" id="BlogHeader">
+                                    {{ blog.header }}
+                                </h1>
+                                <p> <!--main post-->
+                                    {{ blog.content_1 }}
+                                </p>
+                                <div class='conatiner'>
+                                    <div class="sub-post"> <!--post 1-->
+                                        <div class="sub-title">
+                                            <h2>title 1</h2>
+                                        </div>
+                                        <div class="image_div">
+                                            <img src="{{ blog.image_1_url }}" alt="{{ blog.image_1_title }}"
+                                                 class="image lazyload">
+                                        </div>
+                                        <div class='sub-text'>
+                                            <!--image description || don't use div-->
+                                            {{ blog.content_2 }}
+                                            <!--image description-->
+                                        </div>
+                                    </div>
 
-                        <div class="sub-post"> 
-                          <div class="sub-title">
-                        <h2>title 2</h2>
-                        </div>
+                                    <div class="sub-post">
+                                        <div class="sub-title">
+                                            <h2>title 2</h2>
+                                        </div>
 
-                        <div class="image_div">
-                          <img src="{{blog.image_2_url}}" alt="{{blog.image_2_title}}" class="image lazyload">
-                        </div>
-                          <div class='sub-text'>
-                          <!--image description || don't use div-->
-                          {{blog.content_3}}
-                          <!--image description-->
-                          </div>
-                          </div>
+                                        <div class="image_div">
+                                            <img src="{{ blog.image_2_url }}" alt="{{ blog.image_2_title }}"
+                                                 class="image lazyload">
+                                        </div>
+                                        <div class='sub-text'>
+                                            <!--image description || don't use div-->
+                                            {{ blog.content_3 }}
+                                            <!--image description-->
+                                        </div>
+                                    </div>
 
 
-                        <div class="sub-post"> 
-                          <div class="sub-title">
-                          <h2>title 3</h2>
-                          </div>
-                          <div class="image_div">
-                            <img src="{{blog.image_3_url}}" alt="{{blog.image_3_title}}" class="image lazyload">
-                          </div>
-                          <div class='sub-text'>
-                            <!--image description || don't use div-->
-                            {{blog.content_4}}
-                            <!--image description-->
-                            </div>
-                            </div>
-                            
-                            <div class='sub-post'>
-                            <div class='sub-title'>
-                            <h2>title 4</h2>
-                            </div>
-                            <div class="image_div" id='last-image'>
-                              <img src="{{blog.image_4_url}}" alt="{{blog.image_4_title}}" class="image lazyload">
-                            </div>
-                              <!--image description || don't use div-->
-                              <div class='sub-text' id='last-post'>
-                              {{blog.content_5}}
-                              <!--image description-->
-                              </div>
-                              </div>
-                            </div >
-                            <div class="container" style="padding-top: 12%;">
-                            <hr>
-                              <form action={%url 'comment-handler' site_pk %} method="POST">
-                                {% csrf_token %}
-                                <div class="com-box">
-                                  <div class="comm" style="display: flex;justify-content: center;">
-                                    <input class="input-field" type="text" name="username" placeholder="Enter your name" required >
-                                  </div>
-                                  <div class="comm" style="display: flex;justify-content: center;">
-                                    <input class="input-field" type="email" name="email" placeholder="Enter your email address" required >
-                                  </div>
-                                  <br>
-                                  <div class="comm" style="display: flex;justify-content: center;">
-                                    <textarea class="input-field" id="autoresizing" name="comment" placeholder="Comment" required></textarea>
-                                  </div>
-                                  <center>
-                                    <button type="submit" class="btn"> <b>SUBMIT</b>
-                                    </button>
-                                  </center>
+                                    <div class="sub-post">
+                                        <div class="sub-title">
+                                            <h2>title 3</h2>
+                                        </div>
+                                        <div class="image_div">
+                                            <img src="{{ blog.image_3_url }}" alt="{{ blog.image_3_title }}"
+                                                 class="image lazyload">
+                                        </div>
+                                        <div class='sub-text'>
+                                            <!--image description || don't use div-->
+                                            {{ blog.content_4 }}
+                                            <!--image description-->
+                                        </div>
+                                    </div>
+
+                                    <div class='sub-post'>
+                                        <div class='sub-title'>
+                                            <h2>title 4</h2>
+                                        </div>
+                                        <div class="image_div" id='last-image'>
+                                            <img src="{{ blog.image_4_url }}" alt="{{ blog.image_4_title }}"
+                                                 class="image lazyload">
+                                        </div>
+                                        <!--image description || don't use div-->
+                                        <div class='sub-text' id='last-post'>
+                                            {{ blog.content_5 }}
+                                            <!--image description-->
+                                        </div>
+                                    </div>
                                 </div>
-                                </form>
-                              </div>
+                                <div class="container" style="padding-top: 12%;">
+                                    <hr>
+                                    <form action={% url 'comment-handler' site_pk %} method="POST">
+                                        {% csrf_token %}
+                                        <div class="com-box">
+                                            <div class="comm" style="display: flex;justify-content: center;">
+                                                <input class="input-field" type="text" name="username"
+                                                       placeholder="Enter your name" required>
+                                            </div>
+                                            <div class="comm" style="display: flex;justify-content: center;">
+                                                <input class="input-field" type="email" name="email"
+                                                       placeholder="Enter your email address" required>
+                                            </div>
+                                            <br>
+                                            <div class="comm" style="display: flex;justify-content: center;">
+                                                <textarea class="input-field" id="autoresizing" name="comment"
+                                                          placeholder="Comment" required></textarea>
+                                            </div>
+                                            <center>
+                                                <button type="submit" class="btn"><b>SUBMIT</b>
+                                                </button>
+                                            </center>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
 
-                             <div class="comment-section">
-                              {%for user in comments%}
-                              <div class="comments-holder">
-                                 <div class="myavatar">
-                                    <img class="lazyload" data-src="https://ui-avatars.com/api/?background=random&name={{user.name}}" alt="Avatar">
-                                    <!--pass user name "name= donald + trump" like this-->
-                                 </div>
-                                 <div class="mycomment">
-                                    <h5>{{user.name}}</h5>
-                                    <p>
-                                      {{user.comments}}
-                                    </p>
-                                 </div>
-                              </div>
-                              {%endfor%}
+                            <div class="comment-section">
+                                {% for user in comments %}
+                                    <div class="comments-holder">
+                                        <div class="myavatar">
+                                            <img class="lazyload"
+                                                 data-src="https://ui-avatars.com/api/?background=random&name={{ user.name }}"
+                                                 alt="Avatar">
+                                            <!--pass user name "name= donald + trump" like this-->
+                                        </div>
+                                        <div class="mycomment">
+                                            <h5>{{ user.name }}</h5>
+                                            <p>
+                                                {{ user.comments }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
 
 
-                          </div>
-
-
-
+                            </div>
 
 
                         </figure><!-- .post-thumbnail -->
@@ -327,125 +358,128 @@
                         </footer><!-- .entry-footer -->
                     </article><!-- #post-22 -->
 
-            </div><!-- #primary -->
-
-
+                </div><!-- #primary -->
+            </main>
         </div><!-- .wrapper -->
     </div><!-- .site-content -->
     <script>
-      $("#last-post").width($("#last-image").width());
+        $("#last-post").width($("#last-image").width());
 
-      var header = document.querySelector("#BlogHeader").textContent;
+        let header = document.querySelector("#BlogHeader").textContent;
 
-      var textnode = document.createTextNode(header);
+        let textnode = document.createTextNode(header);
 
-      document.querySelector("#span_text").appendChild(textnode);
+        document.querySelector("#span_text").appendChild(textnode);
 
-      var textarea = document.querySelector("#autoresizing");
+        let textarea = document.querySelector("#autoresizing");
 
-      textarea.addEventListener('input', autoResize, false);
+        textarea.addEventListener('input', autoResize, false);
 
-      function autoResize() {
-          this.style.height = 'auto';
-          this.style.height = this.scrollHeight + 'px';
-      }
-
-      class Slider {
-        constructor(props) {
-          this.rootElement = props.element;
-          this.slides = Array.from(
-          this.rootElement.querySelectorAll(".slider-list__item"));
-
-          this.slidesLength = this.slides.length;
-          this.current = 0;
-          this.isAnimating = false;
-          this.direction = 1; // -1
-          this.baseAnimeSettings = {
-            duration: 750,
-            elasticity: 0,
-            easing: 'easeInOutCirc' };
-
-          this.navBar = this.rootElement.querySelector(".slider__nav-bar");
-          this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
-          this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
-          this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
-
-          this.slides[this.current].classList.add("slider-list__item_active");
-          this.thumbs[this.current].classList.add("nav-control_active");
-
-          this._bindEvents();
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
         }
 
-        goTo(index, dir) {
-          if (this.isAnimating) return;
-          var self = this;
-          let prevSlide = this.slides[this.current];
-          let nextSlide = this.slides[index];
+        class Slider {
+            constructor(props) {
+                this.rootElement = props.element;
+                this.slides = Array.from(
+                    this.rootElement.querySelectorAll(".slider-list__item"));
 
-          self.isAnimating = true;
-          self.current = index;
-          nextSlide.classList.add("slider-list__item_active");
+                this.slidesLength = this.slides.length;
+                this.current = 0;
+                this.isAnimating = false;
+                this.direction = 1; // -1
+                this.baseAnimeSettings = {
+                    duration: 750,
+                    elasticity: 0,
+                    easing: 'easeInOutCirc'
+                };
 
-          anime(Object.assign({}, self.baseAnimeSettings, {
-            targets: nextSlide,
-            translateX: [100 * dir + '%', 0] }));
+                this.navBar = this.rootElement.querySelector(".slider__nav-bar");
+                this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
+                this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
+                this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
+
+                this.slides[this.current].classList.add("slider-list__item_active");
+                this.thumbs[this.current].classList.add("nav-control_active");
+
+                this._bindEvents();
+            }
+
+            goTo(index, dir) {
+                if (this.isAnimating) return;
+                let self = this;
+                let prevSlide = this.slides[this.current];
+                let nextSlide = this.slides[index];
+
+                self.isAnimating = true;
+                self.current = index;
+                nextSlide.classList.add("slider-list__item_active");
+
+                anime(Object.assign({}, self.baseAnimeSettings, {
+                    targets: nextSlide,
+                    translateX: [100 * dir + '%', 0]
+                }));
 
 
-          anime(Object.assign({}, self.baseAnimeSettings, {
-            targets: prevSlide,
-            translateX: [0, -100 * dir + '%'],
-            complete: function (anim) {
-              self.isAnimating = false;
-              prevSlide.classList.remove("slider-list__item_active");
-              self.thumbs.forEach((item, index) => {
-                var action = index === self.current ? "add" : "remove";
-                item.classList[action]("nav-control_active");
-              });
-            } }));
+                anime(Object.assign({}, self.baseAnimeSettings, {
+                    targets: prevSlide,
+                    translateX: [0, -100 * dir + '%'],
+                    complete: function (anim) {
+                        self.isAnimating = false;
+                        prevSlide.classList.remove("slider-list__item_active");
+                        self.thumbs.forEach((item, index) => {
+                            let action = index === self.current ? "add" : "remove";
+                            item.classList[action]("nav-control_active");
+                        });
+                    }
+                }));
 
+            }
+
+            goStep(dir) {
+                let index = this.current + dir;
+                let len = this.slidesLength;
+                let currentIndex = (index + len) % len;
+                this.goTo(currentIndex, dir);
+            }
+
+            goNext() {
+                this.goStep(1);
+            }
+
+            goPrev() {
+                this.goStep(-1);
+            }
+
+            _navClickHandler(e) {
+                let self = this;
+                if (self.isAnimating) return;
+                let target = e.target.closest(".nav-control");
+                if (!target) return;
+                let index = self.thumbs.indexOf(target);
+                if (index === self.current) return;
+                let direction = index > self.current ? 1 : -1;
+                self.goTo(index, direction);
+            }
+
+            _bindEvents() {
+                let self = this;
+                ["goNext", "goPrev", "_navClickHandler"].forEach(method => {
+                    self[method] = self[method].bind(self);
+                });
+                self.nextButton.addEventListener("click", self.goNext);
+                self.prevButton.addEventListener("click", self.goPrev);
+                self.navBar.addEventListener("click", self._navClickHandler);
+            }
         }
 
-        goStep(dir) {
-          let index = this.current + dir;
-          let len = this.slidesLength;
-          let currentIndex = (index + len) % len;
-          this.goTo(currentIndex, dir);
-        }
 
-        goNext() {
-          this.goStep(1);
-        }
-
-        goPrev() {
-          this.goStep(-1);
-        }
-
-        _navClickHandler(e) {
-          var self = this;
-          if (self.isAnimating) return;
-          let target = e.target.closest(".nav-control");
-          if (!target) return;
-          let index = self.thumbs.indexOf(target);
-          if (index === self.current) return;
-          let direction = index > self.current ? 1 : -1;
-          self.goTo(index, direction);
-        }
-
-        _bindEvents() {
-          var self = this;
-          ["goNext", "goPrev", "_navClickHandler"].forEach(method => {
-            self[method] = self[method].bind(self);
-          });
-          self.nextButton.addEventListener("click", self.goNext);
-          self.prevButton.addEventListener("click", self.goPrev);
-          self.navBar.addEventListener("click", self._navClickHandler);
-        }}
-
-
-      // ===== init ======
-      let slider = new Slider({
-        element: document.querySelector(".slider") });
-  </script>
-{%endblock%}
-
-
+        // ===== init ======
+        let slider = new Slider({
+            element: document.querySelector(".slider")
+        });
+    </script>
+    </div>
+{% endblock %}
