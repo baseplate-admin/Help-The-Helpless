@@ -165,7 +165,11 @@ def blog_create(request):
     if request.method == "GET":
         backend = Backend.objects.get(extra="backend")
 
-        return render(request, "front/blog-create/index.html", {"backend": backend,})
+        return render(
+            request,
+            "front/blog-create/index.html",
+            {"backend": backend, "site_header": "Blog Create"},
+        )
     else:
         return redirect("/home/")
 
