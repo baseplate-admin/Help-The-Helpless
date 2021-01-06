@@ -9,32 +9,20 @@ from django.views.decorators.gzip import gzip_page
 from Frontend.models import Blog
 from Backend.models import Backend
 import os
+import concurrent.futures
 
 
-class Imgbb:
-    def __init__(self, filelocation):
-        self.filelocation = filelocation
-        self.key = ""
-        self.url = ""
-        # self.delete_url = ""
-        self._read()
-
-    def _read(self):
-        import base64
-        import requests
-
-        if self.key == "":
-            raise KeyError("Enter IMGBB api key")
-        else:
-            with open(self.filelocation, "rb") as f:
-                url = "https://api.imgbb.com/1/upload"
-                payload = {"key": self.key, "image": base64.b64encode(f.read())}
-                res = requests.post(url, payload)
-                # pprint(vars(res))
-                res = res.json()
-                self.url = res["data"]["url"]
-                # self.delete_url = res["data"]["delete_url"]
-                return self.url
+def imgbb(filelocation):
+    import base64
+    import requests
+    key = ""
+    with open(filelocation, "rb") as f:
+        url = "https://api.imgbb.com/1/upload"
+        payload = {"key": key, "image": base64.b64encode(f.read())}
+        res = requests.post(url, payload)
+        res = res.json()
+        url = res["data"]["url"]
+        return url
 
 
 def value_time():
@@ -228,16 +216,24 @@ def blog_create_handler(request):
         image_2_imgbb = f"{os.getcwd()}\\media\\{database.image_2}"
         image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
-        try:
-            image_1_init = Imgbb(image_1_imgbb)
-            image_2_init = Imgbb(image_2_imgbb)
-            image_3_init = Imgbb(image_3_imgbb)
-            image_4_init = Imgbb(image_3_imgbb)
 
-            image_url_4 = image_4_init.url
-            image_url_3 = image_3_init.url
-            image_url_2 = image_2_init.url
-            image_url_1 = image_1_init.url
+        try:
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                image_1_future = executor.submit(imgbb, image_1_imgbb)
+                image_1_init = image_1_future.result()
+
+                image_2_future = executor.submit(imgbb, image_2_imgbb)
+                image_2_init = image_2_future.result()
+
+                image_3_future = executor.submit(imgbb, image_2_imgbb)
+                image_3_init = image_3_future.result()
+
+                image_4_future = executor.submit(imgbb, image_2_imgbb)
+                image_4_init = image_4_future.result()
+            image_url_4 = image_4_init
+            image_url_3 = image_3_init
+            image_url_2 = image_2_init
+            image_url_1 = image_1_init
 
             imgbb_database.image_1_url = image_url_1
             imgbb_database.image_2_url = image_url_2
@@ -252,10 +248,6 @@ def blog_create_handler(request):
             os.remove(image_3_imgbb)
             os.remove(image_4_imgbb)
 
-        # imgbb_database.image_1_delete = image_1_delete
-        # imgbb_database.image_2_delete = image_2_delete
-        # imgbb_database.image_3_delete = image_3_delete
-        # imgbb_database.image_4_delete = image_4_delete
         imgbb_database.save()
 
         # image_path = f"{os.getcwd()}\\media\\"
