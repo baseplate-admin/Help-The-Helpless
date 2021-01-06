@@ -23,7 +23,7 @@ def imgbb(file_location):
     import base64
     import requests
 
-    key = "c2951e107a0b79b13331db8b483c0ead"
+    key = "1387c7fa29d5b903f39794b7a5e9a20d"
     with open(file_location, "rb") as f:
         url = "https://api.imgbb.com/1/upload"
         payload = {"key": key, "image": base64.b64encode(f.read())}
@@ -48,7 +48,7 @@ def request_files_async(request_data, request_name):
 
 
 def return_full_path(name):
-    return_path = f"{os.getcwd}\\media\\{name}"
+    return_path = f"{os.getcwd()}\\media\\{name}"
     return return_path
 
 
