@@ -97,9 +97,6 @@ def comment_handler(request, pk):
         name = request.POST.get("username")
         email = request.POST.get("email")
         comment = request.POST.get("comment")
-        # print(name)
-        # print(email)
-        # print(comment)
         database = Comments.objects.create(blog_id=pk)
         database.email = email
         database.comments = comment
