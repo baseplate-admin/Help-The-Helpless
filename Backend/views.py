@@ -11,7 +11,7 @@ from Backend.models import Backend
 import os
 
 
-class imgbb:
+class Imgbb:
     def __init__(self, filelocation):
         self.filelocation = filelocation
         self.key = ""
@@ -64,7 +64,7 @@ def url_edit(request):
         return render(
             request,
             "back/url-edit/index.html",
-            {"site_header": "Url Edit", "backend": backend,},
+            {"site_header": "Url Edit", "backend": backend, },
         )
 
     else:
@@ -101,7 +101,7 @@ def slogan_and_title_edit(request):
         return render(
             request,
             "back/title-and-slogan-edit/index.html",
-            {"site_header": "Title and Slogan Edit", "backend": backend,},
+            {"site_header": "Title and Slogan Edit", "backend": backend, },
         )
     else:
         return HttpResponse("<h1>403 post not Allowed</h1>")
@@ -137,7 +137,7 @@ def github_user_id(request):
         return render(
             request,
             "back/github-user-id/index.html",
-            {"site_header": "Github User ID", "backend": backend,},
+            {"site_header": "Github User ID", "backend": backend, },
         )
     else:
         return HttpResponse("<h1>Post not allowed</h1>")
@@ -178,19 +178,19 @@ def blog_create(request):
 def blog_create_handler(request):
     if request.method == "POST":
         header = request.POST.get("header")
-        image_1 = request.FILES["myFile1"]  #   1
-        image_2 = request.FILES["myFile2"]  #   2
-        image_3 = request.FILES["myFile3"]  #   3
-        image_4 = request.FILES["myFile4"]  #   4
-        text = request.POST.get("text")  #   1
-        text_1 = request.POST.get("image_text1")  #   2
-        text_2 = request.POST.get("image_text2")  #   3
-        text_3 = request.POST.get("image_text3")  #   4
+        image_1 = request.FILES["myFile1"]  # 1
+        image_2 = request.FILES["myFile2"]  # 2
+        image_3 = request.FILES["myFile3"]  # 3
+        image_4 = request.FILES["myFile4"]  # 4
+        text = request.POST.get("text")  # 1
+        text_1 = request.POST.get("image_text1")  # 2
+        text_2 = request.POST.get("image_text2")  # 3
+        text_3 = request.POST.get("image_text3")  # 4
         text_4 = request.POST.get("image_text4")
-        image_title_1 = request.POST.get("title1")  #   1
-        image_title_2 = request.POST.get("title2")  #   2
-        image_title_3 = request.POST.get("title3")  #   3
-        image_title_4 = request.POST.get("title4")  #   4
+        image_title_1 = request.POST.get("title1")  # 1
+        image_title_2 = request.POST.get("title2")  # 2
+        image_title_3 = request.POST.get("title3")  # 3
+        image_title_4 = request.POST.get("title4")  # 4
 
         # Extra logic
 
@@ -228,12 +228,11 @@ def blog_create_handler(request):
         image_2_imgbb = f"{os.getcwd()}\\media\\{database.image_2}"
         image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
-
         try:
-            image_1_init = imgbb(image_1_imgbb)
-            image_2_init = imgbb(image_2_imgbb)
-            image_3_init = imgbb(image_3_imgbb)
-            image_4_init = imgbb(image_3_imgbb)
+            image_1_init = Imgbb(image_1_imgbb)
+            image_2_init = Imgbb(image_2_imgbb)
+            image_3_init = Imgbb(image_3_imgbb)
+            image_4_init = Imgbb(image_3_imgbb)
 
             image_url_4 = image_4_init.url
             image_url_3 = image_3_init.url
@@ -245,6 +244,7 @@ def blog_create_handler(request):
             imgbb_database.image_3_url = image_url_3
             imgbb_database.image_4_url = image_url_4
         except Exception as e:
+            print(e)
             print("Something is wrong with images Upload")
         finally:
             os.remove(image_1_imgbb)
