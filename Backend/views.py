@@ -9,18 +9,17 @@ from django.views.decorators.gzip import gzip_page
 from Frontend.models import Blog
 from Backend.models import Backend
 import os
-import asyncio
 
 
 class Imgbb:
-    async def __ainit__(self, filelocation):
+    def __init__(self, filelocation):
         self.filelocation = filelocation
-        self.key = "b2bf47d376831e32a64e7426cc198acb"
+        self.key = ""
         self.url = ""
         # self.delete_url = ""
-        await asyncio.run(self._read())
+        self._read()
 
-    async def _read(self):
+    def _read(self):
         import base64
         import requests
 
@@ -31,7 +30,6 @@ class Imgbb:
                 url = "https://api.imgbb.com/1/upload"
                 payload = {"key": self.key, "image": base64.b64encode(f.read())}
                 res = requests.post(url, payload)
-                await asyncio.sleep(1)
                 # pprint(vars(res))
                 res = res.json()
                 self.url = res["data"]["url"]
@@ -231,29 +229,20 @@ def blog_create_handler(request):
         image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
         try:
-            loop = asyncio.get_event_loop()
+            image_1_init = Imgbb(image_1_imgbb)
+            image_2_init = Imgbb(image_2_imgbb)
+            image_3_init = Imgbb(image_3_imgbb)
+            image_4_init = Imgbb(image_3_imgbb)
 
-            async def imgbb_main():
+            image_url_4 = image_4_init.url
+            image_url_3 = image_3_init.url
+            image_url_2 = image_2_init.url
+            image_url_1 = image_1_init.url
 
-                image_1_init = loop.create_task(Imgbb(image_1_imgbb))
-                image_2_init = loop.create_task(Imgbb(image_2_imgbb))
-                image_3_init = loop.create_task(Imgbb(image_3_imgbb))
-                image_4_init = loop.create_task(Imgbb(image_3_imgbb))
-
-                image_url_4 = image_4_init.url
-                image_url_3 = image_3_init.url
-                image_url_2 = image_2_init.url
-                image_url_1 = image_1_init.url
-
-                imgbb_database.image_1_url = image_url_1
-                imgbb_database.image_2_url = image_url_2
-                imgbb_database.image_3_url = image_url_3
-                imgbb_database.image_4_url = image_url_4
-            try:
-                loop.run_until_complete(imgbb_main())
-            except Exception as e:
-                print(f"Error: {e}")
-
+            imgbb_database.image_1_url = image_url_1
+            imgbb_database.image_2_url = image_url_2
+            imgbb_database.image_3_url = image_url_3
+            imgbb_database.image_4_url = image_url_4
         except Exception as e:
             print(e)
             print("Something is wrong with images Upload")
