@@ -9,32 +9,25 @@ from django.views.decorators.gzip import gzip_page
 from Frontend.models import Blog
 from Backend.models import Backend
 import os
+import asyncio
 
 
-class Imgbb:
-    def __init__(self, filelocation):
-        self.filelocation = filelocation
-        self.key = ""
-        self.url = ""
-        # self.delete_url = ""
-        self._read()
+async def imgbb(filelocation):
+    import base64
+    import requests
 
-    def _read(self):
-        import base64
-        import requests
-
-        if self.key == "":
-            raise KeyError("Enter IMGBB api key")
-        else:
-            with open(self.filelocation, "rb") as f:
-                url = "https://api.imgbb.com/1/upload"
-                payload = {"key": self.key, "image": base64.b64encode(f.read())}
-                res = requests.post(url, payload)
-                # pprint(vars(res))
-                res = res.json()
-                self.url = res["data"]["url"]
-                # self.delete_url = res["data"]["delete_url"]
-                return self.url
+    key = ""
+    if key is None:
+        raise KeyError("Enter Imgbb api key")
+    else:
+        with open(filelocation, "rb") as f:
+            url = "https://api.imgbb.com/1/upload"
+            payload = {"key": key, "image": base64.b64encode(f.read())}
+            res = requests.post(url, payload)
+            await asyncio.sleep(1)
+            res = res.json()
+            url = res["data"]["url"]
+            return url
 
 
 def value_time():
@@ -64,7 +57,7 @@ def url_edit(request):
         return render(
             request,
             "back/url-edit/index.html",
-            {"site_header": "Url Edit", "backend": backend, },
+            {"site_header": "Url Edit", "backend": backend,},
         )
 
     else:
@@ -101,7 +94,7 @@ def slogan_and_title_edit(request):
         return render(
             request,
             "back/title-and-slogan-edit/index.html",
-            {"site_header": "Title and Slogan Edit", "backend": backend, },
+            {"site_header": "Title and Slogan Edit", "backend": backend,},
         )
     else:
         return HttpResponse("<h1>403 post not Allowed</h1>")
@@ -137,7 +130,7 @@ def github_user_id(request):
         return render(
             request,
             "back/github-user-id/index.html",
-            {"site_header": "Github User ID", "backend": backend, },
+            {"site_header": "Github User ID", "backend": backend,},
         )
     else:
         return HttpResponse("<h1>Post not allowed</h1>")
@@ -228,16 +221,19 @@ def blog_create_handler(request):
         image_2_imgbb = f"{os.getcwd()}\\media\\{database.image_2}"
         image_3_imgbb = f"{os.getcwd()}\\media\\{database.image_3}"
         image_4_imgbb = f"{os.getcwd()}\\media\\{database.image_4}"
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         try:
-            image_1_init = Imgbb(image_1_imgbb)
-            image_2_init = Imgbb(image_2_imgbb)
-            image_3_init = Imgbb(image_3_imgbb)
-            image_4_init = Imgbb(image_3_imgbb)
 
-            image_url_4 = image_4_init.url
-            image_url_3 = image_3_init.url
-            image_url_2 = image_2_init.url
-            image_url_1 = image_1_init.url
+            image_1_init = loop.run_until_complete(imgbb(image_1_imgbb))
+            image_2_init = loop.run_until_complete(imgbb(image_2_imgbb))
+            image_3_init = loop.run_until_complete(imgbb(image_3_imgbb))
+            image_4_init = loop.run_until_complete(imgbb(image_3_imgbb))
+
+            image_url_4 = image_4_init
+            image_url_3 = image_3_init
+            image_url_2 = image_2_init
+            image_url_1 = image_1_init
 
             imgbb_database.image_1_url = image_url_1
             imgbb_database.image_2_url = image_url_2
@@ -251,11 +247,8 @@ def blog_create_handler(request):
             os.remove(image_2_imgbb)
             os.remove(image_3_imgbb)
             os.remove(image_4_imgbb)
+            loop.close()
 
-        # imgbb_database.image_1_delete = image_1_delete
-        # imgbb_database.image_2_delete = image_2_delete
-        # imgbb_database.image_3_delete = image_3_delete
-        # imgbb_database.image_4_delete = image_4_delete
         imgbb_database.save()
 
         # image_path = f"{os.getcwd()}\\media\\"
