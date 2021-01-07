@@ -96,6 +96,14 @@ def blog_save_to_database(
     return database
 
 
+def image_url_save_to_database(primary_key, image_1_url, image_2_url, image_3_url, image_4_url):
+    imgbb_database = Blog.objects.get(pk=primary_key)
+    imgbb_database.image_1_url = image_1_url
+    imgbb_database.image_2_url = image_2_url
+    imgbb_database.image_3_url = image_3_url
+    imgbb_database.image_4_url = image_4_url
+    imgbb_database.save()
+
 @gzip_page
 @login_required(login_url="log-in")
 def url_edit(request):
@@ -329,7 +337,6 @@ def blog_create_handler(request):
             database = database_futures.result()
 
         database_pk = database.pk
-        imgbb_database = Blog.objects.get(pk=database_pk)
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             image_1_imgbb_future = executor.submit(return_full_path, database.image_1)
@@ -362,10 +369,9 @@ def blog_create_handler(request):
             image_url_2 = image_2_init
             image_url_1 = image_1_init
 
-            imgbb_database.image_1_url = image_url_1
-            imgbb_database.image_2_url = image_url_2
-            imgbb_database.image_3_url = image_url_3
-            imgbb_database.image_4_url = image_url_4
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                executor.submit(image_url_save_to_database, database_pk, image_url_1, image_url_2, image_url_3, image_url_4)
+
         except Exception as e:
             print(e)
             print("Something is wrong with images Upload")
@@ -379,7 +385,6 @@ def blog_create_handler(request):
             except Exception as e:
                 print(e)
                 pass
-        imgbb_database.save()
 
         return redirect("/blog-create/")
 
