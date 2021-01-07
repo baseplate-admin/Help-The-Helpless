@@ -96,13 +96,16 @@ def blog_save_to_database(
     return database
 
 
-def image_url_save_to_database(primary_key, image_1_url, image_2_url, image_3_url, image_4_url):
+def image_url_save_to_database(
+    primary_key, image_1_url, image_2_url, image_3_url, image_4_url
+):
     imgbb_database = Blog.objects.get(pk=primary_key)
     imgbb_database.image_1_url = image_1_url
     imgbb_database.image_2_url = image_2_url
     imgbb_database.image_3_url = image_3_url
     imgbb_database.image_4_url = image_4_url
     imgbb_database.save()
+
 
 @gzip_page
 @login_required(login_url="log-in")
@@ -113,7 +116,7 @@ def url_edit(request):
             backend = Backend.objects.get(extra="backend")
         except Exception as e:
             print(e)
-            Backend.objects.create(extra='backend').save()
+            Backend.objects.create(extra="backend").save()
         return render(
             request,
             "back/url-edit/index.html",
@@ -130,13 +133,19 @@ def url_edit_create(request):
     if request.method == "POST":
         database = Backend.objects.get(extra="backend")
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-            facebook_url_future = executor.submit(request_post_get_async, request, "facebook_url")
+            facebook_url_future = executor.submit(
+                request_post_get_async, request, "facebook_url"
+            )
             facebook_url = facebook_url_future.result()
 
-            youtube_url_future = executor.submit(request_post_get_async, request, "youtube_url")
+            youtube_url_future = executor.submit(
+                request_post_get_async, request, "youtube_url"
+            )
             youtube_url = youtube_url_future.result()
 
-            email_url_future = executor.submit(request_post_get_async, request, "email_url")
+            email_url_future = executor.submit(
+                request_post_get_async, request, "email_url"
+            )
             email_url = email_url_future.result()
 
         database.facebook_url = facebook_url
@@ -209,13 +218,17 @@ def github_user_id(request):
 def github_user_id_handle(request):
     if request.method == "POST":
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-            username_future = executor.submit(request_post_get_async, request, "github_username")
+            username_future = executor.submit(
+                request_post_get_async, request, "github_username"
+            )
             username = username_future.result()
 
             tag_future = executor.submit(request_post_get_async, request, "github_tag")
             tag = tag_future.result()
 
-            repo_future = executor.submit(request_post_get_async, request, "github_repo")
+            repo_future = executor.submit(
+                request_post_get_async, request, "github_repo"
+            )
             repo = repo_future.result()
 
         backend = Backend.objects.get(extra="backend")
@@ -370,7 +383,14 @@ def blog_create_handler(request):
             image_url_1 = image_1_init
 
             with concurrent.futures.ThreadPoolExecutor() as executor:
-                executor.submit(image_url_save_to_database, database_pk, image_url_1, image_url_2, image_url_3, image_url_4)
+                executor.submit(
+                    image_url_save_to_database,
+                    database_pk,
+                    image_url_1,
+                    image_url_2,
+                    image_url_3,
+                    image_url_4,
+                )
 
         except Exception as e:
             print(e)
