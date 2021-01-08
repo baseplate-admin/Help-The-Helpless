@@ -260,153 +260,163 @@ def blog_create(request):
 def blog_create_handler(request):
 
     if request.method == "POST":
-        with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
-            header_future = executor.submit(request_post_get_async, request, "header")
-            header = header_future.result()
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
+                header_future = executor.submit(request_post_get_async, request, "header")
+                header = header_future.result()
 
-            image_1_future = executor.submit(request_files_async, request, "myFile1")
-            image_1 = image_1_future.result()
+                image_1_future = executor.submit(request_files_async, request, "myFile1")
+                image_1 = image_1_future.result()
 
-            image_2_future = executor.submit(request_files_async, request, "myFile2")
-            image_2 = image_2_future.result()
+                image_2_future = executor.submit(request_files_async, request, "myFile2")
+                image_2 = image_2_future.result()
 
-            image_3_future = executor.submit(request_files_async, request, "myFile3")
-            image_3 = image_3_future.result()
+                image_3_future = executor.submit(request_files_async, request, "myFile3")
+                image_3 = image_3_future.result()
 
-            image_4_future = executor.submit(request_files_async, request, "myFile4")
-            image_4 = image_4_future.result()
+                image_4_future = executor.submit(request_files_async, request, "myFile4")
+                image_4 = image_4_future.result()
 
-            text_future = executor.submit(request_post_get_async, request, "text")
-            text = text_future.result()
+                text_future = executor.submit(request_post_get_async, request, "text")
+                text = text_future.result()
 
-            text_1_future = executor.submit(
-                request_post_get_async, request, "image_text1"
-            )
-            text_1 = text_1_future.result()
+                text_1_future = executor.submit(
+                    request_post_get_async, request, "image_text1"
+                )
+                text_1 = text_1_future.result()
 
-            text_2_future = executor.submit(
-                request_post_get_async, request, "image_text2"
-            )
-            text_2 = text_2_future.result()
+                text_2_future = executor.submit(
+                    request_post_get_async, request, "image_text2"
+                )
+                text_2 = text_2_future.result()
 
-            text_3_future = executor.submit(
-                request_post_get_async, request, "image_text3"
-            )
-            text_3 = text_3_future.result()
+                text_3_future = executor.submit(
+                    request_post_get_async, request, "image_text3"
+                )
+                text_3 = text_3_future.result()
 
-            text_4_future = executor.submit(
-                request_post_get_async, request, "image_text4"
-            )
-            text_4 = text_4_future.result()
+                text_4_future = executor.submit(
+                    request_post_get_async, request, "image_text4"
+                )
+                text_4 = text_4_future.result()
 
-            image_title_1_future = executor.submit(
-                request_post_get_async, request, "title1"
-            )
-            image_title_1 = image_title_1_future.result()
+                image_title_1_future = executor.submit(
+                    request_post_get_async, request, "title1"
+                )
+                image_title_1 = image_title_1_future.result()
 
-            image_title_2_future = executor.submit(
-                request_post_get_async, request, "title2"
-            )
-            image_title_2 = image_title_2_future.result()
+                image_title_2_future = executor.submit(
+                    request_post_get_async, request, "title2"
+                )
+                image_title_2 = image_title_2_future.result()
 
-            image_title_3_future = executor.submit(
-                request_post_get_async, request, "title3"
-            )
-            image_title_3 = image_title_3_future.result()
+                image_title_3_future = executor.submit(
+                    request_post_get_async, request, "title3"
+                )
+                image_title_3 = image_title_3_future.result()
 
-            image_title_4_future = executor.submit(
-                request_post_get_async, request, "title4"
-            )
-            image_title_4 = image_title_4_future.result()
+                image_title_4_future = executor.submit(
+                    request_post_get_async, request, "title4"
+                )
+                image_title_4 = image_title_4_future.result()
 
-            time_future = executor.submit(value_time,)
-            time = time_future.result()
+                time_future = executor.submit(value_time,)
+                time = time_future.result()
+
+                username = request.user.username
+
+        except Exception as e:
+            print(f"Exception Silenced: {e}")
 
         # Extra logic
 
-        username = request.user.username
-
-        # Database Logic
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            database_futures = executor.submit(
-                blog_save_to_database,
-                username,
-                time,
-                header,
-                image_1,
-                image_2,
-                image_3,
-                image_4,
-                text,
-                text_1,
-                text_2,
-                text_3,
-                text_4,
-                image_title_1,
-                image_title_2,
-                image_title_3,
-                image_title_4,
-            )
-            database = database_futures.result()
-
-        database_pk = database.pk
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            image_1_imgbb_future = executor.submit(return_full_path, database.image_1)
-            image_1_imgbb = image_1_imgbb_future.result()
-
-            image_2_imgbb_future = executor.submit(return_full_path, database.image_2)
-            image_2_imgbb = image_2_imgbb_future.result()
-
-            image_3_imgbb_future = executor.submit(return_full_path, database.image_3)
-            image_3_imgbb = image_3_imgbb_future.result()
-
-            image_4_imgbb_future = executor.submit(return_full_path, database.image_4)
-            image_4_imgbb = image_4_imgbb_future.result()
-
-        try:
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                image_1_future = executor.submit(imgbb, image_1_imgbb)
-                image_1_init = image_1_future.result()
-
-                image_2_future = executor.submit(imgbb, image_2_imgbb)
-                image_2_init = image_2_future.result()
-
-                image_3_future = executor.submit(imgbb, image_2_imgbb)
-                image_3_init = image_3_future.result()
-
-                image_4_future = executor.submit(imgbb, image_2_imgbb)
-                image_4_init = image_4_future.result()
-            image_url_4 = image_4_init
-            image_url_3 = image_3_init
-            image_url_2 = image_2_init
-            image_url_1 = image_1_init
-
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                executor.submit(
-                    image_url_save_to_database,
-                    database_pk,
-                    image_url_1,
-                    image_url_2,
-                    image_url_3,
-                    image_url_4,
-                )
-
-        except Exception as e:
-            print(e)
-            print("Something is wrong with images Upload")
-        finally:
+            # Database Logic
             try:
                 with concurrent.futures.ThreadPoolExecutor() as executor:
-                    executor.submit(remove_file_os, image_1_imgbb)
-                    executor.submit(remove_file_os, image_2_imgbb)
-                    executor.submit(remove_file_os, image_3_imgbb)
-                    executor.submit(remove_file_os, image_4_imgbb)
+                    database_futures = executor.submit(
+                        blog_save_to_database,
+                        username,
+                        time,
+                        header,
+                        image_1,
+                        image_2,
+                        image_3,
+                        image_4,
+                        text,
+                        text_1,
+                        text_2,
+                        text_3,
+                        text_4,
+                        image_title_1,
+                        image_title_2,
+                        image_title_3,
+                        image_title_4,
+                    )
+                    database = database_futures.result()
             except Exception as e:
                 print(e)
-                pass
+            database_pk = database.pk
+            try:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+                    image_1_imgbb_future = executor.submit(return_full_path, database.image_1)
+                    image_1_imgbb = image_1_imgbb_future.result()
 
-        return redirect("/blog-create/")
+                    image_2_imgbb_future = executor.submit(return_full_path, database.image_2)
+                    image_2_imgbb = image_2_imgbb_future.result()
+
+                    image_3_imgbb_future = executor.submit(return_full_path, database.image_3)
+                    image_3_imgbb = image_3_imgbb_future.result()
+
+                    image_4_imgbb_future = executor.submit(return_full_path, database.image_4)
+                    image_4_imgbb = image_4_imgbb_future.result()
+            except Exception as e:
+                print(e)
+            try:
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    image_1_future = executor.submit(imgbb, image_1_imgbb)
+                    image_1_init = image_1_future.result()
+
+                    image_2_future = executor.submit(imgbb, image_2_imgbb)
+                    image_2_init = image_2_future.result()
+
+                    image_3_future = executor.submit(imgbb, image_2_imgbb)
+                    image_3_init = image_3_future.result()
+
+                    image_4_future = executor.submit(imgbb, image_2_imgbb)
+                    image_4_init = image_4_future.result()
+
+                image_url_4 = image_4_init
+                image_url_3 = image_3_init
+                image_url_2 = image_2_init
+                image_url_1 = image_1_init
+                try:
+                    with concurrent.futures.ThreadPoolExecutor() as executor:
+                        executor.submit(
+                            image_url_save_to_database,
+                            database_pk,
+                            image_url_1,
+                            image_url_2,
+                            image_url_3,
+                            image_url_4,
+                        )
+                except Exception as e:
+                    print(e)
+
+            except Exception as e:
+                print(e)
+                print("Something is wrong with images Upload")
+            finally:
+                try:
+                    with concurrent.futures.ThreadPoolExecutor() as executor:
+                        executor.submit(remove_file_os, image_1_imgbb)
+                        executor.submit(remove_file_os, image_2_imgbb)
+                        executor.submit(remove_file_os, image_3_imgbb)
+                        executor.submit(remove_file_os, image_4_imgbb)
+                except Exception as e:
+                    print(e)
+                    pass
+
+            return redirect("/blog-create/")
 
     elif request.method == "GET":
         return redirect("/blog-create/")
