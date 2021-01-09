@@ -23,7 +23,7 @@ def imgbb(file_location):
     import base64
     import requests
 
-    key = "1387c7fa29d5b903f39794b7a5e9a20d"
+    key = ""
     with open(file_location, "rb") as f:
         url = "https://api.imgbb.com/1/upload"
         payload = {"key": key, "image": base64.b64encode(f.read())}
@@ -260,73 +260,69 @@ def blog_create(request):
 def blog_create_handler(request):
 
     if request.method == "POST":
-        try:
-            with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
-                header_future = executor.submit(request_post_get_async, request, "header")
-                header = header_future.result()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
+            header_future = executor.submit(request_post_get_async, request, "header")
+            header = header_future.result()
 
-                image_1_future = executor.submit(request_files_async, request, "myFile1")
-                image_1 = image_1_future.result()
+            image_1_future = executor.submit(request_files_async, request, "myFile1")
+            image_1 = image_1_future.result()
 
-                image_2_future = executor.submit(request_files_async, request, "myFile2")
-                image_2 = image_2_future.result()
+            image_2_future = executor.submit(request_files_async, request, "myFile2")
+            image_2 = image_2_future.result()
 
-                image_3_future = executor.submit(request_files_async, request, "myFile3")
-                image_3 = image_3_future.result()
+            image_3_future = executor.submit(request_files_async, request, "myFile3")
+            image_3 = image_3_future.result()
 
-                image_4_future = executor.submit(request_files_async, request, "myFile4")
-                image_4 = image_4_future.result()
+            image_4_future = executor.submit(request_files_async, request, "myFile4")
+            image_4 = image_4_future.result()
 
-                text_future = executor.submit(request_post_get_async, request, "text")
-                text = text_future.result()
+            text_future = executor.submit(request_post_get_async, request, "text")
+            text = text_future.result()
 
-                text_1_future = executor.submit(
-                    request_post_get_async, request, "image_text1"
-                )
-                text_1 = text_1_future.result()
+            text_1_future = executor.submit(
+                request_post_get_async, request, "image_text1"
+            )
+            text_1 = text_1_future.result()
 
-                text_2_future = executor.submit(
-                    request_post_get_async, request, "image_text2"
-                )
-                text_2 = text_2_future.result()
+            text_2_future = executor.submit(
+                request_post_get_async, request, "image_text2"
+            )
+            text_2 = text_2_future.result()
 
-                text_3_future = executor.submit(
-                    request_post_get_async, request, "image_text3"
-                )
-                text_3 = text_3_future.result()
+            text_3_future = executor.submit(
+                request_post_get_async, request, "image_text3"
+            )
+            text_3 = text_3_future.result()
 
-                text_4_future = executor.submit(
-                    request_post_get_async, request, "image_text4"
-                )
-                text_4 = text_4_future.result()
+            text_4_future = executor.submit(
+                request_post_get_async, request, "image_text4"
+            )
+            text_4 = text_4_future.result()
 
-                image_title_1_future = executor.submit(
-                    request_post_get_async, request, "title1"
-                )
-                image_title_1 = image_title_1_future.result()
+            image_title_1_future = executor.submit(
+                request_post_get_async, request, "title1"
+            )
+            image_title_1 = image_title_1_future.result()
 
-                image_title_2_future = executor.submit(
-                    request_post_get_async, request, "title2"
-                )
-                image_title_2 = image_title_2_future.result()
+            image_title_2_future = executor.submit(
+                request_post_get_async, request, "title2"
+            )
+            image_title_2 = image_title_2_future.result()
 
-                image_title_3_future = executor.submit(
-                    request_post_get_async, request, "title3"
-                )
-                image_title_3 = image_title_3_future.result()
+            image_title_3_future = executor.submit(
+                request_post_get_async, request, "title3"
+            )
+            image_title_3 = image_title_3_future.result()
 
-                image_title_4_future = executor.submit(
-                    request_post_get_async, request, "title4"
-                )
-                image_title_4 = image_title_4_future.result()
+            image_title_4_future = executor.submit(
+                request_post_get_async, request, "title4"
+            )
+            image_title_4 = image_title_4_future.result()
 
-                time_future = executor.submit(value_time,)
-                time = time_future.result()
+            time_future = executor.submit(value_time,)
+            time = time_future.result()
 
-                username = request.user.username
-
-        except Exception as e:
-            print(f"Exception Silenced: {e}")
+            username = request.user.username
 
         # Extra logic
 
@@ -415,8 +411,8 @@ def blog_create_handler(request):
                 except Exception as e:
                     print(e)
                     pass
+                return redirect("/blog-create/")
 
-            return redirect("/blog-create/")
 
     elif request.method == "GET":
         return redirect("/blog-create/")
