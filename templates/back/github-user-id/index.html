@@ -1,5 +1,7 @@
 {% extends 'components/no_dependency_form.html' %}
 {% block body %}
+
+    <div class="container">
     <style>
         html,
         body {
@@ -106,7 +108,7 @@
             max-width: 500px;
         }
 
-    </style>
+</style>
     <div class="grow" style="text-align: center;height: 230px;width: 230px;">
         <img src='{{ backend.logo }}' style='width: 220px;height: 220px'
              style="background-color: white;background-blend-mode: multiply;">
@@ -152,4 +154,5 @@
         $(".input-field2").val(youtubeFromDjango)
         $(".input-field3").val(emailFromDjango)
     </script>
+    </div>
 {% endblock %}

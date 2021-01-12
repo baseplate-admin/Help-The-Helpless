@@ -71,31 +71,350 @@
 {% endblock %}
 
 {% block sitecontent %}
-<div id='site-reload-content'>
-    <div id="content" class="site-content">
-        <div class="wrapper">
+    <div id='site-reload-content'>
+        <div id="content" class="site-content">
+            <div class="wrapper">
 
-            <div id="primary" class="content-area">
-                <main id="main" class="site-main">
-
-
-                    <article id="post-22" class="post-22 page type-page status-publish hentry">
-                        <header class="page-header">
-                            <h1 class="entry-title">{{ site_header }}</h1></header>
-                        <figure class="post-thumbnail">
-                        </figure><!-- .post-thumbnail -->
-                        <div class="entry-content" itemprop="text">
-
-                        </div><!-- .entry-content -->
-                        <footer class="entry-footer">
-                        </footer><!-- .entry-footer -->
-                    </article><!-- #post-22 -->
-
-                </main><!-- #main -->
-            </div><!-- #primary -->
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
 
 
-        </div><!-- .wrapper -->
-    </div><!-- .site-content -->
-</div>    
+                        <div onresize="size()" onload="size()">
+
+                            <style>
+
+                                .slider {
+                                    position: relative;
+                                    width: auto;
+                                    background-color: #2e2e2e;
+                                }
+
+                                .slider__nav-bar {
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    text-align: center;
+                                    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+                                }
+
+                                .slider__arrow {
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    width: 7%;
+                                    color: #fff;
+                                    cursor: pointer;
+                                }
+
+                                .slider__arrow:hover {
+                                    background: linear-gradient(rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 90%);
+                                }
+
+                                .slider__arrow::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    margin: auto;
+                                    width: 1.15vw;
+                                    height: 1.15vw;
+                                    border-style: solid;
+                                    border-width: 4px 0 0 4px;
+                                }
+
+                                .slider__arrow_prev {
+                                    left: 0;
+                                }
+
+                                .slider__arrow_prev::before {
+                                    transform: rotate(-45deg);
+                                }
+
+                                .slider__arrow_next {
+                                    right: 0;
+                                }
+
+                                .slider__arrow_next::before {
+                                    transform: rotate(135deg);
+                                }
+
+                                .nav-control {
+                                    position: relative;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    opacity: 0.5;
+                                    width: 8%;
+                                    height: 20px;
+                                    color: #fff;
+                                    transition: 0.2s;
+                                    cursor: pointer;
+                                }
+
+                                .nav-control::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    margin: auto;
+                                    width: 0.5em;
+                                    height: 0.5em;
+                                    border-radius: 50%;
+                                    background: currentColor;
+                                }
+
+                                .nav-control:hover {
+                                    opacity: 0.8;
+                                }
+
+                                .nav-control_active {
+                                    opacity: 1;
+                                }
+
+                                .slider-list {
+                                    position: relative;
+                                    overflow: hidden;
+                                    width: 100%;
+                                    height: 100%;
+                                    margin: 0;
+                                    padding: 0;
+                                    list-style-type: none;
+                                }
+
+                                .slider-list::before {
+                                    content: '';
+                                    display: block;
+                                    padding-top: calc(9 / 16 * 100%);
+                                }
+
+                                .slider-list__item {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    transform: translateX(100%);
+                                    width: 100%;
+                                    height: 100%;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 50%;
+                                    background-size: contain;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 16vw;
+                                    color: #fff;
+                                    will-change: transform;
+                                }
+
+                                .slider-list__item_active {
+                                    transform: translateX(0);
+                                }
+
+                                .text {
+                                    overflow-wrap: break-word;
+                                    word-wrap: break-word;
+                                    hyphens: auto;
+                                    padding-top: 3%;
+                                    padding-right: 1.4%;
+                                }
+
+                                .card {
+                                    background-color: white;
+                                    color: black;
+                                    border: 2px solid #e7e7e7;
+                                    outline: none;
+                                    cursor: default;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    transition: 0.2s;
+                                }
+
+                                .card.truncate {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                }
+
+                                .card:hover {
+                                    background-color: #e7e7e7;
+                                }
+
+                                .des {
+                                    line-height: 23px;
+                                    font-size: 1.4vw;
+                                }
+
+                                .headup {
+                                    font-size: 1.6vw;
+                                }
+                            </style>
+
+                            <button type="button" class="card">
+                                <div class="contain">
+                                    <div class="image" style="width: 40%; float: left;">
+                                        <div class="slider">
+                                            <ul class="slider-list">
+                                                <li class="slider-list__item slider-list__item_active"
+                                                    style="background-image: url('do1.jpg')"></li>
+                                                <li class="slider-list__item"
+                                                    style="transform: translateX(100%); background-image: url('do2.jpg')"></li>
+                                                <li class="slider-list__item"
+                                                    style="transform: translateX(100%); background-image: url('do3.jpg')"></li>
+                                                <li class="slider-list__item"
+                                                    style="transform: translateX(100%); background-image: url('do1.jpg')"></li>
+                                            </ul>
+                                            <div class="slider__nav-bar"><a class="nav-control"></a><a
+                                                    class="nav-control"></a><a class="nav-control"></a><a
+                                                    class="nav-control"></a></div>
+                                            <div class="slider__controls"><a
+                                                    class="slider__arrow slider__arrow_prev"></a><a
+                                                    class="slider__arrow slider__arrow_next"></a></div>
+                                        </div>
+                                    </div>
+                                    <a href="next_blog.html">
+                                        <div class="text" style="float: right; width: 55%; font-size: 80%;">
+                                            <h1 class="headup">Donald Trump</h1>
+                                            <p class="des" id="dis">
+                                                Born and raised in Queens, New York City, Trump attended Fordham
+                                                University for two years and received a bachelor's degree in economics
+                                                from the Wharton School of the University of Pennsylvania. He became
+                                                president of his father Fred Trump's real estate business in 1971, where
+                                                he renamed it The Trump Organization, and expanded its operations to
+                                                building or renovating skyscrapers, hotels, casinos, and golf courses.
+                                                Trump later started various side ventures, mostly by licensing his name
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </button>
+
+                            <script>
+                                var text = document.getElementById("dis").textContent;
+                                var len = text.length;
+
+
+                                if (len > 250) {
+                                    text = text.slice(0, 250) + " . . .";
+                                    console.log(text);
+
+                                    document.getElementById("dis").innerHTML = text;
+                                }
+
+                                function size() {
+                                    $(".card").height($(".image").height());
+                                }
+
+                                class Slider {
+                                    constructor(props) {
+                                        this.rootElement = props.element;
+                                        this.slides = Array.from(
+                                            this.rootElement.querySelectorAll(".slider-list__item"));
+
+                                        this.slidesLength = this.slides.length;
+                                        this.current = 0;
+                                        this.isAnimating = false;
+                                        this.direction = 1; // -1
+                                        this.baseAnimeSettings = {
+                                            duration: 750,
+                                            elasticity: 0,
+                                            easing: 'easeInOutCirc'
+                                        };
+
+                                        this.navBar = this.rootElement.querySelector(".slider__nav-bar");
+                                        this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
+                                        this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
+                                        this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
+
+                                        this.slides[this.current].classList.add("slider-list__item_active");
+                                        this.thumbs[this.current].classList.add("nav-control_active");
+
+                                        this._bindEvents();
+                                    }
+
+                                    goTo(index, dir) {
+                                        if (this.isAnimating) return;
+                                        var self = this;
+                                        let prevSlide = this.slides[this.current];
+                                        let nextSlide = this.slides[index];
+
+                                        self.isAnimating = true;
+                                        self.current = index;
+                                        nextSlide.classList.add("slider-list__item_active");
+
+                                        anime(Object.assign({}, self.baseAnimeSettings, {
+                                            targets: nextSlide,
+                                            translateX: [100 * dir + '%', 0]
+                                        }));
+
+
+                                        anime(Object.assign({}, self.baseAnimeSettings, {
+                                            targets: prevSlide,
+                                            translateX: [0, -100 * dir + '%'],
+                                            complete: function (anim) {
+                                                self.isAnimating = false;
+                                                prevSlide.classList.remove("slider-list__item_active");
+                                                self.thumbs.forEach((item, index) => {
+                                                    var action = index === self.current ? "add" : "remove";
+                                                    item.classList[action]("nav-control_active");
+                                                });
+                                            }
+                                        }));
+
+                                    }
+
+                                    goStep(dir) {
+                                        let index = this.current + dir;
+                                        let len = this.slidesLength;
+                                        let currentIndex = (index + len) % len;
+                                        this.goTo(currentIndex, dir);
+                                    }
+
+                                    goNext() {
+                                        this.goStep(1);
+                                    }
+
+                                    goPrev() {
+                                        this.goStep(-1);
+                                    }
+
+                                    _navClickHandler(e) {
+                                        var self = this;
+                                        if (self.isAnimating) return;
+                                        let target = e.target.closest(".nav-control");
+                                        if (!target) return;
+                                        let index = self.thumbs.indexOf(target);
+                                        if (index === self.current) return;
+                                        let direction = index > self.current ? 1 : -1;
+                                        self.goTo(index, direction);
+                                    }
+
+                                    _bindEvents() {
+                                        var self = this;
+                                        ["goNext", "goPrev", "_navClickHandler"].forEach(method => {
+                                            self[method] = self[method].bind(self);
+                                        });
+                                        self.nextButton.addEventListener("click", self.goNext);
+                                        self.prevButton.addEventListener("click", self.goPrev);
+                                        self.navBar.addEventListener("click", self._navClickHandler);
+                                    }
+                                }
+
+
+                                // ===== init ======
+                                let slider = new Slider({
+                                    element: document.querySelector(".slider")
+                                });
+                            </script>
+                        </div>
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+
+
+            </div><!-- .wrapper -->
+        </div><!-- .site-content -->
+    </div>
 {% endblock %}
