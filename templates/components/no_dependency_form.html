@@ -34,7 +34,7 @@
         <script
                 nomodule=""
                 src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"
-        ></script>
+        ></script>`
         <script
                 src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
                 integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="
@@ -48,12 +48,9 @@
             }
         </style>
     </head>
-    <body id="body">
+    <div id="body">
     <script>
-        //window.setTimeout(function () {
-        //    $('.body').css({'display': ''});
-        //    $('.body').fadeIn(500);
-        //}, 1);
+
         window.onload = function () {
             anime({
                 targets: '#body',
@@ -66,6 +63,6 @@
     {% block body %} {% endblock %}
 
 
-    </body>
+    </div>
 {% endspaceless %}
 </html>
