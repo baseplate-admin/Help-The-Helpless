@@ -8,6 +8,7 @@ from django.views.decorators.gzip import gzip_page
 
 from Frontend.models import Blog
 from Backend.models import Backend
+
 import os
 import concurrent.futures
 
@@ -40,6 +41,7 @@ def remove_file_os(filename):
 def request_files_async(request_data, request_name):
     fetched_data = request_data.FILES[request_name]
     return fetched_data
+
 
 def request_post_get_async(request_data, request_name):
     fetched_data = request_data.POST.get(request_name)
@@ -356,16 +358,24 @@ def blog_create_handler(request):
             raise e
         try:
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-                image_1_imgbb_future = executor.submit(return_full_path, database.image_1)
+                image_1_imgbb_future = executor.submit(
+                    return_full_path, database.image_1
+                )
                 image_1_imgbb = image_1_imgbb_future.result()
 
-                image_2_imgbb_future = executor.submit(return_full_path, database.image_2)
+                image_2_imgbb_future = executor.submit(
+                    return_full_path, database.image_2
+                )
                 image_2_imgbb = image_2_imgbb_future.result()
 
-                image_3_imgbb_future = executor.submit(return_full_path, database.image_3)
+                image_3_imgbb_future = executor.submit(
+                    return_full_path, database.image_3
+                )
                 image_3_imgbb = image_3_imgbb_future.result()
 
-                image_4_imgbb_future = executor.submit(return_full_path, database.image_4)
+                image_4_imgbb_future = executor.submit(
+                    return_full_path, database.image_4
+                )
                 image_4_imgbb = image_4_imgbb_future.result()
         except Exception as e:
             print(e)
@@ -414,7 +424,6 @@ def blog_create_handler(request):
                 print(e)
                 pass
             return redirect("/blog-create/")
-
 
     elif request.method == "GET":
         return redirect("/blog-create/")
