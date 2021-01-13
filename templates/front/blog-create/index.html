@@ -212,8 +212,8 @@
     <body class="text-center" onresize="setpos()" id="body">
 
     <main class="form-signin">
-        <form>
-
+        <form enctype="multipart/form-data" action={% url 'blog-create-handler' %} method="POST">
+            {% csrf_token %}
             <input type="text" name="head" class="form-control" placeholder="Header" required>
 
             <br>
@@ -251,172 +251,170 @@
                 <input type="text" name="time" id="time" disabled class="form-control"
                        style="color: #000000;width: 60%; font-size: 15px; height: 30px; text-align: center;">
             </center>
-            <script>
-            window.setInterval(function () {
-                $("#time").load(" #time");
-                {#console.log("time");#}
-            }, 1)
-            </script>
+{#            <script>#}
+{#                window.setInterval(function () {#}
+{#                    $("#time").load(" #time");#}
+                    {#console.log("time");#}
+{#                }, 1)#}
+{#            </script>#}
             <br>
             <button class="btn btn-lg" type="submit" id="post">POST</button>
+            <script>
 
+                var f = document.getElementById("time");
+                f.setAttribute("value", moment().format('MMMM Do YYYY, h:mm a'));
+
+
+                var i = 0;
+                var name1;
+                var name2;
+
+                function create_ele() {
+                    $("#add_div").hide();
+                    i++;
+
+                    $("#cent").append("<div class=\"container\"><div class=\"drop-zone anime\"><span class=\"drop-zone__prompt\">Drop file here or click to upload</span><input type=\"file\" class=\"drop-zone__input\" oninput=\"put(this.name)\"></div><br></div>");
+
+                    name1 = "myFile" + i;//myFile1, myFile2...
+                    name2 = "img-" + i;//img-1, img-2...
+                    $(".drop-zone").eq(i - 1).find("input").eq(0).attr({"name": name1, "id": name2});
+
+                    load();
+
+                    if (i == 4) {
+                        $("#add_div").remove();
+                    }
+                }
+
+            </script>
+
+            <script type="text/javascript">
+
+                function load() {
+                    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+                        const dropZoneElement = inputElement.closest(".drop-zone");
+
+                        dropZoneElement.addEventListener("click", (e) => {
+                            inputElement.click();
+                        });
+
+                        inputElement.addEventListener("change", (e) => {
+                            if (inputElement.files.length) {
+                                updateThumbnail(dropZoneElement, inputElement.files[0]);
+                            }
+                        });
+
+                        dropZoneElement.addEventListener("dragover", (e) => {
+                            e.preventDefault();
+                            dropZoneElement.classList.add("drop-zone--over");
+                        });
+
+                        ["dragleave", "dragend"].forEach((type) => {
+                            dropZoneElement.addEventListener(type, (e) => {
+                                dropZoneElement.classList.remove("drop-zone--over");
+                            });
+                        });
+
+                        dropZoneElement.addEventListener("drop", (e) => {
+                            e.preventDefault();
+
+                            if (e.dataTransfer.files.length) {
+                                inputElement.files = e.dataTransfer.files;
+                                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+                            }
+
+                            dropZoneElement.classList.remove("drop-zone--over");
+                        });
+                    });
+
+                    /**
+                     * Updates the thumbnail on a drop zone element.
+                     *
+                     * @param {HTMLElement} dropZoneElement
+                     * @param {File} file
+                     */
+
+                    function updateThumbnail(dropZoneElement, file) {
+                        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+                        // First time - remove the prompt
+                        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                            dropZoneElement.querySelector(".drop-zone__prompt").remove();
+                        }
+
+                        // First time - there is no thumbnail element, so lets create it
+                        if (!thumbnailElement) {
+                            thumbnailElement = document.createElement("div");
+                            thumbnailElement.classList.add("drop-zone__thumb");
+                            dropZoneElement.appendChild(thumbnailElement);
+                        }
+
+                        thumbnailElement.dataset.label = file.name;
+                        // Show thumbnail for image files
+                        if (file.type.startsWith("image/")) {
+                            const reader = new FileReader();
+
+                            reader.readAsDataURL(file);
+                            reader.onload = () => {
+                                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                            };
+                        } else {
+                            thumbnailElement.style.backgroundImage = null;
+                        }
+                    }
+                }
+
+                function grow() {
+                    autosize(document.querySelectorAll('textarea'));
+                }
+
+                var name3;
+
+                function put(name) {
+                    var qq = parseInt(name.slice(6, 7)) - 1;
+                    name3 = "image_text" + (qq + 1);
+
+                    $(".container").eq(qq).append("<div class=\"anime\"><input type=\"text\" class=\"form-control\" placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
+
+                    name3 = "title" + (qq + 1);
+
+                    $(".container").eq(qq).find("input").attr({"name": name3});
+
+                    $("#add_div").show();
+                    setpos();
+
+                }
+
+                function setpos() {
+                    var pos = $("#post-text").position();
+                    console.log(pos.left);
+                    document.getElementsByTagName("I")[0].style.left = pos.left + 8 + "px";
+
+                    if (document.getElementsByTagName("I")[1]) {
+                        document.getElementsByTagName("I")[1].style.left = pos.left + 8 + "px";
+                    }
+
+                    if (document.getElementsByTagName("I")[2]) {
+                        document.getElementsByTagName("I")[2].style.left = pos.left + 8 + "px";
+                    }
+
+                    if (document.getElementsByTagName("I")[3]) {
+                        document.getElementsByTagName("I")[3].style.left = pos.left + 8 + "px";
+                    }
+                    if (document.getElementsByTagName("I")[4]) {
+                        document.getElementsByTagName("I")[4].style.left = pos.left + 8 + "px";
+                    }
+                }
+
+
+            </script>
+            <script>
+                create_ele();
+                setpos();
+            </script>
         </form>
 
     </main>
-
-    <script>
-
-        var f = document.getElementById("time");
-        f.setAttribute("value", moment().format('MMMM Do YYYY, h:mm a'));
-
-
-        var i = 0;
-        var name1;
-        var name2;
-
-        function create_ele() {
-            $("#add_div").hide();
-            i++;
-
-            $("#cent").append("<div class=\"container\"><div class=\"drop-zone anime\"><span class=\"drop-zone__prompt\">Drop file here or click to upload</span><input type=\"file\" class=\"drop-zone__input\" oninput=\"put(this.name)\"></div><br></div>");
-
-            name1 = "myFile" + i;//myFile1, myFile2...
-            name2 = "img-" + i;//img-1, img-2...
-            $(".drop-zone").eq(i - 1).find("input").eq(0).attr({"name": name1, "id": name2});
-
-            load();
-
-            if (i == 4) {
-                $("#add_div").remove();
-            }
-        }
-
-    </script>
-
-    <script type="text/javascript">
-
-        function load() {
-            document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-                const dropZoneElement = inputElement.closest(".drop-zone");
-
-                dropZoneElement.addEventListener("click", (e) => {
-                    inputElement.click();
-                });
-
-                inputElement.addEventListener("change", (e) => {
-                    if (inputElement.files.length) {
-                        updateThumbnail(dropZoneElement, inputElement.files[0]);
-                    }
-                });
-
-                dropZoneElement.addEventListener("dragover", (e) => {
-                    e.preventDefault();
-                    dropZoneElement.classList.add("drop-zone--over");
-                });
-
-                ["dragleave", "dragend"].forEach((type) => {
-                    dropZoneElement.addEventListener(type, (e) => {
-                        dropZoneElement.classList.remove("drop-zone--over");
-                    });
-                });
-
-                dropZoneElement.addEventListener("drop", (e) => {
-                    e.preventDefault();
-
-                    if (e.dataTransfer.files.length) {
-                        inputElement.files = e.dataTransfer.files;
-                        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-                    }
-
-                    dropZoneElement.classList.remove("drop-zone--over");
-                });
-            });
-
-            /**
-             * Updates the thumbnail on a drop zone element.
-             *
-             * @param {HTMLElement} dropZoneElement
-             * @param {File} file
-             */
-
-            function updateThumbnail(dropZoneElement, file) {
-                let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
-                // First time - remove the prompt
-                if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-                    dropZoneElement.querySelector(".drop-zone__prompt").remove();
-                }
-
-                // First time - there is no thumbnail element, so lets create it
-                if (!thumbnailElement) {
-                    thumbnailElement = document.createElement("div");
-                    thumbnailElement.classList.add("drop-zone__thumb");
-                    dropZoneElement.appendChild(thumbnailElement);
-                }
-
-                thumbnailElement.dataset.label = file.name;
-                // Show thumbnail for image files
-                if (file.type.startsWith("image/")) {
-                    const reader = new FileReader();
-
-                    reader.readAsDataURL(file);
-                    reader.onload = () => {
-                        thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-                    };
-                } else {
-                    thumbnailElement.style.backgroundImage = null;
-                }
-            }
-        }
-
-        function grow() {
-            autosize(document.querySelectorAll('textarea'));
-        }
-
-        var name3;
-
-        function put(name) {
-            var qq = parseInt(name.slice(6, 7)) - 1;
-            name3 = "image_text" + (qq + 1);
-
-            $(".container").eq(qq).append("<div class=\"anime\"><input type=\"text\" class=\"form-control\" placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
-
-            name3 = "title" + (qq + 1);
-
-            $(".container").eq(qq).find("input").attr({"name": name3});
-
-            $("#add_div").show();
-            setpos();
-
-        }
-
-        function setpos() {
-            var pos = $("#post-text").position();
-            console.log(pos.left);
-            document.getElementsByTagName("I")[0].style.left = pos.left + 8 + "px";
-
-            if (document.getElementsByTagName("I")[1]) {
-                document.getElementsByTagName("I")[1].style.left = pos.left + 8 + "px";
-            }
-
-            if (document.getElementsByTagName("I")[2]) {
-                document.getElementsByTagName("I")[2].style.left = pos.left + 8 + "px";
-            }
-
-            if (document.getElementsByTagName("I")[3]) {
-                document.getElementsByTagName("I")[3].style.left = pos.left + 8 + "px";
-            }
-            if (document.getElementsByTagName("I")[4]) {
-                document.getElementsByTagName("I")[4].style.left = pos.left + 8 + "px";
-            }
-        }
-
-
-    </script>
-    <script>
-        create_ele();
-        setpos();
-    </script>
 
 
     </body>
