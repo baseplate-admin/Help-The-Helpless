@@ -297,7 +297,6 @@ def blog_create_handler(request):
                 )
                 text_4 = text_4_future.result()
 
-
         except Exception as e:
             print(e)
             raise e
@@ -324,10 +323,10 @@ def blog_create_handler(request):
                     text_2,
                     text_3,
                     text_4,
-                    image_title_1,
-                    image_title_2,
-                    image_title_3,
-                    image_title_4,
+                    image_title_dict.get("image_title_1", None),
+                    image_title_dict.get("image_title_2", None),
+                    image_title_dict.get("image_title_3", None),
+                    image_title_dict.get("image_title_4", None),
                 )
                 database = database_futures.result()
                 database_pk = database.pk

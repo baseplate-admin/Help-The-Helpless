@@ -198,137 +198,127 @@
 </div>
 <!-- #page -->
 
-<script
-        src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
-        integrity="sha256-Y8l+EeoUOvr8SqEj/gTyjBb8CqhtrA6GU9P4yB+41cE="
-        crossorigin="anonymous"
-></script>
-<link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
-        integrity="sha256-ymMA1/kGhlQxXn0q9DFzHRt3VIY1Eh7BJcEfM3I88a4="
-        crossorigin="anonymous"
-/>
+
 
 <script>
     let head = document.getElementsByTagName('HEAD')[0];
-    let script = document.createElement('script');
-    let script4 = document.createElement('script');
-    let script5 = document.createElement('script');
-    let script6 = document.createElement('script');
-    let script7 = document.createElement('script');
-    let script8 = document.createElement('script');
-    let script9 = document.createElement('script');
-    let script10 = document.createElement('script');
-    let link3 = document.createElement('link');
-    let link4 = document.createElement('link');
-    let link5 = document.createElement('link');
-    let link6 = document.createElement('link');
-    let link7 = document.createElement('link');
-    let link8 = document.createElement('link');
 
-    script.type = 'text/javascript';
-    script.src =
+    let linkNo = 0;
+    let link = [];
+    for (linkNo; linkNo < 9; linkNo++) {
+        link[linkNo] = document.createElement('link');
+    }
+
+    let scriptNo = 1;
+    let script = [];
+
+    for (scriptNo; scriptNo < 13; scriptNo++) {
+        script[scriptNo] = document.createElement("script");
+    }
+    console.log(script)
+    console.log(link)
+    script[1].type = 'text/javascript';
+    script[1].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js';
 
-    script4.type = 'text/javascript';
-    script4.src =
+    script[2].type = 'text/javascript';
+    script[2].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js ';
 
-    script5.type = 'text/javascript';
-    script5.src =
+    script[3].type = 'text/javascript';
+    script[3].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js ';
 
-    script6.type = 'text/javascript';
-    script6.src =
+    script[4].type = 'text/javascript';
+    script[4].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js ';
 
-    script7.type = 'type/javascript';
-    script7.src =
+    script[5].type = 'type/javascript';
+    script[5].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js ';
 
-    script8.type = 'text/javascript';
-    script8.src =
+    script[6].type = 'text/javascript';
+    script[6].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js ';
 
-    script9.type = 'text/javascript';
-    script9.src =
+    script[7].type = 'text/javascript';
+    script[7].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js ';
 
-    script10.type = 'text/javascript';
-    script10.src =
+    script[8].type = 'text/javascript';
+    script[8].src =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js ';
 
-    link3.rel = 'stylesheet';
-    link3.type = 'text/css';
-    link3.href =
+    script[9].type = "text/javascript";
+    script[9].src = 'https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js'
+    script[9].crossorigin="anonymous"
+
+    script[10].type = 'text/javascript';
+    script[10].src = 'https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js'
+    script[10].nomodule=""
+
+    script[11].type = 'text/javascript'
+    script[11].src = "https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
+
+    script[12].src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+    script[12].crossorigin="anonymous"
+
+    link[1].rel="stylesheet"
+    link[1].href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
+    link[1].crossorigin="anonymous"
+
+    link[3].rel = 'stylesheet';
+    link[3].type = 'text/css';
+    link[3].href =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css';
 
-    link4.rel = 'stylesheet';
-    link4.type = 'text/css';
-    link4.href =
+    link[4].rel = 'stylesheet';
+    link[4].type = 'text/css';
+    link[4].href =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css';
 
-    link5.rel = 'stylesheet';
-    link5.type = 'text/css';
-    link5.href =
+    link[5].rel = 'stylesheet';
+    link[5].type = 'text/css';
+    link[5].href =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css';
 
-    link6.rel = 'stylesheet';
-    link6.type = 'text/css';
-    link6.href =
+    link[6].rel = 'stylesheet';
+    link[6].type = 'text/css';
+    link[6].href =
         'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css';
 
-    link7.rel = 'stylesheet';
-    link7.type = 'text/css';
-    link7.href =
+    link[7].rel = 'stylesheet';
+    link[7].type = 'text/css';
+    link[7].href =
         'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css';
 
-    link8.rel = 'stylesheet';
-    link8.type = 'text/css';
-    link8.href =
+    link[8].rel = 'stylesheet';
+    link[8].type = 'text/css';
+    link[8].href =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css';
 
-    head.appendChild(link3);
-    head.appendChild(link4);
-    head.appendChild(link5);
-    head.appendChild(link6);
-    head.appendChild(link7);
-    head.appendChild(link8);
-    head.appendChild(script);
-    head.appendChild(script4);
-    head.appendChild(script5);
-    head.appendChild(script6);
-    head.appendChild(script7);
-    head.appendChild(script8);
-    head.appendChild(script9);
-    head.appendChild(script10);
+    for (let k = 0; k < 9; k++) {
+        head.appendChild(link[k]);
+    }
+
+    for (let i = 1; i < 13; i++) {
+        head.appendChild(script[i]);
+    }
 </script>
-<script
-        type="module"
-        src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
-></script>
-<script
-        nomodule=""
-        src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"
-></script>
-<script
-        src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
-        integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="
-        crossorigin="anonymous"
-></script>
+
+
 <script>
     window.setInterval(function () {
         $("#site-reload-content").load(" #site-reload-content");
     }, {{ backend.reload }})
-    window.onload = function () {
+     window.onload = (function () {
         anime({
             targets: '#body-id',
             opacity: 1,
             duration: 1000,
             easing: "linear",
         })
-    }
+    })
 </script>
 
 <script type="text/javascript" id="blossom-coach-js-extra">
