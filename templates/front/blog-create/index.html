@@ -392,17 +392,19 @@
                     var qq = parseInt(name.slice(6, 7)) - 1;
                     name3 = "image_text" + (qq + 1);
 
-                    i++;
                     name4 = "title" + (qq + 1);
-                    $(".container").eq(qq).append("<div class=\"anime\"><input type=\"text\" id='input' class=\'form-control\' placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
-
-                    console.log(name4)
+                    $(".container").eq(qq).append("<div class=\"anime\"><input id=\"input\" type=\"text\" class=\'form-control\' placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
+                    setName(i-1);
 
                     $("#add_div").show();
                     setpos();
 
                 }
-
+                let queryNumber;
+                function setName(queryNumber){
+                    let inputElement = document.querySelectorAll("#input");
+                    inputElement[queryNumber].name = name4;
+                }
                 function setpos() {
                     var pos = $("#post-text").position();
                     console.log(pos.left);
