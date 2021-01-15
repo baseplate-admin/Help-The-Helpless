@@ -251,15 +251,21 @@
                 <input type="text" name="time" id="time" disabled class="form-control"
                        style="color: #000000;width: 60%; font-size: 15px; height: 30px; text-align: center;">
             </center>
-{#            <script>#}
-{#                window.setInterval(function () {#}
-{#                    $("#time").load(" #time");#}
-                    {#console.log("time");#}
-{#                }, 1)#}
-{#            </script>#}
+            {#            <script>#}
+            {#                window.setInterval(function () {#}
+            {#                    $("#time").load(" #time");#}
+            {#console.log("time");#}
+            {#                }, 1)#}
+            {#            </script>#}
             <br>
+            <input name="counter" type="hidden" value="0" id="counter">
+            <div id="counter-div">
+
+            </div>
             <button class="btn btn-lg" type="submit" id="post">POST</button>
-            <script>
+
+
+            <script type="text/javascript">
 
                 var f = document.getElementById("time");
                 f.setAttribute("value", moment().format('MMMM Do YYYY, h:mm a'));
@@ -273,22 +279,33 @@
                     $("#add_div").hide();
                     i++;
 
+                    let counterElement = document.getElementById('counter-div');
+                    let inputElementCounter = document.createElement('counter');
+                    inputElementCounter.value = 0;
+                    inputElementCounter.type = 'hidden';
+                    counterElement.parentNode.insertBefore(inputElementCounter, counterElement.nextSibling);
+
+                    let counter = document.getElementById("counter").value;
+                    counter++;
+                    document.getElementById('counter').value = counter;
+
                     $("#cent").append("<div class=\"container\"><div class=\"drop-zone anime\"><span class=\"drop-zone__prompt\">Drop file here or click to upload</span><input type=\"file\" class=\"drop-zone__input\" oninput=\"put(this.name)\"></div><br></div>");
 
                     name1 = "myFile" + i;//myFile1, myFile2...
                     name2 = "img-" + i;//img-1, img-2...
                     $(".drop-zone").eq(i - 1).find("input").eq(0).attr({"name": name1, "id": name2});
+                    load()
 
-                    load();
-
-                    if (i == 4) {
-                        $("#add_div").remove();
+                    function removeElement(elementID) {
+                        const elementGet = document.getElementById(elementID)
+                        elementGet.parentNode.removeChild(elementGet);
                     }
+
+                    if (i === 4) {
+                        removeElement("add_div")
+                    }
+
                 }
-
-            </script>
-
-            <script type="text/javascript">
 
                 function load() {
                     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
@@ -369,16 +386,17 @@
                 }
 
                 var name3;
+                let name4;
 
                 function put(name) {
                     var qq = parseInt(name.slice(6, 7)) - 1;
                     name3 = "image_text" + (qq + 1);
 
-                    $(".container").eq(qq).append("<div class=\"anime\"><input type=\"text\" class=\"form-control\" placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
+                    i++;
+                    name4 = "title" + (qq + 1);
+                    $(".container").eq(qq).append("<div class=\"anime\"><input type=\"text\" id='input' class=\'form-control\' placeholder=\"Image title\" style=\"width: 60%; font-size: 15px; height: 30px; text-align: center;\" required><br><i class=\"bi bi-card-text\"></i><textarea placeholder=\"Write something about it\" class=\"form-control\" onfocus=\"grow()\" required></textarea><br></div>").find("textarea").attr({"name": name3});
 
-                    name3 = "title" + (qq + 1);
-
-                    $(".container").eq(qq).find("input").attr({"name": name3});
+                    console.log(name4)
 
                     $("#add_div").show();
                     setpos();
@@ -406,9 +424,14 @@
                     }
                 }
 
+                function setzero() {
+                    document.getElementById("counter").value = 0;
+                }
 
             </script>
+
             <script>
+                setzero();
                 create_ele();
                 setpos();
             </script>

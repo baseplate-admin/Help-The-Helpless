@@ -24,13 +24,14 @@ def imgbb(file_location):
     import base64
     import requests
 
-    key = ""
+    key = "2a08e37bb3b1552dc96462768e7bcee1"
     with open(file_location, "rb") as f:
         url = "https://api.imgbb.com/1/upload"
         payload = {"key": key, "image": base64.b64encode(f.read())}
         res = requests.post(url, payload)
         res = res.json()
         url = res["data"]["url"]
+        print(url)
         return url
 
 
@@ -54,22 +55,22 @@ def return_full_path(name):
 
 
 def blog_save_to_database(
-    username,
-    time,
-    header,
-    image_1,
-    image_2,
-    image_3,
-    image_4,
-    text,
-    text_1,
-    text_2,
-    text_3,
-    text_4,
-    image_title_1,
-    image_title_2,
-    image_title_3,
-    image_title_4,
+        username,
+        time,
+        header,
+        image_1,
+        image_2,
+        image_3,
+        image_4,
+        text,
+        text_1,
+        text_2,
+        text_3,
+        text_4,
+        image_title_1,
+        image_title_2,
+        image_title_3,
+        image_title_4,
 ):
     database = Blog.objects.create()
     database.username = username
@@ -98,7 +99,7 @@ def blog_save_to_database(
 
 
 def image_url_save_to_database(
-    primary_key, image_1_url, image_2_url, image_3_url, image_4_url
+        primary_key, image_1_url, image_2_url, image_3_url, image_4_url
 ):
     imgbb_database = Blog.objects.get(pk=primary_key)
     imgbb_database.image_1_url = image_1_url
@@ -259,24 +260,19 @@ def blog_create(request):
 
 @gzip_page
 def blog_create_handler(request):
-
     if request.method == "POST":
         try:
             with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
                 header_future = executor.submit(request_post_get_async, request, "head")
                 header = header_future.result()
 
-                image_1_future = executor.submit(request_files_async, request, "title1")
-                image_1 = image_1_future.result()
+                counter_future = executor.submit(request_post_get_async, request, 'counter')
+                counter = counter_future.result()
 
-                image_2_future = executor.submit(request_files_async, request, "title2")
-                image_2 = image_2_future.result()
+                time_future = executor.submit(value_time, )
+                time = time_future.result()
 
-                image_3_future = executor.submit(request_files_async, request, "title3")
-                image_3 = image_3_future.result()
-
-                image_4_future = executor.submit(request_files_async, request, "title4")
-                image_4 = image_4_future.result()
+                username = request.user.username
 
                 text_future = executor.submit(request_post_get_async, request, "post")
                 text = text_future.result()
@@ -301,35 +297,17 @@ def blog_create_handler(request):
                 )
                 text_4 = text_4_future.result()
 
-                image_title_1_future = executor.submit(
-                    request_post_get_async, request, "title1"
-                )
-                image_title_1 = image_title_1_future.result()
 
-                image_title_2_future = executor.submit(
-                    request_post_get_async, request, "title2"
-                )
-                image_title_2 = image_title_2_future.result()
-
-                image_title_3_future = executor.submit(
-                    request_post_get_async, request, "title3"
-                )
-                image_title_3 = image_title_3_future.result()
-
-                image_title_4_future = executor.submit(
-                    request_post_get_async, request, "title4"
-                )
-                image_title_4 = image_title_4_future.result()
-
-                time_future = executor.submit(value_time,)
-                time = time_future.result()
-
-                username = request.user.username
         except Exception as e:
             print(e)
             raise e
             # Extra logic
             # Database Logic
+        image_title_dict = {}
+        image_dict = {}
+        for i in range(1, (int(counter)+1)):
+            image_dict[f'image_{i}'] = request.FILES[f'myFile{i}']
+            image_title_dict[f'image_title_{i}'] = request.POST.get(f"title{i}")
         try:
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 database_futures = executor.submit(
@@ -337,10 +315,10 @@ def blog_create_handler(request):
                     username,
                     time,
                     header,
-                    image_1,
-                    image_2,
-                    image_3,
-                    image_4,
+                    image_dict.get("image_1", None),
+                    image_dict.get("image_2", None),
+                    image_dict.get("image_3", None),
+                    image_dict.get("image_4", None),
                     text,
                     text_1,
                     text_2,
