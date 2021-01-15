@@ -94,12 +94,12 @@
     script[11].type = 'text/javascript'
     script[11].src = "https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
 
+    script[12].type = 'text/javascript'
     script[12].src = "https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
-    script[12].crossorigin = "anonymous"
 
     link[1].rel = "stylesheet"
+    link[1].type = 'text/css'
     link[1].href = "https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
-    link[1].crossorigin = "anonymous"
 
     link[3].rel = 'stylesheet';
     link[3].type = 'text/css';
@@ -130,14 +130,15 @@
     link[8].type = 'text/css';
     link[8].href =
         'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css';
+    for (let i = 1; i < 13; i++) {
+        head.appendChild(script[i]);
+    }
 
     for (let k = 0; k < 9; k++) {
         head.appendChild(link[k]);
     }
 
-    for (let i = 1; i < 13; i++) {
-        head.appendChild(script[i]);
-    }
+
 </script>
 <body
         class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
