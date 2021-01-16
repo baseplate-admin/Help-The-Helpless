@@ -212,6 +212,7 @@
         })
     })
 </script>
+<script>function mouseOverOpacityReduce(elementName){const element=document.getElementById(elementName);element.addEventListener('mouseenter',function(){element.style.opacity='0.5'})}function mouseOverOpacityReduceRemove(elementName){const element=document.getElementById(elementName);element.addEventListener('mouseleave',function(){element.style.opacity='1'})}function hrefToLocation(elementName,hrefLink){document.getElementById(elementName).addEventListener('click',function(){window.open(hrefLink,"_blank",)})}const facebookIonicons=document.createElement('ion-icon');facebookIonicons.name='logo-facebook';facebookIonicons.id='ionicons-facebook';facebookIonicons.style="color: #3b5998; font-size: 125%; position: relative; top: 12px;padding: 5px;";const youtubeIonicons=document.createElement("ion-icon");youtubeIonicons.name='logo-youtube';youtubeIonicons.id='ionicons-youtube';youtubeIonicons.style='color: #ff0000;font-size: 125%;position: relative;top: 12px;padding: 5px;';const mailIonicons=document.createElement("ion-icon");mailIonicons.name='mail';mailIonicons.id='ionicons-mail';mailIonicons.style='color: #0489c9;font-size: 125%;position: relative;top: 12px;padding: 5px;';let appendDiv=document.getElementById('social-div');appendDiv.append(facebookIonicons);appendDiv.append(youtubeIonicons);appendDiv.append(mailIonicons);hrefToLocation("ionicons-facebook","{{ backend.facebook_url }}");hrefToLocation("ionicons-youtube","{{ backend.youtube_url }}");hrefToLocation("ionicons-mail","{{ backend.email_url }}");mouseOverOpacityReduce("ionicons-facebook");mouseOverOpacityReduce("ionicons-youtube");mouseOverOpacityReduce("ionicons-mail");mouseOverOpacityReduceRemove("ionicons-facebook");mouseOverOpacityReduceRemove("ionicons-youtube");mouseOverOpacityReduceRemove("ionicons-mail");</script> ;<!--
 <script>
 // Functions for hover
 function mouseOverOpacityReduce(elementName){
@@ -281,6 +282,7 @@ mouseOverOpacityReduceRemove("ionicons-youtube");
 mouseOverOpacityReduceRemove("ionicons-mail");
 
 </script>
+-->
 <script type="text/javascript" id="blossom-coach-js-extra">
     /* <![CDATA[ */
     let blossom_coach_data = {rtl: '', animation: ''};
