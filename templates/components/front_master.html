@@ -11,13 +11,14 @@
             src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
     ></script>
     <link rel="canonical" href="/home/"/>
-</head>
-
-<style>
+    <style>
     #body-id {
         opacity: 0;
     }
 </style>
+</head>
+
+
 
 <body
         class="body page-template-default page page-id-22 style1 full-width elementor-default elementor-kit-17"
@@ -85,142 +86,19 @@
             <span>&#10140;</span>
         </button>
     </footer>
-
     <!-- #colophon -->
 </div>
 <!-- #page -->
-<script>
-    let head = document.getElementsByTagName('HEAD')[0];
+<script>let head=document.getElementsByTagName('HEAD')[0];let linkNo=0;let link=[];let linkLimit=9;for(linkNo;linkNo<linkLimit;linkNo+=1){link[linkNo]=document.createElement('link')}let scriptNo=1;let script=[];let scriptLimit=13;for(scriptNo;scriptNo<scriptLimit;scriptNo+=1){script[scriptNo]=document.createElement("script")}console.log(script);console.log(link);script[1].type='text/javascript';script[1].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js';script[2].type='text/javascript';script[2].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js ';script[3].type='text/javascript';script[3].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js ';script[4].type='text/javascript';script[4].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js ';script[5].type='type/javascript';script[5].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js ';script[6].type='text/javascript';script[6].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js ';script[7].type='text/javascript';script[7].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js ';script[8].type='text/javascript';script[8].src='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js ';script[9].type="text/javascript";script[9].src='https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js';script[9].crossorigin="anonymous";script[10].type='text/javascript';script[10].src='https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js';script[10].nomodule="";script[11].type='text/javascript';script[11].src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js";script[12].type='text/javascript';script[12].src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js";link[1].rel="stylesheet";link[1].type='text/css';link[1].href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css";link[3].rel='stylesheet';link[3].type='text/css';link[3].href='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css';link[4].rel='stylesheet';link[4].type='text/css';link[4].href='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css';link[5].rel='stylesheet';link[5].type='text/css';link[5].href='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css';link[6].rel='stylesheet';link[6].type='text/css';link[6].href='https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css';link[7].rel='stylesheet';link[7].type='text/css';link[7].href='https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css';link[8].rel='stylesheet';link[8].type='text/css';link[8].href='https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css';for(let i=1;i<scriptLimit;i+=1){head.appendChild(script[i])}for(let k=0;k<linkLimit;k+=1){head.appendChild(link[k])}</script> ;
 
-    let linkNo = 0;
-    let link = [];
-    let linkLimit = 9;
-
-    for (linkNo; linkNo < linkLimit; linkNo++) {
-        link[linkNo] = document.createElement('link');
-    }
-
-    let scriptNo = 1;
-    let script = [];
-    let scriptLimit = 13;
-
-    for (scriptNo; scriptNo < scriptLimit; scriptNo++) {
-        script[scriptNo] = document.createElement("script");
-    }
-    console.log(script)
-    console.log(link)
-    script[1].type = 'text/javascript';
-    script[1].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/all.min.js';
-
-    script[2].type = 'text/javascript';
-    script[2].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/custom.min.js ';
-
-    script[3].type = 'text/javascript';
-    script[3].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/imagesloaded.min.js ';
-
-    script[4].type = 'text/javascript';
-    script[4].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/modal-accessibility.min.js ';
-
-    script[5].type = 'type/javascript';
-    script[5].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/v4-shims.min.js ';
-
-    script[6].type = 'text/javascript';
-    script[6].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/wp-embed.min.js ';
-
-    script[7].type = 'text/javascript';
-    script[7].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/js/masonry.min.js ';
-
-    script[8].type = 'text/javascript';
-    script[8].src =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/js/owlcarousel2-a11ylayer.min.js ';
-
-    script[9].type = "text/javascript";
-    script[9].src = 'https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js'
-    script[9].crossorigin = "anonymous"
-
-    script[10].type = 'text/javascript';
-    script[10].src = 'https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js'
-    script[10].nomodule = ""
-
-    script[11].type = 'text/javascript'
-    script[11].src = "https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
-
-    script[12].type = 'text/javascript'
-    script[12].src = "https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
-
-    link[1].rel = "stylesheet"
-    link[1].type = 'text/css'
-    link[1].href = "https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css"
-
-    link[3].rel = 'stylesheet';
-    link[3].type = 'text/css';
-    link[3].href =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/css/animate.min.css';
-
-    link[4].rel = 'stylesheet';
-    link[4].type = 'text/css';
-    link[4].href =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-includes/css/dist/block-library/style.min.css';
-
-    link[5].rel = 'stylesheet';
-    link[5].type = 'text/css';
-    link[5].href =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/uploads/elementor/css/global.css';
-
-    link[6].rel = 'stylesheet';
-    link[6].type = 'text/css';
-    link[6].href =
-        'https://cdn.jsdelivr.net/npm/typeface-nunito-sans@1.1.13/index.min.css';
-
-    link[7].rel = 'stylesheet';
-    link[7].type = 'text/css';
-    link[7].href =
-        'https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css';
-
-    link[8].rel = 'stylesheet';
-    link[8].type = 'text/css';
-    link[8].href =
-        'https://cdn.jsdelivr.net/gh/{{ backend.github_username }}/{{ backend.github_repo }}@{{ backend.github_tag }}/wp-content/themes/blossom-coach/style.css';
-    for (let i = 1; i < scriptLimit; i++) {
-        head.appendChild(script[i]);
-    }
-
-    for (let k = 0; k < linkLimit; k++) {
-        head.appendChild(link[k]);
-    }
-
-
-</script>
-
-<script>
-    window.setInterval(function () {
-        $("#site-reload-content").load(" #site-reload-content");
-    }, {{ backend.reload }})
-    window.onload = (function () {
-        anime({
-            targets: '#body-id',
-            opacity: 1,
-            duration: 1000,
-            easing: "linear",
-        })
-    })
-</script>
+<script>window.setInterval(function(){$("#site-reload-content").load(" #site-reload-content")},{{ backend.reload }});window.onload=(function(){anime({targets:'#body-id',opacity:1,duration:1000,easing:"linear"})})</script> ;
 <script>function mouseOverOpacityReduce(elementName){const element=document.getElementById(elementName);element.addEventListener('mouseenter',function(){element.style.opacity='0.5';element.style.cursor='pointer'})}function mouseOverOpacityReduceRemove(elementName){const element=document.getElementById(elementName);element.addEventListener('mouseleave',function(){element.style.opacity='1'})}function hrefToLocation(elementName,hrefLink){document.getElementById(elementName).addEventListener('click',function(){window.open(hrefLink,"_blank",)})}const facebookIonicons=document.createElement('ion-icon');facebookIonicons.name='logo-facebook';facebookIonicons.id='ionicons-facebook';facebookIonicons.style="color: #3b5998; font-size: 125%; position: relative; top: 12px;padding: 5px;";const youtubeIonicons=document.createElement("ion-icon");youtubeIonicons.name='logo-youtube';youtubeIonicons.id='ionicons-youtube';youtubeIonicons.style='color: #ff0000;font-size: 125%;position: relative;top: 12px;padding: 5px;';const mailIonicons=document.createElement("ion-icon");mailIonicons.name='mail';mailIonicons.id='ionicons-mail';mailIonicons.style='color: #0489c9;font-size: 125%;position: relative;top: 12px;padding: 5px;';let appendDiv=document.getElementById('social-div');appendDiv.append(facebookIonicons);appendDiv.append(youtubeIonicons);appendDiv.append(mailIonicons);hrefToLocation("ionicons-facebook","{{ backend.facebook_url }}");hrefToLocation("ionicons-youtube","{{ backend.youtube_url }}");hrefToLocation("ionicons-mail","{{ backend.email_url }}");mouseOverOpacityReduce("ionicons-facebook");mouseOverOpacityReduce("ionicons-youtube");mouseOverOpacityReduce("ionicons-mail");mouseOverOpacityReduceRemove("ionicons-facebook");mouseOverOpacityReduceRemove("ionicons-youtube");mouseOverOpacityReduceRemove("ionicons-mail");</script>
- ;
 
 <script type="text/javascript" id="blossom-coach-js-extra">
     /* <![CDATA[ */
     let blossom_coach_data = {rtl: '', animation: ''};
     /* ]]> */
 </script>
-
 </body>
 </html>
 {% comment %} {% endspaceless %} {% endcomment %}
