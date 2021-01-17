@@ -136,3 +136,4 @@ dmypy.json
 /httpRequests/
 Frontend/views.py
 *.jpg
+*.json
