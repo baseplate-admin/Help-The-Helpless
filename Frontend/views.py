@@ -1,12 +1,53 @@
 from __future__ import unicode_literals
+from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.decorators.gzip import gzip_page
 from django.http import HttpResponse
+from rest_framework import serializers
 
 from Backend.models import Backend
 from Frontend.models import Blog
 from Frontend.models import Comments
+
+
+class BlogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blog
+        fields = (
+            "username",
+            "date_time",
+            "header",
+            "content_1",
+            "content_2",
+            "content_3",
+            "content_4",
+            "content_5",
+            "image_1_title",
+            "image_2_title",
+            "image_3_title",
+            "image_4_title",
+            "image_1_url",
+            "image_2_url",
+            "image_3_url",
+            "image_4_url",
+        )
+
+
+from rest_framework import viewsets
+
+
+class BlogReadOnly(viewsets.ReadOnlyModelViewSet):
+    """
+    Lists information related to the current user.
+    """
+
+    serializer_class = BlogSerializer
+
+    def get_queryset(self):
+        next = self.request.GET["next"]
+        next = int(next)
+        return Blog.objects.all().order_by("-id")[:next]
 
 
 # Create your views here.
@@ -105,3 +146,4 @@ def comment_handler(request, pk):
         return redirect(f"/blog/{pk}/")
     elif request.method == "GET":
         return redirect("/blog/")
+

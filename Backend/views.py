@@ -55,22 +55,22 @@ def return_full_path(name):
 
 
 def blog_save_to_database(
-        username,
-        time,
-        header,
-        image_1,
-        image_2,
-        image_3,
-        image_4,
-        text,
-        text_1,
-        text_2,
-        text_3,
-        text_4,
-        image_title_1,
-        image_title_2,
-        image_title_3,
-        image_title_4,
+    username,
+    time,
+    header,
+    image_1,
+    image_2,
+    image_3,
+    image_4,
+    text,
+    text_1,
+    text_2,
+    text_3,
+    text_4,
+    image_title_1,
+    image_title_2,
+    image_title_3,
+    image_title_4,
 ):
     database = Blog.objects.create()
     database.username = username
@@ -99,7 +99,7 @@ def blog_save_to_database(
 
 
 def image_url_save_to_database(
-        primary_key, image_1_url, image_2_url, image_3_url, image_4_url
+    primary_key, image_1_url, image_2_url, image_3_url, image_4_url
 ):
     imgbb_database = Blog.objects.get(pk=primary_key)
     imgbb_database.image_1_url = image_1_url
@@ -266,10 +266,12 @@ def blog_create_handler(request):
                 header_future = executor.submit(request_post_get_async, request, "head")
                 header = header_future.result()
 
-                counter_future = executor.submit(request_post_get_async, request, 'counter')
+                counter_future = executor.submit(
+                    request_post_get_async, request, "counter"
+                )
                 counter = counter_future.result()
 
-                time_future = executor.submit(value_time, )
+                time_future = executor.submit(value_time,)
                 time = time_future.result()
 
                 username = request.user.username
@@ -304,9 +306,9 @@ def blog_create_handler(request):
             # Database Logic
         image_title_dict = {}
         image_dict = {}
-        for i in range(1, (int(counter)+1)):
-            image_dict[f'image_{i}'] = request.FILES[f'myFile{i}']
-            image_title_dict[f'image_title_{i}'] = request.POST.get(f"title{i}")
+        for i in range(1, (int(counter) + 1)):
+            image_dict[f"image_{i}"] = request.FILES[f"myFile{i}"]
+            image_title_dict[f"image_title_{i}"] = request.POST.get(f"title{i}")
         try:
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 database_futures = executor.submit(

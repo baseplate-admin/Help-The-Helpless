@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "UserHandler",
     "Frontend",
     "Backend",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
