@@ -18,9 +18,9 @@ class Blog(models.Model):
     image_4_title = models.CharField(max_length=20, default="")
 
     image_1 = models.ImageField(upload_to="images", default=None)
-    image_2 = models.ImageField(upload_to="images",blank=True, default=None)
-    image_3 = models.ImageField(upload_to="images",blank=True, default=None)
-    image_4 = models.ImageField(upload_to="images",blank=True, default=None)
+    image_2 = models.ImageField(upload_to="images", blank=True, default=None)
+    image_3 = models.ImageField(upload_to="images", blank=True, default=None)
+    image_4 = models.ImageField(upload_to="images", blank=True, default=None)
 
     image_1_url = models.URLField(default="")
     image_2_url = models.URLField(default="")
@@ -30,7 +30,7 @@ class Blog(models.Model):
     extra = "blog"
 
     def __str__(self):
-        return str(self.pk)
+        return str(self.id)
 
 
 class Comments(models.Model):

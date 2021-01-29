@@ -34,20 +34,36 @@ class BlogSerializer(serializers.ModelSerializer):
         )
 
 
-from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 
-class BlogReadOnly(viewsets.ReadOnlyModelViewSet):
-    """
-    Lists information related to the current user.
-    """
+class BlogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blog
+        fields = "__all__"
 
-    serializer_class = BlogSerializer
 
-    def get_queryset(self):
-        next = self.request.GET["next"]
-        next = int(next)
-        return Blog.objects.all().order_by("-id")[:next]
+# class BlogReadOnly(viewsets.ReadOnlyModelViewSet):
+#     """
+#     Lists information related to the current user.
+#     """
+
+#     serializer_class = BlogSerializer
+
+#     def get_queryset(self):
+#         next = self.request.GET["next"]
+#         next = int(next)
+#         return Blog.objects.all().order_by("-id")[:next]
+
+
+@api_view(["GET"])
+def blog_queryset(request):
+    next = request.GET["next"]
+    next = int(next)
+    data = Blog.objects.all().order_by("-id")[:next]
+    serializers = BlogSerializer(data, many=True)
+    return Response(serializers.data)
 
 
 # Create your views here.
