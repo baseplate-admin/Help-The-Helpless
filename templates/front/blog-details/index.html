@@ -237,69 +237,83 @@
                                 <p> <!--main post-->
                                     {{ blog.content_1 }}
                                 </p>
+
                                 <div class='conatiner'>
-                                    <div class="sub-post"> <!--post 1-->
-                                        <div class="sub-title">
-                                            <h2>title 1</h2>
-                                        </div>
-                                        <div class="image_div">
-                                            <img src="{{ blog.image_1_url }}" alt="{{ blog.image_1_title }}"
-                                                 class="image lazyload">
-                                        </div>
-                                        <div class='sub-text'>
-                                            <!--image description || don't use div-->
-                                            {{ blog.content_2 }}
-                                            <!--image description-->
-                                        </div>
-                                    </div>
+                                  <table>
+                                    <tr>
+                                      <div class="sub-post"> <!--post 1-->
+                                          <div class="sub-title">
+                                              <h2>title 1</h2>
+                                          </div>
+                                          <div class="image_div">
+                                              <img src="{{ blog.image_1_url }}" alt="{{ blog.image_1_title }}"
+                                                   class="image lazyload">
+                                          </div>
+                                          <div class='sub-text'>
+                                              <!--image description-->
+                                              {{ blog.content_2 }}
+                                              <!--image description-->
+                                          </div>
+                                      </div>
+                                    </tr>
+                                    <tr>
+                                      <div class="sub-post">
+                                          <div class="sub-title">
+                                              <h2>title 2</h2>
+                                          </div>
 
-                                    <div class="sub-post">
-                                        <div class="sub-title">
-                                            <h2>title 2</h2>
-                                        </div>
+                                          <div class="image_div">
+                                              <img src="{{ blog.image_2_url }}" alt="{{ blog.image_2_title }}"
+                                                   class="image lazyload">
+                                          </div>
+                                          <div class='sub-text'>
+                                              <!--image description-->
+                                              {{ blog.content_3 }}
+                                              <!--image description-->
+                                          </div>
+                                      </div>
+                                    </tr>
 
-                                        <div class="image_div">
-                                            <img src="{{ blog.image_2_url }}" alt="{{ blog.image_2_title }}"
-                                                 class="image lazyload">
-                                        </div>
-                                        <div class='sub-text'>
-                                            <!--image description || don't use div-->
-                                            {{ blog.content_3 }}
-                                            <!--image description-->
-                                        </div>
-                                    </div>
+                                    <tr>
+                                      <div class="sub-post">
+                                          <div class="sub-title">
+                                              <h2>title 3</h2>
+                                          </div>
+                                          <div class="image_div">
+                                              <img src="{{ blog.image_3_url }}" alt="{{ blog.image_3_title }}"
+                                                   class="image lazyload">
+                                          </div>
+                                          <div class='sub-text'>
+                                              <!--image description-->
+                                              {{ blog.content_4 }}
+                                              <!--image description-->
+                                          </div>
+                                      </div>
+                                    </tr>
 
 
-                                    <div class="sub-post">
-                                        <div class="sub-title">
-                                            <h2>title 3</h2>
-                                        </div>
-                                        <div class="image_div">
-                                            <img src="{{ blog.image_3_url }}" alt="{{ blog.image_3_title }}"
-                                                 class="image lazyload">
-                                        </div>
-                                        <div class='sub-text'>
-                                            <!--image description || don't use div-->
-                                            {{ blog.content_4 }}
-                                            <!--image description-->
-                                        </div>
-                                    </div>
+                                    <tr>
+                                      <div class='sub-post'>
+                                          <div class='sub-title'>
+                                              <h2>title 4</h2>
+                                          </div>
+                                          <div class="image_div" id='last-image'>
+                                              <img src="{{ blog.image_4_url }}" alt="{{ blog.image_4_title }}"
+                                                   class="image lazyload">
+                                          </div>
+                                          <!--image description-->
+                                          <div class='sub-text' id='last-post'>
+                                              {{ blog.content_5 }}
+                                              <!--image description-->
+                                          </div>
+                                      </div>
+                                    </tr>
 
-                                    <div class='sub-post'>
-                                        <div class='sub-title'>
-                                            <h2>title 4</h2>
-                                        </div>
-                                        <div class="image_div" id='last-image'>
-                                            <img src="{{ blog.image_4_url }}" alt="{{ blog.image_4_title }}"
-                                                 class="image lazyload">
-                                        </div>
-                                        <!--image description || don't use div-->
-                                        <div class='sub-text' id='last-post'>
-                                            {{ blog.content_5 }}
-                                            <!--image description-->
-                                        </div>
-                                    </div>
+
+
+                                  </table>
                                 </div>
+
                                 <div class="container" style="padding-top: 12%;">
                                     <hr>
                                     <form action={% url 'comment-handler' site_pk %} method="POST">
@@ -363,14 +377,6 @@
         </div><!-- .wrapper -->
     </div><!-- .site-content -->
     <script>
-        $("#last-post").width($("#last-image").width());
-
-        let header = document.querySelector("#BlogHeader").textContent;
-
-        let textnode = document.createTextNode(header);
-
-        document.querySelector("#span_text").appendChild(textnode);
-
         let textarea = document.querySelector("#autoresizing");
 
         textarea.addEventListener('input', autoResize, false);
@@ -380,106 +386,7 @@
             this.style.height = this.scrollHeight + 'px';
         }
 
-        class Slider {
-            constructor(props) {
-                this.rootElement = props.element;
-                this.slides = Array.from(
-                    this.rootElement.querySelectorAll(".slider-list__item"));
 
-                this.slidesLength = this.slides.length;
-                this.current = 0;
-                this.isAnimating = false;
-                this.direction = 1; // -1
-                this.baseAnimeSettings = {
-                    duration: 750,
-                    elasticity: 0,
-                    easing: 'easeInOutCirc'
-                };
-
-                this.navBar = this.rootElement.querySelector(".slider__nav-bar");
-                this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
-                this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
-                this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
-
-                this.slides[this.current].classList.add("slider-list__item_active");
-                this.thumbs[this.current].classList.add("nav-control_active");
-
-                this._bindEvents();
-            }
-
-            goTo(index, dir) {
-                if (this.isAnimating) return;
-                let self = this;
-                let prevSlide = this.slides[this.current];
-                let nextSlide = this.slides[index];
-
-                self.isAnimating = true;
-                self.current = index;
-                nextSlide.classList.add("slider-list__item_active");
-
-                anime(Object.assign({}, self.baseAnimeSettings, {
-                    targets: nextSlide,
-                    translateX: [100 * dir + '%', 0]
-                }));
-
-
-                anime(Object.assign({}, self.baseAnimeSettings, {
-                    targets: prevSlide,
-                    translateX: [0, -100 * dir + '%'],
-                    complete: function (anim) {
-                        self.isAnimating = false;
-                        prevSlide.classList.remove("slider-list__item_active");
-                        self.thumbs.forEach((item, index) => {
-                            let action = index === self.current ? "add" : "remove";
-                            item.classList[action]("nav-control_active");
-                        });
-                    }
-                }));
-
-            }
-
-            goStep(dir) {
-                let index = this.current + dir;
-                let len = this.slidesLength;
-                let currentIndex = (index + len) % len;
-                this.goTo(currentIndex, dir);
-            }
-
-            goNext() {
-                this.goStep(1);
-            }
-
-            goPrev() {
-                this.goStep(-1);
-            }
-
-            _navClickHandler(e) {
-                let self = this;
-                if (self.isAnimating) return;
-                let target = e.target.closest(".nav-control");
-                if (!target) return;
-                let index = self.thumbs.indexOf(target);
-                if (index === self.current) return;
-                let direction = index > self.current ? 1 : -1;
-                self.goTo(index, direction);
-            }
-
-            _bindEvents() {
-                let self = this;
-                ["goNext", "goPrev", "_navClickHandler"].forEach(method => {
-                    self[method] = self[method].bind(self);
-                });
-                self.nextButton.addEventListener("click", self.goNext);
-                self.prevButton.addEventListener("click", self.goPrev);
-                self.navBar.addEventListener("click", self._navClickHandler);
-            }
-        }
-
-
-        // ===== init ======
-        let slider = new Slider({
-            element: document.querySelector(".slider")
-        });
     </script>
     </div>
 {% endblock %}

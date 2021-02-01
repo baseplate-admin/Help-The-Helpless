@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.decorators.gzip import gzip_page
+from django.db.models import F
 
 # Create your views here
 
-from Frontend.models import Blog
+from Frontend.models import Blog, BlogTotal
 from Backend.models import Backend
 
 import os
@@ -402,6 +403,9 @@ def blog_create_handler(request):
             except Exception as e:
                 print(e)
                 pass
+            total_data = BlogTotal.objects.get(extra="blog_counter")
+            total_data.total_count = F("total_count") + 1
+            total_data.save()
             return redirect("/blog-create/")
 
     elif request.method == "GET":

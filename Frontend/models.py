@@ -27,8 +27,6 @@ class Blog(models.Model):
     image_3_url = models.URLField(default="")
     image_4_url = models.URLField(default="")
 
-    extra = "blog"
-
     def __str__(self):
         return str(self.id)
 
@@ -41,3 +39,12 @@ class Comments(models.Model):
 
     def __str__(self):
         return str(self.blog_id)
+
+
+class BlogTotal(models.Model):
+    total_count = models.IntegerField()
+
+    extra = models.CharField(max_length=10, default="blog-total")
+
+    def __str__(self):
+        return str(self.total_count)

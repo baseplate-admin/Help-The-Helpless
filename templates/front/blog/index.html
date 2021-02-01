@@ -73,317 +73,329 @@
 {% block sitecontent %}
 <div>
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery-visible@1.2.0/jquery.visible.min.js" integrity="sha256-VzXcD0HmV1s8RGdJ/yIf7YkZiOZrcxPphaDpwM++pSs=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+
 
 <style media="screen">
-    .card {
-        box-shadow: 3px 5px 15px #888888;
-    }
-    .slider {
-        position: relative;
-        width: auto;
-        background-color: #2e2e2e;
-    }
-    .slider__nav-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        {% comment %} background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0)
-        ); {% endcomment %}
-    }
-    .slider__arrow {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 7%;
-        color: #fff;
-        cursor: pointer;
-    }
+  .card{
+    box-shadow: 3px 5px 15px #888888;
+  }
+  .slider {
+  position: relative;
+  width: auto;
+  background-color: #2e2e2e;
+  }
+  .slider__nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  }
+  .slider__arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7%;
+  color: #fff;
+  cursor: pointer;
+  }
 
-    .slider__arrow::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 18px;
-        height: 18px;
-        border-style: solid;
-        border-width: 4px 0 0 4px;
-    }
-    .slider__arrow_prev {
-        left: 7.5px;
-    }
-    .slider__arrow_prev::before {
-        transform: rotate(-45deg);
-    }
-    .slider__arrow_next {
-        right: 7.5px;
-    }
-    .slider__arrow_next::before {
-        transform: rotate(135deg);
-    }
-    .nav-control {
-        position: relative;
-        display: inline-block;
-        vertical-align: middle;
-        opacity: 0.5;
-        width: 8%;
-        height: 20px;
-        color: #fff;
-        transition: 0.2s;
-        cursor: pointer;
-    }
-    .nav-control::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 0.5em;
-        height: 0.5em;
-        border-radius: 50%;
-        background: currentColor;
-    }
-    .nav-control:hover {
-        opacity: 0.8;
-    }
-    .nav-control_active {
-        opacity: 1;
-    }
-    .slider-list {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-    .slider-list::before {
-        content: '';
-        display: block;
-        padding-top: calc(9 / 16 * 100%);
-    }
-    .slider-list__item {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateX(100%);
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 16vw;
-        color: #fff;
-        will-change: transform;
-    }
-    .slider-list__item_active {
-        transform: translateX(0);
-    }
-    .card-holder {
-        padding: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .card-body:hover {
-        transition: 0.2s;
-        background-color: #d9d9d9;
-    }
+  .slider__arrow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  border-style: solid;
+  border-width: 4px 0 0 4px;
+  }
+  .slider__arrow_prev {
+  left: 7.5px;
+  }
+  .slider__arrow_prev::before {
+  transform: rotate(-45deg);
+  }
+  .slider__arrow_next {
+  right: 7.5px;
+  }
+  .slider__arrow_next::before {
+  transform: rotate(135deg);
+  }
+  .nav-control {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.5;
+  width: 8%;
+  height: 20px;
+  color: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+  }
+  .nav-control::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
+  }
+  .nav-control:hover {
+  opacity: 0.8;
+  }
+  .nav-control_active {
+  opacity: 1;
+  }
+  .slider-list {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  }
+  .slider-list::before {
+  content: '';
+  display: block;
+  padding-top: calc(9 / 16 * 100%);
+  }
+  .slider-list__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16vw;
+  color: #fff;
+  will-change: transform;
+  }
+  .slider-list__item_active {
+  transform: translateX(0);
+  }
+  .card-holder{
+    padding: 15px;
+    margin: auto;
+    max-width: 650px;
+  }
+  .card-body:hover{
+    transition: 0.2s;
+    background-color: #d9d9d9;
+  }
+  #load{
+    background-color: #51a7e8;
+    opacity: 95%;
+    color: white;
+    transition: 0.2s;
+    width: 35%;
+  }
+  #load:hover{
+    opacity: 100%;
+    background-color: #2490e3;
+  }
 </style>
 
-<div class="card-holder">
-    <div class="card">
-        <div class="slider">
-            <ul class="slider-list">
-                <li
-                    class="slider-list__item slider-list__item_active"
-                    style="background-image: url('https://i.ibb.co/7Sm1pX8/9368c8a44dfa.jpg')"
-                ></li>
-                <li
-                    class="slider-list__item"
-                    style="
-                        transform: translateX(100%);
-                        background-image: url('do2.jpg');
-                    "
-                ></li>
-                <li
-                    class="slider-list__item"
-                    style="
-                        transform: translateX(100%);
-                        background-image: url('do3.jpg');
-                    "
-                ></li>
-                <li
-                    class="slider-list__item"
-                    style="
-                        transform: translateX(100%);
-                        background-image: url('do4.jpg');
-                    "
-                ></li>
-            </ul>
-            <div class="slider__nav-bar">
-                <a class="nav-control"></a><a class="nav-control"></a
-                ><a class="nav-control"></a><a class="nav-control"></a>
-            </div>
-            <div class="slider__controls">
-                <a class="slider__arrow slider__arrow_prev" id="prev"></a
-                ><a class="slider__arrow slider__arrow_next" id="next"></a>
-            </div>
-        </div>
-        <a href="#" style="text-decoration: none">
-            <div class="card-body">
-                <h2>ABC</h2>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                </p>
-            </div>
-        </a>
-    </div>
+<div id="page">
+
 </div>
 
+<script>
 
-<script type="text/javascript">
-    class Slider {
-        constructor(props) {
-            this.rootElement = props.element;
-            this.slides = Array.from(
-                this.rootElement.querySelectorAll('.slider-list__item')
-            );
+let jsonData = "";
+let count = 0;
+let slider_count = 0;
+let json_size = 25;
 
-            this.slidesLength = this.slides.length;
-            this.current = 0;
-            this.isAnimating = false;
-            this.direction = 1; // -1
-            this.baseAnimeSettings = {
-                duration: 750,
-                elasticity: 0,
-                easing: 'easeInOutCirc',
-            };
+callajax();
 
-            this.navBar = this.rootElement.querySelector('.slider__nav-bar');
-            this.thumbs = Array.from(
-                this.rootElement.querySelectorAll('.nav-control')
-            );
-            this.prevButton = this.rootElement.querySelector(
-                '.slider__arrow_prev'
-            );
-            this.nextButton = this.rootElement.querySelector(
-                '.slider__arrow_next'
-            );
+function callajax(){
+  $.ajax({
+                  url: "https://zarif-ahnaf.duckdns.org/api/v1/blog?format=json&next="+json_size,
+                  method: "get",
+                  dataType: "json",
+                  success: function (jdata) {
+                      jsonData = jdata
+                      setjson();
+                  }
+              });
+}
 
-            this.slides[this.current].classList.add('slider-list__item_active');
-            this.thumbs[this.current].classList.add('nav-control_active');
 
-            this._bindEvents();
-        }
 
-        goTo(index, dir) {
-            if (this.isAnimating) return;
-            var self = this;
-            let prevSlide = this.slides[this.current];
-            let nextSlide = this.slides[index];
+function setjson(){
 
-            self.isAnimating = true;
-            self.current = index;
-            nextSlide.classList.add('slider-list__item_active');
-
-            anime(
-                Object.assign({}, self.baseAnimeSettings, {
-                    targets: nextSlide,
-                    translateX: [100 * dir + '%', 0],
-                })
-            );
-
-            anime(
-                Object.assign({}, self.baseAnimeSettings, {
-                    targets: prevSlide,
-                    translateX: [0, -100 * dir + '%'],
-                    complete: function (anim) {
-                        self.isAnimating = false;
-                        prevSlide.classList.remove('slider-list__item_active');
-                        self.thumbs.forEach((item, index) => {
-                            var action =
-                                index === self.current ? 'add' : 'remove';
-                            item.classList[action]('nav-control_active');
-                        });
-                    },
-                })
-            );
-        }
-
-        goStep(dir) {
-            let index = this.current + dir;
-            let len = this.slidesLength;
-            let currentIndex = (index + len) % len;
-            this.goTo(currentIndex, dir);
-        }
-
-        goNext() {
-            this.goStep(1);
-        }
-
-        goPrev() {
-            this.goStep(-1);
-        }
-
-        _navClickHandler(e) {
-            var self = this;
-            if (self.isAnimating) return;
-            let target = e.target.closest('.nav-control');
-            if (!target) return;
-            let index = self.thumbs.indexOf(target);
-            if (index === self.current) return;
-            let direction = index > self.current ? 1 : -1;
-            self.goTo(index, direction);
-        }
-
-        _bindEvents() {
-            var self = this;
-            ['goNext', 'goPrev', '_navClickHandler'].forEach((method) => {
-                self[method] = self[method].bind(self);
-            });
-            self.nextButton.addEventListener('click', self.goNext);
-            self.prevButton.addEventListener('click', self.goPrev);
-            self.navBar.addEventListener('click', self._navClickHandler);
-        }
+  for(let i = 0;i<5;i++){
+    if(json_size == count){
+      json_size += 25;
+      callajax();
+    }
+    if(jsonData[count].header==""){
+      break;
     }
 
-    // ===== init ======
+      $("#page").append("<div class=\"card-holder\"><div class=\"card\"><div class=\"slider\"><ul class=\"slider-list\"><li class=\"slider-list__item slider-list__item_active\"></li><li class=\"slider-list__item\" style=\"transform: translateX(100%);\"></li><li class=\"slider-list__item\" style=\"transform: translateX(100%);\"></li><li class=\"slider-list__item\" style=\"transform: translateX(100%);\"></li></ul><div class=\"slider__nav-bar\"><a class=\"nav-control\"></a><a class=\"nav-control\"></a><a class=\"nav-control\"></a><a class=\"nav-control\"></a></div><div class=\"slider__controls\"><a class=\"slider__arrow slider__arrow_prev\"></a><a class=\"slider__arrow slider__arrow_next\"></a></div></div><a class=\"blog_link\" style=\"text-decoration: none;\"><div class=\"card-body\"><h4 class=\"post-header\">loading</h4><p class=\"card-text\" style=\"color: #58c0fc;\">loading</p></div></a></div></div>");
+      //set image json
+      document.getElementsByClassName("slider-list__item")[slider_count++].style.backgroundImage = 'url('+jsonData[count].image_1_url+')';
+      document.getElementsByClassName("slider-list__item")[slider_count++].style.backgroundImage = 'url('+jsonData[count].image_2_url+')';
+      document.getElementsByClassName("slider-list__item")[slider_count++].style.backgroundImage = 'url('+jsonData[count].image_3_url+')';
+      document.getElementsByClassName("slider-list__item")[slider_count++].style.backgroundImage = 'url('+jsonData[count].image_4_url+')';
+      //end
 
-    var x;
-    for (x = 0; x < document.querySelectorAll('.slider').length; x++) {
-        let slider = new Slider({
-            element: document.querySelectorAll('.slider')[x],
+      //link
+      document.getElementsByClassName("blog_link")[count].href = jsonData[count].id;
+
+      //set title and body
+      document.getElementsByClassName("post-header")[count].innerHTML = jsonData[count].header;
+      document.getElementsByClassName("card-text")[count].innerHTML = jsonData[count].content_1.slice(0, 150)+"...";
+      count++;
+  }
+  playSlide();
+}
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      setjson();
+    }
+};
+
+function playSlide(){
+class Slider {
+  constructor(props) {
+    this.rootElement = props.element;
+    this.slides = Array.from(
+    this.rootElement.querySelectorAll(".slider-list__item"));
+
+    this.slidesLength = this.slides.length;
+    this.current = 0;
+    this.isAnimating = false;
+    this.direction = 1; // -1
+    this.baseAnimeSettings = {
+      duration: 750,
+      elasticity: 0,
+      easing: 'easeInOutCirc' };
+
+    this.navBar = this.rootElement.querySelector(".slider__nav-bar");
+    this.thumbs = Array.from(this.rootElement.querySelectorAll(".nav-control"));
+    this.prevButton = this.rootElement.querySelector(".slider__arrow_prev");
+    this.nextButton = this.rootElement.querySelector(".slider__arrow_next");
+
+    this.slides[this.current].classList.add("slider-list__item_active");
+    this.thumbs[this.current].classList.add("nav-control_active");
+
+    this._bindEvents();
+  }
+
+  goTo(index, dir) {
+    if (this.isAnimating) return;
+    var self = this;
+    let prevSlide = this.slides[this.current];
+    let nextSlide = this.slides[index];
+
+    self.isAnimating = true;
+    self.current = index;
+    nextSlide.classList.add("slider-list__item_active");
+
+    anime(Object.assign({}, self.baseAnimeSettings, {
+      targets: nextSlide,
+      translateX: [100 * dir + '%', 0] }));
+
+
+    anime(Object.assign({}, self.baseAnimeSettings, {
+      targets: prevSlide,
+      translateX: [0, -100 * dir + '%'],
+      complete: function (anim) {
+        self.isAnimating = false;
+        prevSlide.classList.remove("slider-list__item_active");
+        self.thumbs.forEach((item, index) => {
+          var action = index === self.current ? "add" : "remove";
+          item.classList[action]("nav-control_active");
         });
+      } }));
+
+  }
+
+  goStep(dir) {
+    let index = this.current + dir;
+    let len = this.slidesLength;
+    let currentIndex = (index + len) % len;
+    this.goTo(currentIndex, dir);
+  }
+
+  goNext() {
+    this.goStep(1);
+  }
+
+  goPrev() {
+    this.goStep(-1);
+  }
+
+  _navClickHandler(e) {
+    var self = this;
+    if (self.isAnimating) return;
+    let target = e.target.closest(".nav-control");
+    if (!target) return;
+    let index = self.thumbs.indexOf(target);
+    if (index === self.current) return;
+    let direction = index > self.current ? 1 : -1;
+    self.goTo(index, direction);
+  }
+
+  _bindEvents() {
+    var self = this;
+    ["goNext", "goPrev", "_navClickHandler"].forEach(method => {
+      self[method] = self[method].bind(self);
+    });
+    self.nextButton.addEventListener("click", self.goNext);
+    self.prevButton.addEventListener("click", self.goPrev);
+    self.navBar.addEventListener("click", self._navClickHandler);
+  }}
+
+
+// ===== init ======
+
+for(var x = 0; x<document.querySelectorAll(".slider").length; x++){
+  let slider = new Slider({
+    element: document.querySelectorAll(".slider")[x] });
+}
+}
+
+setInterval(scrollme, 2800);
+
+function scrollme(){
+  for(var i = 0; i<document.querySelectorAll(".card-holder").length; i++){
+
+    if($( document.querySelectorAll(".card-holder")[i]).visible(false, false, 'vertical')){
+      console.log("clicked!"+i);
+      document.getElementsByClassName("slider__arrow slider__arrow_next")[i].click();
+      break;
+
     }
+  }
+}
 
-    
-    console.log(document.querySelectorAll("#prev"));
-    let x =  document.querySelectorAll("#prev");
+$("#colophon").ready(function(){
+  document.getElementById("colophon").remove();
+});
 
-    window.setInterval(function() {
 
-    })
-
-    for(let i = 0; i < document.querySelectorAll("#prev").length; i++){
-       x[i].click();
-    }
 
 </script>
 </div>

@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.decorators.gzip import gzip_page
@@ -7,7 +6,7 @@ from django.http import HttpResponse
 from rest_framework import serializers
 
 from Backend.models import Backend
-from Frontend.models import Blog
+from Frontend.models import Blog, BlogTotal
 from Frontend.models import Comments
 
 
@@ -44,17 +43,10 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-# class BlogReadOnly(viewsets.ReadOnlyModelViewSet):
-#     """
-#     Lists information related to the current user.
-#     """
-
-#     serializer_class = BlogSerializer
-
-#     def get_queryset(self):
-#         next = self.request.GET["next"]
-#         next = int(next)
-#         return Blog.objects.all().order_by("-id")[:next]
+class BlogTotalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogTotal
+        fields = "__all__"
 
 
 @api_view(["GET"])
@@ -63,6 +55,13 @@ def blog_queryset(request):
     next = int(next)
     data = Blog.objects.all().order_by("-id")[:next]
     serializers = BlogSerializer(data, many=True)
+    return Response(serializers.data)
+
+
+@api_view(["GET"])
+def blog_total(request):
+    data = BlogTotal.objects.all()
+    serializers = BlogTotalSerializer(data, many=True)
     return Response(serializers.data)
 
 
