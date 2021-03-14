@@ -1,0 +1,135 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+
+{% load wagtailimages_tags %} 
+{% load wagtailcore_tags %}
+
+{% block head %}
+
+<link
+    async
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css"
+/>
+<script
+    async
+    src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js"
+></script>
+
+{% endblock %}
+
+<!-- prettier-ignore -->
+
+{% block content %}
+
+<section class="hero has-text-centered" style="background-color: #191b1f">
+    <!-- prettier-ignore -->
+    {% image self.blog_image scale-95 as smol_image %}
+    {% image self.blog_image height-1032 as thicc_image %}
+
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-7 is-offset-2">
+                <p class="title is-size-1 has-text-weight-bold has-text-left">
+                    {{ self.blog_title }}
+                </p>
+            </div>
+        </div>
+        <!-- prettier-ignore -->
+
+        {% comment %}
+        
+            Note for anyone not being a man of culture.
+                Thicc = Large
+                Smol = Small 
+
+        {% endcomment %}
+
+        <div class="subtitle" style="padding-top: 1em">
+            <hr style="width: 67%; margin: auto" />
+            <!-- prettier-ignore -->
+
+            {% for iter in self.blog_authors.all %}
+
+            {% image iter.author.image fill-48x48 as full_author_image %}
+            {% image iter.author.image fill-20x20 as tiny_author_image %}
+
+            <div class="columns is-mobile" style="padding-top: 1em">
+                <div class="column is-3">
+                    <figure style="float: right" class="image is-48x48">
+                        <a
+                            href="{{ full_author_image.url }}"
+                            class="progressive replace"
+                        >
+                            <img
+                                width="{{full_author_image.width}}"
+                                height="{{full_author_image.height}}"
+                                class="is-rounded"
+                                src="{{ tiny_author_image.url }}"
+                                alt="{{ iter.author.alt }}"
+                            />
+                        </a>
+                    </figure>
+                </div>
+
+                <div class="column is-7">
+                    <span style="float: left">
+                        <p
+                            style="color: white; font-family: 'Nunito'"
+                            class="is-size-6 has-text-weight-normal"
+                        >
+                            {{ iter.author.name }}
+                        </p>
+                        <p
+                            style="font-family: 'Nunito'; color: #606060"
+                            class="is-size-7 is-family-secondary"
+                        >
+                            {{ self.latest_revision_created_at }}
+                        </p>
+                    </span>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <div class="columns">
+                <div
+                    style="padding-top: 5%"
+                    class="column is-four-fifths container"
+                >
+                    <a href="{{ thicc_image.url }}" class="progressive replace">
+                        <img
+                            width="{{ thicc_image.width }}"
+                            height="{{ thicc_image.height }}"
+                            src="{{ smol_image.url }}"
+                            class="preview"
+                            alt="{{ smol_image.alt }}"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero" style="background-color: #191b1f">
+    <div class="hero-body container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <!--prettier-ignore-->
+                {% for block in self.content %}
+                    {% include_block block %} 
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+<!--prettier-ignore-->
+{% block endbody %}
+<script>
+    $('#main_blog p').each(function () {
+        $(this).addClass('is-size-5');
+    });
+</script>
+{% endblock endbody %}

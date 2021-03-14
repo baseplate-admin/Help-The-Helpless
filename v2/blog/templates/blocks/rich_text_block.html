@@ -1,0 +1,20 @@
+<style>
+    #main_blog p {
+        margin-bottom: 1.5em;
+    }
+</style>
+<div
+    class="bd-notification has-text-left is-size-6 has-text-weight-light is-family-secondary"
+    id="main_blog"
+    style="color: #c9d1d9; font-family: 'Nunito'"
+>
+    {{self}}
+</div>
+
+<script>
+    $('#main_blog p').each(function () {
+        if ($(this).text() === '') {
+            $(this).replaceWith('<br/>');
+        }
+    });
+</script>
