@@ -120,11 +120,11 @@ def blog(request):
             backend = "backend"
         elif Backend.objects.filter(extra="backend").exists():
             backend = Backend.objects.get(extra="backend")
-
+        data = Blog.objects.all()
         return render(
             request,
             "front/blog/index.html",
-            {"backend": backend, "site_header": "Blog"},
+            {"backend": backend, "site_header": "Blog", "data": data},
         )
     else:
         return HttpResponse("<h1>No POST allowed</h1>")
