@@ -16,6 +16,20 @@
     src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js"
 ></script>
 
+<script defer>
+    WebFont.load({
+        google: {
+            families: ['Roboto:300'],
+        },
+        fontactive: function () {
+            anime({
+                targets: '#post-column',
+                opacity: 100,
+                easing: 'easeInQuint',
+            });
+        },
+    });
+</script>
 {% endblock %}
 
 <!-- prettier-ignore -->
@@ -24,11 +38,12 @@
 
 <section class="hero has-text-centered" style="background-color: #191b1f">
     <!-- prettier-ignore -->
+
     {% image self.blog_image scale-95 as smol_image %}
     {% image self.blog_image height-1032 as thicc_image %}
 
     <div class="hero-body">
-        <div class="columns">
+        <div class="columns" id="blog-title-column" style="opacity: 0">
             <div class="column is-7 is-offset-2">
                 <p class="title is-size-1 has-text-weight-bold has-text-left">
                     {{ self.blog_title }}
@@ -46,7 +61,7 @@
         {% endcomment %}
 
         <div class="subtitle" style="padding-top: 1em">
-            <hr style="width: 67%; margin: auto" />
+            <hr style="width: 60%; margin: auto" />
             <!-- prettier-ignore -->
 
             {% for iter in self.blog_authors.all %}
@@ -62,8 +77,8 @@
                             class="progressive replace"
                         >
                             <img
-                                width="{{full_author_image.width}}"
-                                height="{{full_author_image.height}}"
+                                width="{{ full_author_image.width }}"
+                                height="{{ full_author_image.height }}"
                                 class="is-rounded"
                                 src="{{ tiny_author_image.url }}"
                                 alt="{{ iter.author.alt }}"
@@ -77,12 +92,16 @@
                         <p
                             style="color: white; font-family: 'Nunito'"
                             class="is-size-6 has-text-weight-normal"
+                            id="blog-author-column-name"
+                            style="opacity: 0"
                         >
                             {{ iter.author.name }}
                         </p>
                         <p
                             style="font-family: 'Nunito'; color: #606060"
                             class="is-size-7 is-family-secondary"
+                            id="blog-author-column-last"
+                            style="opacity: 0"
                         >
                             {{ self.latest_revision_created_at }}
                         </p>
@@ -115,7 +134,11 @@
 <section class="hero" style="background-color: #191b1f">
     <div class="hero-body container">
         <div class="columns">
-            <div class="column is-8 is-offset-2">
+            <div
+                class="column is-8 is-offset-2"
+                id="post-column"
+                style="opacity: 0"
+            >
                 <!--prettier-ignore-->
                 {% for block in self.content %}
                     {% include_block block %} 
@@ -125,11 +148,36 @@
     </div>
 </section>
 {% endblock %}
+
 <!--prettier-ignore-->
+
 {% block endbody %}
+
+<script async>
+    $(document).ready(function () {
+        $('#main_blog p').each(function () {
+            $(this).css({
+                'font-family': 'Roboto',
+                'font-size': '1.2em',
+                'font-weight': '100',
+            });
+        });
+    });
+</script>
 <script>
-    $('#main_blog p').each(function () {
-        $(this).addClass('is-size-5');
+    $(document).ready(function () {
+        anime({
+            targets:
+                '#blog-author-column-last, #blog-author-column-name, #blog-title-column',
+            opacity: 100,
+            easing: 'easeInQuint',
+        });
+        anime({
+            targets: '.title ',
+            translateX: 35,
+            easing: 'linear',
+            duration: 200,
+        });
     });
 </script>
 {% endblock endbody %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<!--prettier-ignore-->
+{% load wagtailcore_tags %}
+{% block head %}
+<script defer>
+    WebFont.load({
+        google: {
+            families: ['Roboto:300'],
+        },
+        fontactive: function () {
+            anime({
+                targets: '.title',
+                opacity: 100,
+                duration: 1000,
+                easing: 'easeInQuad',
+            });
+            anime({
+                targets: '.about_us_subtitle',
+                opacity: 100,
+                duration: 1000,
+                easing: 'easeInQuad',
+            });
+        },
+    });
+</script>
+{% endblock head %} {% block content %}
+
+<section class="hero is-medium is-info" style="background-color: #191b1f">
+    <div class="hero-body columns is-mobile">
+        <div class="column is-6 is-offset-3">
+            <p class="title is-size-2" style="opacity: 0">
+                {{ self.page_title }}
+            </p>
+            <div class="about_us_subtitle" style="opacity: 0">
+                <!--prettier-ignore-->
+                {% for block in self.content %}
+                {% include_block block %} 
+            {% endfor %}
+            </div>
+            <script async>
+                $('.title').css({
+                    color: '#e8e8e9',
+                });
+
+                $('.about_us_subtitle  p').each(function () {
+                    if ($(this).text() === '') {
+                        $(this).replaceWith('<br/>');
+                    }
+                    $(this).css({
+                        'margin-bottom': '1.5em',
+                        'font-family': 'Roboto',
+                        'font-size': '1.2em',
+                        'font-weight': '100',
+                        color: '#c9d1d9',
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "search",
     "blog",
     "site_settings",
+    "about",
     "wagtail.contrib.forms",
     "wagtail.contrib.settings",
     "wagtail.contrib.sitemaps",

@@ -1,5 +1,5 @@
-<!-- prettier-ignore -->
 {% extends 'base.html' %}
+<!-- prettier-ignore -->
 
 {% load static %}
 {% load wagtailimages_tags %}
@@ -19,7 +19,7 @@
     crossorigin="anonymous"
 ></script>
 <link
-    async
+    defer
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css"
 />
@@ -27,6 +27,14 @@
     defer
     src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js"
 ></script>
+
+<script>
+    WebFont.load({
+        google: {
+            families: ['Roboto:300'],
+        },
+    });
+</script>
 {% endblock %}
 
 <!-- prettier-ignore -->
@@ -352,9 +360,11 @@
         </div>
         <!--</svg> -->
         <h1 class="title">
-            {{ settings.site_settings.SiteNameSettings.site_name }}
+            <p style="opacity: 0" class="site-title">
+                {{ settings.site_settings.SiteNameSettings.site_name }}
+            </p>
             <br />
-            <div class="subtitle">
+            <div class="subtitle site-subtitle" style="opacity: 0">
                 {{settings.site_settings.SiteNameSettings.site_description}}
             </div>
         </h1>
@@ -363,19 +373,25 @@
 
 {% endblock logo %}
 <!-- prettier-ignore -->
-
 {% block content %}
 
 <section class="blog-posts">
     <div class="container">
         <div class="columns">
             <div class="column is-10 is-offset-1 infinite-container">
-                <div class="infinite-item">
+                <div class="infinite-item" style="opacity: 0">
                     {% for post in posts %}
-                    <div class="columns featured-post is-mobile">
+                    <input type="hidden" id="post-id" value="{{ post.id }}" />
+                    <div
+                        class="columns featured-post is-mobile main-post"
+                        style="opacity: 0"
+                    >
                         <div class="column is-12 post">
                             <article class="columns featured">
-                                <div class="column is-7 post-img">
+                                <div
+                                    class="column is-7 post-img main-post-column noselect"
+                                    style="opacity: 0"
+                                >
                                     <!-- prettier-ignore -->
 
                                     {% image post.blog_image fill-613x344 as large_blog_image %}
@@ -394,68 +410,69 @@
                                         </a>
                                     </a>
                                 </div>
-                                <div class="column is-5 featured-content va">
+                                <div
+                                    class="column is-5 featured-content va main"
+                                >
                                     <div>
                                         <!--
-                                        <h3 class="heading post-category">Category Name</h3>
-                                    -->
+                                            <h3 class="heading post-category">Category Name</h3>
+                                        -->
                                         <h1
-                                            class="title post-title is-size-3 has-text-weight-semibold"
+                                            class="title post-title is-size-3 has-text-weight-semibold noselect"
+                                            id="post-title-{{ post.id }}"
                                         >
                                             {{ post.blog_title }}
                                         </h1>
-                                        <div
-                                            class="main-post post-excerpt has-text-weight-light"
-                                            style="
-                                                font-family: 'Nunito';
-                                                max-height: 200px;
-                                                overflow: hidden;
-                                            "
+                                        <!--max-height: 195px;
+                                                overflow: hidden;-->
+                                        <a
+                                            href="{{ post.url }}"
+                                            style="text-decoration: none"
                                         >
-                                            <!--prettier-ignore-->
-                                            {% for block in post.content %}
-                                            {% include_block block %} 
-                                        {% endfor %}
-
-                                            <script>
-                                                $('#main_blog p').each(
-                                                    function () {
-                                                        $(this).addClass(
-                                                            'is-size-6'
-                                                        );
-                                                    }
-                                                );
-                                            </script>
-                                        </div>
-
-                                        <br />
-                                        <div class="columns">
-                                            <div class="column">
-                                                <a href="{{ post.url }}">
-                                                    Read More
-                                                </a>
+                                            <div
+                                                class="subtitle main-post has-text-weight-light post-excerpt is-size-6"
+                                                style="
+                                                    height: 195px;
+                                                    overflow: hidden;
+                                                "
+                                                id="main-post-{{ post.id }}"
+                                            >
+                                                <!--prettier-ignore-->
+                                                {% for block in post.content %}
+                                                    {% include_block block %} 
+                                                {% endfor %}
                                             </div>
-                                        </div>
+                                            <script>
+                                                $(
+                                                    '#main-post-{{ post.id }} p'
+                                                ).each(function () {
+                                                    $(this).addClass(
+                                                        'noselect'
+                                                    );
+                                                    $(this).css({
+                                                        'font-family':
+                                                            'Roboto,sans-serif',
+                                                        'font-weight': '500',
+                                                    });
+                                                });
+                                            </script>
+                                        </a>
+
                                         {% for iter in post.blog_authors.all %}
 
                                         <!-- prettier-ignore -->
                                         {% image iter.author.image fill-48x48 as full_author_image %}
-                                    {% image iter.author.image fill-20x20 as tiny_author_image %}
-                                    
-                                    {% comment %}
+                                        {% image iter.author.image fill-20x20 as tiny_author_image %}
 
                                         <!-- prettier-ignore -->
 
-                                        <a href="{{post.url}}">{{author.author.name}}</a>
-                                        {% endcomment %}
-
-                                        <div class="columns is-mobile">
+                                        <div class="columns is-mobile" id='author-column-{{ post.id }}'>
                                             <div class="column is-one-fifth">
                                                 <figure
-                                                    class="image is-48x48"
-                                                    style="float: right"
+                                                    class="image is-48x48 author-image "
                                                 >
                                                     <a
+                                                        id="author-image-{{ post.id }}"
                                                         href="{{ full_author_image.url }}"
                                                         class="progressive replace"
                                                         style="
@@ -471,26 +488,28 @@
                                                             "
                                                         />
                                                     </a>
+                                                    
                                                 </figure>
                                             </div>
                                             <div
-                                                class="column hero"
+                                                class="column hero author-info is-offset-1"
                                                 style="
                                                     background-color: transparent;
                                                 "
                                             >
                                                 <p
+                                                    id='author-name'
                                                     style="
                                                         color: white;
-                                                        font-family: 'Nunito';
+                                                        font-family: 'Roboto';
                                                     "
-                                                    class="is-size-6 has-text-weight-semibold"
+                                                    class=" is-size-6 has-text-weight-semibold"
                                                 >
                                                     {{ iter.author.name }}
                                                 </p>
                                                 <p
                                                     style="
-                                                        font-family: 'Nunito';
+                                                        font-family: 'Roboto';
                                                     "
                                                     class="is-size-7 is-family-secondary"
                                                 >
@@ -507,7 +526,70 @@
                             </article>
                         </div>
                     </div>
-                    <hr />
+                    <hr class="main-hr" />
+                    <script>
+                        $(document).ready(function () {
+                            let post_id_query = document.querySelectorAll(
+                                '#post-id'
+                            );
+                            let post_id =
+                                post_id_query[post_id_query.length - 1].value;
+
+                            tippy(`#author-image-${post_id}`, {
+                                content: `${$('#author-name').text()}`,
+                                animateFill: true,
+                            });
+                        });
+                    </script>
+
+                    <script type="module">
+                        $(document).ready(function () {
+                            let post_id_query = document.querySelectorAll(
+                                '#post-id'
+                            );
+                            let post_id =
+                                post_id_query[post_id_query.length - 1].value;
+                            anime({
+                                targets: `#main-post-${post_id}`,
+                                translateY: -20,
+                            });
+                            anime({
+                                targets: `#post-title-${post_id}`,
+                                translateY: -15,
+                            });
+
+                            anime({
+                                targets: `#author-image-${post_id}`,
+                                translateX: 10,
+                            });
+
+                            anime({
+                                targets: '.infinite-item',
+                                opacity: 100,
+                                duration: 1000,
+                                easing: 'easeInQuad',
+                            });
+
+                            anime({
+                                targets: '.author-info',
+                                translateX: -10,
+                            });
+
+                            anime({
+                                targets: '.main-post',
+                                opacity: 100,
+                                duration: 1500,
+                                easing: 'easeInOutExpo',
+                            });
+
+                            anime({
+                                targets: ' .main-post-column',
+                                opacity: 100,
+                                duration: 2000,
+                                easing: 'easeInOutExpo',
+                            });
+                        });
+                    </script>
                     {% endfor %}
                 </div>
             </div>
@@ -531,8 +613,65 @@
         onBeforePageLoad: function () {
             $('.loading').show();
         },
-        onAfterPageLoad: function ($items) {
+        onAfterPageLoad: function () {
             $('.loading').hide();
+            let element = document.querySelectorAll('#author-name');
+
+            let post_id_query = document.querySelectorAll('#post-id');
+            let post_id = post_id_query[post_id_query.length - 1].value;
+
+            $(`#main-post-${post_id} p`).each(function () {
+                $(this).addClass('noselect');
+                $(this).css({
+                    'font-family': 'Roboto,sans-serif',
+                    'font-weight': '500',
+                });
+            });
+
+            tippy(`#author-image-${post_id}`, {
+                content: `${element[element.length - 1].textContent}`,
+                animateFill: true,
+            });
+
+            anime({
+                targets: `#author-column-${post_id}`,
+                translateY: 20,
+            });
+            anime({
+                targets: `#main-post-${post_id}`,
+                translateY: -20,
+            });
+            anime({
+                targets: `#post-title-${post_id}`,
+                translateY: -15,
+            });
+            anime({
+                targets: `#author-image-${post_id}`,
+                translateX: 10,
+            });
+
+            anime({
+                targets: '.infinite-item',
+                opacity: 100,
+                duration: 1000,
+                easing: 'easeInQuad',
+            });
+            anime({
+                targets: '.author-info',
+                translateX: -10,
+            });
+            anime({
+                targets: '.main-post',
+                opacity: 100,
+                duration: 1500,
+                easing: 'easeInOutExpo',
+            });
+            anime({
+                targets: ' .main-post-column',
+                opacity: 100,
+                duration: 2000,
+                easing: 'easeInOutExpo',
+            });
         },
     });
 </script>

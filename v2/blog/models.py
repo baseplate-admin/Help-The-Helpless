@@ -24,7 +24,7 @@ class BlogPage(Page):
 
     class Meta:
         verbose_name = "Blog"
-        verbose_name_plural = "Blogs"
+        # verbose_name_plural = "Blogs"
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -48,14 +48,10 @@ class BlogPage(Page):
         context["posts"] = posts
         return context
 
-    # @route(r"^blog/$")
-    # def blog(self, request, *args, **kwargs):
-    #     return render(request, "blog/blog_page.html")
-
 
 class BlogDetailsPage(Page):
     template = "blog/blog_details_page.html"
-    blog_title = models.CharField(max_length=20)
+    blog_title = models.CharField(max_length=50)
     blog_image = models.ForeignKey(
         "wagtailimages.Image", blank=False, null=True, on_delete=models.SET_NULL,
     )
@@ -74,6 +70,7 @@ class BlogDetailsPage(Page):
         StreamFieldPanel("content"),
     ]
 
-    # class Meta:
-    # verbose_name = "Blog"
-    # verbose_name_plural = "Blogs"
+    class Meta:
+        verbose_name = "Blog Detail"
+        verbose_name_plural = "Blog(s) Detail"
+

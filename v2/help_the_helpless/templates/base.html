@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -7,6 +8,8 @@
         <title>
             {{ settings.site_settings.SiteNameSettings.site_url_title }}
         </title>
+
+        <!--Page Css load-->
         <link
             async
             rel="stylesheet"
@@ -14,216 +17,276 @@
             integrity="sha256-O8SsQwDg1R10WnKJNyYgd9J3rlom+YSVcGbEF5RmfFk="
             crossorigin="anonymous"
         />
-        <link
-            async
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/typeface-nunito@1.1.13/index.min.css"
-        />
+        <link async rel="stylesheet" href="{% static 'css/casper.css' %}" />
+
         <!--prettier-ignore-->
+
         <link defer rel="stylesheet" href='{% static 'css/help_the_helpless.css' %}'>
+
+        <link defer rel="stylesheet" href="{% static 'css/logo.css' %}" />
+
         <link
             async
             rel="stylesheet"
-            media="screen"
-            href="{% static 'css/casper.css' %}"
+            href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.1/animations/shift-away.css"
+            integrity="sha256-1babFXsJvhkaaGOp01c2h2/jQ0eajOQIjA9hpCLZMJs="
+            crossorigin="anonymous"
         />
-        <link async rel="stylesheet" href="{% static 'css/logo.css' %}" />
+        <link
+            async
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.1/dist/backdrop.css"
+            integrity="sha256-eSpgipYdQ5Rpedm8Y7RF4kdOuYPH7msV1wSVksJ5ZR4="
+            crossorigin="anonymous"
+        />
+
+        <style>
+            /* No select css */
+            .noselect {
+                user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
+            }
+            body {
+                background-color: black;
+            }
+        </style>
 
         <script
             src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"
         ></script>
+
         <script
-            src="https://cdn.jsdelivr.net/npm/jquery-migrate@1.4.1/dist/jquery-migrate.min.js"
-            crosrigin="anonymous"
+            src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+            integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="
+            crossorigin="anonymous"
         ></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js"></script>
+
+        <script>
+            WebFont.load({
+                google: {
+                    families: ['Nunito'],
+                },
+                fontactive: function () {
+                    anime({
+                        targets: '.site-subtitle',
+                        opacity: 100,
+                        duration: 1500,
+                        easing: 'easeInQuad',
+                    });
+                    anime({
+                        targets: '.site-title',
+                        opacity: 100,
+                        duration: 1500,
+                        easing: 'easeInQuad',
+                    });
+                },
+            });
+        </script>
         <!--prettier-ignore-->
         {% block head %}
         {% endblock head %}
     </head>
-    <body>
+    <body style="overflow-x: hidden:border-top:none">
         <section class="hero">
             <div class="hero-head">
-                <div class="container">
-                    <nav
-                        class="navbar"
-                        role="navigation"
-                        aria-label="main navigation"
-                    >
-                        <div id="navbarBasicExample" class="navbar-menu">
-                            <div class="navbar-start">
-                                <div id="mySidenav" class="sidenav">
-                                    <a
-                                        href="javascript:void(0)"
-                                        class="closebtn"
-                                        onclick="closeNav()"
-                                        >&times;</a
-                                    >
-                                    <aside
-                                        class="menu"
-                                        style="padding-left: 10px"
-                                    >
-                                        <p class="menu-label">General</p>
-                                        <ul class="menu-list">
-                                            <li><a href="/">Home</a></li>
-                                            <li><a href="/blog/">Blog</a></li>
-                                            <li>
-                                                <a href="/admin/">Sign in</a>
-                                            </li>
-                                        </ul>
-                                        <p class="menu-label">Help us</p>
-                                        <ul class="menu-list">
-                                            <li><a>Donate</a></li>
-                                            <li><a>Transfer History</a></li>
-                                        </ul>
-                                        <p class="menu-label">Administration</p>
-                                        <ul class="menu-list">
-                                            <li><a>Admin Login</a></li>
-                                            <li><a>Post</a></li>
-                                        </ul>
-                                    </aside>
+                <div class="container" id="main_navbar" style="opacity: 0">
+                    <div class="columns is-mobile">
+                        <div
+                            id="main-nav"
+                            class="column is-1 is-offset-1"
+                            style="float: left; margin-top: 1.2%"
+                        >
+                            <div id="mySidenav" class="sidenav">
+                                <div
+                                    class="closebtn"
+                                    style="
+                                        opacity: 0;
+                                        text-decoration: none;
+                                        cursor: pointer;
+                                        margin-top: 0.3em;
+                                    "
+                                    onclick="closeNav()"
+                                >
+                                    <ion-icon
+                                        id="close-button"
+                                        name="close-circle"
+                                    ></ion-icon>
+                                    <script>
+                                        anime({
+                                            targets: 'close-button',
+                                            fill: '#4a4a4a',
+                                        });
+                                    </script>
                                 </div>
-                                <div id="main-nav">
-                                    <span
-                                        style="font-size: 30px; cursor: pointer"
-                                        onclick="openNav()"
-                                        >&#9776;</span
-                                    >
-                                </div>
+                                <aside class="menu" style="padding-left: 10px">
+                                    <p class="menu-label">General</p>
+                                    <ul class="menu-list">
+                                        <li><a href="/">Home</a></li>
+                                        <li>
+                                            <a href="/blog/">Blog</a>
+                                        </li>
+                                        <li>
+                                            <a href="/admin/">Sign in</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/">About Us</a>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-label">Help us</p>
+                                    <ul class="menu-list">
+                                        <li><a>Donate</a></li>
+                                        <li><a>Transfer History</a></li>
+                                    </ul>
+                                </aside>
                             </div>
-                            <div class="navbar-end" style="padding-top: 1em">
-                                <div class="navbar-item">
-                                    <a
-                                        href="{{settings.site_settings.SocialMediaSettings.facebook}}"
-                                        target="_blank"
-                                    >
-                                        <svg
-                                            class="-links-"
-                                            version="1.1"
-                                            id="Capa_1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px"
-                                            y="0px"
-                                            viewBox="0 0 167.657 167.657"
-                                            style="
-                                                enable-background: new 0 0
-                                                    167.657 167.657;
-                                            "
-                                            xml:space="preserve"
-                                        >
-                                            <path
-                                                style="fill: #3b5998"
-                                                d="M83.829,0.349C37.532,0.349,0,37.881,0,84.178c0,41.523,30.222,75.911,69.848,82.57v-65.081H49.626
-                                            v-23.42h20.222V60.978c0-20.037,12.238-30.956,30.115-30.956c8.562,0,15.92,0.638,18.056,0.919v20.944l-12.399,0.006
-                                            c-9.72,0-11.594,4.618-11.594,11.397v14.947h23.193l-3.025,23.42H94.026v65.653c41.476-5.048,73.631-40.312,73.631-83.154
-                                            C167.657,37.881,130.125,0.349,83.829,0.349z"
-                                            />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href="{{settings.site_settings.SocialMediaSettings.youtube}}"
-                                        target="_blank"
-                                    >
-                                        <svg
-                                            class="-links-"
-                                            viewBox="-21 -117 682.66672 682"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                style="fill: #ff0000"
-                                                d="m626.8125 64.035156c-7.375-27.417968-28.992188-49.03125-56.40625-56.414062-50.082031-13.703125-250.414062-13.703125-250.414062-13.703125s-200.324219 0-250.40625 13.183593c-26.886719 7.375-49.03125 29.519532-56.40625 56.933594-13.179688 50.078125-13.179688 153.933594-13.179688 153.933594s0 104.378906 13.179688 153.933594c7.382812 27.414062 28.992187 49.027344 56.410156 56.410156 50.605468 13.707031 250.410156 13.707031 250.410156 13.707031s200.324219 0 250.40625-13.183593c27.417969-7.378907 49.03125-28.992188 56.414062-56.40625 13.175782-50.082032 13.175782-153.933594 13.175782-153.933594s.527344-104.382813-13.183594-154.460938zm-370.601562 249.878906v-191.890624l166.585937 95.945312zm0 0"
-                                            />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href="mailto:{{settings.site_settings.SocialMediaSettings.email}}"
-                                        target="_blank"
-                                    >
-                                        <svg
-                                            class="-links-"
-                                            style="fill: #e09f2d"
-                                            version="1.1"
-                                            id="Capa_1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            x="0px"
-                                            y="0px"
-                                            viewBox="0 0 512 512"
-                                            style="
-                                                enable-background: new 0 0 512
-                                                    512;
-                                            "
-                                            xml:space="preserve"
-                                        >
-                                            <g>
-                                                <g>
-                                                    <polygon
-                                                        points="339.392,258.624 512,367.744 512,144.896 		"
-                                                    />
-                                                </g>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <polygon
-                                                        points="0,144.896 0,367.744 172.608,258.624 		"
-                                                    />
-                                                </g>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <path
-                                                        d="M480,80H32C16.032,80,3.36,91.904,0.96,107.232L256,275.264l255.04-168.032C508.64,91.904,495.968,80,480,80z"
-                                                    />
-                                                </g>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <path
-                                                        d="M310.08,277.952l-45.28,29.824c-2.688,1.76-5.728,2.624-8.8,2.624c-3.072,0-6.112-0.864-8.8-2.624l-45.28-29.856
-                                                    L1.024,404.992C3.488,420.192,16.096,432,32,432h448c15.904,0,28.512-11.808,30.976-27.008L310.08,277.952z"
-                                                    />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
+                            <span
+                                style="
+                                    font-size: 30px;
+                                    cursor: pointer;
+                                    text-decoration: none;
+                                "
+                                class="main-nav"
+                                onclick="openNav()"
+                                ><ion-icon
+                                    id="hamburger"
+                                    name="menu"
+                                ></ion-icon>
+                                <script>
+                                    anime({
+                                        targets: '#hamburger',
+                                        fill: '#7ac342',
+                                    });
+                                </script>
+                            </span>
                         </div>
-                    </nav>
+                        <div class="navbar-item is-offset-4 column is-5">
+                            <a
+                                href="mailto:{{ settings.site_settings.SocialMediaSettings.email }}"
+                                target="_blank"
+                                class="email_icon"
+                                style="
+                                    padding: 0.4em;
+                                    float: right;
+                                    margin-top: 20px;
+                                "
+                            >
+                                <ion-icon
+                                    class="-links-"
+                                    id="mail-icon"
+                                    name="mail"
+                                ></ion-icon>
+                                <script async>
+                                    anime({
+                                        targets: '#mail-icon ',
+                                        scale: 1.5,
+                                        fill: '#e09f2d',
+                                    });
+                                </script>
+                            </a>
+                            <a
+                                href="{{ settings.site_settings.SocialMediaSettings.youtube }}"
+                                target="_blank"
+                                class="youtube_icon"
+                                style="
+                                    padding: 0.4em;
+                                    float: right;
+                                    margin-top: 20px;
+                                "
+                            >
+                                <ion-icon
+                                    class="-links-"
+                                    id="youtube-icon"
+                                    name="logo-youtube"
+                                ></ion-icon>
+                                <script async>
+                                    anime({
+                                        targets: '#youtube-icon',
+                                        scale: 1.5,
+                                        fill: '#ff0000',
+                                    });
+                                </script>
+                            </a>
+                            <a
+                                href="{{ settings.site_settings.SocialMediaSettings.facebook }}"
+                                target="_blank"
+                                class="facebook_icon"
+                                style="
+                                    padding: 0.4em;
+                                    float: right;
+                                    margin-top: 20px;
+                                "
+                            >
+                                <ion-icon
+                                    class="-links-"
+                                    id="facebook-icon"
+                                    name="logo-facebook"
+                                ></ion-icon>
+                                <script async>
+                                    anime({
+                                        targets: '#facebook-icon',
+                                        scale: 1.5,
+                                        fill: '#3b5998',
+                                    });
+                                </script>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                <script>
+                    anime({
+                        targets: '#main_navbar',
+                        opacity: 100,
+                        easing: 'easeInQuad',
+                        duration: 1000,
+                    });
+                </script>
             </div>
+
             {% block logo %}{% endblock logo %}
         </section>
         <!-- scroll button -->
         <a
-            class="button is-success is-outlined"
+            class="button scroll-button"
             id="scroll-button"
             onclick="scrollup()"
-            style="z-index: 10"
+            style="
+                z-index: 10;
+                opacity: 0;
+                background: transparent;
+                border-style: hidden;
+            "
         >
-            <svg
-                fill="#bfbfbf"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                width="1em"
-                viewBox="0 0 123.969 123.97"
-                style="enable-background: new 0 0 123.969 123.97"
-                xml:space="preserve"
-            >
-                <g>
-                    <path
-                        d="M120.266,95.584c5.301-5.801,4.801-14.801-0.8-20.301l-47.3-47.4c-2.8-2.8-6.5-4.2-10.2-4.2s-7.399,1.4-10.2,4.2
-                    l-47.299,47.3c-5.5,5.5-6.1,14.6-0.8,20.3c5.6,6.101,15.099,6.3,20.9,0.5l30.3-30.3c3.899-3.9,10.2-3.9,14.1,0l30.3,30.3
-                    C105.167,101.883,114.667,101.684,120.266,95.584z"
-                    />
-                </g>
-            </svg>
+            <ion-icon id="up-arrow" name="chevron-up-circle"></ion-icon>
+            <script async>
+                $('#up-arrow').mouseenter(function () {
+                    anime({
+                        targets: '#up-arrow',
+                        fill: '#7ac342',
+                        easing: 'easeOutBack',
+                        duration: 100,
+                    });
+                });
+                $('#up-arrow').mouseleave(function () {
+                    anime({
+                        targets: '#up-arrow',
+                        fill: '#363636',
+                        easing: 'easeInBack',
+                        duration: 100,
+                    });
+                });
+                anime({
+                    targets: '#up-arrow',
+                    scale: 3,
+                    fill: 'gray',
+                });
+            </script>
         </a>
 
         {% block content %} {% endblock %}
@@ -232,21 +295,66 @@
             <br />
             {{settings.site_settings.SiteNameSettings.site_description }}
             <br />
-            icons are from <a href="https://www.flaticon.com/">flaticon.com</a>
-            <br />
             for more info contact <a href="#">Zarif Ahnaf</a>
             <a href="#">Tanim Sk</a>
         </footer>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha256-qMqj71TyHNlx8uqRQloA+HHUkqaaiBS1eGusOSktnP0="
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.1/dist/tippy-bundle.umd.min.js"></script>
+
+        <!-- Font Loader Script. -->
+
         <script type="text/javascript">
             function openNav() {
-                document.getElementById('mySidenav').style.width = '250px';
-                document.getElementById('main-nav').style.opacity = 0;
+                anime({
+                    targets: '.closebtn',
+                    opacity: 100,
+                    easing: 'easeInSine',
+                });
+                anime({
+                    targets: '.sidenav',
+                    width: '250px',
+                    duration: 100,
+                    easing: 'easeInSine',
+                    complete: function () {
+                        $('.sidenav').addClass('sidemenu__is__active');
+                    },
+                });
+                anime({
+                    targets: '.main-nav',
+                    opacity: '0',
+                    duration: 200,
+                    easing: 'easeInOutQuint',
+                });
             }
-
             function closeNav() {
-                document.getElementById('mySidenav').style.width = '0';
-                document.getElementById('main-nav').style.marginLeft = '0';
-                document.getElementById('main-nav').style.opacity = 1;
+                anime({
+                    targets: '.closebtn',
+                    opacity: 0,
+                    delay: 25,
+                    duration: 10,
+                    easing: 'easeOutSine',
+                });
+                anime({
+                    targets: '.sidenav',
+                    width: '0px',
+                    duration: '100',
+                    easing: 'easeInQuad',
+                    complete: function () {
+                        $('.sidenav').removeClass('sidemenu__is__active');
+                    },
+                });
+                anime({
+                    targets: '.main-nav',
+                    opacity: '100',
+                    duration: '200',
+                    easing: 'easeInOutQuint',
+                });
             }
 
             function scrollup() {
@@ -256,21 +364,63 @@
                 });
             }
 
-            $('#scroll-button').hide();
-
-            document.addEventListener('scroll', scroll_val);
-
             function scroll_val() {
-                if ($(document).scrollTop() > 100) {
-                    $('#scroll-button').show();
+                if ($(document).scrollTop() > 20) {
+                    anime({
+                        targets: '#scroll-button',
+                        opacity: 100,
+                        duration: 100,
+                        easing: 'easeInQuad',
+                    });
                 } else {
-                    $('#scroll-button').hide();
+                    anime({
+                        targets: '#scroll-button',
+                        opacity: 0,
+                        duration: 200,
+                        easing: 'easeOutQuad',
+                    });
                 }
             }
-        </script>
-        <!--prettier-ignore-->
 
-        {% block endbody %}
-        {% endblock %}
+            // Add event listener to Scroll
+            $(document).ready(function () {
+                document.addEventListener('scroll', scroll_val);
+            });
+
+            // Adds Tippy to Icons
+            $(document).ready(function () {
+                tippy('.facebook_icon', {
+                    content: 'Facebook',
+                    animateFill: true,
+                });
+
+                tippy('.youtube_icon', {
+                    content: 'Youtube',
+                    animateFill: true,
+                });
+
+                tippy('.email_icon', {
+                    content: 'Email',
+                    animateFill: true,
+                });
+            });
+
+            // Makes nav bar unselectable
+            $(document).ready(function () {
+                $('.menu').addClass('noselect');
+                $('.closebtn').addClass('noselect');
+                $('.main-nav').addClass('noselect');
+            });
+
+            // Changes the navigation font color on enter
+            $('.closebtn').mouseenter(function () {
+                $('.closebtn').css('color', '#7ac342');
+            });
+            $('.closebtn').mouseleave(function () {
+                $('.closebtn').css('color', '#4a4a4a');
+            });
+        </script>
+        {% block endbody %} {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/ionicons@5.4.0/dist/ionicons.js"></script>
     </body>
 </html>
